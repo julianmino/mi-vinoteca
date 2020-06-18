@@ -1701,6 +1701,9 @@
     <Content Include="fontawesome\webfonts\fa-regular-400.svg" />
     <Content Include="fontawesome\webfonts\fa-solid-900.svg" />
     <Content Include="Formulario web1.aspx" />
+    <Content Include="imagenes vinoteca\alcohol-barrel-basement-beer-434311.jpg" />
+    <Content Include="imagenes vinoteca\car 2.jpg" />
+    <Content Include="imagenes vinoteca\caroussel 3.jpg" />
     <Content Include="images\books\b1.jpg" />
     <Content Include="images\books\b2.jpg" />
     <Content Include="images\books\b3.jpg" />
@@ -1804,6 +1807,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
