@@ -1703,6 +1703,12 @@
     <Content Include="Formulario web1.aspx" />
     <Content Include="imagenes vinoteca\alcohol-barrel-basement-beer-434311.jpg" />
     <Content Include="imagenes vinoteca\car 2.jpg" />
+    <Content Include="imagenes vinoteca\card 1.jpg" />
+    <Content Include="imagenes vinoteca\card 2-1.jpg" />
+    <Content Include="imagenes vinoteca\card 2.jpg" />
+    <Content Include="imagenes vinoteca\card 3.jpg" />
+    <Content Include="imagenes vinoteca\card 4.jpg" />
+    <Content Include="imagenes vinoteca\card 5.jpg" />
     <Content Include="imagenes vinoteca\caroussel 3.jpg" />
     <Content Include="images\books\b1.jpg" />
     <Content Include="images\books\b2.jpg" />

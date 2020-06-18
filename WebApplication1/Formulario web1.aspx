@@ -3,6 +3,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12 text-center title">
+                <h1>Mi Vinoteca</h1>
+            </div>
+        </div>
+    </div>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval ="5000" data-pause="false">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -30,31 +37,74 @@
         </a>
     </div>
 
-    <div class="container first-bar">
+    <div class="container-fluid">
         <div class="row"> 
             <div class="col-xl-4 text-center">
-                <h2> Ver Catálogo </h2>
+                <h2 class="first-bar"> Ver Catálogo </h2>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                     when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                 </p>
-                <button type="button" class="btn btn-primary" >Ver Catálogo</button> 
+                <button type="button" class="btn btn-primary p first-bar" >Ver Catálogo</button> 
             </div>
             <div class="col-xl-4 text-center">
-                <h2> Conócenos </h2>
+                <h2 class="first-bar"> Conócenos </h2>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                     when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                 </p>
-                <button type="button" class="btn btn-primary" >Ver nuestra historia</button> 
+                <button type="button" class="btn btn-primary first-bar" >Ver nuestra historia</button> 
             </div>
             <div class="col-xl-4 text-center">
-                <h2> Obtené descuentos </h2>
+                <h2 class="first-bar"> Obtené descuentos </h2>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                     when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                 </p>
-                <button type="button" class="btn btn-primary" >Convertite en Premium</button> 
+                <button type="button" class="btn btn-primary first-bar" >Convertite en Premium</button> 
+            </div>
+        </div>
+    </div>
+
+    <%-- Categorias --%>
+    <hr class="style-four"/>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-2 col-md-4 categorias">
+                    <img src="imagenes%20vinoteca/card%201.jpg" class="imagen" alt="..."/>
+                    <h5>Vinos</h5>
+                    <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Ver más</a>
+            </div>
+            <div class="col-xl-2 col-md-4 categorias">
+                    <img src="imagenes%20vinoteca/card%202.jpg" class="imagen" alt="..."/>
+                    <h5>Champagnes</h5>
+                    <p >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Ver más</a>
+            </div>
+            <div class="col-xl-2 col-md-4 categorias">
+                    <img src="imagenes%20vinoteca/card%203.jpg" class="imagen" alt="..."/>
+                    <h5>Cervezas</h5>
+                    <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Ver más</a>
+            </div>
+            <div class="col-xl-2 col-md-4 categorias">
+                    <img src="imagenes%20vinoteca/card%204.jpg" class="imagen" alt="..."/>
+                    <h5>Whiskies</h5>
+                    <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Ver más</a>
+            </div> 
+            <div class="col-xl-2 col-md-4 categorias">
+                    <img src="imagenes%20vinoteca/card%205.jpg" class="imagen" alt="..."/>                    
+                    <h5>Espirituosas</h5>
+                    <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Ver más</a>
+            </div>
+            <div class="col-xl-2 col-md-4 categorias">               
+                    <img src="imagenes%20vinoteca/card%202-1.jpg" class="imagen" alt="..."/>                  
+                    <h5>Más Champagnes</h5>
+                    <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Ver más</a>                   
             </div>
         </div>
     </div>

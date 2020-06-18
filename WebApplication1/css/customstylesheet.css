@@ -14,7 +14,33 @@
     background: #531f00;
 }
 
-.first-bar {
-    padding-top: 30px;
-    padding-bottom: 30px;
+h2.first-bar{
+    padding-bottom:30px;
+    padding-top:30px;
+}
+button.first-bar {
+    padding:15px;
+    margin-top:10px;
+    margin-bottom:30px;
+}
+h1.title {
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+.imagen{
+    margin-top:10px;
+    margin-bottom:15px;
+    width:100%;
+}
+
+.categorias {
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+hr.style-four {
+    height: 12px;
+    border: 0;
+    box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
 }
