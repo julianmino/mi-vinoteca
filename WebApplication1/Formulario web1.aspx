@@ -18,13 +18,13 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="imagenes%20vinoteca/alcohol-barrel-basement-beer-434311.jpg" class="d-block w-100" alt="..."/>
+                <img src="imagenes%20vinoteca/carousel-barricas-iso.jpg" class="d-block w-100" alt="..."/>
             </div>
             <div class="carousel-item">
-                <img src="imagenes%20vinoteca/car%202.jpg" class="d-block w-100" alt="..."/>
+                <img src="imagenes%20vinoteca/carousel-vinos.jpg" class="d-block w-100" alt="..."/>
             </div>
             <div class="carousel-item">
-                <img src="imagenes%20vinoteca/caroussel%203.jpg" class="d-block w-100" alt="..."/>
+                <img src="imagenes%20vinoteca/caroussel-barricas-frente.jpg" class="d-block w-100" alt="..."/>
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -71,37 +71,37 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xl-2 col-md-4 categorias">
-                    <img src="imagenes%20vinoteca/card%201.jpg" class="imagen" alt="..."/>
+                    <img src="imagenes%20vinoteca/card-vinos.jpg" class="imagen" alt="..."/>
                     <h5>Vinos</h5>
                     <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <a href="#" class="btn btn-primary">Ver más</a>
             </div>
             <div class="col-xl-2 col-md-4 categorias">
-                    <img src="imagenes%20vinoteca/card%202.jpg" class="imagen" alt="..."/>
+                    <img src="imagenes%20vinoteca/card-champagnes.jpg" class="imagen" alt="..."/>
                     <h5>Champagnes</h5>
                     <p >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <a href="#" class="btn btn-primary">Ver más</a>
             </div>
             <div class="col-xl-2 col-md-4 categorias">
-                    <img src="imagenes%20vinoteca/card%203.jpg" class="imagen" alt="..."/>
+                    <img src="imagenes%20vinoteca/card-cervezas.jpg" class="imagen" alt="..."/>
                     <h5>Cervezas</h5>
                     <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <a href="#" class="btn btn-primary">Ver más</a>
             </div>
             <div class="col-xl-2 col-md-4 categorias">
-                    <img src="imagenes%20vinoteca/card%204.jpg" class="imagen" alt="..."/>
+                    <img src="imagenes%20vinoteca/card-whiskies.jpg" class="imagen" alt="..."/>
                     <h5>Whiskies</h5>
                     <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <a href="#" class="btn btn-primary">Ver más</a>
             </div> 
             <div class="col-xl-2 col-md-4 categorias">
-                    <img src="imagenes%20vinoteca/card%205.jpg" class="imagen" alt="..."/>                    
+                    <img src="imagenes%20vinoteca/card-espirituosas.jpg" class="imagen" alt="..."/>                    
                     <h5>Espirituosas</h5>
                     <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <a href="#" class="btn btn-primary">Ver más</a>
             </div>
             <div class="col-xl-2 col-md-4 categorias">               
-                    <img src="imagenes%20vinoteca/card%202-1.jpg" class="imagen" alt="..."/>                  
+                    <img src="imagenes%20vinoteca/card-mas-champagnes.jpg" class="imagen" alt="..."/>                  
                     <h5>Más Champagnes</h5>
                     <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <a href="#" class="btn btn-primary">Ver más</a>                   

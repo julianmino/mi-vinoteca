@@ -9,8 +9,6 @@
 
 namespace WebApplication1
 {
-
-
     public partial class Formulario_web1
     {
     }
