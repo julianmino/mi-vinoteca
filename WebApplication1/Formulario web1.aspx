@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xl-12 text-center title">
-                <h1>Mi Vinoteca</h1>
+                <h1></h1>
             </div>
         </div>
     </div>

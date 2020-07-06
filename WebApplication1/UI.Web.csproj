@@ -1699,6 +1699,7 @@
     <Content Include="fontawesome\webfonts\fa-regular-400.svg" />
     <Content Include="fontawesome\webfonts\fa-solid-900.svg" />
     <Content Include="Formulario web1.aspx" />
+    <Content Include="imagenes vinoteca\2.png" />
     <Content Include="imagenes vinoteca\alcohol-barrel-basement-beer-434311.jpg" />
     <Content Include="imagenes vinoteca\brassens.jpg" />
     <Content Include="imagenes vinoteca\car 2.jpg" />
@@ -1709,6 +1710,7 @@
     <Content Include="imagenes vinoteca\card 4.jpg" />
     <Content Include="imagenes vinoteca\card 5.jpg" />
     <Content Include="imagenes vinoteca\caroussel 3.jpg" />
+    <Content Include="imagenes vinoteca\copa.png" />
     <Content Include="imagenes vinoteca\Galileo_Galilei.svg.png" />
     <Content Include="imagenes vinoteca\restaurant-alcohol-bar-drinks-3540.jpg" />
     <Content Include="imagenes vinoteca\two-person-in-bar-stools-1005639.jpg" />
@@ -1815,7 +1817,16 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Business.Entities\Business.Entities.csproj">
+      <Project>{d1513948-bae9-416c-9789-e5b877a6a81b}</Project>
+      <Name>Business.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Business.Logic\Business.Logic.csproj">
+      <Project>{4074e5bc-e273-4231-996b-9ea0a5e4b3c7}</Project>
+      <Name>Business.Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
