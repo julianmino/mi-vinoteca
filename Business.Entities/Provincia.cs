@@ -5,7 +5,9 @@ using System.Text;
 
 namespace Business.Entities
 {
-    public class Licor : Producto
+    public class Provincia
     {
+        private int _ID;
+        private int _Nombre;
     }
 }

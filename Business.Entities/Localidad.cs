@@ -5,16 +5,13 @@ using System.Text;
 
 namespace Business.Entities
 {
-    public class Usuario
+    public class Localidad
     {
+        private int _CodigoPostal;
         private int _ID;
         private int _Nombre;
-        private int _Apellido;
-        private int _Usuario;
-        private int _Clave;
-        private int _Email;
 
-        public Pedido Pedido
+        public Provincia Provincia
         {
             get => default;
             set
@@ -22,5 +19,4 @@ namespace Business.Entities
             }
         }
     }
-
 }

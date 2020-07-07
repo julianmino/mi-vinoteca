@@ -7,5 +7,6 @@ namespace Business.Entities
 {
     public class Vino:Producto
     {
+        private int _Año;
     }
 }

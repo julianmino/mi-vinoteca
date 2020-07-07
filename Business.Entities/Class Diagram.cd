@@ -1,90 +1,136 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Business.Entities.Producto" Collapsed="true">
-    <Position X="3.75" Y="0.75" Width="1.5" />
+  <Class Name="Business.Entities.Producto">
+    <Position X="19.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AQAAAAAAAAAAgABAAAAAgAQAAAAAAAAAAAAAAAAEACA=</HashCode>
       <FileName>Producto.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Business.Entities.Usuario">
-    <Position X="11.75" Y="0.5" Width="1.5" />
+    <Position X="12.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAgAAAIAEAAAAAAAAAEAAEBAA=</HashCode>
       <FileName>Usuario.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Pedido" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="Business.Entities.Cliente">
-    <Position X="11.75" Y="2" Width="1.5" />
+    <Position X="12.75" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Cliente.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Localidad" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="Business.Entities.Premium">
-    <Position X="11.75" Y="3.75" Width="1.5" />
+    <Position X="12.75" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
       <FileName>Premium.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Descuento" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="Business.Entities.Admin">
-    <Position X="14.75" Y="2" Width="1.5" />
+    <Position X="15" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Admin.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Business.Entities.Vino">
-    <Position X="0.5" Y="2" Width="1.5" />
+    <Position X="22.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
       <FileName>Vino.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Business.Entities.Champagne">
-    <Position X="2.5" Y="2" Width="1.5" />
+  <Class Name="Business.Entities.Licor">
+    <Position X="22.5" Y="3.75" Width="1.5" />
+    <InheritanceLine Type="Business.Entities.Producto" FixedToPoint="true">
+      <Path>
+        <Point X="20.25" Y="3.007" />
+        <Point X="20.25" Y="4.188" />
+        <Point X="22.5" Y="4.188" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Champagne.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Business.Entities.Cerveza">
-    <Position X="4.5" Y="2" Width="1.5" />
+    <Position X="22.5" Y="5" Width="1.5" />
+    <InheritanceLine Type="Business.Entities.Producto" FixedToPoint="true">
+      <Path>
+        <Point X="20.25" Y="3.007" />
+        <Point X="20.25" Y="5.625" />
+        <Point X="22.5" Y="5.625" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Cerveza.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Business.Entities.Whisky">
-    <Position X="0.5" Y="3.5" Width="1.5" />
+    <Position X="22.5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAACAAAAAA=</HashCode>
       <FileName>Whisky.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Business.Entities.Licor">
-    <Position X="2.5" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Licor.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Business.Entities.Ron">
-    <Position X="4.5" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Aperitivos.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Business.Entities.Pedido">
-    <Position X="8" Y="0.75" Width="1.5" />
+    <Position X="16.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAgAQAAAQAAAAAAAAAEAAAAEAAAEAAA=</HashCode>
       <FileName>Pedido.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Producto" />
+      <Property Name="Usuario" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Business.Entities.Provincia">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Provincia.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Business.Entities.Localidad">
+    <Position X="10.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAgAAACAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Localidad.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Provincia" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Business.Entities.Descuento">
+    <Position X="17.5" Y="4.5" Width="1.5" />
+    <AssociationLine Name="Pedido" Type="Business.Entities.Pedido" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="17.75" Y="4.5" />
+        <Point X="17.75" Y="2.734" />
+        <Point X="17.375" Y="2.734" />
+        <Point X="17.375" Y="2.18" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAEAQAAAAAAAAAAAAAAAAAACAAAEAAA=</HashCode>
+      <FileName>Descuento.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Producto" />
+      <Property Name="Pedido" />
     </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />

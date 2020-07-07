@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Business.Entities
 {
-    public class Champagne:Producto
+    public class Licor:Producto
     {
     }
 }

@@ -7,5 +7,6 @@ namespace Business.Entities
 {
     public class Cerveza:Producto
     {
+        private int _IBU;
     }
 }

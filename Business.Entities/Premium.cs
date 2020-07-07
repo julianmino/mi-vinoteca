@@ -7,5 +7,12 @@ namespace Business.Entities
 {
     public class Premium:Cliente
     {
+        public Descuento Descuento
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

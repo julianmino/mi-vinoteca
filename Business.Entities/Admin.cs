@@ -7,5 +7,6 @@ namespace Business.Entities
 {
     public class Admin:Usuario
     {
+        private int _PIN;
     }
 }
