@@ -78,20 +78,20 @@
         </div>
         <div class="row">
 
-            <div class="col-xl-2 col-md-4 categorias">
+            <div class="col-xl-3 col-md-4 categorias">
                     <img src="imagenes%20vinoteca/card-vinos.jpg" class="imagen" alt="..."/>
                     <h5>Vinos</h5>
                     <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <a href="#" class="btn btn-primary">Ver más</a>
             </div>
 
-            <div class="col-xl-2 col-md-4 categorias">
+            <div class="col-xl-3 col-md-4 categorias">
                     <img src="imagenes%20vinoteca/card-champagnes.jpg" class="imagen" alt="..."/>
                     <h5>Champagnes</h5>
                     <p >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <a href="#" class="btn btn-primary">Ver más</a>
             </div>
-            <div class="col-xl-2 col-md-4 categorias">
+            <div class="col-xl-3 col-md-4 categorias">
                     <img src="imagenes%20vinoteca/card-cervezas.jpg" class="imagen" alt="..."/>
 
                     <h5>Cervezas</h5>
@@ -99,29 +99,14 @@
                     <a href="#" class="btn btn-primary">Ver más</a>
             </div>
 
-            <div class="col-xl-2 col-md-4 categorias">
+            <div class="col-xl-3 col-md-4 categorias">
                     <img src="imagenes%20vinoteca/card-whiskies.jpg" class="imagen" alt="..."/>
 
                     <h5>Whiskies</h5>
                     <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <a href="#" class="btn btn-primary">Ver más</a>
             </div> 
-
-            <div class="col-xl-2 col-md-4 categorias">
-                    <img src="imagenes%20vinoteca/card-espirituosas.jpg" class="imagen" alt="..."/>                    
-
-                    <h5>Espirituosas</h5>
-                    <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Ver más</a>
-            </div>
-          
-            <div class="col-xl-2 col-md-4 categorias">               
-                    <img src="imagenes%20vinoteca/card-mas-champagnes.jpg" class="imagen" alt="..."/>                  
-
-                    <h5>Más Champagnes</h5>
-                    <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Ver más</a>                   
-            </div>
+                     
         </div>
 
     </div>
