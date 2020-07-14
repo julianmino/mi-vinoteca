@@ -8,11 +8,12 @@ namespace Business.Entities
     public class Usuario
     {
         private int _ID;
-        private int _Nombre;
-        private int _Apellido;
-        private int _Usuario;
-        private int _Clave;
-        private int _Email;
+        private string _Nombre;
+        private string _Apellido;
+        private string _Usuario;
+        private string _Clave;
+        private string _Email;
+        private int _FechaNac;
 
         public Pedido Pedido
         {

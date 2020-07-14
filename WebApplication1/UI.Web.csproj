@@ -1714,26 +1714,18 @@
     <Content Include="imagenes vinoteca\Galileo_Galilei.svg.png" />
     <Content Include="imagenes vinoteca\restaurant-alcohol-bar-drinks-3540.jpg" />
     <Content Include="imagenes vinoteca\two-person-in-bar-stools-1005639.jpg" />
-    <Content Include="images\books\b1.jpg" />
-    <Content Include="images\books\b2.jpg" />
-    <Content Include="images\books\b3.jpg" />
-    <Content Include="images\books\b4.jpg" />
-    <Content Include="images\books\b5.jpg" />
-    <Content Include="images\imgs\adminuser.png" />
-    <Content Include="images\imgs\book-online.png" />
-    <Content Include="images\imgs\books.png" />
-    <Content Include="images\imgs\books1.png" />
-    <Content Include="images\imgs\defaulters-list.png" />
-    <Content Include="images\imgs\digital-data.png" />
-    <Content Include="images\imgs\digital-inventory.png" />
-    <Content Include="images\imgs\generaluser.png" />
-    <Content Include="images\imgs\home-bg.jpg" />
-    <Content Include="images\imgs\in-homepage-banner.jpg" />
-    <Content Include="images\imgs\library.png" />
-    <Content Include="images\imgs\publisher.png" />
-    <Content Include="images\imgs\search-online.png" />
-    <Content Include="images\imgs\sign-up.png" />
-    <Content Include="images\imgs\writer.png" />
+    <Content Include="images 2.0\imgs\adminuser.png" />
+    <Content Include="images 2.0\imgs\defaulters-list.png" />
+    <Content Include="images 2.0\imgs\digital-data.png" />
+    <Content Include="images 2.0\imgs\digital-inventory.png" />
+    <Content Include="images 2.0\imgs\generaluser.png" />
+    <Content Include="images 2.0\imgs\pedido.png" />
+    <Content Include="images 2.0\imgs\publisher.png" />
+    <Content Include="images 2.0\imgs\search-online.png" />
+    <Content Include="images 2.0\imgs\sign-up.png" />
+    <Content Include="userlogin.aspx" />
+    <Content Include="userprofile.aspx" />
+    <Content Include="usersingup.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -1751,6 +1743,27 @@
     </Compile>
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="userlogin.aspx.cs">
+      <DependentUpon>userlogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="userlogin.aspx.designer.cs">
+      <DependentUpon>userlogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="userprofile.aspx.cs">
+      <DependentUpon>userprofile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="userprofile.aspx.designer.cs">
+      <DependentUpon>userprofile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="usersingup.aspx.cs">
+      <DependentUpon>usersingup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="usersingup.aspx.designer.cs">
+      <DependentUpon>usersingup.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
