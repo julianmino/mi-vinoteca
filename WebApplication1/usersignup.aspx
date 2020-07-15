@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="usersingup.aspx.cs" Inherits="WebApplication1.usersingup" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="usersignup.aspx.cs" Inherits="WebApplication1.usersingup" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -11,9 +11,9 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <center>
+                                <enter>
                                     <img width="100px" src="images/imgs/generaluser.png" />
-                                </center>
+                                </enter>
                             </div>
                         </div>
                         <div class="row">
