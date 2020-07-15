@@ -34,7 +34,7 @@
         
         <div>
             <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="homepage.aspx">
                     <img src="imagenes%20vinoteca/copa.png" width="30" height="30"/>
                     <%--<img src="imagenes%20vinoteca/2.png" width="30" height="30" />--%>
                     Vinoteca Yaguarón
