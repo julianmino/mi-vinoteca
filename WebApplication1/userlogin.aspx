@@ -20,7 +20,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                   <h3>User Login </h3>
+                                   <h3>Inicio de sesión </h3>
                                 </center>
                             </div>
                         </div>
@@ -36,26 +36,26 @@
                          <div class="row">
                             <div class="col">
 
-                                <label>User ID</label>
+                                <label>Nombre de Usuario</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" placeholder="User ID"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" placeholder="Nombre de usuario"></asp:TextBox>
                                 </div>
 
-                                 <label>Password</label>
+                                 <label>Contraseña</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" placeholder="Contraseña" TextMode="password"></asp:TextBox>
                                 </div>
 
                                 <%-- podemos cambiar los botones hay varios colorcitos --%>
 
                                 <div class="form-group">
                                     <%-- falta el manejador de eventos, lo veremos en el siguiente episodio, eso es todo amigos --%>
-                                    <asp:Button class="btn btn-success btn-block btn-lg" ID="Button1" runat="server" Text="Login" />
+                                    <asp:Button class="btn btn-success btn-block btn-lg" ID="Button1" runat="server" Text="Iniciar Sesión" />
                                 </div>
 
                                  <div class="form-group">
-                                    <a href="usersingup.aspx">
-                                         <input class="btn btn-info btn-block btn-lg" id="Button2" type="button" value="Sing Up" />
+                                    <a href="usersignup.aspx">
+                                         <input class="btn btn-info btn-block btn-lg" id="Button2" type="button" value="Registrarse" />
                                     </a>
                                 </div>
 
@@ -65,7 +65,7 @@
 
                         </div>
                     </div>
-                <a href="homepage.aspx"> Return to Home Page</a><br><br>
+                <a href="homepage.aspx"> Volver al inicio</a><br><br>
                 </div>
             </div>
         </div>

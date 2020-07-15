@@ -20,7 +20,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                   <h3>Admin Login </h3>
+                                   <h3>Inicio de sesión de Administrador </h3>
                                 </center>
                             </div>
                         </div>
@@ -36,32 +36,28 @@
                          <div class="row">
                             <div class="col">
 
-                                <label>Admin ID</label>
+                                <label>Nombre de Usuario (Admin)</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" placeholder="Admin ID"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" placeholder="Nombre de Usuario (Admin)"></asp:TextBox>
                                 </div>
 
-                                 <label>Password</label>
+                                 <label>Contraseña</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" placeholder="Contraseña" TextMode="password"></asp:TextBox>
                                 </div>
 
                                 <%-- podemos cambiar los botones hay varios colorcitos --%>
 
                                 <div class="form-group">
                                     <%-- falta el manejador de eventos, lo veremos en el siguiente episodio, eso es todo amigos --%>
-                                    <asp:Button class="btn btn-success btn-block btn-lg" ID="Button1" runat="server" Text="Login" />
+                                    <asp:Button class="btn btn-success btn-block btn-lg" ID="Button1" runat="server" Text="Iniciar Sesión" />
                                 </div>
 
-                                 
-
                             </div>
-                        </div>
-
-
+                         </div>
                         </div>
                     </div>
-                <a href="homepage.aspx"> Return to Home Page</a><br><br>
+                <a href="homepage.aspx"> Volver al inicio</a><br><br>
                 </div>
             </div>
         </div>

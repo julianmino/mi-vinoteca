@@ -33,14 +33,14 @@
                         <div class="row">
                             <div class="col-md-6">
 
-                                <label>Surname</label>
+                                <label>Apellido</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox6" runat="server" placeholder="Surname"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="TextBox6" runat="server" placeholder="Apellido"></asp:TextBox>
                                 </div>
 
-                                <label>Name</label>
+                                <label>Nombre</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox5" runat="server" placeholder="Name"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="TextBox5" runat="server" placeholder="Nombre"></asp:TextBox>
                                 </div>
 
                             </div>
@@ -52,10 +52,10 @@
                                     <asp:TextBox CssClass="form-control" ID="TextBox4" runat="server" placeholder="Email"></asp:TextBox>
                                 </div>
 
-                                 <label>Date of Birth</label>
+                                 <label>Fecha de Nacimiento</label>
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="TextBox8" runat="server" placeholder="" TextMode="Date"></asp:TextBox>
-                                    <small id="birthHelp" class="form-text text-muted">You must be over 18 years old.</small>
+                                    <small id="birthHelp" class="form-text text-muted">Debes ser mayor de edad</small>
                                 </div>
 
                             </div>
@@ -70,28 +70,23 @@
                          <div class="row">
                             <div class="col-md-6">
 
-                                <label>User Name</label>
+                                <label>Nombre de Usuario</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox7" runat="server" placeholder="User Name" ReadOnly="True"></asp:TextBox>
-                                </div>
-
-                                <label>User ID</label>
-                                <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" placeholder="User ID" ReadOnly="True"></asp:TextBox>
-                                </div>
+                                    <asp:TextBox CssClass="form-control" ID="TextBox7" runat="server" placeholder="Nombre de Usuario" ReadOnly="True"></asp:TextBox>
+                                </div>                               
 
                             </div>
 
                               <div class="col-md-6">
 
-                                 <label>Old Password</label>
+                                 <label>Contraseña actual</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" placeholder="Password" TextMode="Password" ReadOnly="True"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" placeholder="Contraseña actual" TextMode="Password" ReadOnly="True"></asp:TextBox>
                                 </div>
 
-                                <label>New Password</label>
+                                <label>Contraseña nueva</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server" placeholder="New Password" TextMode="Password"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server" placeholder="Contraseña nueva" TextMode="Password"></asp:TextBox>
                                 </div>
                               </div>
 
@@ -102,7 +97,7 @@
                                <center>
                                 <div class="form-group">
                                     <%-- falta el manejador de eventos, lo veremos en el siguiente episodio, eso es todo amigos --%>
-                                    <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" Text="Update" />
+                                    <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" Text="Actualizar" />
                                 </div>
                                 </center>
                             </div>
@@ -129,8 +124,8 @@
                             <div class="row">
                             <div class="col">
                                 <center>
-                                   <h4>Your Orders</h4>
-                                    <span class="badge badge-pill badge-info">Your orders info</span>
+                                   <h4>Tus Pedidos</h4>
+                                    <span class="badge badge-pill badge-info">Información sobre tus pedidos</span>
                                 </center>
                             </div>
                             </div>
@@ -156,7 +151,7 @@
 
                 </div>
 
-                <a href="homepage.aspx">Return to Home Page</a>
+                <a href="homepage.aspx">Volver al inicio</a>
 
                 </div>
                 
