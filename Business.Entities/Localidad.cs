@@ -5,10 +5,9 @@ using System.Text;
 
 namespace Business.Entities
 {
-    public class Localidad
+    public class Localidad : BusinessEntity
     {
         private int _CodigoPostal;
-        private int _ID;
         private int _Nombre;
 
         public Provincia Provincia

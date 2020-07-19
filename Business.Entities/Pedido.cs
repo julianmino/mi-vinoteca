@@ -5,10 +5,9 @@ using System.Text;
 
 namespace Business.Entities
 {
-    public class Pedido
+    public class Pedido : BusinessEntity
     {
         private int _Fecha;
-        private int _ID;
         private int _Observaciones;
         private int _Total;
 

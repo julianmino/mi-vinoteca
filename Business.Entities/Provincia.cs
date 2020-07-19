@@ -5,9 +5,8 @@ using System.Text;
 
 namespace Business.Entities
 {
-    public class Provincia
+    public class Provincia : BusinessEntity
     {
-        private int _ID;
         private int _Nombre;
     }
 }
