@@ -1698,7 +1698,7 @@
     <Content Include="fontawesome\webfonts\fa-brands-400.svg" />
     <Content Include="fontawesome\webfonts\fa-regular-400.svg" />
     <Content Include="fontawesome\webfonts\fa-solid-900.svg" />
-    <Content Include="Formulario web1.aspx" />
+    <Content Include="homepage.aspx" />
     <Content Include="imagenes vinoteca\2.png" />
     <Content Include="imagenes vinoteca\alcohol-barrel-basement-beer-434311.jpg" />
     <Content Include="imagenes vinoteca\brassens.jpg" />
@@ -1725,16 +1725,17 @@
     <Content Include="images 2.0\imgs\sign-up.png" />
     <Content Include="userlogin.aspx" />
     <Content Include="userprofile.aspx" />
-    <Content Include="usersingup.aspx" />
+    <Content Include="usersignup.aspx" />
+    <Content Include="viewproducts.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Formulario web1.aspx.cs">
-      <DependentUpon>Formulario web1.aspx</DependentUpon>
+    <Compile Include="homepage.aspx.cs">
+      <DependentUpon>homepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Formulario web1.aspx.designer.cs">
-      <DependentUpon>Formulario web1.aspx</DependentUpon>
+    <Compile Include="homepage.aspx.designer.cs">
+      <DependentUpon>homepage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site1.Master.cs">
@@ -1758,12 +1759,19 @@
     <Compile Include="userprofile.aspx.designer.cs">
       <DependentUpon>userprofile.aspx</DependentUpon>
     </Compile>
-    <Compile Include="usersingup.aspx.cs">
-      <DependentUpon>usersingup.aspx</DependentUpon>
+    <Compile Include="usersignup.aspx.cs">
+      <DependentUpon>usersignup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="usersingup.aspx.designer.cs">
-      <DependentUpon>usersingup.aspx</DependentUpon>
+    <Compile Include="usersignup.aspx.designer.cs">
+      <DependentUpon>usersignup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewproducts.aspx.cs">
+      <DependentUpon>viewproducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewproducts.aspx.designer.cs">
+      <DependentUpon>viewproducts.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

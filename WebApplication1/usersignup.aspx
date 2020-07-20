@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="usersingup.aspx.cs" Inherits="WebApplication1.usersingup" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="usersignup.aspx.cs" Inherits="WebApplication1.usersingup" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -19,7 +19,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                   <h4>User Sing Up </h4>
+                                   <h4>User Sign Up </h4>
                                 </center>
                             </div>
                         </div>
@@ -101,14 +101,14 @@
 
                                 <div class="form-group">
                                     <%-- falta el manejador de eventos, lo veremos en el siguiente episodio, eso es todo amigos --%>
-                                    <asp:Button class="btn btn-success btn-block btn-lg" ID="Button1" runat="server" Text="Sing Up" />
+                                    <asp:Button class="btn btn-success btn-block btn-lg" ID="Button1" runat="server" Text="Sign Up" />
                                 </div>
                             </div>
                            </div>
                         </div>
                     </div>
 
-                <a href="Formulario web1.aspx">Return to Home Page</a>
+                <a href="homepage.aspx">Return to Home Page</a>
 
                 </div>
                 

@@ -54,7 +54,7 @@
                                 </div>
 
                                  <div class="form-group">
-                                    <a href="usersingup.aspx">
+                                    <a href="usersignup.aspx">
                                          <input class="btn btn-info btn-block btn-lg" id="Button2" type="button" value="Sing Up" />
                                     </a>
                                 </div>
