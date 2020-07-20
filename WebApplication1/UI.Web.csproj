@@ -65,6 +65,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="adminlogin.aspx" />
     <Content Include="bootstrap\css\bootstrap.min.css" />
     <Content Include="bootstrap\js\bootstrap.min.js" />
     <Content Include="bootstrap\js\jquery-3.5.1.slim.min.js" />
@@ -1714,22 +1715,30 @@
     <Content Include="imagenes vinoteca\Galileo_Galilei.svg.png" />
     <Content Include="imagenes vinoteca\restaurant-alcohol-bar-drinks-3540.jpg" />
     <Content Include="imagenes vinoteca\two-person-in-bar-stools-1005639.jpg" />
-    <Content Include="images 2.0\imgs\adminuser.png" />
-    <Content Include="images 2.0\imgs\defaulters-list.png" />
-    <Content Include="images 2.0\imgs\digital-data.png" />
-    <Content Include="images 2.0\imgs\digital-inventory.png" />
-    <Content Include="images 2.0\imgs\generaluser.png" />
-    <Content Include="images 2.0\imgs\pedido.png" />
-    <Content Include="images 2.0\imgs\publisher.png" />
-    <Content Include="images 2.0\imgs\search-online.png" />
-    <Content Include="images 2.0\imgs\sign-up.png" />
+    <Content Include="images\imgs\adminuser.png" />
+    <Content Include="images\imgs\defaulters-list.png" />
+    <Content Include="images\imgs\digital-data.png" />
+    <Content Include="images\imgs\digital-inventory.png" />
+    <Content Include="images\imgs\generaluser.png" />
+    <Content Include="images\imgs\pedido.png" />
+    <Content Include="images\imgs\publisher.png" />
+    <Content Include="images\imgs\search-online.png" />
+    <Content Include="images\imgs\sign-up.png" />
     <Content Include="userlogin.aspx" />
     <Content Include="userprofile.aspx" />
     <Content Include="usersignup.aspx" />
+
     <Content Include="viewproducts.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="adminlogin.aspx.cs">
+      <DependentUpon>adminlogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminlogin.aspx.designer.cs">
+      <DependentUpon>adminlogin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="homepage.aspx.cs">
       <DependentUpon>homepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

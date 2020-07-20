@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="userlogin.aspx.cs" Inherits="WebApplication1.userlogin" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="adminlogin.aspx.cs" Inherits="WebApplication1.adminlogin" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -12,7 +12,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                    <img width="150px" src="images/imgs/generaluser.png" />
+                                    <img width="150px" src="images/imgs/adminuser.png" />
                                 </center>
                             </div>
                         </div>
@@ -20,7 +20,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                   <h3>Inicio de sesión </h3>
+                                   <h3>Inicio de sesión de Administrador </h3>
                                 </center>
                             </div>
                         </div>
@@ -36,9 +36,9 @@
                          <div class="row">
                             <div class="col">
 
-                                <label>Nombre de Usuario</label>
+                                <label>Nombre de Usuario (Admin)</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" placeholder="Nombre de usuario"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" placeholder="Nombre de Usuario (Admin)"></asp:TextBox>
                                 </div>
 
                                  <label>Contraseña</label>
@@ -53,24 +53,14 @@
                                     <asp:Button class="btn btn-success btn-block btn-lg" ID="Button1" runat="server" Text="Iniciar Sesión" />
                                 </div>
 
-                                 <div class="form-group">
-                                    <a href="usersignup.aspx">
-
-                                         <input class="btn btn-info btn-block btn-lg" id="Button2" type="button" value="Registrarse" />
-
-                                    </a>
-                                </div>
-
                             </div>
-                        </div>
-
-
+                         </div>
                         </div>
                     </div>
                 <a href="homepage.aspx"> Volver al inicio</a><br><br>
                 </div>
             </div>
         </div>
-    
+
 
 </asp:Content>
