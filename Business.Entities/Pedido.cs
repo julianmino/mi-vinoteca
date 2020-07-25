@@ -27,5 +27,13 @@ namespace Business.Entities
             {
             }
         }
+
+        public Descuento Descuento
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

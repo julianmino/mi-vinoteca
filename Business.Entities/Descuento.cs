@@ -18,13 +18,5 @@ namespace Business.Entities
             {
             }
         }
-
-        public Pedido Pedido
-        {
-            get => default;
-            set
-            {
-            }
-        }
     }
 }
