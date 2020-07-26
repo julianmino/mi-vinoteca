@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Business.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,52 @@ namespace UI.Desktop
 {
     public partial class AdminMenu : Form
     {
+
+        public enum ModoForm
+        {
+            Alta,
+            Baja,
+            Modificacion,
+            Consulta
+        }
+
+        private ModoForm _Modo;
+        public ModoForm Modo { get => _Modo; set => _Modo = value; }
+
         private Form formActivo = null;
+
+        public Cliente ClienteActual;
+
+        public virtual void MapearDeDatos()
+        {
+
+        }
+
+        public virtual void MapearADatos()
+        {
+
+        }
+
+        public virtual void GuardarCambios()
+        {
+
+        }
+
+        public virtual bool Validar()
+        {
+            return false;
+        }
+
+        public void Notificar(string titulo, string mensaje, MessageBoxButtons botones, MessageBoxIcon icono)
+        {
+            MessageBox.Show(mensaje, titulo, botones, icono);
+        }
+
+        public void Notificar(string mensaje, MessageBoxButtons botones, MessageBoxIcon icono)
+        {
+            this.Notificar(this.Text, mensaje, botones, icono);
+        }
+
         public AdminMenu()
         {
             InitializeComponent();
