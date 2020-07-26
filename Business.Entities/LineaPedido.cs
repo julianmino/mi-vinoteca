@@ -5,9 +5,14 @@ using System.Text;
 
 namespace Business.Entities
 {
-    public class Premium : Usuario
+    public class LineaPedido
     {
-        public Descuento Descuento
+        private int _IDPedido;
+        private int _IDProducto;
+        private int _Cantidad;
+        private int _Subtotal;
+
+        public Producto Producto
         {
             get => default;
             set

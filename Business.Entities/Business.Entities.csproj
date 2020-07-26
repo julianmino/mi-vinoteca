@@ -42,10 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.cs" />
+    <Compile Include="BusinessEntity.cs" />
     <Compile Include="Cerveza.cs" />
-    <Compile Include="Champagne.cs" />
+    <Compile Include="Licor.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Descuento.cs" />
+    <Compile Include="LineaPedido.cs" />
     <Compile Include="Localidad.cs" />
     <Compile Include="Pedido.cs" />
     <Compile Include="Premium.cs" />

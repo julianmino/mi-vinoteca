@@ -5,8 +5,11 @@ using System.Text;
 
 namespace Business.Entities
 {
-    public class Admin:Usuario
+    public class Admin : BusinessEntity
     {
-        private int _PIN;
+        private int _Clave;
+        private int _Usuario;
+        private int _Nombre;
+        private int _Apellido;
     }
 }

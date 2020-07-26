@@ -5,9 +5,8 @@ using System.Text;
 
 namespace Business.Entities
 {
-    public class Usuario
+    public class Usuario : BusinessEntity
     {
-        private int _ID;
         private string _Nombre;
         private string _Apellido;
         private string _Usuario;
