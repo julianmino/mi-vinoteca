@@ -9,6 +9,9 @@ namespace Business.Entities
     {
         private int _Porcentaje;
         private int _FechaCaducidad;
+        private int _IDProducto;
+        private int _IDDescuento;
+        private int _IDCliente;
 
         public Producto Producto
         {

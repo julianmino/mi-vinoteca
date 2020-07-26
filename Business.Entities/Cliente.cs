@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Business.Entities
 {
-    public class Cliente:Usuario
+    public class Cliente
     {
         private int _Direccion;
 

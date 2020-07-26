@@ -7,67 +7,65 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
 
 namespace UI.Desktop
 {
     public partial class AdminMenu : Form
     {
+        private Form formActivo = null;
         public AdminMenu()
         {
             InitializeComponent();
         }
 
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hand, int wmsg, int wparam, int lparam);
-        private void AdminMenu_Load(object sender, EventArgs e)
+        private void customDesign()
         {
+            panelClientesSubmenu.Visible = false;
+            panelProductosSubmenu.Visible = false;
 
         }
 
-        private void iconClose_Click(object sender, EventArgs e)
+        private void displaySubmenu(Panel subMenu)
         {
-            Application.Exit();
-        }
-
-        private void iconMaximize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-            iconShrink.Visible = true;
-            iconMaximize.Visible = false;
-        }
-
-        private void iconShrink_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Normal;
-            iconShrink.Visible = false;
-            iconMaximize.Visible = true;
-        }
-
-        private void iconMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void btnSlide_Click(object sender, EventArgs e)
-        {
-            if (menuVertical.Width == 250)
+            if (subMenu.Visible)
             {
-                menuVertical.Width = 70;
+                subMenu.Visible = false;
             }
             else
             {
-                menuVertical.Width = 250;
+                subMenu.Visible = true;
             }
         }
 
-        
-        private void panelTitulo_MouseDown(object sender, MouseEventArgs e)
+        private void MenuAdmin_Load(object sender, EventArgs e)
         {
-            ReleaseCapture();
-            SendMessage(this.Handle,0x112,0xf012,0);
+
+        }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            displaySubmenu(panelProductosSubmenu);
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            displaySubmenu(panelClientesSubmenu);
+        }
+
+        private void abrirFormHijo(Form formHijo)
+        {
+            if (formActivo!=null)
+            {
+                formActivo.Close();
+            }
+            formActivo = formHijo;
+            formHijo.TopLevel = false;
+            formHijo.FormBorderStyle = FormBorderStyle.None;
+            formHijo.Dock = DockStyle.Fill;
+            panelFormHijo.Controls.Add(formHijo);
+            panelFormHijo.Tag = formActivo;
+            formHijo.Show();
+
         }
     }
 }
