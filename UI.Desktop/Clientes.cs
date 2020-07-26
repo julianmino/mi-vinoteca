@@ -15,6 +15,12 @@ namespace UI.Desktop
         public Clientes()
         {
             InitializeComponent();
+            dgvClientes.AutoGenerateColumns = false;
+        }
+
+        public void Listar()
+        {
+
         }
 
         private void Clientes_Load(object sender, EventArgs e)
@@ -23,5 +29,7 @@ namespace UI.Desktop
             this.clientesTableAdapter.Fill(this.yaguaronDBDataSet2.clientes);
 
         }
+
+
     }
 }

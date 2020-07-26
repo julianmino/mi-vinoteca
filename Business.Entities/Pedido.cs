@@ -13,7 +13,7 @@ namespace Business.Entities
         private int _IDCliente;
         private int _IDDescuento;
 
-        public Usuario Usuario
+        public Cliente Usuario
         {
             get => default;
             set
