@@ -131,7 +131,7 @@ namespace Data.Database
                 cmdUpdate.Parameters.Add("@id", SqlDbType.Int).Value = cliente.ID;
                 cmdUpdate.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = cliente.Nombre;
                 cmdUpdate.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = cliente.Apellido;
-                cmdUpdate.Parameters.Add("@usuario", SqlDbType.VarChar).Value = cliente.Usuario;
+                cmdUpdate.Parameters.Add("@usuario", SqlDbType.VarChar, 50).Value = cliente.Usuario;
                 cmdUpdate.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = cliente.Email;
                 cmdUpdate.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = cliente.Clave;
                 cmdUpdate.Parameters.Add("@fecha_nac", SqlDbType.DateTime).Value = cliente.FechaNac;
@@ -159,7 +159,7 @@ namespace Data.Database
                 "values (@nombre, @apellido,@usuario,@email,@clave,@fecha_nac,@premium) " + "select @@identity", sqlConn);
                 cmdSave.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = cliente.Nombre;
                 cmdSave.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = cliente.Apellido;
-                cmdSave.Parameters.Add("@usuario", SqlDbType.VarChar).Value = cliente.Usuario;
+                cmdSave.Parameters.Add("@usuario", SqlDbType.VarChar, 50).Value = cliente.Usuario;
                 cmdSave.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = cliente.Email;
                 cmdSave.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = cliente.Clave;
                 cmdSave.Parameters.Add("@fecha_nac", SqlDbType.DateTime).Value = cliente.FechaNac;

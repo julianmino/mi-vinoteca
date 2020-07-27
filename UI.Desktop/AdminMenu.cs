@@ -14,50 +14,7 @@ namespace UI.Desktop
     public partial class AdminMenu : Form
     {
 
-        public enum ModoForm
-        {
-            Alta,
-            Baja,
-            Modificacion,
-            Consulta
-        }
-
-        private ModoForm _Modo;
-        public ModoForm Modo { get => _Modo; set => _Modo = value; }
-
         private Form formActivo = null;
-
-        public Cliente ClienteActual;
-
-        public virtual void MapearDeDatos()
-        {
-
-        }
-
-        public virtual void MapearADatos()
-        {
-
-        }
-
-        public virtual void GuardarCambios()
-        {
-
-        }
-
-        public virtual bool Validar()
-        {
-            return false;
-        }
-
-        public void Notificar(string titulo, string mensaje, MessageBoxButtons botones, MessageBoxIcon icono)
-        {
-            MessageBox.Show(mensaje, titulo, botones, icono);
-        }
-
-        public void Notificar(string mensaje, MessageBoxButtons botones, MessageBoxIcon icono)
-        {
-            this.Notificar(this.Text, mensaje, botones, icono);
-        }
 
         public AdminMenu()
         {
@@ -85,7 +42,7 @@ namespace UI.Desktop
 
         private void MenuAdmin_Load(object sender, EventArgs e)
         {
-
+            customDesign();
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
@@ -98,7 +55,7 @@ namespace UI.Desktop
             displaySubmenu(panelClientesSubmenu);
         }
 
-        private void abrirFormHijo(Form formHijo)
+        public void abrirFormHijo(Form formHijo)
         {
             if (formActivo!=null)
             {
@@ -112,6 +69,11 @@ namespace UI.Desktop
             panelFormHijo.Tag = formActivo;
             formHijo.Show();
 
+        }
+
+        private void btnTodos_Click(object sender, EventArgs e)
+        {
+            abrirFormHijo(new Clientes());
         }
     }
 }
