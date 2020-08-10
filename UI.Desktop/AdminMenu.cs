@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-﻿using System;
-=======
 ﻿using Business.Entities;
 using System;
->>>>>>> adminMenu
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,13 +13,9 @@ namespace UI.Desktop
 {
     public partial class AdminMenu : Form
     {
-<<<<<<< HEAD
-        private Form formActivo = null;
-=======
 
         private Form formActivo = null;
 
->>>>>>> adminMenu
         public AdminMenu()
         {
             InitializeComponent();
@@ -50,33 +42,20 @@ namespace UI.Desktop
 
         private void MenuAdmin_Load(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-
-=======
             customDesign();
->>>>>>> adminMenu
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-=======
             if (panelSideMenu.Width == 80)
             {
                 panelSideMenu.Width = 250;
             }
->>>>>>> adminMenu
             displaySubmenu(panelProductosSubmenu);
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            displaySubmenu(panelClientesSubmenu);
-        }
-
-        private void abrirFormHijo(Form formHijo)
-=======
             if (panelSideMenu.Width == 80)
             {
                 panelSideMenu.Width = 250;
@@ -85,7 +64,6 @@ namespace UI.Desktop
         }
 
         public void abrirFormHijo(Form formHijo, string lblFormActivo)
->>>>>>> adminMenu
         {
             if (formActivo!=null)
             {
@@ -99,8 +77,6 @@ namespace UI.Desktop
             panelFormHijo.Tag = formActivo;
             formHijo.Show();
 
-<<<<<<< HEAD
-=======
             lblFormActual.Text = lblFormActivo;
 
         }
@@ -125,7 +101,6 @@ namespace UI.Desktop
             {
                 panelSideMenu.Width = 250;
             }
->>>>>>> adminMenu
         }
     }
 }

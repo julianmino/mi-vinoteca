@@ -8,15 +8,7 @@ namespace Data.Database
 {
     public class Adapter
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         const string consKeyDefaultCnnString = "Conn";
-=======
-        const string consKeyDefaultCnnString = "myConn";
->>>>>>> adminMenu
-=======
-        const string consKeyDefaultCnnString = "Conn";
->>>>>>> adminMenu
 
         public SqlConnection sqlConn;
         //private SqlConnection sqlConnection = new SqlConnection("ConnectionString;");
