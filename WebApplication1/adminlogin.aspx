@@ -38,19 +38,19 @@
 
                                 <label>Nombre de Usuario (Admin)</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" placeholder="Nombre de Usuario (Admin)"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="txtUsuario" runat="server" placeholder="Nombre de Usuario (Admin)"></asp:TextBox>
                                 </div>
 
                                  <label>Contraseña</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" placeholder="Contraseña" TextMode="password"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="txtPassword" runat="server" placeholder="Contraseña" TextMode="password"></asp:TextBox>
                                 </div>
 
                                 <%-- podemos cambiar los botones hay varios colorcitos --%>
 
                                 <div class="form-group">
                                     <%-- falta el manejador de eventos, lo veremos en el siguiente episodio, eso es todo amigos --%>
-                                    <asp:Button class="btn btn-success btn-block btn-lg" ID="Button1" runat="server" Text="Iniciar Sesión" />
+                                    <asp:Button class="btn btn-success btn-block btn-lg" ID="btnIniciarSesion" runat="server" Text="Iniciar Sesión" />
                                 </div>
 
                             </div>

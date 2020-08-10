@@ -35,12 +35,12 @@
 
                                 <label>Apellido</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox6" runat="server" placeholder="Apellido"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="txtApellido" runat="server" placeholder="Apellido"></asp:TextBox>
                                 </div>
 
                                 <label>Nombre</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox5" runat="server" placeholder="Nombre"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="txtNombre" runat="server" placeholder="Nombre"></asp:TextBox>
                                 </div>
 
                             </div>
@@ -49,12 +49,12 @@
                                 
                                  <label>Email</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox4" runat="server" placeholder="Email"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="txtEmail" runat="server" placeholder="Email"></asp:TextBox>
                                 </div>
 
                                  <label>Fecha de Nacimiento</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox8" runat="server" placeholder="" TextMode="Date"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="txtFechaNac" runat="server" placeholder="" TextMode="Date"></asp:TextBox>
                                     <small id="birthHelp" class="form-text text-muted">Debes ser mayor de edad</small>
                                 </div>
 
@@ -72,7 +72,7 @@
 
                                 <label>Nombre de Usuario</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox7" runat="server" placeholder="Nombre de Usuario" ReadOnly="True"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="txtUsuario" runat="server" placeholder="Nombre de Usuario" ReadOnly="True"></asp:TextBox>
                                 </div>                               
 
                             </div>
@@ -81,12 +81,12 @@
 
                                  <label>Contraseña actual</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" placeholder="Contraseña actual" TextMode="Password" ReadOnly="True"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="txtPassActual" runat="server" placeholder="Contraseña actual" TextMode="Password" ReadOnly="True"></asp:TextBox>
                                 </div>
 
                                 <label>Contraseña nueva</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server" placeholder="Contraseña nueva" TextMode="Password"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="txtPassNueva" runat="server" placeholder="Contraseña nueva" TextMode="Password" OnTextChanged="TextBox3_TextChanged"></asp:TextBox>
                                 </div>
                               </div>
 
@@ -97,7 +97,7 @@
                                <center>
                                 <div class="form-group">
                                     <%-- falta el manejador de eventos, lo veremos en el siguiente episodio, eso es todo amigos --%>
-                                    <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" Text="Actualizar" />
+                                    <asp:Button class="btn btn-primary btn-block btn-lg" ID="btnActualizar" runat="server" Text="Actualizar" />
                                 </div>
                                 </center>
                             </div>
@@ -138,7 +138,7 @@
 
                             <div class="row">
                                 <div class="col">
-                                    <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server">
+                                    <asp:GridView class="table table-striped table-bordered" ID="dgvPedidos" runat="server">
 
                                     </asp:GridView>
                                 </div>

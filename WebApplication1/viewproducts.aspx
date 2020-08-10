@@ -23,7 +23,7 @@
 
                        <div class="row">
                             <div class="col">
-                                <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server"></asp:GridView>
+                                <asp:GridView class="table table-striped table-bordered" ID="dgvProductos" runat="server"></asp:GridView>
                             </div>
                         </div> 
 
