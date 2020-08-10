@@ -136,6 +136,7 @@
             this.btnTodos.Text = "Todos";
             this.btnTodos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTodos.UseVisualStyleBackColor = true;
+            this.btnTodos.Click += new System.EventHandler(this.btnTodos_Click);
             // 
             // btnClientes
             // 
