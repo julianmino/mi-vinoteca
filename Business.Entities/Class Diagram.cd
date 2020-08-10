@@ -7,7 +7,7 @@
       <FileName>Producto.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Business.Entities.Usuario" Collapsed="true">
+  <Class Name="Business.Entities.Cliente" Collapsed="true">
     <Position X="3.75" Y="2.75" Width="1.5" />
     <AssociationLine Name="Pedido" Type="Business.Entities.Pedido" FixedFromPoint="true">
       <Path>
@@ -16,8 +16,8 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAEAAACAgAAAIAEAAAAAAAAAEAAABAA=</HashCode>
-      <FileName>Usuario.cs</FileName>
+      <HashCode>AAAIAAAIACAAAAEEAACAgAAAIAEAAAAAAAAUEAAAFAA=</HashCode>
+      <FileName>Cliente.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Pedido" />

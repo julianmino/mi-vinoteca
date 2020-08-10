@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Business.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,9 @@ namespace UI.Desktop
 {
     public partial class AdminMenu : Form
     {
+
         private Form formActivo = null;
+
         public AdminMenu()
         {
             InitializeComponent();
@@ -39,7 +42,7 @@ namespace UI.Desktop
 
         private void MenuAdmin_Load(object sender, EventArgs e)
         {
-
+            customDesign();
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
@@ -52,7 +55,7 @@ namespace UI.Desktop
             displaySubmenu(panelClientesSubmenu);
         }
 
-        private void abrirFormHijo(Form formHijo)
+        public void abrirFormHijo(Form formHijo)
         {
             if (formActivo!=null)
             {
@@ -66,6 +69,11 @@ namespace UI.Desktop
             panelFormHijo.Tag = formActivo;
             formHijo.Show();
 
+        }
+
+        private void btnTodos_Click(object sender, EventArgs e)
+        {
+            abrirFormHijo(new Clientes());
         }
     }
 }
