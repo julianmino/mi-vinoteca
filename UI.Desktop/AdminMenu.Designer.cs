@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
+=======
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminMenu));
+>>>>>>> adminMenu
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.btnPedidos = new System.Windows.Forms.Button();
             this.panelClientesSubmenu = new System.Windows.Forms.Panel();
@@ -41,12 +45,29 @@
             this.btnVinos = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
+<<<<<<< HEAD
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelFormHijo = new System.Windows.Forms.Panel();
             this.panelSideMenu.SuspendLayout();
             this.panelClientesSubmenu.SuspendLayout();
             this.panelProductosSubmenu.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+=======
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panelFormHijo = new System.Windows.Forms.Panel();
+            this.resizeSideMenu = new System.Windows.Forms.PictureBox();
+            this.lblFormActual = new System.Windows.Forms.Label();
+            this.panelSideMenu.SuspendLayout();
+            this.panelClientesSubmenu.SuspendLayout();
+            this.panelProductosSubmenu.SuspendLayout();
+            this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.resizeSideMenu)).BeginInit();
+>>>>>>> adminMenu
             this.SuspendLayout();
             // 
             // panelSideMenu
@@ -127,6 +148,10 @@
             this.btnTodos.Text = "Todos";
             this.btnTodos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTodos.UseVisualStyleBackColor = true;
+<<<<<<< HEAD
+=======
+            this.btnTodos.Click += new System.EventHandler(this.btnTodos_Click);
+>>>>>>> adminMenu
             // 
             // btnClientes
             // 
@@ -248,12 +273,18 @@
             // 
             // panelLogo
             // 
+<<<<<<< HEAD
+=======
+            this.panelLogo.Controls.Add(this.pictureBox2);
+            this.panelLogo.Controls.Add(this.pictureBox1);
+>>>>>>> adminMenu
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(250, 100);
             this.panelLogo.TabIndex = 1;
             // 
+<<<<<<< HEAD
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
@@ -261,30 +292,112 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel1.Controls.Add(this.panelFormHijo, 1, 1);
+=======
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(80, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(170, 100);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(80, 100);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.AutoSize = true;
+            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel1.Controls.Add(this.panelFormHijo, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.resizeSideMenu, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblFormActual, 1, 0);
+>>>>>>> adminMenu
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(250, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
+<<<<<<< HEAD
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(834, 611);
+=======
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(870, 611);
+>>>>>>> adminMenu
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // panelFormHijo
             // 
+<<<<<<< HEAD
             this.panelFormHijo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFormHijo.Location = new System.Drawing.Point(44, 33);
             this.panelFormHijo.Name = "panelFormHijo";
             this.panelFormHijo.Size = new System.Drawing.Size(744, 543);
             this.panelFormHijo.TabIndex = 0;
             // 
+=======
+            this.panelFormHijo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelFormHijo.Location = new System.Drawing.Point(63, 94);
+            this.panelFormHijo.Name = "panelFormHijo";
+            this.panelFormHijo.Size = new System.Drawing.Size(744, 421);
+            this.panelFormHijo.TabIndex = 0;
+            // 
+            // resizeSideMenu
+            // 
+            this.resizeSideMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.resizeSideMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.resizeSideMenu.Image = ((System.Drawing.Image)(resources.GetObject("resizeSideMenu.Image")));
+            this.resizeSideMenu.Location = new System.Drawing.Point(3, 20);
+            this.resizeSideMenu.Name = "resizeSideMenu";
+            this.resizeSideMenu.Size = new System.Drawing.Size(54, 50);
+            this.resizeSideMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.resizeSideMenu.TabIndex = 1;
+            this.resizeSideMenu.TabStop = false;
+            this.resizeSideMenu.Click += new System.EventHandler(this.resizeSideMenu_Click);
+            // 
+            // lblFormActual
+            // 
+            this.lblFormActual.AutoSize = true;
+            this.lblFormActual.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblFormActual.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFormActual.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblFormActual.Location = new System.Drawing.Point(63, 0);
+            this.lblFormActual.Name = "lblFormActual";
+            this.lblFormActual.Size = new System.Drawing.Size(744, 91);
+            this.lblFormActual.TabIndex = 2;
+            this.lblFormActual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+>>>>>>> adminMenu
             // AdminMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(19)))), ((int)(((byte)(44)))));
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(1084, 611);
+=======
+            this.ClientSize = new System.Drawing.Size(1120, 611);
+>>>>>>> adminMenu
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panelSideMenu);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -296,8 +409,19 @@
             this.panelSideMenu.ResumeLayout(false);
             this.panelClientesSubmenu.ResumeLayout(false);
             this.panelProductosSubmenu.ResumeLayout(false);
+<<<<<<< HEAD
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
+=======
+            this.panelLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.resizeSideMenu)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+>>>>>>> adminMenu
 
         }
 
@@ -318,5 +442,12 @@
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panelFormHijo;
+<<<<<<< HEAD
+=======
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox resizeSideMenu;
+        private System.Windows.Forms.Label lblFormActual;
+>>>>>>> adminMenu
     }
 }

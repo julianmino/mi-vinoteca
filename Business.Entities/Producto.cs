@@ -14,6 +14,6 @@ namespace Business.Entities
         private int _ML;
         private int _Precio;
         private int _Tipo;
-        private int _Stock;
+        private int _Cantidad;
     }
 }

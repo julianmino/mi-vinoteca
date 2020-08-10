@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Business.Entities
 {
-    public class Premium : Usuario
+    public class Premium : Cliente
     {
         public Descuento Descuento
         {

@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 ﻿using System;
+=======
+﻿using Business.Entities;
+using System;
+>>>>>>> adminMenu
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +17,13 @@ namespace UI.Desktop
 {
     public partial class AdminMenu : Form
     {
+<<<<<<< HEAD
         private Form formActivo = null;
+=======
+
+        private Form formActivo = null;
+
+>>>>>>> adminMenu
         public AdminMenu()
         {
             InitializeComponent();
@@ -39,20 +50,42 @@ namespace UI.Desktop
 
         private void MenuAdmin_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
 
+=======
+            customDesign();
+>>>>>>> adminMenu
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
+=======
+            if (panelSideMenu.Width == 80)
+            {
+                panelSideMenu.Width = 250;
+            }
+>>>>>>> adminMenu
             displaySubmenu(panelProductosSubmenu);
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             displaySubmenu(panelClientesSubmenu);
         }
 
         private void abrirFormHijo(Form formHijo)
+=======
+            if (panelSideMenu.Width == 80)
+            {
+                panelSideMenu.Width = 250;
+            }
+            displaySubmenu(panelClientesSubmenu);
+        }
+
+        public void abrirFormHijo(Form formHijo, string lblFormActivo)
+>>>>>>> adminMenu
         {
             if (formActivo!=null)
             {
@@ -66,6 +99,33 @@ namespace UI.Desktop
             panelFormHijo.Tag = formActivo;
             formHijo.Show();
 
+<<<<<<< HEAD
+=======
+            lblFormActual.Text = lblFormActivo;
+
+        }
+
+        private void btnTodos_Click(object sender, EventArgs e)
+        {
+            
+            abrirFormHijo(new Clientes(), "Todos los Clientes");
+
+        }
+
+
+        private void resizeSideMenu_Click(object sender, EventArgs e)
+        {
+            if (panelSideMenu.Width == 250)
+            {
+                panelSideMenu.Width = 80;
+                panelClientesSubmenu.Visible = false;
+                panelProductosSubmenu.Visible = false;
+            }
+            else
+            {
+                panelSideMenu.Width = 250;
+            }
+>>>>>>> adminMenu
         }
     }
 }
