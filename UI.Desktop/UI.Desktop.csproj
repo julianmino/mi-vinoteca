@@ -171,17 +171,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Business.Entities\Business.Entities.csproj">
-      <Project>{d1513948-bae9-416c-9789-e5b877a6a81b}</Project>
-      <Name>Business.Entities</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Business.Logic\Business.Logic.csproj">
       <Project>{4074e5bc-e273-4231-996b-9ea0a5e4b3c7}</Project>
       <Name>Business.Logic</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Data.Database\Data.Database.csproj">
-      <Project>{116ec45b-2448-4d4a-a852-d563524a8a2b}</Project>
-      <Name>Data.Database</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

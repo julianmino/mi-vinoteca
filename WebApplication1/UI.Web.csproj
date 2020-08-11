@@ -1727,7 +1727,6 @@
     <Content Include="userlogin.aspx" />
     <Content Include="userprofile.aspx" />
     <Content Include="usersignup.aspx" />
-
     <Content Include="viewproducts.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -1848,10 +1847,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Business.Entities\Business.Entities.csproj">
-      <Project>{d1513948-bae9-416c-9789-e5b877a6a81b}</Project>
-      <Name>Business.Entities</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Business.Logic\Business.Logic.csproj">
       <Project>{4074e5bc-e273-4231-996b-9ea0a5e4b3c7}</Project>
       <Name>Business.Logic</Name>
