@@ -1,5 +1,4 @@
-﻿using Business.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using DAL;
 namespace UI.Desktop
 {
     public partial class ApplicationForm : Form
@@ -25,7 +24,7 @@ namespace UI.Desktop
         private ModoForm _Modo;
         public ModoForm Modo { get => _Modo; set => _Modo = value; }
 
-        public Cliente ClienteActual;
+        public cliente ClienteActual;
 
         public ApplicationForm()
         {

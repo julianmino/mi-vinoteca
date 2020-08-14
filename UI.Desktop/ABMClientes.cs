@@ -1,6 +1,4 @@
-﻿using Business.Entities;
-using Business.Logic;
-using Data.Database;
+﻿using Business.Logic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DAL;
 
 namespace UI.Desktop
 {
@@ -28,27 +27,21 @@ namespace UI.Desktop
         public ABMClientes(int id, ModoForm modo):this()
         {
             Modo = modo;
-            ClienteAdapter cliData = new ClienteAdapter();
-            ClienteLogic cliLog = new ClienteLogic(cliData);
-            ClienteActual = cliLog.GetOne(id);
+            ClienteLogic cliLog = new ClienteLogic();
+            cliente ClienteActual = cliLog.GetOne(id);
             this.MapearDeDatos();
         }
 
         public override void MapearDeDatos()
         {
-            this.txtID.Text = this.ClienteActual.ID.ToString();
-            this.txtNombre.Text = this.ClienteActual.Nombre;
-            this.txtApellido.Text = this.ClienteActual.Apellido;
-            this.txtUsuario.Text = this.ClienteActual.Usuario;
-            this.txtEmail.Text = this.ClienteActual.Email;
-            this.txtClave.Text = this.ClienteActual.Clave;
-            this.pickerFechaNac.Value = this.ClienteActual.FechaNac;
-            this.ckbPremium.Checked = this.ClienteActual.Premium;
-
-            
-           
-            
-            
+            this.txtID.Text = this.ClienteActual.id_cliente.ToString();
+            this.txtNombre.Text = this.ClienteActual.nombre;
+            this.txtApellido.Text = this.ClienteActual.apellido;
+            this.txtUsuario.Text = this.ClienteActual.usuario;
+            this.txtEmail.Text = this.ClienteActual.email;
+            this.txtClave.Text = this.ClienteActual.clave;
+            this.pickerFechaNac.Value = this.ClienteActual.fecha_nac;
+            this.ckbPremium.Checked = this.ClienteActual.premium;
 
             switch (this.Modo)
             {
@@ -57,51 +50,28 @@ namespace UI.Desktop
                 case ModoForm.Baja: this.btnAceptar.Text = "Eliminar"; break;
                 case ModoForm.Consulta: this.btnAceptar.Text = "Aceptar"; break;
             }
-
         }
 
         public override void MapearADatos()
         {
+            ClienteLogic cliLog = new ClienteLogic();
+
             if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion)
             {
                 if (this.Modo == ModoForm.Alta)
                 {
-                    ClienteActual = new Cliente();
-                    ClienteActual.State = BusinessEntity.States.New;
+                    cliLog.Alta(txtNombre.Text, txtApellido.Text, txtUsuario.Text, txtEmail.Text, txtClave.Text, pickerFechaNac.Value, ckbPremium.Checked, 0);
                 }
                 else
                 {
-                    this.ClienteActual.ID = int.Parse(this.txtID.Text);
-                    this.ClienteActual.State = BusinessEntity.States.Modified;
+                    cliLog.Modificacion(int.Parse(txtID.Text), txtNombre.Text, txtApellido.Text, txtUsuario.Text, txtEmail.Text, txtClave.Text, pickerFechaNac.Value, ckbPremium.Checked, 0); 
                 }
-
-                this.ClienteActual.Nombre = this.txtNombre.Text;
-                this.ClienteActual.Apellido = this.txtApellido.Text;
-                this.ClienteActual.Usuario = this.txtUsuario.Text;
-                this.ClienteActual.Email = this.txtEmail.Text;
-                this.ClienteActual.Clave = this.txtClave.Text;
-                this.ClienteActual.FechaNac = this.pickerFechaNac.Value;
-                this.ClienteActual.Premium = this.ckbPremium.Checked;
-
             }
 
             else if (this.Modo == ModoForm.Baja)
             {
-                this.ClienteActual.State = BusinessEntity.States.Deleted;
+                cliLog.Baja(int.Parse(txtID.Text));
             }
-
-            else
-            {
-                this.ClienteActual.State = BusinessEntity.States.Unmodified;
-            }
-        }
-
-        public override void GuardarCambios()
-        {
-            this.MapearADatos();
-            ClienteAdapter cliData = new ClienteAdapter();
-            ClienteLogic cliLog = new ClienteLogic(cliData);
-            cliLog.Save(ClienteActual);
         }
 
         public override bool Validar()
@@ -164,7 +134,7 @@ namespace UI.Desktop
             Validar();
             if (Validar())
             {
-                GuardarCambios();
+                MapearADatos();
                 this.Dispose();
             }
         }

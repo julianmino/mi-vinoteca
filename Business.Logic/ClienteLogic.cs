@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
@@ -26,18 +27,15 @@ namespace Business.Logic
 
             return cliente;
         }
-        public static int Alta(string nom, string ape, string usuario, 
+        public void Alta(string nombre, string apellido, string usuario, 
             string email, string clave, DateTime fecha_nac,bool premium, int id_descuento)
         {
-
-            using (var context = new YaguaronEntities())
-            {
                 try
                 {
                     var cliente = new cliente()
                     {
-                        nombre = nom,
-                        apellido = ape,
+                        nombre = nombre,
+                        apellido = apellido,
                         usuario = usuario,
                         email = email,
                         clave = clave,
@@ -46,29 +44,49 @@ namespace Business.Logic
                         id_descuento = id_descuento
                     };
                     context.clientes.Add(cliente);
+                    context.Entry(cliente).State = System.Data.Entity.EntityState.Added;
                     context.SaveChanges();
 
-                    return cliente.id_cliente;
+                    //return cliente.id_cliente;
                 }
                 catch (Exception Ex)
                 {
                     Console.WriteLine(Ex.InnerException?.Message);
-                    return 0;
+                    //return 0;
                 }
-            }
         }
                 
-        public static void Modificacion(int ID, string nueva_clave)
+        public void Modificacion(int id, string nombre, string apellido, string usuario,
+            string email, string clave, DateTime fecha_nac, bool premium, int id_descuento)
         {
             using (var context = new YaguaronEntities())
             {
-                cliente clienteAActualizar = context.clientes.Find(ID);
-                clienteAActualizar.clave = nueva_clave;
-                context.SaveChanges();
+                try
+                {
+                    cliente cliente = this.GetOne(id);
+                    {
+                        cliente.nombre = nombre;
+                        cliente.apellido = apellido;
+                        cliente.usuario = usuario;
+                        cliente.email = email;
+                        cliente.clave = clave;
+                        cliente.fecha_nac = fecha_nac;
+                        cliente.premium = premium;
+                        cliente.id_descuento = id_descuento;
+                    };
+                    context.clientes.Add(cliente);
+                    context.Entry(cliente).State = System.Data.Entity.EntityState.Modified;
+                    context.SaveChanges();
+
+                }
+                catch (Exception Ex)
+                {
+                    Console.WriteLine(Ex.InnerException?.Message);
+                }
             }
         }
 
-        public static void Baja(int ID)
+        public void Baja(int ID)
         {
             using (var context = new YaguaronEntities())
             {
@@ -81,7 +99,7 @@ namespace Business.Logic
             }
         }
 
-        public static void Consulta(string filtro)
+        public void Consulta(string filtro)
         {
             using (var context = new YaguaronEntities())
             {

@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="admin.cs" />
+    <Compile Include="BusinessEntity.cs" />
     <Compile Include="cliente.cs" />
     <Compile Include="descuento.cs" />
     <Compile Include="lineas_pedidos.cs" />
@@ -65,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Diagrama de Clases.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

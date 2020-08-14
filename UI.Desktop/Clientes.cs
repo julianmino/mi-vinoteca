@@ -8,8 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Logic;
-using Business.Entities;
-using Data.Database;
+using DAL;
 
 namespace UI.Desktop
 {
@@ -23,10 +22,10 @@ namespace UI.Desktop
 
         public void Listar()
         {
-            ClienteAdapter cliAdap = new ClienteAdapter();
-            ClienteLogic cliLog = new ClienteLogic(cliAdap);
+            
+            ClienteLogic cliLog = new ClienteLogic();
 
-            this.dgvClientes.DataSource = cliAdap.GetAll();
+            this.dgvClientes.DataSource = cliLog.GetAll();
         }
 
         private void Clientes_Load(object sender, EventArgs e)
@@ -49,7 +48,7 @@ namespace UI.Desktop
         {
             if (this.dgvClientes.SelectedRows != null)
             {
-                int ID = ((Cliente)this.dgvClientes.SelectedRows[0].DataBoundItem).ID;
+                int ID = ((cliente)this.dgvClientes.SelectedRows[0].DataBoundItem).id_cliente;
                 ABMClientes cliente = new ABMClientes(ID, ApplicationForm.ModoForm.Modificacion);
                 cliente.ShowDialog();
                 this.Listar();
@@ -64,7 +63,7 @@ namespace UI.Desktop
         {
             if (this.dgvClientes.SelectedRows != null)
             {
-                int ID = ((Cliente)this.dgvClientes.SelectedRows[0].DataBoundItem).ID;
+                int ID = ((cliente)this.dgvClientes.SelectedRows[0].DataBoundItem).id_cliente;
                 ABMClientes cliente = new ABMClientes(ID, ApplicationForm.ModoForm.Baja);
                 cliente.ShowDialog();
                 this.Listar();
