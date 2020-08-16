@@ -30,6 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pickerFechaNac = new System.Windows.Forms.DateTimePicker();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
@@ -42,17 +43,20 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
-            this.ckbPremium = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
-            this.pickerFechaNac = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.txtConfirmarClave = new System.Windows.Forms.TextBox();
             this.txtClave = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtDescuento = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ckbPremium = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -72,6 +76,7 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel1.Controls.Add(this.pickerFechaNac, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.txtEmail, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtUsuario, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtApellido, 1, 2);
@@ -85,10 +90,9 @@
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtID, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.ckbPremium, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 8);
-            this.tableLayoutPanel1.Controls.Add(this.pickerFechaNac, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 1, 7);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -105,6 +109,17 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1054, 539);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // pickerFechaNac
+            // 
+            this.pickerFechaNac.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.pickerFechaNac.Location = new System.Drawing.Point(220, 334);
+            this.pickerFechaNac.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.pickerFechaNac.MaxDate = new System.DateTime(2020, 12, 31, 0, 0, 0, 0);
+            this.pickerFechaNac.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.pickerFechaNac.Name = "pickerFechaNac";
+            this.pickerFechaNac.Size = new System.Drawing.Size(200, 20);
+            this.pickerFechaNac.TabIndex = 24;
             // 
             // txtEmail
             // 
@@ -241,18 +256,6 @@
             this.txtID.Size = new System.Drawing.Size(794, 23);
             this.txtID.TabIndex = 15;
             // 
-            // ckbPremium
-            // 
-            this.ckbPremium.AutoSize = true;
-            this.ckbPremium.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ckbPremium.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckbPremium.Location = new System.Drawing.Point(213, 374);
-            this.ckbPremium.Name = "ckbPremium";
-            this.ckbPremium.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.ckbPremium.Size = new System.Drawing.Size(25, 47);
-            this.ckbPremium.TabIndex = 22;
-            this.ckbPremium.UseVisualStyleBackColor = true;
-            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 3;
@@ -293,17 +296,6 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // pickerFechaNac
-            // 
-            this.pickerFechaNac.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pickerFechaNac.Location = new System.Drawing.Point(220, 334);
-            this.pickerFechaNac.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
-            this.pickerFechaNac.MaxDate = new System.DateTime(2020, 12, 31, 0, 0, 0, 0);
-            this.pickerFechaNac.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.pickerFechaNac.Name = "pickerFechaNac";
-            this.pickerFechaNac.Size = new System.Drawing.Size(200, 20);
-            this.pickerFechaNac.TabIndex = 24;
-            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 2;
@@ -329,6 +321,7 @@
             this.txtConfirmarClave.Name = "txtConfirmarClave";
             this.txtConfirmarClave.Size = new System.Drawing.Size(384, 23);
             this.txtConfirmarClave.TabIndex = 21;
+            this.txtConfirmarClave.UseSystemPasswordChar = true;
             // 
             // txtClave
             // 
@@ -339,6 +332,61 @@
             this.txtClave.Name = "txtClave";
             this.txtClave.Size = new System.Drawing.Size(384, 23);
             this.txtClave.TabIndex = 20;
+            this.txtClave.UseSystemPasswordChar = true;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 3;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel4.Controls.Add(this.txtDescuento, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label3, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.ckbPremium, 0, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(213, 374);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(838, 47);
+            this.tableLayoutPanel4.TabIndex = 26;
+            // 
+            // txtDescuento
+            // 
+            this.txtDescuento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescuento.Location = new System.Drawing.Point(512, 12);
+            this.txtDescuento.Margin = new System.Windows.Forms.Padding(10, 3, 40, 3);
+            this.txtDescuento.Name = "txtDescuento";
+            this.txtDescuento.ReadOnly = true;
+            this.txtDescuento.Size = new System.Drawing.Size(286, 23);
+            this.txtDescuento.TabIndex = 24;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(338, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(161, 47);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "N° Descuento";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // ckbPremium
+            // 
+            this.ckbPremium.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ckbPremium.AutoSize = true;
+            this.ckbPremium.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbPremium.Location = new System.Drawing.Point(155, 16);
+            this.ckbPremium.Name = "ckbPremium";
+            this.ckbPremium.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.ckbPremium.Size = new System.Drawing.Size(25, 14);
+            this.ckbPremium.TabIndex = 22;
+            this.ckbPremium.UseVisualStyleBackColor = true;
+            this.ckbPremium.CheckedChanged += new System.EventHandler(this.ckbPremium_CheckedChanged);
             // 
             // ABMClientes
             // 
@@ -354,6 +402,8 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -382,5 +432,8 @@
         private System.Windows.Forms.DateTimePicker pickerFechaNac;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TextBox txtConfirmarClave;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.TextBox txtDescuento;
+        private System.Windows.Forms.Label label3;
     }
 }

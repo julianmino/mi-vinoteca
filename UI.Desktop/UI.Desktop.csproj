@@ -44,6 +44,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -87,21 +88,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>yaguaronDBDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="yaguaronDBDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>yaguaronDBDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="yaguaronDBDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>yaguaronDBDataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="yaguaronDBDataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>yaguaronDBDataSet3.xsd</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="ABMClientes.resx">
       <DependentUpon>ABMClientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,39 +129,6 @@
     </None>
     <None Include="yaguaronDBDataSet.xss">
       <DependentUpon>yaguaronDBDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="yaguaronDBDataSet1.xsc">
-      <DependentUpon>yaguaronDBDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="yaguaronDBDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>yaguaronDBDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="yaguaronDBDataSet1.xss">
-      <DependentUpon>yaguaronDBDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="yaguaronDBDataSet2.xsc">
-      <DependentUpon>yaguaronDBDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="yaguaronDBDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>yaguaronDBDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="yaguaronDBDataSet2.xss">
-      <DependentUpon>yaguaronDBDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="yaguaronDBDataSet3.xsc">
-      <DependentUpon>yaguaronDBDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="yaguaronDBDataSet3.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>yaguaronDBDataSet3.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="yaguaronDBDataSet3.xss">
-      <DependentUpon>yaguaronDBDataSet3.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

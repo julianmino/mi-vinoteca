@@ -35,6 +35,11 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.clientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.yaguaronDBDataSet = new UI.Desktop.yaguaronDBDataSet();
+            this.clientesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.clientesTableAdapter = new UI.Desktop.yaguaronDBDataSetTableAdapters.clientesTableAdapter();
             this.idclienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,19 +47,15 @@
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.claveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechanacDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.yaguaronDBDataSet2 = new UI.Desktop.yaguaronDBDataSet2();
-            this.clientesTableAdapter = new UI.Desktop.yaguaronDBDataSet2TableAdapters.clientesTableAdapter();
-            this.yaguaronDBDataSet3 = new UI.Desktop.yaguaronDBDataSet3();
-            this.clientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.clientesTableAdapter1 = new UI.Desktop.yaguaronDBDataSet3TableAdapters.clientesTableAdapter();
+            this.premiumDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.iddescuentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -139,9 +140,11 @@
             this.usuarioDataGridViewTextBoxColumn,
             this.emailDataGridViewTextBoxColumn,
             this.claveDataGridViewTextBoxColumn,
-            this.fechanacDataGridViewTextBoxColumn});
+            this.fechanacDataGridViewTextBoxColumn,
+            this.premiumDataGridViewCheckBoxColumn,
+            this.iddescuentoDataGridViewTextBoxColumn});
             this.tableLayoutPanel1.SetColumnSpan(this.dgvClientes, 2);
-            this.dgvClientes.DataSource = this.clientesBindingSource1;
+            this.dgvClientes.DataSource = this.clientesBindingSource2;
             this.dgvClientes.Location = new System.Drawing.Point(3, 3);
             this.dgvClientes.MultiSelect = false;
             this.dgvClientes.Name = "dgvClientes";
@@ -150,75 +153,82 @@
             this.dgvClientes.Size = new System.Drawing.Size(825, 418);
             this.dgvClientes.TabIndex = 0;
             // 
+            // yaguaronDBDataSet
+            // 
+            this.yaguaronDBDataSet.DataSetName = "yaguaronDBDataSet";
+            this.yaguaronDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // clientesBindingSource2
+            // 
+            this.clientesBindingSource2.DataMember = "clientes";
+            this.clientesBindingSource2.DataSource = this.yaguaronDBDataSet;
+            // 
+            // clientesTableAdapter
+            // 
+            this.clientesTableAdapter.ClearBeforeFill = true;
+            // 
             // idclienteDataGridViewTextBoxColumn
             // 
             this.idclienteDataGridViewTextBoxColumn.DataPropertyName = "id_cliente";
             this.idclienteDataGridViewTextBoxColumn.HeaderText = "id_cliente";
             this.idclienteDataGridViewTextBoxColumn.Name = "idclienteDataGridViewTextBoxColumn";
+            this.idclienteDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nombreDataGridViewTextBoxColumn
             // 
             this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
             this.nombreDataGridViewTextBoxColumn.HeaderText = "nombre";
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // apellidoDataGridViewTextBoxColumn
             // 
             this.apellidoDataGridViewTextBoxColumn.DataPropertyName = "apellido";
             this.apellidoDataGridViewTextBoxColumn.HeaderText = "apellido";
             this.apellidoDataGridViewTextBoxColumn.Name = "apellidoDataGridViewTextBoxColumn";
+            this.apellidoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // usuarioDataGridViewTextBoxColumn
             // 
             this.usuarioDataGridViewTextBoxColumn.DataPropertyName = "usuario";
             this.usuarioDataGridViewTextBoxColumn.HeaderText = "usuario";
             this.usuarioDataGridViewTextBoxColumn.Name = "usuarioDataGridViewTextBoxColumn";
+            this.usuarioDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // emailDataGridViewTextBoxColumn
             // 
             this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
             this.emailDataGridViewTextBoxColumn.HeaderText = "email";
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // claveDataGridViewTextBoxColumn
             // 
             this.claveDataGridViewTextBoxColumn.DataPropertyName = "clave";
             this.claveDataGridViewTextBoxColumn.HeaderText = "clave";
             this.claveDataGridViewTextBoxColumn.Name = "claveDataGridViewTextBoxColumn";
+            this.claveDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // fechanacDataGridViewTextBoxColumn
             // 
             this.fechanacDataGridViewTextBoxColumn.DataPropertyName = "fecha_nac";
             this.fechanacDataGridViewTextBoxColumn.HeaderText = "fecha_nac";
             this.fechanacDataGridViewTextBoxColumn.Name = "fechanacDataGridViewTextBoxColumn";
+            this.fechanacDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // clientesBindingSource
+            // premiumDataGridViewCheckBoxColumn
             // 
-            this.clientesBindingSource.DataMember = "clientes";
-            this.clientesBindingSource.DataSource = this.yaguaronDBDataSet2;
+            this.premiumDataGridViewCheckBoxColumn.DataPropertyName = "premium";
+            this.premiumDataGridViewCheckBoxColumn.HeaderText = "premium";
+            this.premiumDataGridViewCheckBoxColumn.Name = "premiumDataGridViewCheckBoxColumn";
+            this.premiumDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
-            // yaguaronDBDataSet2
+            // iddescuentoDataGridViewTextBoxColumn
             // 
-            this.yaguaronDBDataSet2.DataSetName = "yaguaronDBDataSet2";
-            this.yaguaronDBDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // clientesTableAdapter
-            // 
-            this.clientesTableAdapter.ClearBeforeFill = true;
-            // 
-            // yaguaronDBDataSet3
-            // 
-            this.yaguaronDBDataSet3.DataSetName = "yaguaronDBDataSet3";
-            this.yaguaronDBDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // clientesBindingSource1
-            // 
-            this.clientesBindingSource1.DataMember = "clientes";
-            this.clientesBindingSource1.DataSource = this.yaguaronDBDataSet3;
-            // 
-            // clientesTableAdapter1
-            // 
-            this.clientesTableAdapter1.ClearBeforeFill = true;
+            this.iddescuentoDataGridViewTextBoxColumn.DataPropertyName = "id_descuento";
+            this.iddescuentoDataGridViewTextBoxColumn.HeaderText = "id_descuento";
+            this.iddescuentoDataGridViewTextBoxColumn.Name = "iddescuentoDataGridViewTextBoxColumn";
+            this.iddescuentoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Clientes
             // 
@@ -232,10 +242,10 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -245,12 +255,14 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.DataGridView dgvClientes;
-        private yaguaronDBDataSet2 yaguaronDBDataSet2;
         private System.Windows.Forms.BindingSource clientesBindingSource;
-        private yaguaronDBDataSet2TableAdapters.clientesTableAdapter clientesTableAdapter;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.BindingSource clientesBindingSource1;
+        private yaguaronDBDataSet yaguaronDBDataSet;
+        private System.Windows.Forms.BindingSource clientesBindingSource2;
+        private yaguaronDBDataSetTableAdapters.clientesTableAdapter clientesTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idclienteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
@@ -258,8 +270,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn claveDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechanacDataGridViewTextBoxColumn;
-        private yaguaronDBDataSet3 yaguaronDBDataSet3;
-        private System.Windows.Forms.BindingSource clientesBindingSource1;
-        private yaguaronDBDataSet3TableAdapters.clientesTableAdapter clientesTableAdapter1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn premiumDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iddescuentoDataGridViewTextBoxColumn;
     }
 }

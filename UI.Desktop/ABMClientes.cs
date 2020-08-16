@@ -9,11 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAL;
+using System.Security.Cryptography;
 
 namespace UI.Desktop
 {
     public partial class ABMClientes:ApplicationForm
     {
+        public int? id;
         public ABMClientes()
         {
             InitializeComponent();
@@ -24,12 +26,16 @@ namespace UI.Desktop
             Modo = modo;
         }
 
-        public ABMClientes(int id, ModoForm modo):this()
+        public ABMClientes(ModoForm modo, int? id=null):this()
         {
+            this.id = id;
             Modo = modo;
             ClienteLogic cliLog = new ClienteLogic();
-            cliente ClienteActual = cliLog.GetOne(id);
-            this.MapearDeDatos();
+            if (this.id!=null)
+            {
+                cliente ClienteActual = cliLog.GetOne((int)this.id);
+                this.MapearDeDatos();
+            }
         }
 
         public override void MapearDeDatos()
@@ -60,7 +66,17 @@ namespace UI.Desktop
             {
                 if (this.Modo == ModoForm.Alta)
                 {
-                    cliLog.Alta(txtNombre.Text, txtApellido.Text, txtUsuario.Text, txtEmail.Text, txtClave.Text, pickerFechaNac.Value, ckbPremium.Checked, 0);
+                    int? descuento;
+
+                    if (String.IsNullOrEmpty(txtDescuento.Text) || Double.IsNaN(int.Parse(txtDescuento.Text)))
+                    {
+                        descuento = null;
+                    }
+                    else
+                    {
+                        descuento = int.Parse(txtDescuento.Text);
+                    }
+                    cliLog.Alta(txtNombre.Text, txtApellido.Text, txtUsuario.Text, txtEmail.Text, txtClave.Text, pickerFechaNac.Value, ckbPremium.Checked, descuento);
                 }
                 else
                 {
@@ -147,6 +163,12 @@ namespace UI.Desktop
         private void ABMClientes_Load(object sender, EventArgs e)
         {
             pickerFechaNac.MaxDate = DateTime.Now.AddYears(-18);
+            txtDescuento.ReadOnly = (ckbPremium.Checked) ? false : true;
+        }
+
+        private void ckbPremium_CheckedChanged(object sender, EventArgs e)
+        {
+            txtDescuento.ReadOnly = false;
         }
     }
 }

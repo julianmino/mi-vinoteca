@@ -28,7 +28,7 @@ namespace Business.Logic
             return cliente;
         }
         public void Alta(string nombre, string apellido, string usuario, 
-            string email, string clave, DateTime fecha_nac,bool premium, int id_descuento)
+            string email, string clave, DateTime fecha_nac,bool premium, int? id_descuento)
         {
                 try
                 {
@@ -44,16 +44,17 @@ namespace Business.Logic
                         id_descuento = id_descuento
                     };
                     context.clientes.Add(cliente);
-                    context.Entry(cliente).State = System.Data.Entity.EntityState.Added;
+                    //context.Entry(cliente).State = System.Data.Entity.EntityState.Added;
                     context.SaveChanges();
 
                     //return cliente.id_cliente;
                 }
                 catch (Exception Ex)
                 {
-                    Console.WriteLine(Ex.InnerException?.Message);
-                    //return 0;
-                }
+                throw Ex;
+                //Console.WriteLine(Ex.InnerException?.Message);
+                //return 0;
+            }
         }
                 
         public void Modificacion(int id, string nombre, string apellido, string usuario,

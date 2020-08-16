@@ -22,18 +22,14 @@ namespace UI.Desktop
 
         public void Listar()
         {
-            
-            ClienteLogic cliLog = new ClienteLogic();
-
-            this.dgvClientes.DataSource = cliLog.GetAll();
+                ClienteLogic cliLog = new ClienteLogic();
+                dgvClientes.DataSource = cliLog.GetAll();
         }
 
         private void Clientes_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'yaguaronDBDataSet3.clientes' table. You can move, or remove it, as needed.
-            this.clientesTableAdapter1.Fill(this.yaguaronDBDataSet3.clientes);
-            // TODO: This line of code loads data into the 'yaguaronDBDataSet2.clientes' table. You can move, or remove it, as needed.
-            this.clientesTableAdapter.Fill(this.yaguaronDBDataSet2.clientes);
+            // TODO: This line of code loads data into the 'yaguaronDBDataSet.clientes' table. You can move, or remove it, as needed.
+            this.clientesTableAdapter.Fill(this.yaguaronDBDataSet.clientes);
             Listar();
         }
 
@@ -44,9 +40,20 @@ namespace UI.Desktop
             this.Listar();
         }
 
+        private int? GetId()
+        {
+            try
+            {
+                return int.Parse(dgvClientes.Rows[dgvClientes.CurrentRow.Index].Cells[0].Value.ToString());
+            }
+            catch
+            {
+                return null;
+            }
+        }
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (this.dgvClientes.SelectedRows != null)
+            /*if (this.dgvClientes.SelectedRows != null)
             {
                 int ID = ((cliente)this.dgvClientes.SelectedRows[0].DataBoundItem).id_cliente;
                 ABMClientes cliente = new ABMClientes(ID, ApplicationForm.ModoForm.Modificacion);
@@ -56,12 +63,20 @@ namespace UI.Desktop
             else
             {
                 MessageBox.Show("No seleccionaste ninguna fila");
+            }*/
+
+            int? id = GetId();
+            if (id!=null)
+            {
+                ABMClientes cliente = new ABMClientes(ApplicationForm.ModoForm.Modificacion, id);
+                cliente.ShowDialog();
+                this.Listar();
             }
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-            if (this.dgvClientes.SelectedRows != null)
+            /*if (this.dgvClientes.SelectedRows != null)
             {
                 int ID = ((cliente)this.dgvClientes.SelectedRows[0].DataBoundItem).id_cliente;
                 ABMClientes cliente = new ABMClientes(ID, ApplicationForm.ModoForm.Baja);
@@ -71,6 +86,14 @@ namespace UI.Desktop
             else
             {
                 MessageBox.Show("No seleccionaste ninguna fila");
+            }*/
+
+            int? id = GetId();
+            if (id != null)
+            {
+                ABMClientes cliente = new ABMClientes(ApplicationForm.ModoForm.Baja, id);
+                cliente.ShowDialog();
+                this.Listar();
             }
         }
     }
