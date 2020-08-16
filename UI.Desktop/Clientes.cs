@@ -46,9 +46,9 @@ namespace UI.Desktop
             {
                 return int.Parse(dgvClientes.Rows[dgvClientes.CurrentRow.Index].Cells[0].Value.ToString());
             }
-            catch
+            catch (Exception ex)
             {
-                return null;
+                throw ex;
             }
         }
         private void btnModificar_Click(object sender, EventArgs e)

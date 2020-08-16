@@ -23,9 +23,10 @@ namespace Business.Logic
         }
         public cliente GetOne(int id)
         {
-            cliente cliente = context.clientes.SingleOrDefault(x => x.id_cliente == id);
+            //¿POR QUE ESTO NO ANDA?
+            return context.clientes.SingleOrDefault(x => x.id_cliente == id);
 
-            return cliente;
+            //return context.clientes.Find(id);
         }
         public void Alta(string nombre, string apellido, string usuario, 
             string email, string clave, DateTime fecha_nac,bool premium, int? id_descuento)
@@ -58,12 +59,11 @@ namespace Business.Logic
         }
                 
         public void Modificacion(int id, string nombre, string apellido, string usuario,
-            string email, string clave, DateTime fecha_nac, bool premium, int id_descuento)
+            string email, string clave, DateTime fecha_nac, bool premium, int? id_descuento)
         {
-            using (var context = new YaguaronEntities())
-            {
                 try
                 {
+                    //cliente cliente = context.clientes.Find(id);
                     cliente cliente = this.GetOne(id);
                     {
                         cliente.nombre = nombre;
@@ -75,39 +75,32 @@ namespace Business.Logic
                         cliente.premium = premium;
                         cliente.id_descuento = id_descuento;
                     };
-                    context.clientes.Add(cliente);
                     context.Entry(cliente).State = System.Data.Entity.EntityState.Modified;
                     context.SaveChanges();
-
                 }
                 catch (Exception Ex)
                 {
                     Console.WriteLine(Ex.InnerException?.Message);
-                }
-            }
+                }  
         }
 
-        public void Baja(int ID)
+        public void Baja(int id)
         {
-            using (var context = new YaguaronEntities())
+            
+            cliente clienteAEliminar = this.GetOne(id);
+            if (clienteAEliminar != null)
             {
-                cliente clienteAEliminar = context.clientes.Find(ID);
-                if (clienteAEliminar != null)
-                {
-                    context.clientes.Remove(clienteAEliminar);
-                    context.SaveChanges();
-                }
+                context.clientes.Remove(clienteAEliminar);
+                context.SaveChanges();
             }
+            
         }
 
         public void Consulta(string filtro)
         {
-            using (var context = new YaguaronEntities())
+            foreach (var cliente in context.clientes.Where(u => u.usuario.Contains(filtro)))
             {
-                foreach (var cliente in context.clientes.Where(u => u.usuario.Contains(filtro)))
-                {
-                    Console.WriteLine(cliente.usuario);
-                }
+                Console.WriteLine(cliente.usuario);
             }
         }
 
