@@ -15,6 +15,7 @@ namespace UI.Desktop
 {
     public partial class ABMClientes:ApplicationForm
     {
+        public cliente ClienteActual;
         public int? id;
         public ABMClientes()
         {
@@ -33,7 +34,7 @@ namespace UI.Desktop
             ClienteLogic cliLog = new ClienteLogic();
             if (this.id!=null)
             {
-                cliente ClienteActual = cliLog.GetOne((int)this.id);
+                ClienteActual = cliLog.GetOne((int)this.id);
                 this.MapearDeDatos();
             }
         }

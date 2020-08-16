@@ -24,7 +24,7 @@ namespace UI.Desktop
         private ModoForm _Modo;
         public ModoForm Modo { get => _Modo; set => _Modo = value; }
 
-        public cliente ClienteActual;
+        
 
         public ApplicationForm()
         {
