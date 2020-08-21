@@ -63,6 +63,12 @@
     <Compile Include="ABMClientes.Designer.cs">
       <DependentUpon>ABMClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="ABMProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABMProductos.Designer.cs">
+      <DependentUpon>ABMProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,12 @@
     <Compile Include="Clientes.Designer.cs">
       <DependentUpon>Clientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Productos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos.Designer.cs">
+      <DependentUpon>Productos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="yaguaronDBDataSet.Designer.cs">
@@ -88,8 +100,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>yaguaronDBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="yaguaronDBDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>yaguaronDBDataSet1.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ABMClientes.resx">
       <DependentUpon>ABMClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABMProductos.resx">
+      <DependentUpon>ABMProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminMenu.resx">
       <DependentUpon>AdminMenu.cs</DependentUpon>
@@ -99,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos.resx">
+      <DependentUpon>Productos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -129,6 +152,17 @@
     </None>
     <None Include="yaguaronDBDataSet.xss">
       <DependentUpon>yaguaronDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="yaguaronDBDataSet1.xsc">
+      <DependentUpon>yaguaronDBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="yaguaronDBDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>yaguaronDBDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="yaguaronDBDataSet1.xss">
+      <DependentUpon>yaguaronDBDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

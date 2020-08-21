@@ -1,13 +1,7 @@
-namespace DAL
-{
-    using System;
-    using System.Collections.Generic;
+namespace DAL {
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
-    public partial class sysdiagram
-    {
+    public partial class sysdiagram {
         [Required]
         [StringLength(128)]
         public string name { get; set; }
@@ -20,5 +14,5 @@ namespace DAL
         public int? version { get; set; }
 
         public byte[] definition { get; set; }
+        }
     }
-}

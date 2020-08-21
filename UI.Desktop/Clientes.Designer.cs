@@ -35,11 +35,6 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
-            this.clientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.yaguaronDBDataSet = new UI.Desktop.yaguaronDBDataSet();
-            this.clientesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.clientesTableAdapter = new UI.Desktop.yaguaronDBDataSetTableAdapters.clientesTableAdapter();
             this.idclienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,13 +44,18 @@
             this.fechanacDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.premiumDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.iddescuentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.yaguaronDBDataSet = new UI.Desktop.yaguaronDBDataSet();
+            this.clientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clientesTableAdapter = new UI.Desktop.yaguaronDBDataSetTableAdapters.clientesTableAdapter();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -70,7 +70,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(831, 499);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(831, 315);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -83,11 +83,11 @@
             this.tableLayoutPanel2.Controls.Add(this.btnModificar, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnAgregar, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 427);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 270);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(825, 69);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(825, 42);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // btnBorrar
@@ -95,7 +95,7 @@
             this.btnBorrar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnBorrar.Location = new System.Drawing.Point(555, 3);
             this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(267, 63);
+            this.btnBorrar.Size = new System.Drawing.Size(267, 36);
             this.btnBorrar.TabIndex = 2;
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.UseVisualStyleBackColor = true;
@@ -106,7 +106,7 @@
             this.btnModificar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnModificar.Location = new System.Drawing.Point(275, 3);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(274, 63);
+            this.btnModificar.Size = new System.Drawing.Size(274, 36);
             this.btnModificar.TabIndex = 1;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
@@ -117,7 +117,7 @@
             this.btnAgregar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAgregar.Location = new System.Drawing.Point(3, 3);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(266, 63);
+            this.btnAgregar.Size = new System.Drawing.Size(266, 36);
             this.btnAgregar.TabIndex = 0;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -150,22 +150,8 @@
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClientes.Size = new System.Drawing.Size(825, 418);
+            this.dgvClientes.Size = new System.Drawing.Size(825, 261);
             this.dgvClientes.TabIndex = 0;
-            // 
-            // yaguaronDBDataSet
-            // 
-            this.yaguaronDBDataSet.DataSetName = "yaguaronDBDataSet";
-            this.yaguaronDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // clientesBindingSource2
-            // 
-            this.clientesBindingSource2.DataMember = "clientes";
-            this.clientesBindingSource2.DataSource = this.yaguaronDBDataSet;
-            // 
-            // clientesTableAdapter
-            // 
-            this.clientesTableAdapter.ClearBeforeFill = true;
             // 
             // idclienteDataGridViewTextBoxColumn
             // 
@@ -230,11 +216,25 @@
             this.iddescuentoDataGridViewTextBoxColumn.Name = "iddescuentoDataGridViewTextBoxColumn";
             this.iddescuentoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // clientesBindingSource2
+            // 
+            this.clientesBindingSource2.DataMember = "clientes";
+            this.clientesBindingSource2.DataSource = this.yaguaronDBDataSet;
+            // 
+            // yaguaronDBDataSet
+            // 
+            this.yaguaronDBDataSet.DataSetName = "yaguaronDBDataSet";
+            this.yaguaronDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // clientesTableAdapter
+            // 
+            this.clientesTableAdapter.ClearBeforeFill = true;
+            // 
             // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(831, 499);
+            this.ClientSize = new System.Drawing.Size(831, 315);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Clientes";
             this.Text = "Clientes";
@@ -242,10 +242,10 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).EndInit();
             this.ResumeLayout(false);
 
         }

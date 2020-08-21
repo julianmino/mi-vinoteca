@@ -1,20 +1,16 @@
-namespace DAL
-{
+namespace DAL {
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
     [Table("descuentos")]
-    public partial class descuento
-    {
+    public partial class descuento {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public descuento()
-        {
+        public descuento() {
             clientes = new HashSet<cliente>();
             pedidos = new HashSet<pedido>();
-        }
+            }
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -36,5 +32,5 @@ namespace DAL
         public virtual ICollection<pedido> pedidos { get; set; }
 
         public virtual producto producto { get; set; }
+        }
     }
-}
