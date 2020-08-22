@@ -26,15 +26,8 @@
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.txtID = new System.Windows.Forms.TextBox();
-            this.txtVolumenAlcohol = new System.Windows.Forms.TextBox();
-            this.txtIBU = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtProductor = new System.Windows.Forms.TextBox();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.txtAnio = new System.Windows.Forms.TextBox();
-            this.txtStock = new System.Windows.Forms.TextBox();
-            this.txtAnejamiento = new System.Windows.Forms.TextBox();
-            this.txtML = new System.Windows.Forms.TextBox();
             this.lblID = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,14 +40,28 @@
             this.label10 = new System.Windows.Forms.Label();
             this.cmbxTipo = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.numStock = new System.Windows.Forms.NumericUpDown();
+            this.numAniejamiento = new System.Windows.Forms.NumericUpDown();
+            this.numMl = new System.Windows.Forms.NumericUpDown();
+            this.numVolumenAlcohol = new System.Windows.Forms.NumericUpDown();
+            this.numIBU = new System.Windows.Forms.NumericUpDown();
+            this.numPrecio = new System.Windows.Forms.NumericUpDown();
+            this.numAnio = new System.Windows.Forms.NumericUpDown();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.yaguaronDBDataSet = new UI.Desktop.yaguaronDBDataSet();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientesTableAdapter = new UI.Desktop.yaguaronDBDataSetTableAdapters.clientesTableAdapter();
             this.yaguaronDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numStock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAniejamiento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numVolumenAlcohol)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numIBU)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPrecio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAnio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -73,15 +80,8 @@
             this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel.Controls.Add(this.txtID, 1, 0);
-            this.tableLayoutPanel.Controls.Add(this.txtVolumenAlcohol, 3, 0);
-            this.tableLayoutPanel.Controls.Add(this.txtIBU, 3, 1);
             this.tableLayoutPanel.Controls.Add(this.txtNombre, 1, 1);
             this.tableLayoutPanel.Controls.Add(this.txtProductor, 1, 2);
-            this.tableLayoutPanel.Controls.Add(this.txtPrecio, 3, 2);
-            this.tableLayoutPanel.Controls.Add(this.txtAnio, 3, 3);
-            this.tableLayoutPanel.Controls.Add(this.txtStock, 1, 3);
-            this.tableLayoutPanel.Controls.Add(this.txtAnejamiento, 1, 4);
-            this.tableLayoutPanel.Controls.Add(this.txtML, 1, 5);
             this.tableLayoutPanel.Controls.Add(this.lblID, 0, 0);
             this.tableLayoutPanel.Controls.Add(this.label1, 0, 1);
             this.tableLayoutPanel.Controls.Add(this.label2, 0, 2);
@@ -94,6 +94,13 @@
             this.tableLayoutPanel.Controls.Add(this.label10, 0, 5);
             this.tableLayoutPanel.Controls.Add(this.cmbxTipo, 3, 4);
             this.tableLayoutPanel.Controls.Add(this.label7, 2, 2);
+            this.tableLayoutPanel.Controls.Add(this.numStock, 1, 3);
+            this.tableLayoutPanel.Controls.Add(this.numAniejamiento, 1, 4);
+            this.tableLayoutPanel.Controls.Add(this.numMl, 1, 5);
+            this.tableLayoutPanel.Controls.Add(this.numVolumenAlcohol, 3, 0);
+            this.tableLayoutPanel.Controls.Add(this.numIBU, 3, 1);
+            this.tableLayoutPanel.Controls.Add(this.numPrecio, 3, 2);
+            this.tableLayoutPanel.Controls.Add(this.numAnio, 3, 3);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
@@ -116,22 +123,6 @@
             this.txtID.Size = new System.Drawing.Size(215, 20);
             this.txtID.TabIndex = 0;
             // 
-            // txtVolumenAlcohol
-            // 
-            this.txtVolumenAlcohol.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtVolumenAlcohol.Location = new System.Drawing.Point(412, 10);
-            this.txtVolumenAlcohol.Name = "txtVolumenAlcohol";
-            this.txtVolumenAlcohol.Size = new System.Drawing.Size(217, 20);
-            this.txtVolumenAlcohol.TabIndex = 5;
-            // 
-            // txtIBU
-            // 
-            this.txtIBU.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtIBU.Location = new System.Drawing.Point(412, 50);
-            this.txtIBU.Name = "txtIBU";
-            this.txtIBU.Size = new System.Drawing.Size(217, 20);
-            this.txtIBU.TabIndex = 6;
-            // 
             // txtNombre
             // 
             this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -147,46 +138,6 @@
             this.txtProductor.Name = "txtProductor";
             this.txtProductor.Size = new System.Drawing.Size(215, 20);
             this.txtProductor.TabIndex = 1;
-            // 
-            // txtPrecio
-            // 
-            this.txtPrecio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPrecio.Location = new System.Drawing.Point(412, 90);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(217, 20);
-            this.txtPrecio.TabIndex = 7;
-            // 
-            // txtAnio
-            // 
-            this.txtAnio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAnio.Location = new System.Drawing.Point(412, 130);
-            this.txtAnio.Name = "txtAnio";
-            this.txtAnio.Size = new System.Drawing.Size(217, 20);
-            this.txtAnio.TabIndex = 8;
-            // 
-            // txtStock
-            // 
-            this.txtStock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtStock.Location = new System.Drawing.Point(97, 130);
-            this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(215, 20);
-            this.txtStock.TabIndex = 2;
-            // 
-            // txtAnejamiento
-            // 
-            this.txtAnejamiento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAnejamiento.Location = new System.Drawing.Point(97, 170);
-            this.txtAnejamiento.Name = "txtAnejamiento";
-            this.txtAnejamiento.Size = new System.Drawing.Size(215, 20);
-            this.txtAnejamiento.TabIndex = 3;
-            // 
-            // txtML
-            // 
-            this.txtML.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtML.Location = new System.Drawing.Point(97, 212);
-            this.txtML.Name = "txtML";
-            this.txtML.Size = new System.Drawing.Size(215, 20);
-            this.txtML.TabIndex = 4;
             // 
             // lblID
             // 
@@ -295,13 +246,18 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(88, 13);
             this.label10.TabIndex = 1;
-            this.label10.Text = "ML";
+            this.label10.Text = "ml";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cmbxTipo
             // 
             this.cmbxTipo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbxTipo.FormattingEnabled = true;
+            this.cmbxTipo.Items.AddRange(new object[] {
+            "Cervezas",
+            "Licores",
+            "Vinos",
+            "Whiskies"});
             this.cmbxTipo.Location = new System.Drawing.Point(412, 169);
             this.cmbxTipo.Name = "cmbxTipo";
             this.cmbxTipo.Size = new System.Drawing.Size(217, 21);
@@ -318,6 +274,105 @@
             this.label7.TabIndex = 1;
             this.label7.Text = "Precio   $";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // numStock
+            // 
+            this.numStock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.numStock.Location = new System.Drawing.Point(97, 130);
+            this.numStock.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numStock.Name = "numStock";
+            this.numStock.Size = new System.Drawing.Size(215, 20);
+            this.numStock.TabIndex = 2;
+            this.numStock.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // numAniejamiento
+            // 
+            this.numAniejamiento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.numAniejamiento.Location = new System.Drawing.Point(97, 170);
+            this.numAniejamiento.Name = "numAniejamiento";
+            this.numAniejamiento.Size = new System.Drawing.Size(215, 20);
+            this.numAniejamiento.TabIndex = 3;
+            this.numAniejamiento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // numMl
+            // 
+            this.numMl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.numMl.Location = new System.Drawing.Point(97, 212);
+            this.numMl.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numMl.Name = "numMl";
+            this.numMl.Size = new System.Drawing.Size(215, 20);
+            this.numMl.TabIndex = 4;
+            this.numMl.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // numVolumenAlcohol
+            // 
+            this.numVolumenAlcohol.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.numVolumenAlcohol.Location = new System.Drawing.Point(412, 10);
+            this.numVolumenAlcohol.Name = "numVolumenAlcohol";
+            this.numVolumenAlcohol.Size = new System.Drawing.Size(217, 20);
+            this.numVolumenAlcohol.TabIndex = 5;
+            this.numVolumenAlcohol.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // numIBU
+            // 
+            this.numIBU.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.numIBU.Location = new System.Drawing.Point(412, 50);
+            this.numIBU.Maximum = new decimal(new int[] {
+            120,
+            0,
+            0,
+            0});
+            this.numIBU.Name = "numIBU";
+            this.numIBU.Size = new System.Drawing.Size(217, 20);
+            this.numIBU.TabIndex = 6;
+            this.numIBU.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // numPrecio
+            // 
+            this.numPrecio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.numPrecio.DecimalPlaces = 2;
+            this.numPrecio.Location = new System.Drawing.Point(412, 90);
+            this.numPrecio.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numPrecio.Name = "numPrecio";
+            this.numPrecio.Size = new System.Drawing.Size(217, 20);
+            this.numPrecio.TabIndex = 7;
+            this.numPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // numAnio
+            // 
+            this.numAnio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.numAnio.Location = new System.Drawing.Point(412, 130);
+            this.numAnio.Maximum = new decimal(new int[] {
+            3000,
+            0,
+            0,
+            0});
+            this.numAnio.Minimum = new decimal(new int[] {
+            1945,
+            0,
+            0,
+            0});
+            this.numAnio.Name = "numAnio";
+            this.numAnio.Size = new System.Drawing.Size(217, 20);
+            this.numAnio.TabIndex = 8;
+            this.numAnio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numAnio.Value = new decimal(new int[] {
+            2014,
+            0,
+            0,
+            0});
             // 
             // splitContainer1
             // 
@@ -338,19 +393,6 @@
             this.splitContainer1.SplitterDistance = 245;
             this.splitContainer1.TabIndex = 1;
             // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.btnCancelar.AutoSize = true;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancelar.Location = new System.Drawing.Point(510, 3);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(96, 34);
-            this.btnCancelar.TabIndex = 1;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
             // btnAceptar
             // 
             this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
@@ -363,6 +405,19 @@
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.btnCancelar.AutoSize = true;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancelar.Location = new System.Drawing.Point(510, 3);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(96, 34);
+            this.btnCancelar.TabIndex = 1;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // yaguaronDBDataSet
             // 
@@ -384,6 +439,13 @@
             this.Load += new System.EventHandler(this.ABMProductos_Load);
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAniejamiento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numVolumenAlcohol)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numIBU)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPrecio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAnio)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -401,15 +463,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.TextBox txtVolumenAlcohol;
-        private System.Windows.Forms.TextBox txtIBU;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtProductor;
-        private System.Windows.Forms.TextBox txtPrecio;
-        private System.Windows.Forms.TextBox txtAnio;
-        private System.Windows.Forms.TextBox txtStock;
-        private System.Windows.Forms.TextBox txtAnejamiento;
-        private System.Windows.Forms.TextBox txtML;
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -428,5 +483,12 @@
         private System.Windows.Forms.BindingSource clientesBindingSource;
         private yaguaronDBDataSetTableAdapters.clientesTableAdapter clientesTableAdapter;
         private System.Windows.Forms.BindingSource yaguaronDBDataSetBindingSource;
+        private System.Windows.Forms.NumericUpDown numStock;
+        private System.Windows.Forms.NumericUpDown numAniejamiento;
+        private System.Windows.Forms.NumericUpDown numMl;
+        private System.Windows.Forms.NumericUpDown numVolumenAlcohol;
+        private System.Windows.Forms.NumericUpDown numIBU;
+        private System.Windows.Forms.NumericUpDown numPrecio;
+        private System.Windows.Forms.NumericUpDown numAnio;
         }
     }

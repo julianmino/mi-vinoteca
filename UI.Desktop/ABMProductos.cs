@@ -15,7 +15,7 @@ namespace UI.Desktop {
         public producto ProductoActual;
         public int? id;
         public ABMProductos() {
-            InitializeComponent();
+            InitializeComponent();            
             }
         public ABMProductos(ModoForm modo) : this() {
             Modo = modo;
@@ -31,14 +31,14 @@ namespace UI.Desktop {
             }
         public override void MapearDeDatos() {
             txtID.Text = ProductoActual.id_producto.ToString();
-            txtAnejamiento.Text = ProductoActual.añejamiento.ToString();
-            txtAnio.Text = ProductoActual.año.ToString();
-            txtIBU.Text = ProductoActual.ibu.ToString();
-            txtML.Text = ProductoActual.ml.ToString();
+            numAniejamiento.Value = Convert.ToInt32(ProductoActual.añejamiento);
+            numAnio.Value = Convert.ToInt32(ProductoActual.año);
+            numIBU.Value = Convert.ToDecimal(ProductoActual.ibu);
+            numMl.Value = Convert.ToDecimal(ProductoActual.ml);
             txtNombre.Text = ProductoActual.nombre;
-            txtPrecio.Text = ProductoActual.precio.ToString();
+            numPrecio.Value = Convert.ToDecimal(ProductoActual.precio);
             txtProductor.Text = ProductoActual.productor;
-            txtStock.Text = ProductoActual.stock.ToString();
+            numStock.Value = ProductoActual.stock;
             cmbxTipo.Text = ProductoActual.tipo;
 
             switch (this.Modo) {
@@ -55,17 +55,21 @@ namespace UI.Desktop {
 
             if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion) {
                 if (this.Modo == ModoForm.Alta) {
-                    prodLog.Alta(txtNombre.Text, txtProductor.Text, double.Parse(txtPrecio.Text),
-                        int.Parse(txtStock.Text), cmbxTipo.Text, double.Parse(txtVolumenAlcohol.Text),
-                        double.Parse(txtML.Text), double.Parse(txtIBU.Text), int.Parse(txtAnio.Text),
-                        int.Parse(txtAnejamiento.Text)
-                       );
+                    prodLog.Alta(txtNombre.Text, txtProductor.Text,Convert.ToDouble(numPrecio.Value),
+                        Convert.ToInt32(numStock.Value), cmbxTipo.Text,
+                        Convert.ToDouble(numVolumenAlcohol.Value),
+                        Convert.ToDouble(numMl.Value), Convert.ToDouble(numIBU.Value),
+                        Convert.ToInt32(numAnio.Value),
+                        Convert.ToInt32(numAniejamiento.Value));
                     }
                 else {
-                    prodLog.Modificacion(int.Parse(txtID.Text), txtNombre.Text, txtProductor.Text, double.Parse(txtPrecio.Text),
-                        int.Parse(txtStock.Text), cmbxTipo.Text, double.Parse(txtVolumenAlcohol.Text),
-                        double.Parse(txtML.Text), double.Parse(txtIBU.Text), int.Parse(txtAnio.Text),
-                        int.Parse(txtAnejamiento.Text));
+                    prodLog.Modificacion(int.Parse(txtID.Text), txtNombre.Text, txtProductor.Text,
+                        Convert.ToDouble(numPrecio.Value),
+                        Convert.ToInt32(numStock.Value),cmbxTipo.Text,
+                        Convert.ToDouble(numVolumenAlcohol.Value),
+                        Convert.ToDouble(numMl.Value), Convert.ToDouble(numIBU.Value),
+                        Convert.ToInt32(numAnio.Value),
+                        Convert.ToInt32(numAniejamiento.Value));
                     }                
                 }
                 else if (this.Modo == ModoForm.Baja) {
