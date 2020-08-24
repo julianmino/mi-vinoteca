@@ -58,7 +58,7 @@
 
                                  <label>Fecha de Nacimiento</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="txtFechaNac" runat="server" placeholder="" TextMode="Date" OnTextChanged="TextBox8_TextChanged"></asp:TextBox>
+                                      <asp:TextBox CssClass="form-control" ID="txtFechaNac" runat="server" placeholder="" TextMode="Date"></asp:TextBox>
                                     <small id="birthHelp" class="form-text text-muted">Debes ser mayor de edad</small>
 
                                 </div>
@@ -109,7 +109,7 @@
                                 <div class="form-group">
                                     <%-- falta el manejador de eventos, lo veremos en el siguiente episodio, eso es todo amigos --%>
 
-                                    <asp:Button class="btn btn-success btn-block btn-lg" ID="btnRegistrar" runat="server" Text="Registrarse" />
+                                    <asp:Button class="btn btn-success btn-block btn-lg" ID="btnRegistrar" runat="server" Text="Registrarse" OnClick="btnRegistrar_Click" />
 
                                 </div>
                             </div>
