@@ -1,8 +1,13 @@
-namespace DAL {
+namespace DAL
+{
+    using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
-    public partial class lineas_pedidos {
+    public partial class lineas_pedidos
+    {
         [Key]
         [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -20,5 +25,5 @@ namespace DAL {
         public virtual producto producto { get; set; }
 
         public virtual pedido pedido { get; set; }
-        }
     }
+}

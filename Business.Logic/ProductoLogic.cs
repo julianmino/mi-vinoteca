@@ -18,15 +18,14 @@ namespace Business.Logic {
             return context.productos.SingleOrDefault(x => x.id_producto == id);
             }
         public void Alta(string nombre, string productor, double precio,
-            int stock, string tipo, double vol_alcohol, double ml, double? ibu,
+            int stock, double vol_alcohol, double ml, double? ibu,
             int? año, int? añejamiento) {
             try {
                 var producto = new producto() {
                     nombre = nombre,
                     productor = productor,
                     precio = precio,
-                    stock = stock,
-                    tipo = tipo,
+                    stock = stock,                    
                     vol_alcohol = vol_alcohol,
                     ibu = ibu,
                     ml = ml,
@@ -42,7 +41,7 @@ namespace Business.Logic {
                 }
             }
         public void Modificacion(int id, string nombre, string productor, double precio,
-            int stock, string tipo, double vol_alcohol,double ml, double? ibu,
+            int stock, double vol_alcohol,double ml, double? ibu,
             int? año, int? añejamiento) {
             try {                
                 producto producto = this.GetOne(id);
@@ -50,8 +49,7 @@ namespace Business.Logic {
                     producto.nombre = nombre;
                     producto.productor = productor;
                     producto.precio = precio;
-                    producto.stock = stock;
-                    producto.tipo = tipo;
+                    producto.stock = stock;                    
                     producto.vol_alcohol = vol_alcohol;
                     producto.ibu = ibu;
                     producto.ml = ml;

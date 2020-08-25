@@ -1,15 +1,19 @@
-namespace DAL {
+namespace DAL
+{
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("pedidos")]
-    public partial class pedido {
+    public partial class pedido
+    {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public pedido() {
+        public pedido()
+        {
             lineas_pedidos = new HashSet<lineas_pedidos>();
-            }
+        }
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -32,5 +36,5 @@ namespace DAL {
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<lineas_pedidos> lineas_pedidos { get; set; }
-        }
     }
+}

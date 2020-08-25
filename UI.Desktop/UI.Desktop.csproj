@@ -100,11 +100,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>yaguaronDBDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="yaguaronDBDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>yaguaronDBDataSet1.xsd</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="ABMClientes.resx">
       <DependentUpon>ABMClientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -152,17 +147,6 @@
     </None>
     <None Include="yaguaronDBDataSet.xss">
       <DependentUpon>yaguaronDBDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="yaguaronDBDataSet1.xsc">
-      <DependentUpon>yaguaronDBDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="yaguaronDBDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>yaguaronDBDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="yaguaronDBDataSet1.xss">
-      <DependentUpon>yaguaronDBDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

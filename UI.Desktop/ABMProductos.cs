@@ -38,8 +38,7 @@ namespace UI.Desktop {
             txtNombre.Text = ProductoActual.nombre;
             numPrecio.Value = Convert.ToDecimal(ProductoActual.precio);
             txtProductor.Text = ProductoActual.productor;
-            numStock.Value = ProductoActual.stock;
-            cmbxTipo.Text = ProductoActual.tipo;
+            numStock.Value = ProductoActual.stock;            
 
             switch (this.Modo) {
                 case ModoForm.Alta: this.btnAceptar.Text = "Guardar"; break;
@@ -56,7 +55,7 @@ namespace UI.Desktop {
             if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion) {
                 if (this.Modo == ModoForm.Alta) {
                     prodLog.Alta(txtNombre.Text, txtProductor.Text,Convert.ToDouble(numPrecio.Value),
-                        Convert.ToInt32(numStock.Value), cmbxTipo.Text,
+                        Convert.ToInt32(numStock.Value),
                         Convert.ToDouble(numVolumenAlcohol.Value),
                         Convert.ToDouble(numMl.Value), Convert.ToDouble(numIBU.Value),
                         Convert.ToInt32(numAnio.Value),
@@ -65,7 +64,7 @@ namespace UI.Desktop {
                 else {
                     prodLog.Modificacion(int.Parse(txtID.Text), txtNombre.Text, txtProductor.Text,
                         Convert.ToDouble(numPrecio.Value),
-                        Convert.ToInt32(numStock.Value),cmbxTipo.Text,
+                        Convert.ToInt32(numStock.Value),
                         Convert.ToDouble(numVolumenAlcohol.Value),
                         Convert.ToDouble(numMl.Value), Convert.ToDouble(numIBU.Value),
                         Convert.ToInt32(numAnio.Value),
