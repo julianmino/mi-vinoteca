@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace UI.Console
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
+﻿using Business.Logic;
+namespace UI.Consola {
+    class Program {
+        static void Main(string[] args) {
+            ClienteLogic cliLog = new ClienteLogic();
+            }
         }
     }
-}

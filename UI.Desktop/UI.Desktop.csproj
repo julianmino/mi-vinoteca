@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,7 +36,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -51,6 +62,12 @@
     </Compile>
     <Compile Include="ABMClientes.Designer.cs">
       <DependentUpon>ABMClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABMProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABMProductos.Designer.cs">
+      <DependentUpon>ABMProductos.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminMenu.cs">
       <SubType>Form</SubType>
@@ -70,6 +87,12 @@
     <Compile Include="Clientes.Designer.cs">
       <DependentUpon>Clientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Productos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos.Designer.cs">
+      <DependentUpon>Productos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="yaguaronDBDataSet.Designer.cs">
@@ -82,18 +105,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>yaguaronDBDataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="yaguaronDBDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>yaguaronDBDataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="yaguaronDBDataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>yaguaronDBDataSet3.xsd</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="ABMClientes.resx">
       <DependentUpon>ABMClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABMProductos.resx">
+      <DependentUpon>ABMProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminMenu.resx">
       <DependentUpon>AdminMenu.cs</DependentUpon>
@@ -104,6 +120,9 @@
     <EmbeddedResource Include="Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Productos.resx">
+      <DependentUpon>Productos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -113,6 +132,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -144,45 +164,27 @@
     <None Include="yaguaronDBDataSet1.xss">
       <DependentUpon>yaguaronDBDataSet1.xsd</DependentUpon>
     </None>
-    <None Include="yaguaronDBDataSet2.xsc">
-      <DependentUpon>yaguaronDBDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="yaguaronDBDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>yaguaronDBDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="yaguaronDBDataSet2.xss">
-      <DependentUpon>yaguaronDBDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="yaguaronDBDataSet3.xsc">
-      <DependentUpon>yaguaronDBDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="yaguaronDBDataSet3.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>yaguaronDBDataSet3.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="yaguaronDBDataSet3.xss">
-      <DependentUpon>yaguaronDBDataSet3.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Business.Entities\Business.Entities.csproj">
-      <Project>{d1513948-bae9-416c-9789-e5b877a6a81b}</Project>
-      <Name>Business.Entities</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Business.Logic\Business.Logic.csproj">
       <Project>{4074e5bc-e273-4231-996b-9ea0a5e4b3c7}</Project>
       <Name>Business.Logic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Data.Database\Data.Database.csproj">
-      <Project>{116ec45b-2448-4d4a-a852-d563524a8a2b}</Project>
-      <Name>Data.Database</Name>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{06e918bc-170f-4358-9a91-247b0be20213}</Project>
+      <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>

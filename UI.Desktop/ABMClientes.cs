@@ -1,182 +1,226 @@
-﻿using Business.Entities;
-using Business.Logic;
-using Data.Database;
+﻿using Business.Logic;
+using DAL;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UI.Desktop
-{
-    public partial class ABMClientes:ApplicationForm
-    {
-        public ABMClientes()
-        {
+namespace UI.Desktop {
+    public partial class ABMClientes : ApplicationForm {
+        public cliente ClienteActual;
+        public int? id;
+        public ABMClientes() {
             InitializeComponent();
-        }
+            }
 
-        public ABMClientes(ModoForm modo):this()
-        {
+        public ABMClientes(ModoForm modo) : this() {
             Modo = modo;
-        }
+            }
 
-        public ABMClientes(int id, ModoForm modo):this()
-        {
+        public ABMClientes(ModoForm modo, int? id = null) : this() {
+            this.id = id;
             Modo = modo;
-            ClienteAdapter cliData = new ClienteAdapter();
-            ClienteLogic cliLog = new ClienteLogic(cliData);
-            ClienteActual = cliLog.GetOne(id);
-            this.MapearDeDatos();
-        }
+            ClienteLogic cliLog = new ClienteLogic();
+            if (this.id != null) {
+                ClienteActual = cliLog.GetOne((int)this.id);
+                this.MapearDeDatos();
+                }
+            }
 
-        public override void MapearDeDatos()
-        {
-            this.txtID.Text = this.ClienteActual.ID.ToString();
-            this.txtNombre.Text = this.ClienteActual.Nombre;
-            this.txtApellido.Text = this.ClienteActual.Apellido;
-            this.txtUsuario.Text = this.ClienteActual.Usuario;
-            this.txtEmail.Text = this.ClienteActual.Email;
-            this.txtClave.Text = this.ClienteActual.Clave;
-            this.pickerFechaNac.Value = this.ClienteActual.FechaNac;
-            this.ckbPremium.Checked = this.ClienteActual.Premium;
+        public override void MapearDeDatos() {
+            this.txtID.Text = this.ClienteActual.id_cliente.ToString();
+            this.txtNombre.Text = this.ClienteActual.nombre;
+            this.txtApellido.Text = this.ClienteActual.apellido;
+            this.txtUsuario.Text = this.ClienteActual.usuario;
+            this.txtEmail.Text = this.ClienteActual.email;
+            this.txtClave.Text = this.ClienteActual.clave;
+            this.pickerFechaNac.Value = this.ClienteActual.fecha_nac;
+            this.ckbPremium.Checked = this.ClienteActual.premium;
 
-            
-           
-            
-            
-
-            switch (this.Modo)
-            {
+            switch (this.Modo) {
                 case ModoForm.Alta: this.btnAceptar.Text = "Guardar"; break;
                 case ModoForm.Modificacion: this.btnAceptar.Text = "Guardar"; break;
                 case ModoForm.Baja: this.btnAceptar.Text = "Eliminar"; break;
                 case ModoForm.Consulta: this.btnAceptar.Text = "Aceptar"; break;
-            }
-
-        }
-
-        public override void MapearADatos()
-        {
-            if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion)
-            {
-                if (this.Modo == ModoForm.Alta)
-                {
-                    ClienteActual = new Cliente();
-                    ClienteActual.State = BusinessEntity.States.New;
                 }
-                else
-                {
-                    this.ClienteActual.ID = int.Parse(this.txtID.Text);
-                    this.ClienteActual.State = BusinessEntity.States.Modified;
-                }
-
-                this.ClienteActual.Nombre = this.txtNombre.Text;
-                this.ClienteActual.Apellido = this.txtApellido.Text;
-                this.ClienteActual.Usuario = this.txtUsuario.Text;
-                this.ClienteActual.Email = this.txtEmail.Text;
-                this.ClienteActual.Clave = this.txtClave.Text;
-                this.ClienteActual.FechaNac = this.pickerFechaNac.Value;
-                this.ClienteActual.Premium = this.ckbPremium.Checked;
-
             }
 
-            else if (this.Modo == ModoForm.Baja)
-            {
-                this.ClienteActual.State = BusinessEntity.States.Deleted;
-            }
+        public override void MapearADatos() {
+            ClienteLogic cliLog = new ClienteLogic();
 
-            else
-            {
-                this.ClienteActual.State = BusinessEntity.States.Unmodified;
-            }
-        }
+            if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion) {
+                int? descuento;
 
-        public override void GuardarCambios()
-        {
-            this.MapearADatos();
-            ClienteAdapter cliData = new ClienteAdapter();
-            ClienteLogic cliLog = new ClienteLogic(cliData);
-            cliLog.Save(ClienteActual);
-        }
-
-        public override bool Validar()
-        {
-            string errorMessage = "";
-            bool ban = false;
-            int error = 0;
-            if (this.txtNombre.Text != null)
-            {
-                if (this.txtApellido.Text != null)
-                {
-                    if (this.txtClave.TextLength >= 6)
-                    {
-                        if (this.txtClave.Text == this.txtConfirmarClave.Text)
-                        {
-                            if (this.txtEmail.Text.Contains("@") && this.txtEmail.Text.Contains(".com"))
-                            {
-                                if (this.txtUsuario.Text != null)
-                                {
-
-                                    ban = true;
-                                }
-                                else { error = 6; }
-                            }
-                            else { error = 5; }
-
-                        }
-                        else { error = 4; }
+                if (String.IsNullOrEmpty(txtDescuento.Text) || Double.IsNaN(int.Parse(txtDescuento.Text))) {
+                    descuento = null;
                     }
-                    else { error = 3; }
+                else {
+                    descuento = int.Parse(txtDescuento.Text);
+                    }
+
+                if (this.Modo == ModoForm.Alta) {
+
+                    cliLog.Alta(txtNombre.Text, txtApellido.Text, txtUsuario.Text, txtEmail.Text, txtClave.Text, pickerFechaNac.Value, ckbPremium.Checked, descuento);
+                    }
+                else {
+                    cliLog.Modificacion(int.Parse(txtID.Text), txtNombre.Text, txtApellido.Text, txtUsuario.Text, txtEmail.Text, txtClave.Text, pickerFechaNac.Value, ckbPremium.Checked, descuento);
+                    }
                 }
-                else { error = 2; }
-            }
-            else { error = 1; }
 
-            if (!ban)
-            {
-                switch(error)
-                {
-                    case 1: errorMessage = "Debe ingresar un nombre";break;
-                    case 2: errorMessage = "Debe ingresar un apellido";break;
-                    case 3: errorMessage = "Debe ingresar una clave con más de 6 caracteres"; break;
-                    case 4: errorMessage = "Las claves ingresadas no coinciden"; break;
-                    case 5: errorMessage = "El email posee un formato inválido"; break;
-                    case 6: errorMessage = "Debe ingresar un nombre de usuario"; break;
-                    default: errorMessage = "";break;
+            else if (this.Modo == ModoForm.Baja) {
+                DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar a " + txtNombre.Text + " " + txtApellido.Text + " de la base de datos?", "Confirmar Baja", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes) {
+                    cliLog.Baja(int.Parse(txtID.Text));
+                    }
                 }
-                this.Notificar(errorMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return ban;
-            }
-            else
-            {
-                return ban;
             }
 
-        }
+        public override bool Validar() {
+            // Los valores de los msgLabel son seteados en los eventos TextChanged de cada TextBox
+            bool ban = false;
 
-        private void btnAceptar_Click(object sender, EventArgs e)
-        {
+            msgNombre.Visible = !String.IsNullOrEmpty(msgNombre.Text);
+            msgApellido.Visible = !String.IsNullOrEmpty(msgApellido.Text);
+            msgUsuario.Visible = !String.IsNullOrEmpty(msgUsuario.Text);
+            msgEmail.Visible = !String.IsNullOrEmpty(msgEmail.Text);
+            msgClave.Visible = !String.IsNullOrEmpty(msgClave.Text);
+            msgConfirmarClave.Visible = !String.IsNullOrEmpty(msgConfirmarClave.Text);
+
+            if (!msgNombre.Visible) {
+                if (!msgApellido.Visible) {
+                    if (!msgUsuario.Visible) {
+                        if (!msgEmail.Visible) {
+                            if (!msgClave.Visible) {
+                                if (!msgConfirmarClave.Visible) {
+                                    ban = true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+            return ban;
+            }
+
+        private void btnAceptar_Click(object sender, EventArgs e) {
             Validar();
-            if (Validar())
-            {
-                GuardarCambios();
+            if (Validar()) {
+                MapearADatos();
                 this.Dispose();
+                }
             }
-        }
 
-        private void BtnCancelar_Click(object sender, EventArgs e)
-        {
+        private void BtnCancelar_Click(object sender, EventArgs e) {
             this.Dispose();
-        }
+            }
 
-        private void ABMClientes_Load(object sender, EventArgs e)
-        {
+        private void ABMClientes_Load(object sender, EventArgs e) {
             pickerFechaNac.MaxDate = DateTime.Now.AddYears(-18);
+            txtDescuento.ReadOnly = (ckbPremium.Checked) ? false : true;
+
+            //Seteo de ReadOnly si el Formulario es de Baja o de Consulta
+            if (Modo == ModoForm.Baja || Modo == ModoForm.Consulta) {
+                txtNombre.ReadOnly = true;
+                txtApellido.ReadOnly = true;
+                txtUsuario.ReadOnly = true;
+                txtEmail.ReadOnly = true;
+                txtClave.ReadOnly = true;
+                pickerFechaNac.Enabled = false;
+                ckbPremium.Enabled = false;
+                txtDescuento.ReadOnly = true;
+                }
+            }
+
+        private void ckbPremium_CheckedChanged(object sender, EventArgs e) {
+            txtDescuento.ReadOnly = (ckbPremium.Checked) ? false : true;
+            txtDescuento.Text = (!ckbPremium.Checked && !String.IsNullOrEmpty(txtDescuento.Text)) ? null : txtDescuento.Text;
+            }        
+
+        private void txtNombre_TextChanged(object sender, EventArgs e) {
+            if (String.IsNullOrEmpty(txtNombre.Text)) {
+                msgNombre.Text = "Debe ingresar un nombre";
+                }
+            else {
+                msgNombre.Text = null;
+                }
+
+            msgNombre.Visible = !String.IsNullOrEmpty(msgNombre.Text);
+            }
+
+        private void txtApellido_TextChanged(object sender, EventArgs e) {
+            if (String.IsNullOrEmpty(txtApellido.Text)) {
+                msgApellido.Text = "Debe ingresar un apellido";
+                }
+            else {
+                msgApellido.Text = null;
+                }
+
+            msgApellido.Visible = (msgApellido.Text == null) ? false : true;
+            }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e) {
+            if (String.IsNullOrEmpty(txtUsuario.Text)) {
+                msgUsuario.Text = "Debe ingresar un nombre de usuario";
+                }
+            else {
+                msgUsuario.Text = null;
+                }
+            msgUsuario.Visible = (msgUsuario.Text == null) ? false : true;
+            }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e) {
+            if (String.IsNullOrEmpty(txtEmail.Text)) {
+                msgEmail.Text = "Debe ingresar un email";
+                }
+            else if (!txtEmail.Text.Contains("@") || !txtEmail.Text.Contains(".com")) {
+                msgEmail.Text = "El email posee un formato inválido";
+                }
+            else {
+                msgEmail.Text = null;
+                }
+            msgEmail.Visible = (msgEmail.Text == null) ? false : true;
+            }
+
+        private void txtClave_TextChanged(object sender, EventArgs e) {
+            if (String.IsNullOrEmpty(txtClave.Text)) {
+                msgClave.Text = "Debe ingresar una clave";
+                }
+            else if (txtClave.TextLength < 6) {
+                msgClave.Text = "Debe ingresar una clave con 6 o más caracteres";
+                if (!String.IsNullOrEmpty(txtConfirmarClave.Text)) {
+                    if (txtClave.Text != txtConfirmarClave.Text) {
+                        msgConfirmarClave.Text = "Las claves ingresadas no coinciden";
+                        }
+                    else {
+                        msgConfirmarClave.Text = null;
+                        }
+                    }
+
+                }
+            else if (txtClave.Text != txtConfirmarClave.Text && !String.IsNullOrEmpty(txtConfirmarClave.Text)) {
+                msgClave.Text = null;
+                msgConfirmarClave.Text = "Las claves ingresadas no coinciden";
+                }
+            else if (txtClave.Text == txtConfirmarClave.Text) {
+                msgClave.Text = null;
+                msgConfirmarClave.Text = null;
+                }
+            else {
+                msgClave.Text = null;
+                }
+            msgClave.Visible = (msgClave.Text == null) ? false : true;
+            }
+
+        private void txtConfirmarClave_TextChanged(object sender, EventArgs e) {
+            if (String.IsNullOrEmpty(txtConfirmarClave.Text)) {
+                msgConfirmarClave.Text = "Debe confirmar la clave";
+                }
+            else if (txtClave.Text != txtConfirmarClave.Text) {
+                msgConfirmarClave.Text = "Las claves ingresadas no coinciden";
+                }
+            else {
+                msgConfirmarClave.Text = null;
+                }
+            msgConfirmarClave.Visible = (msgConfirmarClave.Text == null) ? false : true;
+            }        
         }
     }
-}

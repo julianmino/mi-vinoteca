@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4074E5BC-E273-4231-996B-9EA0A5E4B3C7}</ProjectGuid>
+    <ProjectGuid>{06E918BC-170F-4358-9A91-247B0BE20213}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Business.Logic</RootNamespace>
-    <AssemblyName>Business.Logic</AssemblyName>
+    <RootNamespace>DAL</RootNamespace>
+    <AssemblyName>DAL</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -44,6 +44,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,19 +54,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessLogic.cs" />
-    <Compile Include="ProductoLogic.cs" />
-    <Compile Include="ClienteLogic.cs" />
+    <Compile Include="admin.cs" />
+    <Compile Include="BusinessEntity.cs" />
+    <Compile Include="cliente.cs" />
+    <Compile Include="descuento.cs" />
+    <Compile Include="lineas_pedidos.cs" />
+    <Compile Include="pedido.cs" />
+    <Compile Include="producto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{06e918bc-170f-4358-9a91-247b0be20213}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
+    <Compile Include="sysdiagram.cs" />
+    <Compile Include="YaguaronEntities.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Diagrama de Clases.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

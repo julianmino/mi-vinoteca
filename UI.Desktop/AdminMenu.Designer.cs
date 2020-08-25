@@ -32,7 +32,6 @@
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.btnPedidos = new System.Windows.Forms.Button();
             this.panelClientesSubmenu = new System.Windows.Forms.Panel();
-            this.btnPremium = new System.Windows.Forms.Button();
             this.btnTodos = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.panelProductosSubmenu = new System.Windows.Forms.Panel();
@@ -81,7 +80,7 @@
             this.btnPedidos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Crimson;
             this.btnPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPedidos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnPedidos.Location = new System.Drawing.Point(0, 513);
+            this.btnPedidos.Location = new System.Drawing.Point(0, 457);
             this.btnPedidos.Name = "btnPedidos";
             this.btnPedidos.Size = new System.Drawing.Size(250, 50);
             this.btnPedidos.TabIndex = 6;
@@ -92,32 +91,13 @@
             // panelClientesSubmenu
             // 
             this.panelClientesSubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(26)))), ((int)(((byte)(69)))));
-            this.panelClientesSubmenu.Controls.Add(this.btnPremium);
             this.panelClientesSubmenu.Controls.Add(this.btnTodos);
             this.panelClientesSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelClientesSubmenu.Location = new System.Drawing.Point(0, 407);
             this.panelClientesSubmenu.Name = "panelClientesSubmenu";
-            this.panelClientesSubmenu.Size = new System.Drawing.Size(250, 106);
+            this.panelClientesSubmenu.Size = new System.Drawing.Size(250, 50);
             this.panelClientesSubmenu.TabIndex = 5;
             this.panelClientesSubmenu.Visible = false;
-            // 
-            // btnPremium
-            // 
-            this.btnPremium.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPremium.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnPremium.FlatAppearance.BorderSize = 0;
-            this.btnPremium.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(69)))), ((int)(((byte)(64)))));
-            this.btnPremium.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(44)))), ((int)(((byte)(65)))));
-            this.btnPremium.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPremium.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnPremium.Location = new System.Drawing.Point(0, 50);
-            this.btnPremium.Name = "btnPremium";
-            this.btnPremium.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
-            this.btnPremium.Size = new System.Drawing.Size(250, 50);
-            this.btnPremium.TabIndex = 1;
-            this.btnPremium.Text = "Premium";
-            this.btnPremium.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPremium.UseVisualStyleBackColor = true;
             // 
             // btnTodos
             // 
@@ -239,6 +219,7 @@
             this.btnVinos.Text = "Vinos";
             this.btnVinos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVinos.UseVisualStyleBackColor = true;
+            this.btnVinos.Click += new System.EventHandler(this.btnVinos_Click);
             // 
             // btnProductos
             // 
@@ -369,6 +350,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.resizeSideMenu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -383,7 +365,6 @@
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Button btnPedidos;
         private System.Windows.Forms.Panel panelClientesSubmenu;
-        private System.Windows.Forms.Button btnPremium;
         private System.Windows.Forms.Button btnTodos;
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
