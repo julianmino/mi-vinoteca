@@ -14,12 +14,16 @@ namespace Business.Logic {
 
             return listaProductos;
             }
-        public producto GetOne(int id) {            
+        public producto GetOne(int id) {
             return context.productos.SingleOrDefault(x => x.id_producto == id);
+            }
+        public List<producto> GetProductoPorTipo(int id) {
+            List<producto> listaVinos = context.productos.Where(x => x.id_tipo == id).ToList();
+            return listaVinos;
             }
         public void Alta(string nombre, string productor, double precio,
             int stock, double vol_alcohol, double ml, double? ibu,
-            int? año, int? añejamiento) {
+            int? año, int? añejamiento,int id_tipo) {
             try {
                 var producto = new producto() {
                     nombre = nombre,
@@ -31,6 +35,7 @@ namespace Business.Logic {
                     ml = ml,
                     añejamiento = añejamiento,
                     año = año,
+                    id_tipo = id_tipo,
                 };
                 context.productos.Add(producto);
                 context.Entry(producto).State = System.Data.Entity.EntityState.Added;
@@ -42,7 +47,7 @@ namespace Business.Logic {
             }
         public void Modificacion(int id, string nombre, string productor, double precio,
             int stock, double vol_alcohol,double ml, double? ibu,
-            int? año, int? añejamiento) {
+            int? año, int? añejamiento,int id_tipo) {
             try {                
                 producto producto = this.GetOne(id);
                     {
@@ -55,6 +60,7 @@ namespace Business.Logic {
                     producto.ml = ml;
                     producto.añejamiento = añejamiento;
                     producto.año = año;
+                    producto.id_tipo = id_tipo;
                     };
                 context.Entry(producto).State = System.Data.Entity.EntityState.Modified;
                 context.SaveChanges();

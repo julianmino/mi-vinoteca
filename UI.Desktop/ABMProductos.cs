@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Logic;
 using DAL;
@@ -14,16 +7,21 @@ namespace UI.Desktop {
     public partial class ABMProductos : ApplicationForm {
         public producto ProductoActual;
         public int? id;
+        private int _id_tipo;
+        public int Id_tipo { get => _id_tipo; set => _id_tipo = value; }
         public ABMProductos() {
-            InitializeComponent();            
+            InitializeComponent();
             }
-        public ABMProductos(ModoForm modo) : this() {
+        public ABMProductos(ModoForm modo, int id_tipo) : this() {
             Modo = modo;
-            }
-        public ABMProductos(ModoForm modo, int? id = null) : this() {
+            Id_tipo = id_tipo;
+            }            
+        public ABMProductos(ModoForm modo, int id_tipo, int? id = null) : this(){
             this.id = id;
             Modo = modo;
+            Id_tipo = id_tipo;
             ProductoLogic prodLog = new ProductoLogic();
+
             if (this.id != null) {
                 ProductoActual = prodLog.GetOne((int)this.id);
                 this.MapearDeDatos();
@@ -31,23 +29,22 @@ namespace UI.Desktop {
             }
         public override void MapearDeDatos() {
             txtID.Text = ProductoActual.id_producto.ToString();
+            txtNombre.Text = ProductoActual.nombre;
+            txtProductor.Text = ProductoActual.productor;
             numAniejamiento.Value = Convert.ToInt32(ProductoActual.añejamiento);
             numAnio.Value = Convert.ToInt32(ProductoActual.año);
             numIBU.Value = Convert.ToDecimal(ProductoActual.ibu);
             numMl.Value = Convert.ToDecimal(ProductoActual.ml);
-            txtNombre.Text = ProductoActual.nombre;
+            numVolumenAlcohol.Value = Convert.ToDecimal(ProductoActual.vol_alcohol);
             numPrecio.Value = Convert.ToDecimal(ProductoActual.precio);
-            txtProductor.Text = ProductoActual.productor;
-            numStock.Value = ProductoActual.stock;            
-
+            numStock.Value = ProductoActual.stock;
+            
             switch (this.Modo) {
                 case ModoForm.Alta: this.btnAceptar.Text = "Guardar"; break;
                 case ModoForm.Modificacion: this.btnAceptar.Text = "Guardar"; break;
                 case ModoForm.Baja: this.btnAceptar.Text = "Eliminar"; break;
                 case ModoForm.Consulta: this.btnAceptar.Text = "Aceptar"; break;
-
                 }
-
             }
         public override void MapearADatos() {
             ProductoLogic prodLog = new ProductoLogic();
@@ -59,7 +56,8 @@ namespace UI.Desktop {
                         Convert.ToDouble(numVolumenAlcohol.Value),
                         Convert.ToDouble(numMl.Value), Convert.ToDouble(numIBU.Value),
                         Convert.ToInt32(numAnio.Value),
-                        Convert.ToInt32(numAniejamiento.Value));
+                        Convert.ToInt32(numAniejamiento.Value),
+                        Id_tipo);
                     }
                 else {
                     prodLog.Modificacion(int.Parse(txtID.Text), txtNombre.Text, txtProductor.Text,
@@ -68,7 +66,8 @@ namespace UI.Desktop {
                         Convert.ToDouble(numVolumenAlcohol.Value),
                         Convert.ToDouble(numMl.Value), Convert.ToDouble(numIBU.Value),
                         Convert.ToInt32(numAnio.Value),
-                        Convert.ToInt32(numAniejamiento.Value));
+                        Convert.ToInt32(numAniejamiento.Value),
+                        Id_tipo);
                     }                
                 }
                 else if (this.Modo == ModoForm.Baja) {
@@ -80,13 +79,38 @@ namespace UI.Desktop {
             }
 
         private void ABMProductos_Load(object sender, EventArgs e) {
+
+            if (Modo == ModoForm.Baja || Modo == ModoForm.Consulta) {
+                txtNombre.ReadOnly = true;
+                txtProductor.Enabled = false;
+                numIBU.ReadOnly = true;
+                numAniejamiento.ReadOnly = true;
+                numAnio.ReadOnly = true;
+                numMl.ReadOnly = true;
+                numPrecio.Enabled = false;
+                numVolumenAlcohol.ReadOnly = true;
+            }
+            //Ocultar los campos que no mapean
+            switch (Id_tipo) {
+                //Para vinos, licores y whiskies
+                case 1 :
+                case 3 :
+                case 4 :
+                    numIBU.Visible = false;
+                    lblIBU.Visible = false;
+                    break;                
+                //Para Cervezas
+                case 2:
+                    numAniejamiento.Visible = false;
+                    lblAniejamiento.Visible = false;
+                    break;
+                }
             }
 
         private void btnAceptar_Click(object sender, EventArgs e) {            
             MapearADatos();
             this.Dispose();
-            }
-            
+            }            
 
         private void btnCancelar_Click(object sender, EventArgs e) {
             this.Dispose();
