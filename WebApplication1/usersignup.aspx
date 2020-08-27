@@ -38,12 +38,14 @@
 
                                 <label>Nombre</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="txtNombre" runat="server" placeholder="Nombre"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="txtNombre" runat="server" placeholder="Nombre" OnTextChanged="txtNombre_TextChanged"></asp:TextBox>
+                                    <small><asp:Label ID="nameHelp" runat="server" ForeColor="Red"></asp:Label></small>
                                 </div>
 
                                 <label>Apellido</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="txtApellido" runat="server" placeholder="Apellido"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="txtApellido" runat="server" placeholder="Apellido" OnTextChanged="txtApellido_TextChanged"></asp:TextBox>
+                                    <small><asp:Label ID="apellidoHelp" runat="server" ForeColor="Red"></asp:Label></small>
                                 </div>                                
 
                             </div>
@@ -53,14 +55,14 @@
 
                                  <label>Correo electrónico</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="txtEmail" runat="server" placeholder="Correo electrónico"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="txtEmail" runat="server" placeholder="Correo electrónico" OnTextChanged="txtEmail_TextChanged"></asp:TextBox>
+                                    <small><asp:Label ID="mailHelp" runat="server" ForeColor="Red"></asp:Label></small>
                                 </div>
 
                                  <label>Fecha de Nacimiento</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="txtFechaNac" runat="server" placeholder="" TextMode="Date" OnTextChanged="TextBox8_TextChanged"></asp:TextBox>
-                                    <small id="birthHelp" class="form-text text-muted">Debes ser mayor de edad</small>
-
+                                    <asp:TextBox CssClass="form-control" ID="txtFechaNac" runat="server" placeholder="" TextMode="Date" OnTextChanged="txtFechaNac_TextChanged"></asp:TextBox>
+                                    <small><asp:Label  ID="birthHelp" runat="server" ForeColor="Red"></asp:Label></small>
                                 </div>
 
                             </div>
@@ -78,13 +80,11 @@
 
                                 <label>Nombre de Usuario</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="txtUsuario" runat="server" placeholder="Nombre de Usuario"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="txtUsuario" runat="server" placeholder="Nombre de Usuario" OnTextChanged="txtUsuario_TextChanged"></asp:TextBox>
+                                    <small><asp:Label ID="usuarioHelp" runat="server" ForeColor="Red"></asp:Label></small>
                                 </div>
 
-                                <label>ID Usuario</label>
-                                <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="txtID" runat="server" placeholder="ID Usuario"></asp:TextBox>
-                                </div>
+                                
 
                             </div>
 
@@ -92,13 +92,14 @@
 
                                  <label>Contraseña</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="txtPassword" runat="server" placeholder="Contraseña" TextMode="Password"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="txtPassword" runat="server" placeholder="Contraseña" TextMode="Password" OnTextChanged="txtPassword_TextChanged"></asp:TextBox>
+                                    <small><asp:Label ID="passHelp" runat="server" ForeColor="Red"></asp:Label></small>
                                 </div>
 
                                 <label>Confirmar contraseña</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="txtConfirmPassword" runat="server" placeholder="Confirmar contraseña" TextMode="Password"></asp:TextBox>
-
+                                    <asp:TextBox CssClass="form-control" ID="txtConfirmPassword" runat="server" placeholder="Confirmar contraseña" TextMode="Password" OnTextChanged="txtConfirmPassword_TextChanged"></asp:TextBox>
+                                    <small><asp:Label ID="confPassHelp" runat="server" Color="Red" ForeColor="Red"></asp:Label></small>
                                 </div>
                               </div>
 
@@ -109,7 +110,7 @@
                                 <div class="form-group">
                                     <%-- falta el manejador de eventos, lo veremos en el siguiente episodio, eso es todo amigos --%>
 
-                                    <asp:Button class="btn btn-success btn-block btn-lg" ID="btnRegistrar" runat="server" Text="Registrarse" />
+                                    <asp:Button class="btn btn-success btn-block btn-lg" ID="btnRegistrar" runat="server" Text="Registrarse" OnClick="btnRegistrar_Click" />
 
                                 </div>
                             </div>
