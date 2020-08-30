@@ -46,5 +46,6 @@ namespace UI.Desktop {
         public void Notificar(string mensaje, MessageBoxButtons botones, MessageBoxIcon icono) {
             this.Notificar(this.Text, mensaje, botones, icono);
             }
+
         }
     }

@@ -3,27 +3,34 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Business.Logic {
-    public class ClienteLogic : BusinessLogic {
+namespace Business.Logic 
+{
+    public class ClienteLogic : BusinessLogic 
+    {
         private YaguaronEntities context = new YaguaronEntities();
-        public ClienteLogic() {
-            }
+        public ClienteLogic() 
+        {
+        }
 
-        public List<cliente> GetAll() {
+        public List<cliente> GetAll() 
+        {
             List<cliente> listaClientes = context.clientes.ToList();
 
             return listaClientes;
-            }
-        public cliente GetOne(int id) {
-            //¿POR QUE ESTO NO ANDA?
+        }
+        public cliente GetOne(int id) 
+        {
+
             return context.clientes.SingleOrDefault(x => x.id_cliente == id);
 
-            //return context.clientes.Find(id);
-            }
+        }
         public void Alta(string nombre, string apellido, string usuario,
-            string email, string clave, DateTime fecha_nac, bool premium, int? id_descuento) {
-            try {
-                var cliente = new cliente() {
+            string email, string clave, DateTime fecha_nac, bool premium, int? id_descuento) 
+        {
+            try 
+            {
+                var cliente = new cliente() 
+                {
                     nombre = nombre,
                     apellido = apellido,
                     usuario = usuario,
@@ -32,15 +39,16 @@ namespace Business.Logic {
                     fecha_nac = fecha_nac,
                     premium = premium,
                     id_descuento = id_descuento
-                    };
+                };
                 context.clientes.Add(cliente);
                 context.Entry(cliente).State = System.Data.Entity.EntityState.Added;
                 context.SaveChanges();                
-                }
-            catch (Exception Ex) {
-                throw Ex;                
-                }
             }
+            catch (Exception Ex) 
+            {
+                throw Ex;                
+            }
+        }
 
         public void Modificacion(int id, string nombre, string apellido, string usuario,
             string email, string clave, DateTime fecha_nac, bool premium, int? id_descuento) {
@@ -58,11 +66,12 @@ namespace Business.Logic {
                     };
                 context.Entry(cliente).State = System.Data.Entity.EntityState.Modified;
                 context.SaveChanges();
-                }
-            catch (Exception Ex) {
-                Console.WriteLine(Ex.InnerException?.Message);
-                }
             }
+            catch (Exception Ex) 
+            {
+                Console.WriteLine(Ex.InnerException?.Message);
+            }
+        }
 
         public void Baja(int id) {
 
@@ -74,11 +83,30 @@ namespace Business.Logic {
 
             }
 
-        public void Consulta(string filtro) {
-            foreach (var cliente in context.clientes.Where(u => u.usuario.Contains(filtro))) {
-                Console.WriteLine(cliente.usuario);
+        public List<cliente> ConsultaEnTabla(string filtro) 
+        {
+            List<cliente> listaClientes = new List<cliente>();
+
+            if (!String.IsNullOrEmpty(filtro))
+            {
+                try
+                {
+                    foreach (var cliente in context.clientes.Where(u => u.usuario.Contains(filtro)))
+                    {
+                        listaClientes.Add(cliente);
+                    }
+                    return listaClientes;
+                }
+                catch
+                {
+                    return null;
                 }
             }
-
+            else
+            {
+                return this.GetAll();
+            }
         }
+
     }
+}
