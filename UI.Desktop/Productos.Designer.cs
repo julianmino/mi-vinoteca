@@ -30,11 +30,6 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.yaguaronDBDataSet1 = new UI.Desktop.yaguaronDBDataSet();
-            this.productosTableAdapter = new UI.Desktop.yaguaronDBDataSetTableAdapters.productosTableAdapter();
-            this.productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pedidosTableAdapter = new UI.Desktop.yaguaronDBDataSetTableAdapters.pedidosTableAdapter();
-            this.productosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,12 +41,17 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.yaguaronDBDataSet1 = new UI.Desktop.yaguaronDBDataSet();
+            this.productosTableAdapter = new UI.Desktop.yaguaronDBDataSetTableAdapters.productosTableAdapter();
+            this.productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pedidosTableAdapter = new UI.Desktop.yaguaronDBDataSetTableAdapters.pedidosTableAdapter();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -142,31 +142,9 @@
             this.dgvProductos.Location = new System.Drawing.Point(3, 3);
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.ReadOnly = true;
+            this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProductos.Size = new System.Drawing.Size(856, 256);
             this.dgvProductos.TabIndex = 1;
-            // 
-            // yaguaronDBDataSet1
-            // 
-            this.yaguaronDBDataSet1.DataSetName = "yaguaronDBDataSet";
-            this.yaguaronDBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // productosTableAdapter
-            // 
-            this.productosTableAdapter.ClearBeforeFill = true;
-            // 
-            // productosBindingSource
-            // 
-            this.productosBindingSource.DataMember = "productos";
-            this.productosBindingSource.DataSource = this.yaguaronDBDataSet1;
-            // 
-            // pedidosTableAdapter
-            // 
-            this.pedidosTableAdapter.ClearBeforeFill = true;
-            // 
-            // productosBindingSource1
-            // 
-            this.productosBindingSource1.DataMember = "productos";
-            this.productosBindingSource1.DataSource = this.yaguaronDBDataSet1;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -245,6 +223,29 @@
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
             // 
+            // productosBindingSource1
+            // 
+            this.productosBindingSource1.DataMember = "productos";
+            this.productosBindingSource1.DataSource = this.yaguaronDBDataSet1;
+            // 
+            // yaguaronDBDataSet1
+            // 
+            this.yaguaronDBDataSet1.DataSetName = "yaguaronDBDataSet";
+            this.yaguaronDBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // productosTableAdapter
+            // 
+            this.productosTableAdapter.ClearBeforeFill = true;
+            // 
+            // productosBindingSource
+            // 
+            this.productosBindingSource.DataMember = "productos";
+            this.productosBindingSource.DataSource = this.yaguaronDBDataSet1;
+            // 
+            // pedidosTableAdapter
+            // 
+            this.pedidosTableAdapter.ClearBeforeFill = true;
+            // 
             // Productos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -257,9 +258,9 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
             }

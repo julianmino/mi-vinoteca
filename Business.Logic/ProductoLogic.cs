@@ -24,18 +24,27 @@ namespace Business.Logic {
         public void Alta(string nombre, string productor, double precio,
             int stock, double vol_alcohol, double ml, double? ibu,
             int? año, int? añejamiento,int id_tipo) {
+            if (ibu == 0) {
+                ibu = null;
+                }
+            if (año == 0){
+                año = null;
+                }
+            if (añejamiento == 0) {
+                año = null;
+                }
             try {
                 var producto = new producto() {
                     nombre = nombre,
                     productor = productor,
                     precio = precio,
-                    stock = stock,                    
+                    stock = stock,
                     vol_alcohol = vol_alcohol,
-                    ibu = ibu,
                     ml = ml,
+                    id_tipo = id_tipo,
+                    ibu = ibu,
                     añejamiento = añejamiento,
                     año = año,
-                    id_tipo = id_tipo,
                 };
                 context.productos.Add(producto);
                 context.Entry(producto).State = System.Data.Entity.EntityState.Added;
@@ -48,6 +57,15 @@ namespace Business.Logic {
         public void Modificacion(int id, string nombre, string productor, double precio,
             int stock, double vol_alcohol,double ml, double? ibu,
             int? año, int? añejamiento,int id_tipo) {
+            if (ibu == 0) {
+                ibu = null;
+                }
+            if (año == 0) {
+                año = null;
+                }
+            if (añejamiento == 0) {
+                año = null;
+                }
             try {                
                 producto producto = this.GetOne(id);
                     {

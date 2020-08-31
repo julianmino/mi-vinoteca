@@ -30,15 +30,31 @@ namespace UI.Desktop {
         public override void MapearDeDatos() {
             txtID.Text = ProductoActual.id_producto.ToString();
             txtNombre.Text = ProductoActual.nombre;
-            txtProductor.Text = ProductoActual.productor;
-            numAniejamiento.Value = Convert.ToInt32(ProductoActual.añejamiento);
-            numAnio.Value = Convert.ToInt32(ProductoActual.año);
-            numIBU.Value = Convert.ToDecimal(ProductoActual.ibu);
+            txtProductor.Text = ProductoActual.productor;            
             numMl.Value = Convert.ToDecimal(ProductoActual.ml);
             numVolumenAlcohol.Value = Convert.ToDecimal(ProductoActual.vol_alcohol);
             numPrecio.Value = Convert.ToDecimal(ProductoActual.precio);
             numStock.Value = ProductoActual.stock;
-            
+            //Mapear a 0 los campos que son NULL en la DB
+            if (ProductoActual.añejamiento == null) {
+                numAniejamiento.Value = 0M;
+                }
+            else {
+                numAniejamiento.Value = Convert.ToInt32(ProductoActual.añejamiento);
+                    }
+            if (ProductoActual.año == null) {
+                numAnio.Value = 0M;
+                }
+            else {
+                numAnio.Value = Convert.ToInt32(ProductoActual.año);
+                    }
+            if (ProductoActual.ibu == null) {
+                numIBU.Value = 0M;
+                }
+            else {
+                numIBU.Value = Convert.ToInt32(ProductoActual.año);
+                    }
+
             switch (this.Modo) {
                 case ModoForm.Alta: this.btnAceptar.Text = "Guardar"; break;
                 case ModoForm.Modificacion: this.btnAceptar.Text = "Guardar"; break;
@@ -89,6 +105,7 @@ namespace UI.Desktop {
                 numMl.ReadOnly = true;
                 numPrecio.Enabled = false;
                 numVolumenAlcohol.ReadOnly = true;
+                numStock.ReadOnly = true;
             }
             //Ocultar los campos que no mapean
             switch (Id_tipo) {
