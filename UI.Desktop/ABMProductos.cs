@@ -52,7 +52,7 @@ namespace UI.Desktop {
                 numIBU.Value = 0M;
                 }
             else {
-                numIBU.Value = Convert.ToInt32(ProductoActual.año);
+                numIBU.Value = Convert.ToInt32(ProductoActual.ibu);
                     }
 
             switch (this.Modo) {

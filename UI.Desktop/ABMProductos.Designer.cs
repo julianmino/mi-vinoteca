@@ -34,15 +34,17 @@
             this.lblStock = new System.Windows.Forms.Label();
             this.lblAniejamiento = new System.Windows.Forms.Label();
             this.lblAnio = new System.Windows.Forms.Label();
-            this.lblIBU = new System.Windows.Forms.Label();
             this.lblVolumenAlcohol = new System.Windows.Forms.Label();
             this.lblPrecio = new System.Windows.Forms.Label();
             this.numStock = new System.Windows.Forms.NumericUpDown();
             this.numAniejamiento = new System.Windows.Forms.NumericUpDown();
             this.numVolumenAlcohol = new System.Windows.Forms.NumericUpDown();
-            this.numIBU = new System.Windows.Forms.NumericUpDown();
             this.numPrecio = new System.Windows.Forms.NumericUpDown();
             this.numAnio = new System.Windows.Forms.NumericUpDown();
+            this.lblMl = new System.Windows.Forms.Label();
+            this.lblIBU = new System.Windows.Forms.Label();
+            this.numIBU = new System.Windows.Forms.NumericUpDown();
+            this.numMl = new System.Windows.Forms.NumericUpDown();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -50,15 +52,14 @@
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientesTableAdapter = new UI.Desktop.yaguaronDBDataSetTableAdapters.clientesTableAdapter();
             this.yaguaronDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lblMl = new System.Windows.Forms.Label();
-            this.numMl = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAniejamiento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numVolumenAlcohol)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numIBU)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPrecio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAnio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numIBU)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -66,7 +67,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMl)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel
@@ -201,17 +201,6 @@
             this.lblAnio.Text = "Año";
             this.lblAnio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // lblIBU
-            // 
-            this.lblIBU.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblIBU.AutoSize = true;
-            this.lblIBU.Location = new System.Drawing.Point(294, 206);
-            this.lblIBU.Name = "lblIBU";
-            this.lblIBU.Size = new System.Drawing.Size(81, 13);
-            this.lblIBU.TabIndex = 1;
-            this.lblIBU.Text = "IBU";
-            this.lblIBU.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // lblVolumenAlcohol
             // 
             this.lblVolumenAlcohol.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -266,20 +255,6 @@
             this.numVolumenAlcohol.TabIndex = 5;
             this.numVolumenAlcohol.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // numIBU
-            // 
-            this.numIBU.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.numIBU.Location = new System.Drawing.Point(381, 203);
-            this.numIBU.Maximum = new decimal(new int[] {
-            120,
-            0,
-            0,
-            0});
-            this.numIBU.Name = "numIBU";
-            this.numIBU.Size = new System.Drawing.Size(199, 20);
-            this.numIBU.TabIndex = 6;
-            this.numIBU.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // numPrecio
             // 
             this.numPrecio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -318,6 +293,56 @@
             0,
             0,
             0});
+            // 
+            // lblMl
+            // 
+            this.lblMl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMl.AutoSize = true;
+            this.lblMl.Location = new System.Drawing.Point(294, 64);
+            this.lblMl.Name = "lblMl";
+            this.lblMl.Size = new System.Drawing.Size(81, 13);
+            this.lblMl.TabIndex = 1;
+            this.lblMl.Text = "ml";
+            this.lblMl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblIBU
+            // 
+            this.lblIBU.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblIBU.AutoSize = true;
+            this.lblIBU.Location = new System.Drawing.Point(294, 206);
+            this.lblIBU.Name = "lblIBU";
+            this.lblIBU.Size = new System.Drawing.Size(81, 13);
+            this.lblIBU.TabIndex = 1;
+            this.lblIBU.Text = "IBU";
+            this.lblIBU.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // numIBU
+            // 
+            this.numIBU.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.numIBU.Location = new System.Drawing.Point(381, 203);
+            this.numIBU.Maximum = new decimal(new int[] {
+            120,
+            0,
+            0,
+            0});
+            this.numIBU.Name = "numIBU";
+            this.numIBU.Size = new System.Drawing.Size(199, 20);
+            this.numIBU.TabIndex = 6;
+            this.numIBU.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // numMl
+            // 
+            this.numMl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.numMl.Location = new System.Drawing.Point(381, 60);
+            this.numMl.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numMl.Name = "numMl";
+            this.numMl.Size = new System.Drawing.Size(199, 20);
+            this.numMl.TabIndex = 9;
+            this.numMl.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // splitContainer1
             // 
@@ -373,31 +398,6 @@
             // 
             this.clientesTableAdapter.ClearBeforeFill = true;
             // 
-            // lblMl
-            // 
-            this.lblMl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblMl.AutoSize = true;
-            this.lblMl.Location = new System.Drawing.Point(294, 64);
-            this.lblMl.Name = "lblMl";
-            this.lblMl.Size = new System.Drawing.Size(81, 13);
-            this.lblMl.TabIndex = 1;
-            this.lblMl.Text = "ml";
-            this.lblMl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // numMl
-            // 
-            this.numMl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.numMl.Location = new System.Drawing.Point(381, 60);
-            this.numMl.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.numMl.Name = "numMl";
-            this.numMl.Size = new System.Drawing.Size(199, 20);
-            this.numMl.TabIndex = 9;
-            this.numMl.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // ABMProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -412,9 +412,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.numStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAniejamiento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numVolumenAlcohol)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numIBU)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPrecio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAnio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numIBU)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMl)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -424,7 +425,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMl)).EndInit();
             this.ResumeLayout(false);
 
             }
