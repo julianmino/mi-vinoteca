@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Business.Logic;
+using System;
 using System.Windows.Forms;
 
 namespace UI.Desktop {
@@ -87,5 +88,10 @@ namespace UI.Desktop {
         private void btnLicores_Click(object sender, EventArgs e) {
             abrirFormHijo(new Productos(Productos.TipoForm.Licor), "Licores");
             }
+
+        private void txtConsulta_TextChanged(object sender, EventArgs e)
+        {
+
         }
+    }
     }

@@ -14,7 +14,15 @@ namespace UI.Desktop {
             dgvClientes.DataSource = cliLog.GetAll();
             }
 
-        private void Clientes_Load(object sender, EventArgs e) {            
+
+        public void ListarFiltrados(string filtro)
+        {
+            ClienteLogic cliLog = new ClienteLogic();
+            dgvClientes.DataSource = cliLog.ConsultaEnTabla(filtro);
+        }
+
+        private void Clientes_Load(object sender, EventArgs e) {
+
             // TODO: This line of code loads data into the 'yaguaronDBDataSet.clientes' table. You can move, or remove it, as needed.
             this.clientesTableAdapter.Fill(this.yaguaronDBDataSet.clientes);
             Listar();
@@ -51,5 +59,10 @@ namespace UI.Desktop {
                 this.Listar();
                 }
             }
+
+        private void txtConsulta_TextChanged(object sender, EventArgs e)
+        {
+            ListarFiltrados(txtConsulta.Text);
         }
+    }
     }
