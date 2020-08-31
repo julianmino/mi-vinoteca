@@ -14,22 +14,35 @@ namespace Business.Logic {
 
             return listaProductos;
             }
-        public producto GetOne(int id) {            
+        public producto GetOne(int id) {
             return context.productos.SingleOrDefault(x => x.id_producto == id);
             }
+        public List<producto> GetProductoPorTipo(int id) {
+            List<producto> listaVinos = context.productos.Where(x => x.id_tipo == id).ToList();
+            return listaVinos;
+            }
         public void Alta(string nombre, string productor, double precio,
-            int stock, string tipo, double vol_alcohol, double ml, double? ibu,
-            int? año, int? añejamiento) {
+            int stock, double vol_alcohol, double ml, double? ibu,
+            int? año, int? añejamiento,int id_tipo) {
+            if (ibu == 0) {
+                ibu = null;
+                }
+            if (año == 0){
+                año = null;
+                }
+            if (añejamiento == 0) {
+                año = null;
+                }
             try {
                 var producto = new producto() {
                     nombre = nombre,
                     productor = productor,
                     precio = precio,
                     stock = stock,
-                    tipo = tipo,
                     vol_alcohol = vol_alcohol,
-                    ibu = ibu,
                     ml = ml,
+                    id_tipo = id_tipo,
+                    ibu = ibu,
                     añejamiento = añejamiento,
                     año = año,
                 };
@@ -42,21 +55,30 @@ namespace Business.Logic {
                 }
             }
         public void Modificacion(int id, string nombre, string productor, double precio,
-            int stock, string tipo, double vol_alcohol,double ml, double? ibu,
-            int? año, int? añejamiento) {
+            int stock, double vol_alcohol,double ml, double? ibu,
+            int? año, int? añejamiento,int id_tipo) {
+            if (ibu == 0) {
+                ibu = null;
+                }
+            if (año == 0) {
+                año = null;
+                }
+            if (añejamiento == 0) {
+                año = null;
+                }
             try {                
                 producto producto = this.GetOne(id);
                     {
                     producto.nombre = nombre;
                     producto.productor = productor;
                     producto.precio = precio;
-                    producto.stock = stock;
-                    producto.tipo = tipo;
+                    producto.stock = stock;                    
                     producto.vol_alcohol = vol_alcohol;
                     producto.ibu = ibu;
                     producto.ml = ml;
                     producto.añejamiento = añejamiento;
                     producto.año = año;
+                    producto.id_tipo = id_tipo;
                     };
                 context.Entry(producto).State = System.Data.Entity.EntityState.Modified;
                 context.SaveChanges();

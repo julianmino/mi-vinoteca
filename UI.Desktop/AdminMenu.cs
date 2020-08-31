@@ -73,7 +73,19 @@ namespace UI.Desktop {
 
             }        
         private void btnVinos_Click(object sender, EventArgs e) {
-            abrirFormHijo(new Productos(), "Productos");
+            abrirFormHijo(new Productos(Productos.TipoForm.Vino), "Vinos");
+            }
+
+        private void btnWhiskies_Click(object sender, EventArgs e) {
+            abrirFormHijo(new Productos(Productos.TipoForm.Whisky), "Whiskies");
+            }
+
+        private void btnCervezas_Click(object sender, EventArgs e) {
+            abrirFormHijo(new Productos(Productos.TipoForm.Cerveza), "Cervezas");
+            }
+
+        private void btnLicores_Click(object sender, EventArgs e) {
+            abrirFormHijo(new Productos(Productos.TipoForm.Licor), "Licores");
             }
         }
     }
