@@ -14,6 +14,7 @@ namespace UI.Desktop {
             dgvClientes.DataSource = cliLog.GetAll();
             }
 
+
         public void ListarFiltrados(string filtro)
         {
             ClienteLogic cliLog = new ClienteLogic();
@@ -21,6 +22,7 @@ namespace UI.Desktop {
         }
 
         private void Clientes_Load(object sender, EventArgs e) {
+
             // TODO: This line of code loads data into the 'yaguaronDBDataSet.clientes' table. You can move, or remove it, as needed.
             this.clientesTableAdapter.Fill(this.yaguaronDBDataSet.clientes);
             Listar();

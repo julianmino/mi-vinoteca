@@ -165,6 +165,7 @@
             this.btnLicores.Text = "Licores";
             this.btnLicores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLicores.UseVisualStyleBackColor = true;
+            this.btnLicores.Click += new System.EventHandler(this.btnLicores_Click);
             // 
             // btnCervezas
             // 
@@ -183,6 +184,7 @@
             this.btnCervezas.Text = "Cervezas";
             this.btnCervezas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCervezas.UseVisualStyleBackColor = true;
+            this.btnCervezas.Click += new System.EventHandler(this.btnCervezas_Click);
             // 
             // btnWhiskies
             // 
@@ -201,6 +203,7 @@
             this.btnWhiskies.Text = "Whiskies";
             this.btnWhiskies.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnWhiskies.UseVisualStyleBackColor = true;
+            this.btnWhiskies.Click += new System.EventHandler(this.btnWhiskies_Click);
             // 
             // btnVinos
             // 

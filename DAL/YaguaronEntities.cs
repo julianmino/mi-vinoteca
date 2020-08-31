@@ -1,5 +1,8 @@
 namespace DAL {
+    using System;
     using System.Data.Entity;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Linq;
 
     public partial class YaguaronEntities : DbContext {
         public YaguaronEntities()
@@ -13,6 +16,7 @@ namespace DAL {
         public virtual DbSet<pedido> pedidos { get; set; }
         public virtual DbSet<producto> productos { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<tipo_producto> tipo_producto { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
             modelBuilder.Entity<cliente>()
@@ -53,6 +57,15 @@ namespace DAL {
             modelBuilder.Entity<producto>()
                 .HasMany(e => e.lineas_pedidos)
                 .WithRequired(e => e.producto)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<tipo_producto>()
+                .Property(e => e.descripcion)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<tipo_producto>()
+                .HasMany(e => e.productos)
+                .WithRequired(e => e.tipo_producto)
                 .WillCascadeOnDelete(false);
             }
         }
