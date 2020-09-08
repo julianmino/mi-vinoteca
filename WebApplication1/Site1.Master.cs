@@ -4,6 +4,8 @@ namespace WebApplication1 {
     public partial class Site1 : System.Web.UI.MasterPage {
         protected void Page_Load(object sender, EventArgs e) 
         {
+            bool ban = Session.IsNewSession;
+            Session["role"] = (ban)? "":Session["role"];
             try 
             {
                 if (Session["role"].Equals(""))
