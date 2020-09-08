@@ -58,7 +58,7 @@
 
                                  <label>Fecha de Nacimiento</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="txtFechaNac" runat="server" placeholder="" TextMode="Date" OnTextChanged="TextBox8_TextChanged"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="txtFechaNac" runat="server" placeholder="" TextMode="Date"></asp:TextBox>
                                     <small id="birthHelp" class="form-text text-muted">Debes ser mayor de edad</small>
 
                                 </div>
