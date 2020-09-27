@@ -14,7 +14,7 @@ namespace WebApplication1 {
             ClienteLogic cliLog = new ClienteLogic();
             DateTime dt = DateTime.Parse(txtFechaNac.Text);
             cliLog.Alta(txtNombre.Text.Trim(), txtApellido.Text.Trim(), txtUsuario.Text.Trim(), 
-                        txtEmail.Text.Trim(), txtPassword.Text.Trim(), dt, false, null);
+                        txtEmail.Text.Trim(), txtPassword.Text.Trim(), dt, false, null, "pendiente");
         }
 
         public bool Validar()

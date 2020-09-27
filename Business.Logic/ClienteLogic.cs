@@ -33,11 +33,11 @@ namespace Business.Logic
         }
 
         public void Alta(string nombre, string apellido, string usuario,
-            string email, string clave, DateTime fecha_nac, bool premium, int? id_descuento) 
+            string email, string clave, DateTime fecha_nac, bool premium, int? id_descuento, string estado) 
         {
             try 
             {
-                var cliente = new cliente() 
+                var cliente = new cliente()
                 {
                     nombre = nombre,
                     apellido = apellido,
@@ -46,7 +46,8 @@ namespace Business.Logic
                     clave = clave,
                     fecha_nac = fecha_nac,
                     premium = premium,
-                    id_descuento = id_descuento
+                    id_descuento = id_descuento,
+                    estado = estado
                 };
                 context.clientes.Add(cliente);
                 context.Entry(cliente).State = System.Data.Entity.EntityState.Added;
