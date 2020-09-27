@@ -24,6 +24,14 @@ namespace Business.Logic
             return context.clientes.SingleOrDefault(x => x.id_cliente == id);
 
         }
+
+        public cliente GetByUser(string username)
+        {
+
+            return context.clientes.SingleOrDefault(x => x.usuario == username);
+
+        }
+
         public void Alta(string nombre, string apellido, string usuario,
             string email, string clave, DateTime fecha_nac, bool premium, int? id_descuento) 
         {

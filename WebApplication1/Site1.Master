@@ -36,9 +36,7 @@
         <div>
             <nav class="navbar navbar-expand-lg navbar-light">
                 <a class="navbar-brand" href="homepage.aspx">
-                    <img src="imagenes%20vinoteca/copa.png" width="30" height="30"/>
-                    <%--<img src="imagenes%20vinoteca/2.png" width="30" height="30" />--%>
-                    Vinoteca Yaguarón
+                    <img src="imagenes%20vinoteca/copa.png" width="30" height="30"/>                    <%--<img src="imagenes%20vinoteca/2.png" width="30" height="30" />--%>Vinoteca Yaguarón
                 </a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
@@ -50,25 +48,25 @@
                     <ul class="navbar-nav mr-auto">
                       
                         <li class="nav-item active">
-                            <a class="nav-link" href="homepage.aspx#contacto">Acerca nuestro</a>
+                            <a class="nav-link" href="homepage.aspx#contacto" id="lbAboutUs">Acerca nuestro</a>
                         </li>
                        
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <asp:LinkButton class="nav-link" ID="LinkButton4" runat="server" OnClick="LinkButton4_Click">Ver productos</asp:LinkButton>
+                            <asp:LinkButton class="nav-link" ID="lbVerProductos" runat="server" OnClick="lbVerProductos_Click">Ver productos</asp:LinkButton>
                         </li>
                         <li class="nav-item active">
-                            <asp:LinkButton class="nav-link" ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Iniciar sesión</asp:LinkButton>
+                            <asp:LinkButton class="nav-link" ID="lbIniciarSesion" runat="server" OnClick="lbIniciarSesion_Click">Iniciar sesión</asp:LinkButton>
                         </li>
                         <li class="nav-item active">
-                            <asp:LinkButton class="nav-link" ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Registrarse</asp:LinkButton>
+                            <asp:LinkButton class="nav-link" ID="lbRegistrarse" runat="server" OnClick="lbRegistrartse_Click">Registrarse</asp:LinkButton>
                         </li>
                         <li class="nav-item active">
-                            <asp:LinkButton class="nav-link" ID="LinkButton3" runat="server">Cerrar sesión</asp:LinkButton>
+                            <asp:LinkButton class="nav-link" ID="lbCerrarSesion" runat="server" OnClick="lbCerrarSesion_Click">Cerrar sesión</asp:LinkButton>
                         </li>
                         <li class="nav-item active">
-                            <asp:LinkButton class="nav-link" href="userprofile.aspx" ID="LinkButton7" runat="server">Hola usuario</asp:LinkButton>
+                            <asp:LinkButton class="nav-link" href="userprofile.aspx" ID="lbHiThere" runat="server">Hola usuario</asp:LinkButton>
                         </li>
                     </ul>
                 </div>
@@ -90,7 +88,7 @@
                              <!-- <asp:LinkButton class="footerlinks" ID="LinkButton8" runat="server" Visible="false">
                              Inventory</asp:LinkButton> -->
 
-                            <asp:LinkButton class="footerlinks" href="adminlogin.aspx" ID="LinkButton6" runat="server">
+                            <asp:LinkButton class="footerlinks" href="adminlogin.aspx" ID="lbAdminLogin" runat="server">
                              Inicio de Administrador</asp:LinkButton>
 
                             &nbsp;
