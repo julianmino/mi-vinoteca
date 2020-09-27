@@ -1,9 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="admin-UsersManagement.aspx.cs" Inherits="WebApplication1.admin_UsersManagement" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".table").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable();
+        });
+    </script>
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    <div class="container-fluid">
       <div class="row">
-         <div class = "col-md-5">
+         <div class = "col-lg-5">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
@@ -91,29 +97,44 @@
                         </div>
                     </div>
                 </div>
-         <div class="col-md-7">
-            <div class="card">
-               <div class="card-body">
-                  <div class="row">
-                     <div class="col">
-                        <center>
-                           <h4>Member List</h4>
-                        </center>
-                     </div>
-                  </div>
-                  <div class="row">
-                     <div class="col">
-                        <hr>
-                     </div>
-                  </div>
-                  <div class="row">
-                     <div class="col">
-                        <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server"></asp:GridView>
-                     </div>
-                  </div>
-               </div>
+            <div class="col-lg-7 col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                            <center>
+                                <h4>Member List</h4>
+                            </center>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                            <hr>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                               <asp:GridView class="table table-striped table-bordered table-responsive" ID="dgvUsuarios" runat="server" AutoGenerateColumns="False">
+                                    <Columns>
+                                        <asp:BoundField DataField="id_cliente" HeaderText="ID Cliente" />
+                                        <asp:BoundField DataField="nombre" HeaderText="Nombre" />
+                                        <asp:BoundField DataField="apellido" HeaderText="Apellido" />
+                                        <asp:BoundField DataField="usuario" HeaderText="Usuario" />
+                                        <asp:BoundField DataField="email" HeaderText="Email" />
+                                        <asp:BoundField DataField="fecha_nac" HeaderText="Fecha de Nacimiento" />
+                                        <asp:BoundField DataField="premium" HeaderText="Premium" />
+                                        <asp:BoundField DataField="id_descuento" HeaderText="ID Descuento" />
+                                    </Columns>
+                                    <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                                    <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" Wrap="True" />
+                                 </asp:GridView>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
-   </div>
+        </div>
+    </div>
+    
 </asp:Content>

@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{06E918BC-170F-4358-9A91-247B0BE20213}</ProjectGuid>
+    <ProjectGuid>{125BE33A-8BE8-4ECD-A76E-0289802DAE19}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DAL</RootNamespace>
@@ -42,7 +42,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -55,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="admin.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="cliente.cs" />
     <Compile Include="descuento.cs" />
     <Compile Include="lineas_pedidos.cs" />
@@ -66,7 +66,7 @@
     <Compile Include="YaguaronEntities.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
