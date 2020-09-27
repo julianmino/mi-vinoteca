@@ -15,7 +15,8 @@ namespace DAL
         }
 
         [Key]
-        public int id_cliente { get; set; }
+        [StringLength(50)]
+        public string usuario { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -24,10 +25,6 @@ namespace DAL
         [Required]
         [StringLength(50)]
         public string apellido { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string usuario { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -42,6 +39,10 @@ namespace DAL
         public bool premium { get; set; }
 
         public int? id_descuento { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string estado { get; set; }
 
         public virtual descuento descuento { get; set; }
 

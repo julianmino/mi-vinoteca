@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Consola", "UI.Console\UI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Desktop", "UI.Desktop\UI.Desktop.csproj", "{71B06F1C-40DF-4ABA-BD0C-EB9E95826B56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{06E918BC-170F-4358-9A91-247B0BE20213}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{125BE33A-8BE8-4ECD-A76E-0289802DAE19}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{71B06F1C-40DF-4ABA-BD0C-EB9E95826B56}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{71B06F1C-40DF-4ABA-BD0C-EB9E95826B56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71B06F1C-40DF-4ABA-BD0C-EB9E95826B56}.Release|Any CPU.Build.0 = Release|Any CPU
-		{06E918BC-170F-4358-9A91-247B0BE20213}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{06E918BC-170F-4358-9A91-247B0BE20213}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{06E918BC-170F-4358-9A91-247B0BE20213}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{06E918BC-170F-4358-9A91-247B0BE20213}.Release|Any CPU.Build.0 = Release|Any CPU
+		{125BE33A-8BE8-4ECD-A76E-0289802DAE19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{125BE33A-8BE8-4ECD-A76E-0289802DAE19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{125BE33A-8BE8-4ECD-A76E-0289802DAE19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{125BE33A-8BE8-4ECD-A76E-0289802DAE19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

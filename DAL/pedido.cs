@@ -19,7 +19,9 @@ namespace DAL
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int id_pedido { get; set; }
 
-        public int id_cliente { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string usuario { get; set; }
 
         public int? id_descuento { get; set; }
 
