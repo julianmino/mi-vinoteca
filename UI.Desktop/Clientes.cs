@@ -34,27 +34,27 @@ namespace UI.Desktop {
             this.Listar();
             }
 
-        private int? GetId() {
+        private string GetUsuario() {
             try {
-                return int.Parse(dgvClientes.Rows[dgvClientes.CurrentRow.Index].Cells[0].Value.ToString());
+                return dgvClientes.Rows[dgvClientes.CurrentRow.Index].Cells[0].Value.ToString();
                 }
             catch {
                 return null;
                 }
             }
         private void btnModificar_Click(object sender, EventArgs e) {
-            int? id = GetId();
-            if (id != null) {
-                ABMClientes cliente = new ABMClientes(ApplicationForm.ModoForm.Modificacion, id);
+            string usuario = GetUsuario();
+            if (usuario != null) {
+                ABMClientes cliente = new ABMClientes(ApplicationForm.ModoForm.Modificacion, usuario);
                 cliente.ShowDialog();
                 this.Listar();
                 }
             }
 
         private void btnBorrar_Click(object sender, EventArgs e) {
-            int? id = GetId();
-            if (id != null) {
-                ABMClientes cliente = new ABMClientes(ApplicationForm.ModoForm.Baja, id);
+            string usuario = GetUsuario();
+            if (usuario != null) {
+                ABMClientes cliente = new ABMClientes(ApplicationForm.ModoForm.Baja, usuario);
                 cliente.ShowDialog();
                 this.Listar();
                 }

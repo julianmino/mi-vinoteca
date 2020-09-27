@@ -1867,7 +1867,7 @@
       <Name>Business.Logic</Name>
     </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{06E918BC-170F-4358-9A91-247B0BE20213}</Project>
+      <Project>{125be33a-8be8-4ecd-a76e-0289802dae19}</Project>
       <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>

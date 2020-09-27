@@ -18,10 +18,10 @@ namespace Business.Logic
 
             return listaClientes;
         }
-        public cliente GetOne(int id) 
+        public cliente GetOne(string usuario) 
         {
 
-            return context.clientes.SingleOrDefault(x => x.id_cliente == id);
+            return context.clientes.SingleOrDefault(x => x.usuario == usuario);
 
         }
 
@@ -58,10 +58,10 @@ namespace Business.Logic
             }
         }
 
-        public void Modificacion(int id, string nombre, string apellido, string usuario,
+        public void Modificacion(string usuario, string nombre, string apellido, 
             string email, string clave, DateTime fecha_nac, bool premium, int? id_descuento) {
             try {                
-                cliente cliente = this.GetOne(id);
+                cliente cliente = this.GetOne(usuario);
                     {
                     cliente.nombre = nombre;
                     cliente.apellido = apellido;
@@ -81,9 +81,9 @@ namespace Business.Logic
             }
         }
 
-        public void Baja(int id) {
+        public void Baja(string usuario) {
 
-            cliente clienteAEliminar = this.GetOne(id);
+            cliente clienteAEliminar = this.GetOne(usuario);
             if (clienteAEliminar != null) {
                 context.clientes.Remove(clienteAEliminar);
                 context.SaveChanges();

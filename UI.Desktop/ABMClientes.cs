@@ -6,7 +6,6 @@ using System.Windows.Forms;
 namespace UI.Desktop {
     public partial class ABMClientes : ApplicationForm {
         public cliente ClienteActual;
-        public int? id;
         public ABMClientes() {
             InitializeComponent();
             }
@@ -15,18 +14,17 @@ namespace UI.Desktop {
             Modo = modo;
             }
 
-        public ABMClientes(ModoForm modo, int? id = null) : this() {
-            this.id = id;
+        public ABMClientes(ModoForm modo, string usuario) {
             Modo = modo;
             ClienteLogic cliLog = new ClienteLogic();
-            if (this.id != null) {
-                ClienteActual = cliLog.GetOne((int)this.id);
+            if (usuario != null) {
+                ClienteActual = cliLog.GetOne(usuario);
                 this.MapearDeDatos();
                 }
             }
 
         public override void MapearDeDatos() {
-            this.txtID.Text = this.ClienteActual.id_cliente.ToString();
+            // this.txtID.Text = this.ClienteActual.id_cliente.ToString();
             this.txtNombre.Text = this.ClienteActual.nombre;
             this.txtApellido.Text = this.ClienteActual.apellido;
             this.txtUsuario.Text = this.ClienteActual.usuario;
@@ -61,14 +59,18 @@ namespace UI.Desktop {
                     cliLog.Alta(txtNombre.Text, txtApellido.Text, txtUsuario.Text, txtEmail.Text, txtClave.Text, pickerFechaNac.Value, ckbPremium.Checked, descuento);
                     }
                 else {
-                    cliLog.Modificacion(int.Parse(txtID.Text), txtNombre.Text, txtApellido.Text, txtUsuario.Text, txtEmail.Text, txtClave.Text, pickerFechaNac.Value, ckbPremium.Checked, descuento);
+
+                    // CAMBIAR
+                    //cliLog.Modificacion(int.Parse(txtID.Text), txtNombre.Text, txtApellido.Text, txtUsuario.Text, txtEmail.Text, txtClave.Text, pickerFechaNac.Value, ckbPremium.Checked, descuento);
                     }
                 }
 
             else if (this.Modo == ModoForm.Baja) {
                 DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar a " + txtNombre.Text + " " + txtApellido.Text + " de la base de datos?", "Confirmar Baja", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes) {
-                    cliLog.Baja(int.Parse(txtID.Text));
+                    
+                    //CAMBIAR
+                    //cliLog.Baja(int.Parse(txtID.Text));
                     }
                 }
             }

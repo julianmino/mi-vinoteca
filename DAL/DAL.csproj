@@ -42,6 +42,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -64,12 +65,6 @@
     <Compile Include="sysdiagram.cs" />
     <Compile Include="tipo_producto.cs" />
     <Compile Include="YaguaronEntities.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Business.Logic\Business.Logic.csproj">
-      <Project>{4074e5bc-e273-4231-996b-9ea0a5e4b3c7}</Project>
-      <Name>Business.Logic</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
