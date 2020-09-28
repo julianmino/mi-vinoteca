@@ -22,15 +22,12 @@ namespace UI.Desktop {
         }
 
         private void Clientes_Load(object sender, EventArgs e) {
+            // TODO: This line of code loads data into the 'yaguaronDBDataSet.productos' table. You can move, or remove it, as needed.
+            this.productosTableAdapter.Fill(this.yaguaronDBDataSet.productos);
+            // TODO: This line of code loads data into the 'yaguaronDBDataSet.clientes' table. You can move, or remove it, as needed.
+            this.clientesTableAdapter.Fill(this.yaguaronDBDataSet.clientes);
             Listar();
             }
-
-        private void btnAgregar_Click(object sender, EventArgs e) {
-            ABMClientes cliente = new ABMClientes(ApplicationForm.ModoForm.Alta);
-            cliente.ShowDialog();
-            this.Listar();
-            }
-
         private string GetUsuario() {
             try {
                 return dgvClientes.Rows[dgvClientes.CurrentRow.Index].Cells[0].Value.ToString();
@@ -39,8 +36,17 @@ namespace UI.Desktop {
                 return null;
                 }
             }
+
+        private void btnAgregar_Click(object sender, EventArgs e) {
+            ABMClientes cliente = new ABMClientes(ApplicationForm.ModoForm.Alta);
+            cliente.ShowDialog();
+            this.Listar();
+            }
+
+        
         private void btnModificar_Click(object sender, EventArgs e) {
             string usuario = GetUsuario();
+            
             if (usuario != null) {
                 ABMClientes cliente = new ABMClientes(ApplicationForm.ModoForm.Modificacion, usuario);
                 cliente.ShowDialog();
