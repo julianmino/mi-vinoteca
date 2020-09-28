@@ -117,5 +117,18 @@ namespace Business.Logic
             }
         }
 
+        public void CambiarEstado(cliente cliente, string estado)
+        {
+            if (cliente != null)
+            {
+                cliente.estado = estado;
+                context.Entry(cliente).State = System.Data.Entity.EntityState.Modified;
+                context.SaveChanges();
+            }
+            
+        }
+
+
+
     }
 }

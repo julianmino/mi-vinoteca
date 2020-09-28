@@ -35,6 +35,36 @@
 
                         <div class="row">
                             <div class="col-md-6">
+                                <label>Nombre de Usuario</label>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <asp:TextBox CssClass="form-control" ID="txtUsuario" runat="server" placeholder="Nombre de Usuario" ReadOnly="False"></asp:TextBox>      
+                                            <asp:LinkButton class="btn btn-primary" ID="btnCheck" runat="server" OnClick="btnCheckPressed"><i class="fas fa-check-circle"></i></asp:LinkButton>
+                                        </div>
+                                    </div>  
+                                </div>
+                             <div class="col-md-6">
+                                 <label>Estado de la cuenta</label>
+                                     <div class="form-group">
+                                         <div class="input-group">
+                                        <asp:TextBox CssClass="form-control" ID="txtEstado" runat="server" placeholder="Estado" ReadOnly="True" Font-Bold="False"></asp:TextBox>      
+                                        <asp:LinkButton class="btn btn-success mr-1" ID="btnHabilitado" runat="server" OnClick="btnHabilitadoPressed" Visible="False"><i class="fas fa-check-circle"></i></asp:LinkButton>
+                                        <asp:LinkButton class="btn btn-warning mr-1" ID="btnPendiente" runat="server" Visible="False"><i class="fas fa-pause-circle"></i></asp:LinkButton>
+                                        <asp:LinkButton class="btn btn-danger mr-1" ID="btnCancelado" runat="server" Visible="False"><i class="fas fa-times-circle"></i></asp:LinkButton>
+                                         </div>
+                                    </div> 
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <hr>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
 
                                 <label>Apellido</label>
                                 <div class="form-group">
@@ -57,43 +87,12 @@
 
                                  <label>Fecha de Nacimiento</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="txtFechaNac" runat="server" placeholder="" TextMode="Date" ReadOnly="True"></asp:TextBox>
-                                    <small id="birthHelp" class="form-text text-muted">Debes ser mayor de edad</small>
-                                </div>
+                                    <asp:TextBox CssClass="form-control" ID="txtFechaNac" runat="server" placeholder="" ReadOnly="True"></asp:TextBox>
+                                    &nbsp;</div>
 
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col">
-                                <hr>
-                            </div>
-                        </div>
-
-                         <div class="row">
-                            <div class="col-md-6">
-                                <label>Nombre de Usuario</label>
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <asp:TextBox CssClass="form-control" ID="txtUsuario" runat="server" placeholder="Nombre de Usuario" ReadOnly="True"></asp:TextBox>      
-                                            <asp:LinkButton class="btn btn-primary" ID="btnCheck" runat="server"><i class="fas fa-check-circle"></i></asp:LinkButton>
-                                        </div>
-                                    </div>  
-                                </div>
-                             <div class="col-md-6">
-                                 <label>Estado de la cuenta</label>
-                                     <div class="form-group">
-                                         <div class="input-group">
-                                        <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" placeholder="Estado" ReadOnly="True"></asp:TextBox>      
-                                        <asp:LinkButton class="btn btn-success mr-1" ID="LinkButton1" runat="server"><i class="fas fa-check-circle"></i></asp:LinkButton>
-                                        <asp:LinkButton class="btn btn-warning mr-1" ID="LinkButton2" runat="server"><i class="fas fa-pause-circle"></i></asp:LinkButton>
-                                        <asp:LinkButton class="btn btn-danger mr-1" ID="LinkButton3" runat="server"><i class="fas fa-times-circle"></i></asp:LinkButton>
-                                         </div>
-                                    </div> 
-                             </div>
-                             
-
-                           </div>
                         </div>
                     </div>
                 </div>

@@ -56,7 +56,7 @@ namespace UI.Desktop {
 
                 if (this.Modo == ModoForm.Alta) {
 
-                    cliLog.Alta(txtNombre.Text, txtApellido.Text, txtUsuario.Text, txtEmail.Text, txtClave.Text, pickerFechaNac.Value, ckbPremium.Checked, descuento);
+                    cliLog.Alta(txtNombre.Text, txtApellido.Text, txtUsuario.Text, txtEmail.Text, txtClave.Text, pickerFechaNac.Value, ckbPremium.Checked, descuento, "pendiente");
                     }
                 else {
 
