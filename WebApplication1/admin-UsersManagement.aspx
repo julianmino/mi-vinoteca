@@ -116,14 +116,14 @@
                             <div class="col">
                                <asp:GridView class="table table-striped table-bordered table-responsive" ID="dgvUsuarios" runat="server" AutoGenerateColumns="False">
                                     <Columns>
-                                        <asp:BoundField DataField="id_cliente" HeaderText="ID Cliente" />
+                                        <asp:BoundField DataField="usuario" HeaderText="Usuario" />
                                         <asp:BoundField DataField="nombre" HeaderText="Nombre" />
                                         <asp:BoundField DataField="apellido" HeaderText="Apellido" />
-                                        <asp:BoundField DataField="usuario" HeaderText="Usuario" />
                                         <asp:BoundField DataField="email" HeaderText="Email" />
                                         <asp:BoundField DataField="fecha_nac" HeaderText="Fecha de Nacimiento" />
                                         <asp:BoundField DataField="premium" HeaderText="Premium" />
                                         <asp:BoundField DataField="id_descuento" HeaderText="ID Descuento" />
+                                        <asp:BoundField DataField="estado" HeaderText="Estado" />
                                     </Columns>
                                     <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                                     <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" Wrap="True" />
