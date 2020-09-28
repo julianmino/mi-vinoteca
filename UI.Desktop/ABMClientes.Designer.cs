@@ -31,7 +31,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblEstado = new System.Windows.Forms.Label();
             this.pickerFechaNac = new System.Windows.Forms.DateTimePicker();
+            this.cbEstado = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
@@ -61,11 +63,11 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtConfirmarClave = new System.Windows.Forms.TextBox();
             this.msgConfirmarClave = new System.Windows.Forms.Label();
+            this.txtConfirmarClave = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
-            this.msgClave = new System.Windows.Forms.Label();
             this.txtClave = new System.Windows.Forms.TextBox();
+            this.msgClave = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
             this.txtDescuento = new System.Windows.Forms.TextBox();
@@ -116,6 +118,7 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel19, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel15, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel14, 0, 6);
@@ -155,9 +158,13 @@
             this.tableLayoutPanel19.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel19.ColumnCount = 1;
+            this.tableLayoutPanel19.ColumnCount = 3;
             this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 251F));
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 228F));
+            this.tableLayoutPanel19.Controls.Add(this.lblEstado, 1, 0);
             this.tableLayoutPanel19.Controls.Add(this.pickerFechaNac, 0, 0);
+            this.tableLayoutPanel19.Controls.Add(this.cbEstado, 2, 0);
             this.tableLayoutPanel19.Location = new System.Drawing.Point(227, 345);
             this.tableLayoutPanel19.Name = "tableLayoutPanel19";
             this.tableLayoutPanel19.RowCount = 2;
@@ -165,6 +172,19 @@
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel19.Size = new System.Drawing.Size(892, 51);
             this.tableLayoutPanel19.TabIndex = 0;
+            // 
+            // lblEstado
+            // 
+            this.lblEstado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblEstado.AutoSize = true;
+            this.lblEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstado.Location = new System.Drawing.Point(604, 0);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(57, 35);
+            this.lblEstado.TabIndex = 2;
+            this.lblEstado.Text = "Estado";
+            this.lblEstado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // pickerFechaNac
             // 
@@ -176,6 +196,19 @@
             this.pickerFechaNac.Name = "pickerFechaNac";
             this.pickerFechaNac.Size = new System.Drawing.Size(200, 20);
             this.pickerFechaNac.TabIndex = 0;
+            // 
+            // cbEstado
+            // 
+            this.cbEstado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.cbEstado.FormattingEnabled = true;
+            this.cbEstado.Items.AddRange(new object[] {
+            "Pendiente",
+            "Habilitado",
+            "Cancelado"});
+            this.cbEstado.Location = new System.Drawing.Point(675, 3);
+            this.cbEstado.Name = "cbEstado";
+            this.cbEstado.Size = new System.Drawing.Size(206, 21);
+            this.cbEstado.TabIndex = 1;
             // 
             // tableLayoutPanel15
             // 
@@ -588,18 +621,6 @@
             this.tableLayoutPanel18.Size = new System.Drawing.Size(425, 45);
             this.tableLayoutPanel18.TabIndex = 0;
             // 
-            // txtConfirmarClave
-            // 
-            this.txtConfirmarClave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtConfirmarClave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConfirmarClave.Location = new System.Drawing.Point(10, 4);
-            this.txtConfirmarClave.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
-            this.txtConfirmarClave.Name = "txtConfirmarClave";
-            this.txtConfirmarClave.Size = new System.Drawing.Size(405, 23);
-            this.txtConfirmarClave.TabIndex = 1;
-            this.txtConfirmarClave.UseSystemPasswordChar = true;
-            this.txtConfirmarClave.TextChanged += new System.EventHandler(this.txtConfirmarClave_TextChanged);
-            // 
             // msgConfirmarClave
             // 
             this.msgConfirmarClave.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -615,6 +636,18 @@
             this.msgConfirmarClave.TabIndex = 0;
             this.msgConfirmarClave.Text = "Debe confirmar la clave";
             this.msgConfirmarClave.Visible = false;
+            // 
+            // txtConfirmarClave
+            // 
+            this.txtConfirmarClave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtConfirmarClave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirmarClave.Location = new System.Drawing.Point(10, 4);
+            this.txtConfirmarClave.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.txtConfirmarClave.Name = "txtConfirmarClave";
+            this.txtConfirmarClave.Size = new System.Drawing.Size(405, 23);
+            this.txtConfirmarClave.TabIndex = 1;
+            this.txtConfirmarClave.UseSystemPasswordChar = true;
+            this.txtConfirmarClave.TextChanged += new System.EventHandler(this.txtConfirmarClave_TextChanged);
             // 
             // tableLayoutPanel17
             // 
@@ -633,6 +666,18 @@
             this.tableLayoutPanel17.Size = new System.Drawing.Size(425, 45);
             this.tableLayoutPanel17.TabIndex = 0;
             // 
+            // txtClave
+            // 
+            this.txtClave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtClave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClave.Location = new System.Drawing.Point(10, 4);
+            this.txtClave.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.txtClave.Name = "txtClave";
+            this.txtClave.Size = new System.Drawing.Size(405, 23);
+            this.txtClave.TabIndex = 1;
+            this.txtClave.UseSystemPasswordChar = true;
+            this.txtClave.TextChanged += new System.EventHandler(this.txtClave_TextChanged);
+            // 
             // msgClave
             // 
             this.msgClave.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -648,18 +693,6 @@
             this.msgClave.TabIndex = 0;
             this.msgClave.Text = "Debe ingresar una clave";
             this.msgClave.Visible = false;
-            // 
-            // txtClave
-            // 
-            this.txtClave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtClave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtClave.Location = new System.Drawing.Point(10, 4);
-            this.txtClave.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
-            this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(405, 23);
-            this.txtClave.TabIndex = 1;
-            this.txtClave.UseSystemPasswordChar = true;
-            this.txtClave.TextChanged += new System.EventHandler(this.txtClave_TextChanged);
             // 
             // tableLayoutPanel4
             // 
@@ -819,6 +852,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel19.ResumeLayout(false);
+            this.tableLayoutPanel19.PerformLayout();
             this.tableLayoutPanel15.ResumeLayout(false);
             this.tableLayoutPanel15.PerformLayout();
             this.tableLayoutPanel14.ResumeLayout(false);
@@ -908,5 +942,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel20;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
         private System.Windows.Forms.Label label3;
-    }
+        private System.Windows.Forms.Label lblEstado;
+        private System.Windows.Forms.ComboBox cbEstado;
+        }
 }

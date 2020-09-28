@@ -43,6 +43,8 @@ namespace DAL
 
         public double? ibu { get; set; }
 
+        public byte[] foto { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<descuento> descuentos { get; set; }
 
