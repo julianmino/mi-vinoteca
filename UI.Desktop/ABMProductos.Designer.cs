@@ -48,10 +48,6 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.yaguaronDBDataSet = new UI.Desktop.yaguaronDBDataSet();
-            this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clientesTableAdapter = new UI.Desktop.yaguaronDBDataSetTableAdapters.clientesTableAdapter();
-            this.yaguaronDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAniejamiento)).BeginInit();
@@ -64,9 +60,6 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel
@@ -389,15 +382,6 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // yaguaronDBDataSet
-            // 
-            this.yaguaronDBDataSet.DataSetName = "yaguaronDBDataSet";
-            this.yaguaronDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // clientesTableAdapter
-            // 
-            this.clientesTableAdapter.ClearBeforeFill = true;
-            // 
             // ABMProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -422,9 +406,6 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
             }
@@ -446,10 +427,6 @@
         private System.Windows.Forms.Label lblVolumenAlcohol;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
-        private yaguaronDBDataSet yaguaronDBDataSet;
-        private System.Windows.Forms.BindingSource clientesBindingSource;
-        private yaguaronDBDataSetTableAdapters.clientesTableAdapter clientesTableAdapter;
-        private System.Windows.Forms.BindingSource yaguaronDBDataSetBindingSource;
         private System.Windows.Forms.NumericUpDown numStock;
         private System.Windows.Forms.NumericUpDown numAniejamiento;
         private System.Windows.Forms.NumericUpDown numVolumenAlcohol;

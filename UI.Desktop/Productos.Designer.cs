@@ -144,7 +144,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn añoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn añejamientoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ibuDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource productosBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;

@@ -37,15 +37,10 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.yaguaronDBDataSet = new UI.Desktop.yaguaronDBDataSet();
-            this.yaguaronDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clientesTableAdapter = new UI.Desktop.yaguaronDBDataSetTableAdapters.clientesTableAdapter();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel3
@@ -84,7 +79,6 @@
             this.dgvClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tableLayoutPanel1.SetColumnSpan(this.dgvClientes, 2);
-            this.dgvClientes.DataSource = this.yaguaronDBDataSetBindingSource;
             this.dgvClientes.Location = new System.Drawing.Point(3, 43);
             this.dgvClientes.MultiSelect = false;
             this.dgvClientes.Name = "dgvClientes";
@@ -160,20 +154,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1019, 535);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // yaguaronDBDataSet
-            // 
-            this.yaguaronDBDataSet.DataSetName = "yaguaronDBDataSet";
-            this.yaguaronDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // yaguaronDBDataSetBindingSource
-            // 
-            this.yaguaronDBDataSetBindingSource.DataSource = this.yaguaronDBDataSet;
-            this.yaguaronDBDataSetBindingSource.Position = 0;
-            // 
-            // clientesTableAdapter
-            // 
-            this.clientesTableAdapter.ClearBeforeFill = true;
-            // 
             // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -188,8 +168,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -204,9 +182,6 @@
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.BindingSource yaguaronDBDataSetBindingSource;
-        private yaguaronDBDataSet yaguaronDBDataSet;
-        private yaguaronDBDataSetTableAdapters.clientesTableAdapter clientesTableAdapter;
         }
 
 }
