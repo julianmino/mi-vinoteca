@@ -23,7 +23,6 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -48,10 +47,6 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.yaguaronDBDataSet = new UI.Desktop.yaguaronDBDataSet();
-            this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clientesTableAdapter = new UI.Desktop.yaguaronDBDataSetTableAdapters.clientesTableAdapter();
-            this.yaguaronDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAniejamiento)).BeginInit();
@@ -64,9 +59,6 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel
@@ -100,14 +92,15 @@
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
-            this.tableLayoutPanel.RowCount = 5;
+            this.tableLayoutPanel.RowCount = 6;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 113F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(583, 238);
+            this.tableLayoutPanel.Size = new System.Drawing.Size(583, 350);
             this.tableLayoutPanel.TabIndex = 0;
             // 
             // txtID
@@ -183,7 +176,7 @@
             // 
             this.lblAniejamiento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAniejamiento.AutoSize = true;
-            this.lblAniejamiento.Location = new System.Drawing.Point(3, 206);
+            this.lblAniejamiento.Location = new System.Drawing.Point(3, 205);
             this.lblAniejamiento.Name = "lblAniejamiento";
             this.lblAniejamiento.Size = new System.Drawing.Size(81, 13);
             this.lblAniejamiento.TabIndex = 1;
@@ -240,7 +233,7 @@
             // numAniejamiento
             // 
             this.numAniejamiento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.numAniejamiento.Location = new System.Drawing.Point(90, 203);
+            this.numAniejamiento.Location = new System.Drawing.Point(90, 201);
             this.numAniejamiento.Name = "numAniejamiento";
             this.numAniejamiento.Size = new System.Drawing.Size(198, 20);
             this.numAniejamiento.TabIndex = 4;
@@ -309,7 +302,7 @@
             // 
             this.lblIBU.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblIBU.AutoSize = true;
-            this.lblIBU.Location = new System.Drawing.Point(294, 206);
+            this.lblIBU.Location = new System.Drawing.Point(294, 205);
             this.lblIBU.Name = "lblIBU";
             this.lblIBU.Size = new System.Drawing.Size(81, 13);
             this.lblIBU.TabIndex = 1;
@@ -319,7 +312,7 @@
             // numIBU
             // 
             this.numIBU.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.numIBU.Location = new System.Drawing.Point(381, 203);
+            this.numIBU.Location = new System.Drawing.Point(381, 201);
             this.numIBU.Maximum = new decimal(new int[] {
             120,
             0,
@@ -359,8 +352,8 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.btnAceptar);
             this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
-            this.splitContainer1.Size = new System.Drawing.Size(583, 282);
-            this.splitContainer1.SplitterDistance = 238;
+            this.splitContainer1.Size = new System.Drawing.Size(583, 416);
+            this.splitContainer1.SplitterDistance = 350;
             this.splitContainer1.TabIndex = 1;
             // 
             // btnAceptar
@@ -370,7 +363,7 @@
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAceptar.Location = new System.Drawing.Point(355, 3);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(124, 35);
+            this.btnAceptar.Size = new System.Drawing.Size(124, 63);
             this.btnAceptar.TabIndex = 0;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -383,26 +376,17 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancelar.Location = new System.Drawing.Point(485, 3);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(96, 35);
+            this.btnCancelar.Size = new System.Drawing.Size(96, 63);
             this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // yaguaronDBDataSet
-            // 
-            this.yaguaronDBDataSet.DataSetName = "yaguaronDBDataSet";
-            this.yaguaronDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // clientesTableAdapter
-            // 
-            this.clientesTableAdapter.ClearBeforeFill = true;
-            // 
             // ABMProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(583, 282);
+            this.ClientSize = new System.Drawing.Size(583, 416);
             this.Controls.Add(this.splitContainer1);
             this.Name = "ABMProductos";
             this.Text = "ABMProductos";
@@ -422,9 +406,6 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
             }
@@ -446,10 +427,6 @@
         private System.Windows.Forms.Label lblVolumenAlcohol;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
-        private yaguaronDBDataSet yaguaronDBDataSet;
-        private System.Windows.Forms.BindingSource clientesBindingSource;
-        private yaguaronDBDataSetTableAdapters.clientesTableAdapter clientesTableAdapter;
-        private System.Windows.Forms.BindingSource yaguaronDBDataSetBindingSource;
         private System.Windows.Forms.NumericUpDown numStock;
         private System.Windows.Forms.NumericUpDown numAniejamiento;
         private System.Windows.Forms.NumericUpDown numVolumenAlcohol;

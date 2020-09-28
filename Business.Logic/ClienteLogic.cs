@@ -20,15 +20,7 @@ namespace Business.Logic
         }
         public cliente GetOne(string usuario) 
         {
-
             return context.clientes.SingleOrDefault(x => x.usuario == usuario);
-
-        }
-
-        public cliente GetByUser(string username)
-        {
-
-            return context.clientes.SingleOrDefault(x => x.usuario == username);
 
         }
 
@@ -47,11 +39,11 @@ namespace Business.Logic
                     fecha_nac = fecha_nac,
                     premium = premium,
                     id_descuento = id_descuento,
-                    estado = estado
+                    estado = estado,
                 };
                 context.clientes.Add(cliente);
                 context.Entry(cliente).State = System.Data.Entity.EntityState.Added;
-                context.SaveChanges();                
+                context.SaveChanges();
             }
             catch (Exception Ex) 
             {
@@ -60,7 +52,7 @@ namespace Business.Logic
         }
 
         public void Modificacion(string usuario, string nombre, string apellido, 
-            string email, string clave, DateTime fecha_nac, bool premium, int? id_descuento) {
+            string email, string clave, DateTime fecha_nac, bool premium, int? id_descuento, string estado) {
             try {                
                 cliente cliente = this.GetOne(usuario);
                     {
@@ -72,6 +64,7 @@ namespace Business.Logic
                     cliente.fecha_nac = fecha_nac;
                     cliente.premium = premium;
                     cliente.id_descuento = id_descuento;
+                    cliente.estado = estado;
                     };
                 context.Entry(cliente).State = System.Data.Entity.EntityState.Modified;
                 context.SaveChanges();

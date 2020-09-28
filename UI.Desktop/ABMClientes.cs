@@ -14,7 +14,7 @@ namespace UI.Desktop {
             Modo = modo;
             }
 
-        public ABMClientes(ModoForm modo, string usuario) {
+        public ABMClientes(ModoForm modo, string usuario) : this(){
             Modo = modo;
             ClienteLogic cliLog = new ClienteLogic();
             if (usuario != null) {
@@ -24,7 +24,7 @@ namespace UI.Desktop {
             }
 
         public override void MapearDeDatos() {
-            // this.txtID.Text = this.ClienteActual.id_cliente.ToString();
+
             this.txtNombre.Text = this.ClienteActual.nombre;
             this.txtApellido.Text = this.ClienteActual.apellido;
             this.txtUsuario.Text = this.ClienteActual.usuario;
@@ -32,6 +32,14 @@ namespace UI.Desktop {
             this.txtClave.Text = this.ClienteActual.clave;
             this.pickerFechaNac.Value = this.ClienteActual.fecha_nac;
             this.ckbPremium.Checked = this.ClienteActual.premium;
+            this.cbEstado.Text = this.ClienteActual.estado;
+
+            if (this.ClienteActual.id_descuento is null) {
+                this.txtDescuento.Text = null;
+                }
+            else {
+                this.txtDescuento.Text = this.ClienteActual.id_descuento.ToString();
+                }
 
             switch (this.Modo) {
                 case ModoForm.Alta: this.btnAceptar.Text = "Guardar"; break;
@@ -56,21 +64,21 @@ namespace UI.Desktop {
 
                 if (this.Modo == ModoForm.Alta) {
 
-                    cliLog.Alta(txtNombre.Text, txtApellido.Text, txtUsuario.Text, txtEmail.Text, txtClave.Text, pickerFechaNac.Value, ckbPremium.Checked, descuento, "pendiente");
+                    cliLog.Alta(txtNombre.Text, txtApellido.Text, txtUsuario.Text, txtEmail.Text, txtClave.Text, pickerFechaNac.Value, ckbPremium.Checked, descuento, cbEstado.Text);
                     }
                 else {
 
-                    // CAMBIAR
-                    //cliLog.Modificacion(int.Parse(txtID.Text), txtNombre.Text, txtApellido.Text, txtUsuario.Text, txtEmail.Text, txtClave.Text, pickerFechaNac.Value, ckbPremium.Checked, descuento);
+                     //CAMBIAR
+                    cliLog.Modificacion(txtUsuario.Text, txtNombre.Text, txtApellido.Text, txtEmail.Text, txtClave.Text, pickerFechaNac.Value, ckbPremium.Checked, descuento, cbEstado.Text);
                     }
                 }
 
             else if (this.Modo == ModoForm.Baja) {
                 DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar a " + txtNombre.Text + " " + txtApellido.Text + " de la base de datos?", "Confirmar Baja", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes) {
-                    
+
                     //CAMBIAR
-                    //cliLog.Baja(int.Parse(txtID.Text));
+                    cliLog.Baja(txtUsuario.Text);
                     }
                 }
             }
@@ -129,13 +137,14 @@ namespace UI.Desktop {
                 pickerFechaNac.Enabled = false;
                 ckbPremium.Enabled = false;
                 txtDescuento.ReadOnly = true;
+                cbEstado.Enabled = false;
                 }
             }
 
         private void ckbPremium_CheckedChanged(object sender, EventArgs e) {
             txtDescuento.ReadOnly = (ckbPremium.Checked) ? false : true;
             txtDescuento.Text = (!ckbPremium.Checked && !String.IsNullOrEmpty(txtDescuento.Text)) ? null : txtDescuento.Text;
-            }        
+            }
 
         private void txtNombre_TextChanged(object sender, EventArgs e) {
             if (String.IsNullOrEmpty(txtNombre.Text)) {
@@ -223,6 +232,6 @@ namespace UI.Desktop {
                 msgConfirmarClave.Text = null;
                 }
             msgConfirmarClave.Visible = (msgConfirmarClave.Text == null) ? false : true;
-            }        
+            }
         }
     }

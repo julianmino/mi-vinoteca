@@ -27,8 +27,6 @@ namespace DAL
 
         public int id_producto { get; set; }
 
-        public int? id_cliente { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<cliente> clientes { get; set; }
 

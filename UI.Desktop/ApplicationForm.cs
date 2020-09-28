@@ -18,7 +18,7 @@ namespace UI.Desktop {
             }
 
         private void ApplicationForm_Load(object sender, EventArgs e) {
-
+            InitializeComponent();
             }
 
         public virtual void MapearDeDatos() {
