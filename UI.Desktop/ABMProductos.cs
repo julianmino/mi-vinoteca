@@ -67,7 +67,9 @@ namespace UI.Desktop {
 
             if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion) {
                 if (this.Modo == ModoForm.Alta) {
-                    prodLog.Alta(txtNombre.Text, txtProductor.Text,Convert.ToDouble(numPrecio.Value),
+                    prodLog.Alta(txtNombre.Text,
+                        txtProductor.Text,
+                        Convert.ToDouble(numPrecio.Value),
                         Convert.ToInt32(numStock.Value),
                         Convert.ToDouble(numVolumenAlcohol.Value),
                         Convert.ToDouble(numMl.Value), Convert.ToDouble(numIBU.Value),
@@ -76,11 +78,13 @@ namespace UI.Desktop {
                         Id_tipo);
                     }
                 else {
-                    prodLog.Modificacion(int.Parse(txtID.Text), txtNombre.Text, txtProductor.Text,
+                    prodLog.Modificacion(int.Parse(txtID.Text),
+                        txtNombre.Text, txtProductor.Text,
                         Convert.ToDouble(numPrecio.Value),
                         Convert.ToInt32(numStock.Value),
                         Convert.ToDouble(numVolumenAlcohol.Value),
-                        Convert.ToDouble(numMl.Value), Convert.ToDouble(numIBU.Value),
+                        Convert.ToDouble(numMl.Value),
+                        Convert.ToDouble(numIBU.Value),
                         Convert.ToInt32(numAnio.Value),
                         Convert.ToInt32(numAniejamiento.Value),
                         Id_tipo);
@@ -110,14 +114,14 @@ namespace UI.Desktop {
             //Ocultar los campos que no mapean
             switch (Id_tipo) {
                 //Para vinos, licores y whiskies
-                case 1 :
+                case 0 :
+                case 2 :
                 case 3 :
-                case 4 :
                     numIBU.Visible = false;
                     lblIBU.Visible = false;
                     break;                
                 //Para Cervezas
-                case 2:
+                case 1:
                     numAniejamiento.Visible = false;
                     lblAniejamiento.Visible = false;
                     break;

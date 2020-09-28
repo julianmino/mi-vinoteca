@@ -119,6 +119,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Productos.resx">
       <DependentUpon>Productos.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -160,7 +161,7 @@
       <Name>Business.Logic</Name>
     </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{125be33a-8be8-4ecd-a76e-0289802dae19}</Project>
+      <Project>{a1dbb72e-9d5f-474d-8502-5312169111c1}</Project>
       <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>

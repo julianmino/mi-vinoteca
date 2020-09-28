@@ -9,10 +9,10 @@ namespace UI.Desktop {
             dgvProductos.AutoGenerateColumns = false;
 
             switch (tipo) {
-                case TipoForm.Vino : Id_tipo = 1; break;
-                case TipoForm.Cerveza : Id_tipo = 2; break;
-                case TipoForm.Licor : Id_tipo = 3; break;
-                case TipoForm.Whisky : Id_tipo = 4; break;
+                case TipoForm.Vino : Id_tipo = 0; break;
+                case TipoForm.Cerveza : Id_tipo = 1; break;
+                case TipoForm.Licor : Id_tipo = 2; break;
+                case TipoForm.Whisky : Id_tipo = 3; break;
                 }
             }
         public enum TipoForm {
@@ -28,8 +28,6 @@ namespace UI.Desktop {
         public int Id_tipo { get => _id_tipo; set => _id_tipo = value; }
 
         private void Productos_Load(object sender, EventArgs e) {
-            // TODO: This line of code loads data into the 'yaguaronDBDataSet1.productos' table. You can move, or remove it, as needed.
-            this.productosTableAdapter.Fill(this.yaguaronDBDataSet1.productos);
             Listar();
             }
         public void Listar() {
@@ -67,6 +65,6 @@ namespace UI.Desktop {
                 producto.ShowDialog();
                 this.Listar();
                 }
-            }        
+            }
         }
     }
