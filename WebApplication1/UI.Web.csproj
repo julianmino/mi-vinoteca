@@ -1866,6 +1866,10 @@
       <Project>{4074e5bc-e273-4231-996b-9ea0a5e4b3c7}</Project>
       <Name>Business.Logic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{a1dbb72e-9d5f-474d-8502-5312169111c1}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

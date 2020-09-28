@@ -25,15 +25,18 @@
 
                        <div class="row">
                             <div class="col">
-                                <asp:GridView class="table table-striped table-bordered" ID="dgvProductos" runat="server" AutoGenerateColumns="False" DataKeyNames="id_producto" DataSourceID="SqlDataSource1">
+                                <asp:GridView class="table table-striped table-bordered" ID="dgvProductos" runat="server" AutoGenerateColumns="False" DataKeyNames="id_producto" DataSourceID="SqlDataSource1" OnRowDataBound="OnRowDataBound">
                                     <Columns>
-                                        <asp:BoundField DataField="id_producto" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="id_producto" />
+                                        <asp:BoundField DataField="id_producto" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="id_producto" >
+                                       
+                                        <FooterStyle Font-Bold="True" />
+                                        </asp:BoundField>
                                        
                                         <asp:TemplateField>
                                             <ItemTemplate>
                                                 <div class="conteinner fluid">
                                                     <div class="row">
-                                                        <div class="col-lg-10">
+                                                        <div class="col-lg-9">
                                                             <div class="row">
                                                                 <div class="col-lg-12">
                                                                     <asp:Label runat="server" Text='<%# Eval("nombre") %>' ID="lblNombre" Font-Bold="True" Font-Size="Large"></asp:Label>
@@ -91,8 +94,8 @@
                                                             </div>
 
                                                         </div>
-                                                        <div class="col-lg-2">
-                                                            <asp:Image class="img-fluid" runat="server" ID="img"></asp:Image>
+                                                        <div class="col-lg-3">
+                                                            <asp:Image ID="Image" Class="img-fluid" runat="server" ImageUrl='<%# Eval("foto") %>' ImageAlign="Middle" />
                                                         </div>
                                                     </div>
                                                 </div>

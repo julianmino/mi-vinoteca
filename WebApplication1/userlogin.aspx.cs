@@ -17,7 +17,7 @@ namespace WebApplication1 {
             cliente cli = new cliente();
             try
             {
-                cli = cliLog.GetByUser(txtUsuario.Text.Trim());
+                cli = cliLog.GetOne(txtUsuario.Text.Trim());
                 if (cli != null)
                 {
                     if (cli.clave == txtPassword.Text.Trim())
