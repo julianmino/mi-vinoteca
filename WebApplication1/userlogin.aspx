@@ -12,7 +12,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                    <img width="150px" src="images/imgs/generaluser.png" />
+                                    <img width="150" src="images/imgs/generaluser.png" />
                                 </center>
                             </div>
                         </div>

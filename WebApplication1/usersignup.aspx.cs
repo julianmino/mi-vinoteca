@@ -15,9 +15,11 @@ namespace WebApplication1 {
             }
 
         protected void btnRegistrar_Click(object sender, EventArgs e) {
-            Registrar();
-            //volver a homepage
-            Response.Redirect("homepage.aspx");
+            if (Page.IsValid) {
+                Registrar();
+                //volver a homepage
+                Response.Redirect("homepage.aspx");
+                }
             }
         }
     }   

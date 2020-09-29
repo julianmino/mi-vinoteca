@@ -2,6 +2,7 @@
 using System;
 using DAL;
 using System.Net.Configuration;
+using System.Web;
 
 namespace WebApplication1 {
     public partial class userlogin : System.Web.UI.Page {
@@ -13,33 +14,32 @@ namespace WebApplication1 {
 
         protected void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            cliente cli = new cliente();
+            _ = new cliente();
             try
             {
-                cli = cliLog.GetOne(txtUsuario.Text.Trim());
+                cliente cli = cliLog.GetOne(txtUsuario.Text.Trim());
                 if (cli != null)
                 {
                     if (cli.clave == txtPassword.Text.Trim())
                     {
-                        //inicio sesion voy a homepage
-                        Response.Write("<scrpit>alert('inicia sesion breo');</script>");
+                        // Inicia sesion y redirige a homepage
+                        Response.Write("<script language='javascript'>alert('Sesion iniciada correctamente')</script>");
                         Session["username"] = cli.usuario.ToString();
                         Session["name"] = cli.nombre.ToString();
                         Session["role"] = "cliente";
                         Session["status"] = cli.premium;
                         Response.Redirect("homepage.aspx");
-
                     }
                     else
                     {
-                        //mensaje de error contrasenia incorrecta
-                        Response.Write("<scrpit>alert('contraseña incorrecta');</script>");
+                        // Mensaje de error contraseña incorrecta
+                        Response.Write("<script language='javascript'>alert('Contraseña incorrecta')</script>");
                     }
                 }
                 else
                 {
-                    //mensaje de usuario inexistente
-                    Response.Write("<scrpit>alert('usuario inexistente');</script>");
+                    // Mensaje de usuario inexistente
+                    Response.Write("<script language='javascript'>alert('Ese usuario no existe')</script>");
                 }
             }
             catch (Exception ex)

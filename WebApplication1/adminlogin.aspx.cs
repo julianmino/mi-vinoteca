@@ -19,26 +19,25 @@ namespace WebApplication1 {
             {
                 if (admin.clave == txtPassword.Text.Trim())
                 {
-                    //inicio sesion voy a homepage
+                    // Inicia sesion y redirige a homepage
                     //Server.Transfer("homepage.aspx");
-                    Response.Write("<scrpit>alert('inicia sesion breo');</script>");
+                    Response.Write("<scrpit language='javascript'>alert('inicia sesion breo');</script>");
                     Session["username"] = admin.usuario.ToString();
                     Session["name"] = admin.nombre.ToString();
                     Session["role"] = "admin";
                     Session["status"] = "";
                     Response.Redirect("admin-UsersManagement.aspx");
-
                 }
                 else
                 {
-                    //mensaje de error contrasenia incorrecta
-                    Response.Write("<scrpit>alert('contraseña incorrecta');</script>");
+                    // Mensaje de error contraseña incorrecta
+                    Response.Write("<scrpit language='javascript'>alert('contraseña incorrecta');</script>");
                 }
             }
             else
             {
-                //mensaje de usuario inexistente
-                Response.Write("<scrpit>alert('usuario inexistente');</script>");
+                // Mensaje de usuario inexistente
+                Response.Write("<scrpit language='javascript'>alert('usuario inexistente');</script>");
             }
         }
     }
