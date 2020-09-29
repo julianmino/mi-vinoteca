@@ -5,8 +5,7 @@ using System.Net.Configuration;
 
 namespace WebApplication1 {
     public partial class userlogin : System.Web.UI.Page {
-
-        ClienteLogic cliLog = new ClienteLogic();
+        readonly ClienteLogic cliLog = new ClienteLogic();
         protected void Page_Load(object sender, EventArgs e) {
             
             
@@ -17,7 +16,7 @@ namespace WebApplication1 {
             cliente cli = new cliente();
             try
             {
-                cli = cliLog.GetByUser(txtUsuario.Text.Trim());
+                cli = cliLog.GetOne(txtUsuario.Text.Trim());
                 if (cli != null)
                 {
                     if (cli.clave == txtPassword.Text.Trim())
