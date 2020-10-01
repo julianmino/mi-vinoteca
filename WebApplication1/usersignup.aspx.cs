@@ -13,7 +13,9 @@ namespace WebApplication1 {
             cliLog.Alta(txtNombre.Text.Trim(), txtApellido.Text.Trim(), txtUsuario.Text.Trim(),
                         txtEmail.Text.Trim(), txtPassword.Text.Trim(), dt, false, null, "Pendiente");
             }
-
+        protected void Page_Load() {
+            rvFechaNac.MaximumValue = DateTime.Today.AddYears(-18).ToString("yyyy-MM-dd");
+            }
         protected void btnRegistrar_Click(object sender, EventArgs e) {
             if (Page.IsValid) {
                 Registrar();

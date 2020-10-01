@@ -63,7 +63,8 @@
                                  <label>Fecha de Nacimiento</label>
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="txtFechaNac" runat="server" placeholder="" TextMode="Date"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="rfvFechaNac" runat="server" ErrorMessage="Ingrese su fecha de nacimiento" ForeColor="#FF0033" ControlToValidate="txtFechaNac"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="rfvFechaNac" runat="server" ErrorMessage="Ingrese su fecha de nacimiento" ForeColor="#FF0033" ControlToValidate="txtFechaNac" Display="Dynamic"></asp:RequiredFieldValidator>
+                                    <asp:RangeValidator ID="rvFechaNac" runat="server" ControlToValidate="txtFechaNac" Display="Dynamic" ErrorMessage="Ingrese una fecha válida" ForeColor="#FF0033" MinimumValue="1945-01-01" Type="Date"></asp:RangeValidator>
                                 </div>
 
                             </div>
