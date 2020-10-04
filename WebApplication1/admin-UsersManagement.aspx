@@ -22,7 +22,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                   <h4>Your Profile</h4>
+                                   <h4>Usuario</h4>
                                 </center>
                             </div>
                         </div>
@@ -49,8 +49,8 @@
                                          <div class="input-group">
                                         <asp:TextBox CssClass="form-control" ID="txtEstado" runat="server" placeholder="Estado" ReadOnly="True" Font-Bold="False"></asp:TextBox>      
                                         <asp:LinkButton class="btn btn-success mr-1" ID="btnHabilitado" runat="server" OnClick="btnHabilitadoPressed" Visible="False"><i class="fas fa-check-circle"></i></asp:LinkButton>
-                                        <asp:LinkButton class="btn btn-warning mr-1" ID="btnPendiente" runat="server" Visible="False"><i class="fas fa-pause-circle"></i></asp:LinkButton>
-                                        <asp:LinkButton class="btn btn-danger mr-1" ID="btnCancelado" runat="server" Visible="False"><i class="fas fa-times-circle"></i></asp:LinkButton>
+                                        <asp:LinkButton class="btn btn-warning mr-1" ID="btnPendiente" runat="server" OnClick="btnPendientePressed" Visible="False"><i class="fas fa-pause-circle"></i></asp:LinkButton>
+                                        <asp:LinkButton class="btn btn-danger mr-1" ID="btnCancelado" runat="server" OnClick="btnCanceladoPressed" Visible="False"><i class="fas fa-times-circle"></i></asp:LinkButton>
                                          </div>
                                     </div> 
                             </div>
@@ -93,6 +93,17 @@
                             </div>
                         </div>
 
+                         <div class="row">
+                            <div class="col">
+                                <hr>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-8 mx-auto">
+                                <asp:Button ID="btnBorrarUsuario" class="btn btn-lg btn-block btn-danger" runat="server" Text="Borrar Usuario" OnClick="btnBorrarUsuarioPressed" Visible="False"/>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -102,7 +113,7 @@
                         <div class="row">
                             <div class="col">
                             <center>
-                                <h4>Member List</h4>
+                                <h4>Listado de Usuarios</h4>
                             </center>
                             </div>
                         </div>

@@ -80,6 +80,7 @@ namespace Business.Logic
             cliente clienteAEliminar = this.GetOne(usuario);
             if (clienteAEliminar != null) {
                 context.clientes.Remove(clienteAEliminar);
+                context.Entry(clienteAEliminar).State = System.Data.Entity.EntityState.Deleted;
                 context.SaveChanges();
                 }
 

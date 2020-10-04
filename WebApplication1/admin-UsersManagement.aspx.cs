@@ -22,10 +22,11 @@ namespace WebApplication1
         protected void btnCheckPressed(object sender, EventArgs e)
         {
                 
-                clienteActual = cliLog.GetByUser(txtUsuario.Text);
+                clienteActual = cliLog.GetOne(txtUsuario.Text);
                 
                 if (clienteActual != null)
                 {
+                    
                     txtEstado.Text = clienteActual.estado;
                     txtEstado.Font.Bold = true;
                     txtNombre.Text = clienteActual.nombre;
@@ -36,6 +37,7 @@ namespace WebApplication1
                     btnHabilitado.Visible = true;
                     btnPendiente.Visible = true;
                     btnCancelado.Visible = true;
+                    btnBorrarUsuario.Visible = true;
                 }
         }
 
@@ -44,21 +46,105 @@ namespace WebApplication1
         {
             try
             {
+                clienteActual = cliLog.GetOne(txtUsuario.Text);
                 try
                 {
-                    cliLog.CambiarEstado(clienteActual, "habilitado");
-                
+                    
+                    cliLog.CambiarEstado(clienteActual, "Habilitado");
+                    dgvUsuarios.DataBind();
+                    txtEstado.Text = "Habilitado";
+
                 } catch (Exception)
                 {
                     throw;
                 }
-                txtEstado.Text = "habilitado";
+                
+            } catch (Exception)
+            {
+                throw;
+            } 
+         }
+
+
+        protected void btnPendientePressed(object sender, EventArgs e)
+        {
+            try
+            {
+                clienteActual = cliLog.GetOne(txtUsuario.Text);
+                try
+                {
+                    
+                    cliLog.CambiarEstado(clienteActual, "Pendiente");
+                    dgvUsuarios.DataBind();
+                    txtEstado.Text = "Pendiente";
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
+
+        protected void btnCanceladoPressed(object sender, EventArgs e)
+        {
+            try
+            {
+                clienteActual = cliLog.GetOne(txtUsuario.Text);
+                try
+                {
+                    
+                    cliLog.CambiarEstado(clienteActual, "Cancelado");
+                    dgvUsuarios.DataBind();
+                    txtEstado.Text = "Cancelado";
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
+
+        protected void btnBorrarUsuarioPressed(object sender, EventArgs e)
+        {
+            try
+            {
+                cliLog.Baja(txtUsuario.Text);
+                dgvUsuarios.DataBind();
+                LimpiarCampos();
+                btnHabilitado.Visible = false;
+                btnPendiente.Visible = false;
+                btnCancelado.Visible = false;
+                btnBorrarUsuario.Visible = false;
             } catch (Exception)
             {
                 throw;
             }
-                
-         }
             
+        }
+
+        private void LimpiarCampos()
+        {
+            txtUsuario.Text = "";
+            txtEstado.Text = "";
+            txtApellido.Text = "";
+            txtNombre.Text = "";
+            txtEmail.Text = "";
+            txtFechaNac.Text = "";
+        }
+
     }
 }
