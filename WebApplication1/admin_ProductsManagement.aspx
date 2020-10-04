@@ -46,11 +46,15 @@
                         </div>
                      </div>
                   </div>
-                  <div class="row">        
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server" updatemode="Always">
+            <ContentTemplate>
+                  <div class="row">   
+                  
                      <div class="col-md-4">
                         <label>Tipo de Producto</label>
                         <div class="form-group">
-                           <asp:DropDownList class="form-control text-center" ID="dropTipos" runat="server">
+                           <asp:DropDownList class="form-control text-center" ID="dropTipos" runat="server" OnSelectedIndexChanged="onTipoChanged" AutoPostBack="True">
                               <asp:ListItem Text="Vino" Value="Vino" />
                               <asp:ListItem Text="Cerveza" Value="Cerveza" />
                               <asp:ListItem Text="Licor" Value="Licor" />
@@ -68,31 +72,32 @@
                            <asp:ListBox CssClass="form-control text-center" ID="listProductores" runat="server" SelectionMode="Multiple" Rows="5">
                               
                               
-                              <asp:ListItem Text="Quilmes" Value="Quilmes" />
-                              <asp:ListItem Text="Brahma" Value="Brahma" />
-                              <asp:ListItem Text="Stella Artois" Value="Stella Artois" />
-                              <asp:ListItem Text="Andes Origen" Value="Andes Origen" />
-                              <asp:ListItem Text="Corona" Value="Corona" />
-                              <asp:ListItem Text="Budweiser" Value="Budweiser" />
+                              <asp:ListItem Text="Quilmes" Value="Quilmes" Enabled="false"/>
+                              <asp:ListItem Text="Brahma" Value="Brahma" Enabled="false"/>
+                              <asp:ListItem Text="Stella Artois" Value="Stella Artois" Enabled="false"/>
+                              <asp:ListItem Text="Andes Origen" Value="Andes Origen" Enabled="false" />
+                              <asp:ListItem Text="Corona" Value="Corona" Enabled="false"/>
+                              <asp:ListItem Text="Budweiser" Value="Budweiser" Enabled="false"/>
 
-                               <asp:ListItem Text="Johnnie Walker" Value="Johnnie Walker" />
-                               <asp:ListItem Text="Jameson" Value="Jameson" />
-                               <asp:ListItem Text="Jack Daniels" Value="Jack Daniels" />
-                               <asp:ListItem Text="Chivas Regal" Value="Chivas Regal" />
+                               <asp:ListItem Text="Johnnie Walker" Value="Johnnie Walker" Enabled="false"/>
+                               <asp:ListItem Text="Jameson" Value="Jameson" Enabled="false"/>
+                               <asp:ListItem Text="Jack Daniels" Value="Jack Daniels" Enabled="false"/>
+                               <asp:ListItem Text="Chivas Regal" Value="Chivas Regal" Enabled="false" />
                                
                                <asp:ListItem Text="Santa Julia" Value="Santa Julia" />
                                <asp:ListItem Text="Luigi Bosca" Value="Luigi Bosca" />
                                <asp:ListItem Text="Rutini" Value="Rutini" />
                                <asp:ListItem Text="Alma Mora" Value="Alma Mora" />
 
-                               <asp:ListItem Text="Cusenier" Value="Cusenier" />
-                               <asp:ListItem Text="Bols" Value="Bols" />
-                               <asp:ListItem Text="Tía María" Value="Tía María" />
+                               <asp:ListItem Text="Cusenier" Value="Cusenier" Enabled="false"/>
+                               <asp:ListItem Text="Bols" Value="Bols" Enabled="false"/>
+                               <asp:ListItem Text="Tía María" Value="Tia Maria" Enabled="false"/>
 
                            </asp:ListBox>
                         </div>
                      </div>
                   </div>
+            
                   <div class="row">
                       <div class="col">
                           <hr />
@@ -109,7 +114,7 @@
                      <div class="col-md-4">
                         <label>Año</label>
                         <div class="form-group">
-                           <asp:TextBox CssClass="form-control" ID="txtAnio" runat="server" placeholder="Año" TextMode="Number" ReadOnly="True"></asp:TextBox>
+                           <asp:TextBox CssClass="form-control" ID="txtAnio" runat="server" placeholder="Año" TextMode="Number" ReadOnly="False"></asp:TextBox>
                         </div>
                      </div>
                      <div class="col-md-4">
@@ -120,17 +125,18 @@
                      </div>
 
                   </div>
+                
                   <div class="row">
                     <div class="col-md-4">
                         <label>Volúmen de Alcohol</label>
                         <div class="form-group">
-                            <asp:TextBox CssClass="form-control" ID="txtVolAlcohol" runat="server" placeholder="Vol. Alcohol" ReadOnly="True"></asp:TextBox>
+                            <asp:TextBox CssClass="form-control" ID="txtVolAlcohol" runat="server" placeholder="Vol. Alcohol"></asp:TextBox>
                         </div>
                      </div>
                      <div class="col-md-4">
                         <label>Precio</label>
                         <div class="form-group">
-                           <asp:TextBox CssClass="form-control" ID="txtPrecio" runat="server" placeholder="Precio" TextMode="Number" ReadOnly="True"></asp:TextBox>
+                           <asp:TextBox CssClass="form-control" ID="txtPrecio" runat="server" placeholder="Precio" TextMode="Number"></asp:TextBox>
                         </div>
                      </div>
                      <div class="col-md-4">
@@ -140,6 +146,8 @@
                         </div>
                      </div>
                   </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
                   <div class="row">
                      <div class="col-12">
                         <label>Descripción del Producto</label>
