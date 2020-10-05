@@ -9,7 +9,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    <div class="container-fluid">
       <div class="row">
-         <div class="col-md-5">
+         <div class="col-lg-5">
             <div class="card">
                <div class="card-body">
                   <div class="row">
@@ -34,8 +34,8 @@
                         <label>ID Producto</label>
                         <div class="form-group">
                            <div class="input-group">
-                              <asp:TextBox CssClass="form-control" ID="txtIDProducto" runat="server" placeholder="ID Producto"></asp:TextBox>
-                              <asp:LinkButton class="btn btn-primary" ID="btnChecked" runat="server"><i class="fas fa-check-circle"></i></asp:LinkButton>
+                              <asp:TextBox CssClass="form-control" ID="txtIDProducto" runat="server" placeholder="ID Producto" TextMode="Number"></asp:TextBox>
+                              <asp:LinkButton class="btn btn-primary" ID="btnChecked" runat="server" OnClick="onCheckedPressed"><i class="fas fa-check-circle"></i></asp:LinkButton>
                            </div>
                         </div>
                      </div>
@@ -172,7 +172,7 @@
             <a href="homepage.aspx"><< Volver a la Página Principal</a><br>
             <br>
          </div>
-         <div class="col-md-7">
+         <div class="col-lg-7">
             <div class="card">
                <div class="card-body">
                   <div class="row">
@@ -189,7 +189,23 @@
                   </div>
                   <div class="row">
                      <div class="col">
-                        <asp:GridView class="table table-striped table-bordered" ID="dgvProductos" runat="server"></asp:GridView>
+                        <asp:GridView class="table table-striped table-bordered table-responsive" ID="dgvProductos" runat="server" AutoGenerateColumns="False">
+                            <Columns>
+                                <asp:BoundField DataField="id_producto" HeaderText="ID Producto" />
+                                <asp:BoundField DataField="nombre" HeaderText="Nombre" />
+                                <asp:BoundField DataField="productor" HeaderText="Productor" />
+                                <asp:BoundField DataField="id_tipo" HeaderText="Tipo Producto" />
+                                <asp:BoundField DataField="vol_alcohol" HeaderText="Vol. Alcohol" />
+                                <asp:BoundField DataField="ml" HeaderText="Cantidad en ml" />
+                                <asp:BoundField DataField="precio" HeaderText="Precio" />
+                                <asp:BoundField DataField="stock" HeaderText="Stock" />
+                                <asp:BoundField DataField="año" HeaderText="Año" />
+                                <asp:BoundField DataField="añejamiento" HeaderText="Añejamiento" />
+                                <asp:BoundField DataField="ibu" HeaderText="IBU" />
+                            </Columns>
+                            <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                            <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                         </asp:GridView>
                      </div>
                   </div>
                </div>
