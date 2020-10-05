@@ -15,7 +15,7 @@
                 <div class="row">
                         <div class="col">
                                 <center>
-                                   <h3>Products List</h3>
+                                   <h3>Lista de Productos</h3>
                                 </center>
                             </div>
                         </div>
