@@ -25,13 +25,11 @@
 
                        <div class="row">
                             <div class="col">
-                                <asp:GridView class="table table-striped table-bordered" ID="dgvProductos" runat="server" AutoGenerateColumns="False" DataKeyNames="id_producto" DataSourceID="SqlDataSource1" OnRowDataBound="OnRowDataBound">
+                                <asp:GridView class="table table-striped table-bordered" ID="dgvProductos" runat="server" AutoGenerateColumns="False" DataKeyNames="id_producto,id_tipo1,id_productor1" DataSourceID="SqlDataSource1" OnRowDataBound="OnRowDataBound">
                                     <Columns>
-                                        <asp:BoundField DataField="id_producto" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="id_producto" >
+                                        <asp:BoundField DataField="id_producto" HeaderText="id_producto" InsertVisible="False" ReadOnly="True" SortExpression="id_producto" >
                                        
-                                        <FooterStyle Font-Bold="True" />
                                         </asp:BoundField>
-                                       
                                         <asp:TemplateField>
                                             <ItemTemplate>
                                                 <div class="conteinner fluid">
@@ -61,7 +59,7 @@
                                                                 <div class="col-lg-12">
 
                                                                     Productor -
-                                                                    <asp:Label ID="lblProductor" runat="server" Font-Bold="True" Text='<%# Eval("productor") %>'></asp:Label>
+                                                                    <asp:Label ID="lblProductor" runat="server" Font-Bold="True" Text='<%# Eval("nombre1") %>'></asp:Label>
                                                                     &nbsp;| Vol. Alcohol %
                                                                     <asp:Label ID="lblVolAlcohol" runat="server" Font-Bold="True" Text='<%# Eval("vol_alcohol") %>'></asp:Label>
                                                                     &nbsp;|
@@ -107,7 +105,10 @@
                                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:YaguaronEntities %>" 
                                         SelectCommand="SELECT * FROM [productos]
                                         INNER JOIN [tipo_producto]
-	                                    ON productos.id_tipo = tipo_producto.id_tipo;">
+	                                    ON productos.id_tipo = tipo_producto.id_tipo
+                                        INNER JOIN [productores]
+                                        ON productos.id_productor = productores.id_productor
+                                        WHERE productos.stock &gt; 0;">
                                 </asp:SqlDataSource>
                             </div>
                         </div> 
