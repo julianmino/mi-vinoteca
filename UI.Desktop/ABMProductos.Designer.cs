@@ -1,4 +1,6 @@
-﻿namespace UI.Desktop {
+﻿using System.Runtime.CompilerServices;
+
+namespace UI.Desktop {
     partial class ABMProductos {
         /// <summary>
         /// Required designer variable.
@@ -15,7 +17,7 @@
                 }
             base.Dispose(disposing);
             }
-
+        
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -23,10 +25,10 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtProductor = new System.Windows.Forms.TextBox();
             this.lblID = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblProductor = new System.Windows.Forms.Label();
@@ -44,9 +46,13 @@
             this.lblIBU = new System.Windows.Forms.Label();
             this.numIBU = new System.Windows.Forms.NumericUpDown();
             this.numMl = new System.Windows.Forms.NumericUpDown();
+            this.cbProductor = new System.Windows.Forms.ComboBox();
+            this.productoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.yaguaronDBDataSet = new UI.Desktop.yaguaronDBDataSet();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.productoresTableAdapter = new UI.Desktop.yaguaronDBDataSetTableAdapters.productoresTableAdapter();
             this.tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAniejamiento)).BeginInit();
@@ -55,6 +61,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numAnio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIBU)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productoresBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -63,6 +71,7 @@
             // 
             // tableLayoutPanel
             // 
+            this.tableLayoutPanel.AutoScroll = true;
             this.tableLayoutPanel.AutoSize = true;
             this.tableLayoutPanel.ColumnCount = 4;
             this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
@@ -71,7 +80,6 @@
             this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel.Controls.Add(this.txtID, 1, 0);
             this.tableLayoutPanel.Controls.Add(this.txtNombre, 1, 1);
-            this.tableLayoutPanel.Controls.Add(this.txtProductor, 1, 2);
             this.tableLayoutPanel.Controls.Add(this.lblID, 0, 0);
             this.tableLayoutPanel.Controls.Add(this.lblNombre, 0, 1);
             this.tableLayoutPanel.Controls.Add(this.lblProductor, 0, 2);
@@ -89,6 +97,7 @@
             this.tableLayoutPanel.Controls.Add(this.lblIBU, 2, 4);
             this.tableLayoutPanel.Controls.Add(this.numIBU, 3, 4);
             this.tableLayoutPanel.Controls.Add(this.numMl, 3, 1);
+            this.tableLayoutPanel.Controls.Add(this.cbProductor, 1, 2);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
@@ -119,14 +128,6 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(198, 20);
             this.txtNombre.TabIndex = 1;
-            // 
-            // txtProductor
-            // 
-            this.txtProductor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtProductor.Location = new System.Drawing.Point(90, 107);
-            this.txtProductor.Name = "txtProductor";
-            this.txtProductor.Size = new System.Drawing.Size(198, 20);
-            this.txtProductor.TabIndex = 2;
             // 
             // lblID
             // 
@@ -337,6 +338,28 @@
             this.numMl.TabIndex = 9;
             this.numMl.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // cbProductor
+            // 
+            this.cbProductor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbProductor.DataSource = this.productoresBindingSource;
+            this.cbProductor.DisplayMember = "nombre";
+            this.cbProductor.FormattingEnabled = true;
+            this.cbProductor.Location = new System.Drawing.Point(90, 107);
+            this.cbProductor.Name = "cbProductor";
+            this.cbProductor.Size = new System.Drawing.Size(198, 21);
+            this.cbProductor.TabIndex = 10;
+            this.cbProductor.ValueMember = "id_productor";
+            // 
+            // productoresBindingSource
+            // 
+            this.productoresBindingSource.DataMember = "productores";
+            this.productoresBindingSource.DataSource = this.yaguaronDBDataSet;
+            // 
+            // yaguaronDBDataSet
+            // 
+            this.yaguaronDBDataSet.DataSetName = "yaguaronDBDataSet";
+            this.yaguaronDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -382,6 +405,10 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // productoresTableAdapter
+            // 
+            this.productoresTableAdapter.ClearBeforeFill = true;
+            // 
             // ABMProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,6 +427,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numAnio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIBU)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productoresBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSet)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -415,7 +444,6 @@
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtProductor;
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblProductor;
@@ -435,5 +463,9 @@
         private System.Windows.Forms.NumericUpDown numAnio;
         private System.Windows.Forms.Label lblMl;
         private System.Windows.Forms.NumericUpDown numMl;
+        private System.Windows.Forms.ComboBox cbProductor;
+        private yaguaronDBDataSet yaguaronDBDataSet;
+        private System.Windows.Forms.BindingSource productoresBindingSource;
+        private yaguaronDBDataSetTableAdapters.productoresTableAdapter productoresTableAdapter;
         }
     }

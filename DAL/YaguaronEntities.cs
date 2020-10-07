@@ -6,7 +6,7 @@ namespace DAL {
 
     public partial class YaguaronEntities : DbContext {
         public YaguaronEntities()
-            : base("name=yaguaronDB") {
+            : base("name=YaguaronEntities") {
             }
 
         public virtual DbSet<admin> admins { get; set; }

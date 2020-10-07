@@ -21,7 +21,7 @@ namespace DAL
 
         public int id_tipo { get; set; }
 
-        public int? id_productor { get; set; }
+        public int id_productor { get; set; }
 
         [Required]
         [StringLength(50)]

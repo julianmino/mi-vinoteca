@@ -21,7 +21,7 @@ namespace Business.Logic {
             List<producto> listaVinos = context.productos.Where(x => x.id_tipo == id).ToList();
             return listaVinos;
             }
-        public void Alta(string nombre, string productor, double precio,
+        public void Alta(string nombre, int id_productor, double precio,
             int stock, double vol_alcohol, double ml, double? ibu,
             int? año, int? añejamiento,int id_tipo) {
             if (ibu == 0) {
@@ -36,7 +36,7 @@ namespace Business.Logic {
             try {
                 var producto = new producto() {
                     nombre = nombre,
-                    productor = productor,
+                    id_productor = id_productor,
                     precio = precio,
                     stock = stock,
                     vol_alcohol = vol_alcohol,
@@ -54,7 +54,7 @@ namespace Business.Logic {
                 throw Ex;                
                 }
             }
-        public void Modificacion(int id, string nombre, string productor, double precio,
+        public void Modificacion(int id, string nombre, int id_productor, double precio,
             int stock, double vol_alcohol,double ml, double? ibu,
             int? año, int? añejamiento,int id_tipo) {
             if (ibu == 0) {
@@ -70,7 +70,7 @@ namespace Business.Logic {
                 producto producto = this.GetOne(id);
                     {
                     producto.nombre = nombre;
-                    producto.productor = productor;
+                    producto.id_productor = id_productor;
                     producto.precio = precio;
                     producto.stock = stock;                    
                     producto.vol_alcohol = vol_alcohol;
