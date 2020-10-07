@@ -6,13 +6,12 @@ namespace DAL
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("productos")]
-    public partial class producto
+    public partial class productos
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public producto()
+        public productos()
         {
-            descuentos = new HashSet<descuento>();
+            descuentos = new HashSet<descuentos>();
             lineas_pedidos = new HashSet<lineas_pedidos>();
         }
 
@@ -44,12 +43,12 @@ namespace DAL
         public byte[] foto { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<descuento> descuentos { get; set; }
+        public virtual ICollection<descuentos> descuentos { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<lineas_pedidos> lineas_pedidos { get; set; }
 
-        public virtual productore productore { get; set; }
+        public virtual productores productores { get; set; }
 
         public virtual tipo_producto tipo_producto { get; set; }
     }

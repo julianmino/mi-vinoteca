@@ -9,16 +9,16 @@ namespace Business.Logic {
         public ProductoLogic() {
             }
 
-        public List<producto> GetAll() {
-            List<producto> listaProductos = context.productos.ToList();
+        public List<productos> GetAll() {
+            List<productos> listaProductos = context.productos.ToList();
 
             return listaProductos;
             }
-        public producto GetOne(int id) {
+        public productos GetOne(int id) {
             return context.productos.SingleOrDefault(x => x.id_producto == id);
             }
-        public List<producto> GetProductoPorTipo(int id) {
-            List<producto> listaVinos = context.productos.Where(x => x.id_tipo == id).ToList();
+        public List<productos> GetProductoPorTipo(int id) {
+            List<productos> listaVinos = context.productos.Where(x => x.id_tipo == id).ToList();
             return listaVinos;
             }
         public void Alta(string nombre, int id_productor, double precio,
@@ -34,7 +34,7 @@ namespace Business.Logic {
                 año = null;
                 }
             try {
-                var producto = new producto() {
+                var producto = new productos() {
                     nombre = nombre,
                     id_productor = id_productor,
                     precio = precio,
@@ -67,7 +67,7 @@ namespace Business.Logic {
                 año = null;
                 }
             try {                
-                producto producto = this.GetOne(id);
+                productos producto = this.GetOne(id);
                     {
                     producto.nombre = nombre;
                     producto.id_productor = id_productor;
@@ -89,7 +89,7 @@ namespace Business.Logic {
             }
 
         public void Baja(int id) {
-            producto productoAEliminar = this.GetOne(id);
+            productos productoAEliminar = this.GetOne(id);
             if (productoAEliminar != null) {
                 context.productos.Remove(productoAEliminar);
                 context.SaveChanges();

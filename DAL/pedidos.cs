@@ -6,11 +6,10 @@ namespace DAL
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("pedidos")]
-    public partial class pedido
+    public partial class pedidos
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public pedido()
+        public pedidos()
         {
             lineas_pedidos = new HashSet<lineas_pedidos>();
         }
@@ -32,9 +31,9 @@ namespace DAL
 
         public double total { get; set; }
 
-        public virtual cliente cliente { get; set; }
+        public virtual clientes clientes { get; set; }
 
-        public virtual descuento descuento { get; set; }
+        public virtual descuentos descuentos { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<lineas_pedidos> lineas_pedidos { get; set; }

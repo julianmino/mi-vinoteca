@@ -16,7 +16,7 @@ namespace Business.Logic
 
         public List<admin> GetAll()
         {
-            List<admin> listaClientes = context.admins.ToList();
+            List<admin> listaClientes = context.admin.ToList();
 
             return listaClientes;
         }
@@ -24,7 +24,7 @@ namespace Business.Logic
         public admin GetByUser(string username)
         {
 
-            return context.admins.SingleOrDefault(x => x.usuario == username);
+            return context.admin.SingleOrDefault(x => x.usuario == username);
 
         }
 
@@ -39,7 +39,7 @@ namespace Business.Logic
                     usuario = usuario,
                     clave = clave,
                 };
-                context.admins.Add(admin);
+                context.admin.Add(admin);
                 context.Entry(admin).State = System.Data.Entity.EntityState.Added;
                 context.SaveChanges();
             }
@@ -75,7 +75,7 @@ namespace Business.Logic
             admin adminAEliminar = this.GetByUser(usuario);
             if (adminAEliminar != null)
             {
-                context.admins.Remove(adminAEliminar);
+                context.admin.Remove(adminAEliminar);
                 context.SaveChanges();
             }
 
@@ -89,7 +89,7 @@ namespace Business.Logic
             {
                 try
                 {
-                    foreach (var admin in context.admins.Where(u => u.usuario.Contains(filtro)))
+                    foreach (var admin in context.admin.Where(u => u.usuario.Contains(filtro)))
                     {
                         listaAdmins.Add(admin);
                     }

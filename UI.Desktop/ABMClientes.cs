@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace UI.Desktop {
     public partial class ABMClientes : ApplicationForm {
-        public cliente ClienteActual;
+        public clientes ClienteActual;
         public ABMClientes() {
             InitializeComponent();
             }

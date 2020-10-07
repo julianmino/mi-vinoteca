@@ -11,7 +11,7 @@ namespace WebApplication1
     public partial class admin_UsersManagement : System.Web.UI.Page
     {
         ClienteLogic cliLog = new ClienteLogic();
-        cliente clienteActual;
+        clientes clienteActual;
 
         protected void Page_Load(object sender, EventArgs e)
         {

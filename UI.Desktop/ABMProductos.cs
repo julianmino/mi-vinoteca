@@ -5,7 +5,7 @@ using DAL;
 
 namespace UI.Desktop {
     public partial class ABMProductos : ApplicationForm {
-        public producto ProductoActual;
+        public productos ProductoActual;
         public int? id;
         private int _id_tipo;
         public int Id_tipo { get => _id_tipo; set => _id_tipo = value; }
