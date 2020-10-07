@@ -6,7 +6,7 @@ namespace DAL {
 
     public partial class YaguaronEntities : DbContext {
         public YaguaronEntities()
-            : base("name=YaguaronEntities") {
+            : base("name=yaguaronDB") {
             }
 
         public virtual DbSet<admin> admins { get; set; }
@@ -14,8 +14,8 @@ namespace DAL {
         public virtual DbSet<descuento> descuentos { get; set; }
         public virtual DbSet<lineas_pedidos> lineas_pedidos { get; set; }
         public virtual DbSet<pedido> pedidos { get; set; }
+        public virtual DbSet<productore> productores { get; set; }
         public virtual DbSet<producto> productos { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<tipo_producto> tipo_producto { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {

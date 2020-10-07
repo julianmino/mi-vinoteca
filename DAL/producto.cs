@@ -19,23 +19,21 @@ namespace DAL
         [Key]
         public int id_producto { get; set; }
 
-        public double ml { get; set; }
+        public int id_tipo { get; set; }
+
+        public int? id_productor { get; set; }
 
         [Required]
         [StringLength(50)]
         public string nombre { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string productor { get; set; }
-
-        public int id_tipo { get; set; }
 
         public double vol_alcohol { get; set; }
 
         public double precio { get; set; }
 
         public int stock { get; set; }
+
+        public double ml { get; set; }
 
         public int? año { get; set; }
 
@@ -50,6 +48,8 @@ namespace DAL
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<lineas_pedidos> lineas_pedidos { get; set; }
+
+        public virtual productore productore { get; set; }
 
         public virtual tipo_producto tipo_producto { get; set; }
     }
