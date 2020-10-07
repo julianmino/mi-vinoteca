@@ -41,7 +41,6 @@ namespace UI.Desktop {
             cliente.ShowDialog();
             this.Listar();
             }
-
         
         private void btnModificar_Click(object sender, EventArgs e) {
             string usuario = GetUsuario();
