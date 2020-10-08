@@ -54,7 +54,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78.36257F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.63743F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(275, 198);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(300, 198);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -72,15 +72,15 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(269, 37);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(294, 37);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // btnBorrar
             // 
             this.btnBorrar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnBorrar.Location = new System.Drawing.Point(181, 3);
+            this.btnBorrar.Location = new System.Drawing.Point(198, 3);
             this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(85, 31);
+            this.btnBorrar.Size = new System.Drawing.Size(93, 31);
             this.btnBorrar.TabIndex = 3;
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.UseVisualStyleBackColor = true;
@@ -89,9 +89,9 @@
             // btnModificar
             // 
             this.btnModificar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnModificar.Location = new System.Drawing.Point(92, 3);
+            this.btnModificar.Location = new System.Drawing.Point(101, 3);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(83, 31);
+            this.btnModificar.Size = new System.Drawing.Size(91, 31);
             this.btnModificar.TabIndex = 2;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
@@ -102,7 +102,7 @@
             this.btnAgregar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAgregar.Location = new System.Drawing.Point(3, 3);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(83, 31);
+            this.btnAgregar.Size = new System.Drawing.Size(92, 31);
             this.btnAgregar.TabIndex = 1;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -119,7 +119,8 @@
             this.dgvProductores.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProductores.Location = new System.Drawing.Point(3, 3);
             this.dgvProductores.Name = "dgvProductores";
-            this.dgvProductores.Size = new System.Drawing.Size(269, 149);
+            this.dgvProductores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProductores.Size = new System.Drawing.Size(294, 149);
             this.dgvProductores.TabIndex = 1;
             // 
             // idproductorDataGridViewTextBoxColumn
@@ -153,7 +154,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(275, 198);
+            this.ClientSize = new System.Drawing.Size(300, 198);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Productores";
             this.Text = "Productores";

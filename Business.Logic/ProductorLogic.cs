@@ -10,9 +10,9 @@ namespace Business.Logic {
             }
 
         public List<productores> GetAll() {
-            List<productores> listaProductors = context.productores.ToList();
+            List<productores> listaProductores = context.productores.ToList();
 
-            return listaProductors;
+            return listaProductores;
             }
 
         public productores GetOne(int id_productor) {
@@ -21,10 +21,9 @@ namespace Business.Logic {
             }
         
 
-        public void Alta(int id_productor, string nombre) {
+        public void Alta(string nombre) {
             try {
-                var productor = new productores() {
-                    id_productor = id_productor,
+                var productor = new productores() {                    
                     nombre = nombre,
                     };
                 context.productores.Add(productor);

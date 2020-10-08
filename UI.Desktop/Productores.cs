@@ -10,8 +10,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI.Desktop {
-    public partial class Productores : ApplicationForm {
+    public partial class Productores : Form {
         public Productores() {
+            InitializeComponent();
+            dgvProductores.AutoGenerateColumns = false;
+
             }
 
         private void Productores_Load(object sender, EventArgs e) {
@@ -24,37 +27,33 @@ namespace UI.Desktop {
             ProductorLogic prodLog = new ProductorLogic();
             dgvProductores.DataSource = prodLog.GetAll();
             }
-        private int? GetId() {
-            try {
-                return int.Parse(dgvProductores.Rows[dgvProductores.CurrentRow.Index].Cells[0].Value.ToString());
-                }
-            catch {
-                return null;
-                }
+        private int GetId() {
+           
+            return int.Parse(dgvProductores.Rows[dgvProductores.CurrentRow.Index].Cells[0].Value.ToString());
+                
             }
         private void btnAgregar_Click(object sender, EventArgs e) {
-            ABMProductor productor = new ABMProductores(ApplicationForm.ModoForm.Alta);
+            ABMProductores productor = new ABMProductores(ApplicationForm.ModoForm.Alta);
             productor.ShowDialog();
             this.Listar();
             }
 
         private void btnModificar_Click(object sender, EventArgs e) {
-            int? id_productor = GetId();
-
-            if (id_productor != null) {
-                ABMProductor productor = new ABMProductores(ApplicationForm.ModoForm.Modificacion, id_productor);
-                productor.ShowDialog();
-                this.Listar();
-                }
+            int id_productor = GetId();
+            
+            ABMProductores productor = new ABMProductores(ApplicationForm.ModoForm.Modificacion, id_productor);
+            productor.ShowDialog();
+            this.Listar();
+                
             }
 
         private void btnBorrar_Click(object sender, EventArgs e) {
-            int? id_productor = GetId();
-            if (id_productor != null) {
-                ABMProductor productor = new ABMProductores(ApplicationForm.ModoForm.Baja, id_productor);
-                productor.ShowDialog();
-                this.Listar();
-                }
+            int id_productor = GetId();
+            
+            ABMProductores productor = new ABMProductores(ApplicationForm.ModoForm.Baja, id_productor);
+            productor.ShowDialog();
+            this.Listar();
+                
             }
         }
     }
