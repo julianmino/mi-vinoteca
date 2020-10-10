@@ -86,7 +86,7 @@
 
                                 <label>Contraseña nueva</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="txtPassNueva" runat="server" placeholder="Contraseña nueva" TextMode="Password" OnTextChanged="TextBox3_TextChanged"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="txtPassNueva" runat="server" placeholder="Contraseña nueva" TextMode="Password"></asp:TextBox>
                                 </div>
                               </div>
 

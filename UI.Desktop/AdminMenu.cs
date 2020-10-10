@@ -61,7 +61,7 @@ namespace UI.Desktop {
             }
         private void resizeSideMenu_Click(object sender, EventArgs e) {
             if (panelSideMenu.Width == 250) {
-                panelSideMenu.Width = 80;
+                panelSideMenu.Width = 100;
                 panelClientesSubmenu.Visible = false;
                 panelProductosSubmenu.Visible = false;
                 }
@@ -72,7 +72,7 @@ namespace UI.Desktop {
         private void btnTodos_Click(object sender, EventArgs e) {
             abrirFormHijo(new Clientes(), "Todos los Clientes");
 
-            }        
+            }
         private void btnVinos_Click(object sender, EventArgs e) {
             abrirFormHijo(new Productos(Productos.TipoForm.Vino), "Vinos");
             }
@@ -88,10 +88,13 @@ namespace UI.Desktop {
         private void btnLicores_Click(object sender, EventArgs e) {
             abrirFormHijo(new Productos(Productos.TipoForm.Licor), "Licores");
             }
+        private void btnProductores_Click(object sender, EventArgs e) {
+            abrirFormHijo(new Productores(), "Productores");
+            }
+        
+        private void txtConsulta_TextChanged(object sender, EventArgs e) {
 
-        private void txtConsulta_TextChanged(object sender, EventArgs e)
-        {
+            }
 
         }
-    }
     }

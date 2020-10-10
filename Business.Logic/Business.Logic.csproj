@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="BusinessLogic.cs" />
     <Compile Include="AdminLogic.cs" />
+    <Compile Include="ProductorLogic.cs" />
     <Compile Include="ProductoLogic.cs" />
     <Compile Include="ClienteLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,7 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{a1dbb72e-9d5f-474d-8502-5312169111c1}</Project>
+      <Project>{ff859f62-df1f-45ce-8e59-095987a69bbf}</Project>
       <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>

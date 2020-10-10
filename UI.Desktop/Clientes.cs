@@ -22,10 +22,9 @@ namespace UI.Desktop {
         }
 
         private void Clientes_Load(object sender, EventArgs e) {
-            // TODO: This line of code loads data into the 'yaguaronDBDataSet.productos' table. You can move, or remove it, as needed.
-            this.productosTableAdapter.Fill(this.yaguaronDBDataSet.productos);
             // TODO: This line of code loads data into the 'yaguaronDBDataSet.clientes' table. You can move, or remove it, as needed.
             this.clientesTableAdapter.Fill(this.yaguaronDBDataSet.clientes);
+
             Listar();
             }
         private string GetUsuario() {
@@ -42,7 +41,6 @@ namespace UI.Desktop {
             cliente.ShowDialog();
             this.Listar();
             }
-
         
         private void btnModificar_Click(object sender, EventArgs e) {
             string usuario = GetUsuario();

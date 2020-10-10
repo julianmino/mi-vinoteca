@@ -9,19 +9,19 @@ namespace Business.Logic {
         public ProductoLogic() {
             }
 
-        public List<producto> GetAll() {
-            List<producto> listaProductos = context.productos.ToList();
+        public List<productos> GetAll() {
+            List<productos> listaProductos = context.productos.ToList();
 
             return listaProductos;
             }
-        public producto GetOne(int id) {
+        public productos GetOne(int id) {
             return context.productos.SingleOrDefault(x => x.id_producto == id);
             }
-        public List<producto> GetProductoPorTipo(int id) {
-            List<producto> listaVinos = context.productos.Where(x => x.id_tipo == id).ToList();
+        public List<productos> GetProductoPorTipo(int id) {
+            List<productos> listaVinos = context.productos.Where(x => x.id_tipo == id).ToList();
             return listaVinos;
             }
-        public void Alta(string nombre, string productor, double precio,
+        public void Alta(string nombre, int id_productor, double precio,
             int stock, double vol_alcohol, double ml, double? ibu,
             int? año, int? añejamiento,int id_tipo) {
             if (ibu == 0) {
@@ -34,9 +34,9 @@ namespace Business.Logic {
                 año = null;
                 }
             try {
-                var producto = new producto() {
+                var producto = new productos() {
                     nombre = nombre,
-                    productor = productor,
+                    id_productor = id_productor,
                     precio = precio,
                     stock = stock,
                     vol_alcohol = vol_alcohol,
@@ -54,7 +54,7 @@ namespace Business.Logic {
                 throw Ex;                
                 }
             }
-        public void Modificacion(int id, string nombre, string productor, double precio,
+        public void Modificacion(int id, string nombre, int id_productor, double precio,
             int stock, double vol_alcohol,double ml, double? ibu,
             int? año, int? añejamiento,int id_tipo) {
             if (ibu == 0) {
@@ -67,10 +67,10 @@ namespace Business.Logic {
                 año = null;
                 }
             try {                
-                producto producto = this.GetOne(id);
+                productos producto = this.GetOne(id);
                     {
                     producto.nombre = nombre;
-                    producto.productor = productor;
+                    producto.id_productor = id_productor;
                     producto.precio = precio;
                     producto.stock = stock;                    
                     producto.vol_alcohol = vol_alcohol;
@@ -89,7 +89,7 @@ namespace Business.Logic {
             }
 
         public void Baja(int id) {
-            producto productoAEliminar = this.GetOne(id);
+            productos productoAEliminar = this.GetOne(id);
             if (productoAEliminar != null) {
                 context.productos.Remove(productoAEliminar);
                 context.SaveChanges();

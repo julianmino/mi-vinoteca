@@ -5,7 +5,7 @@ using DAL;
 
 namespace UI.Desktop {
     public partial class ABMProductos : ApplicationForm {
-        public producto ProductoActual;
+        public productos ProductoActual;
         public int? id;
         private int _id_tipo;
         public int Id_tipo { get => _id_tipo; set => _id_tipo = value; }
@@ -15,8 +15,8 @@ namespace UI.Desktop {
         public ABMProductos(ModoForm modo, int id_tipo) : this() {
             Modo = modo;
             Id_tipo = id_tipo;
-            }            
-        public ABMProductos(ModoForm modo, int id_tipo, int? id = null) : this(){
+            }
+        public ABMProductos(ModoForm modo, int id_tipo, int? id = null) : this() {
             this.id = id;
             Modo = modo;
             Id_tipo = id_tipo;
@@ -26,34 +26,34 @@ namespace UI.Desktop {
                 ProductoActual = prodLog.GetOne((int)this.id);
                 this.MapearDeDatos();
                 }
-            }
+            }        
         public override void MapearDeDatos() {
             txtID.Text = ProductoActual.id_producto.ToString();
-            txtNombre.Text = ProductoActual.nombre;
-            txtProductor.Text = ProductoActual.productor;            
+            txtNombre.Text = ProductoActual.nombre;            
             numMl.Value = Convert.ToDecimal(ProductoActual.ml);
             numVolumenAlcohol.Value = Convert.ToDecimal(ProductoActual.vol_alcohol);
             numPrecio.Value = Convert.ToDecimal(ProductoActual.precio);
             numStock.Value = ProductoActual.stock;
+
             //Mapear a 0 los campos que son NULL en la DB
             if (ProductoActual.añejamiento == null) {
                 numAniejamiento.Value = 0M;
                 }
             else {
                 numAniejamiento.Value = Convert.ToInt32(ProductoActual.añejamiento);
-                    }
+                }
             if (ProductoActual.año == null) {
                 numAnio.Value = 0M;
                 }
             else {
                 numAnio.Value = Convert.ToInt32(ProductoActual.año);
-                    }
+                }
             if (ProductoActual.ibu == null) {
                 numIBU.Value = 0M;
                 }
             else {
                 numIBU.Value = Convert.ToInt32(ProductoActual.ibu);
-                    }
+                }
 
             switch (this.Modo) {
                 case ModoForm.Alta: this.btnAceptar.Text = "Guardar"; break;
@@ -67,8 +67,9 @@ namespace UI.Desktop {
 
             if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion) {
                 if (this.Modo == ModoForm.Alta) {
+
                     prodLog.Alta(txtNombre.Text,
-                        txtProductor.Text,
+                        Convert.ToInt32(cbProductor.SelectedValue),
                         Convert.ToDouble(numPrecio.Value),
                         Convert.ToInt32(numStock.Value),
                         Convert.ToDouble(numVolumenAlcohol.Value),
@@ -79,7 +80,8 @@ namespace UI.Desktop {
                     }
                 else {
                     prodLog.Modificacion(int.Parse(txtID.Text),
-                        txtNombre.Text, txtProductor.Text,
+                        txtNombre.Text,
+                        Convert.ToInt32(cbProductor.SelectedValue),
                         Convert.ToDouble(numPrecio.Value),
                         Convert.ToInt32(numStock.Value),
                         Convert.ToDouble(numVolumenAlcohol.Value),
@@ -88,21 +90,23 @@ namespace UI.Desktop {
                         Convert.ToInt32(numAnio.Value),
                         Convert.ToInt32(numAniejamiento.Value),
                         Id_tipo);
-                    }                
+                    }
                 }
-                else if (this.Modo == ModoForm.Baja) {
-                    DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar " + txtNombre.Text + " de " + txtProductor.Text + " de la base de datos?", "Confirmar Baja", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes) {
-                        prodLog.Baja(int.Parse(txtID.Text));
-                        }
+            else if (this.Modo == ModoForm.Baja) {
+                DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar " + txtNombre.Text + " de " + cbProductor.Text + " de la base de datos?", "Confirmar Baja", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes) {
+                    prodLog.Baja(int.Parse(txtID.Text));
+                    }
                 }
             }
 
         private void ABMProductos_Load(object sender, EventArgs e) {
+            // TODO: This line of code loads data into the 'yaguaronDBDataSet.productores' table. You can move, or remove it, as needed.
+            this.productoresTableAdapter.Fill(this.yaguaronDBDataSet.productores);            
 
-            if (Modo == ModoForm.Baja || Modo == ModoForm.Consulta) {
+            if (Modo == ModoForm.Baja) {
                 txtNombre.ReadOnly = true;
-                txtProductor.Enabled = false;
+                cbProductor.Enabled = false;
                 numIBU.ReadOnly = true;
                 numAniejamiento.ReadOnly = true;
                 numAnio.ReadOnly = true;
@@ -110,16 +114,22 @@ namespace UI.Desktop {
                 numPrecio.Enabled = false;
                 numVolumenAlcohol.ReadOnly = true;
                 numStock.ReadOnly = true;
-            }
-            //Ocultar los campos que no mapean
+                }
+
+            // Mapear el combobox
+            if (Modo == ModoForm.Baja || Modo == ModoForm.Modificacion) {
+                cbProductor.SelectedValue = ProductoActual.id_productor;
+                }
+
+            // Ocultar los campos que no mapean
             switch (Id_tipo) {
                 //Para vinos, licores y whiskies
-                case 0 :
-                case 2 :
-                case 3 :
+                case 0:
+                case 2:
+                case 3:
                     numIBU.Visible = false;
                     lblIBU.Visible = false;
-                    break;                
+                    break;
                 //Para Cervezas
                 case 1:
                     numAniejamiento.Visible = false;
@@ -128,14 +138,14 @@ namespace UI.Desktop {
                 }
             }
 
-        private void btnAceptar_Click(object sender, EventArgs e) {            
+        private void btnAceptar_Click(object sender, EventArgs e) {
             MapearADatos();
             this.Dispose();
-            }            
+            }
 
         private void btnCancelar_Click(object sender, EventArgs e) {
             this.Dispose();
-            }
+            }        
         }
     }
         

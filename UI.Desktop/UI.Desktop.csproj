@@ -42,7 +42,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -62,6 +64,12 @@
     </Compile>
     <Compile Include="ABMClientes.Designer.cs">
       <DependentUpon>ABMClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABMProductores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABMProductores.Designer.cs">
+      <DependentUpon>ABMProductores.cs</DependentUpon>
     </Compile>
     <Compile Include="ABMProductos.cs">
       <SubType>Form</SubType>
@@ -87,6 +95,12 @@
     <Compile Include="Clientes.Designer.cs">
       <DependentUpon>Clientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Productores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productores.Designer.cs">
+      <DependentUpon>Productores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Productos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +117,9 @@
     <EmbeddedResource Include="ABMClientes.resx">
       <DependentUpon>ABMClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ABMProductores.resx">
+      <DependentUpon>ABMProductores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ABMProductos.resx">
       <DependentUpon>ABMProductos.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productores.resx">
+      <DependentUpon>Productores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Productos.resx">
       <DependentUpon>Productos.cs</DependentUpon>
@@ -159,7 +179,7 @@
       <Name>Business.Logic</Name>
     </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{a1dbb72e-9d5f-474d-8502-5312169111c1}</Project>
+      <Project>{ff859f62-df1f-45ce-8e59-095987a69bbf}</Project>
       <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>

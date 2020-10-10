@@ -9,62 +9,67 @@ namespace DAL {
             : base("name=YaguaronEntities") {
             }
 
-        public virtual DbSet<admin> admins { get; set; }
-        public virtual DbSet<cliente> clientes { get; set; }
-        public virtual DbSet<descuento> descuentos { get; set; }
+        public virtual DbSet<admin> admin { get; set; }
+        public virtual DbSet<clientes> clientes { get; set; }
+        public virtual DbSet<descuentos> descuentos { get; set; }
         public virtual DbSet<lineas_pedidos> lineas_pedidos { get; set; }
-        public virtual DbSet<pedido> pedidos { get; set; }
-        public virtual DbSet<producto> productos { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<pedidos> pedidos { get; set; }
+        public virtual DbSet<productores> productores { get; set; }
+        public virtual DbSet<productos> productos { get; set; }
         public virtual DbSet<tipo_producto> tipo_producto { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
-            modelBuilder.Entity<cliente>()
+            modelBuilder.Entity<clientes>()
                 .Property(e => e.usuario)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<cliente>()
+            modelBuilder.Entity<clientes>()
                 .Property(e => e.nombre)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<cliente>()
+            modelBuilder.Entity<clientes>()
                 .Property(e => e.apellido)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<cliente>()
+            modelBuilder.Entity<clientes>()
                 .Property(e => e.email)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<cliente>()
+            modelBuilder.Entity<clientes>()
                 .Property(e => e.clave)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<cliente>()
+            modelBuilder.Entity<clientes>()
                 .Property(e => e.estado)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<cliente>()
+            modelBuilder.Entity<clientes>()
                 .HasMany(e => e.pedidos)
-                .WithRequired(e => e.cliente)
+                .WithRequired(e => e.clientes)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<pedido>()
+            modelBuilder.Entity<pedidos>()
                 .Property(e => e.usuario)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<pedido>()
+            modelBuilder.Entity<pedidos>()
                 .HasMany(e => e.lineas_pedidos)
-                .WithRequired(e => e.pedido)
+                .WithRequired(e => e.pedidos)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<producto>()
+            modelBuilder.Entity<productores>()
+                .HasMany(e => e.productos)
+                .WithRequired(e => e.productores)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<productos>()
                 .HasMany(e => e.descuentos)
-                .WithRequired(e => e.producto)
+                .WithRequired(e => e.productos)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<producto>()
+            modelBuilder.Entity<productos>()
                 .HasMany(e => e.lineas_pedidos)
-                .WithRequired(e => e.producto)
+                .WithRequired(e => e.productos)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<tipo_producto>()

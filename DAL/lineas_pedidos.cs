@@ -22,8 +22,8 @@ namespace DAL
 
         public double subtotal { get; set; }
 
-        public virtual producto producto { get; set; }
+        public virtual productos productos { get; set; }
 
-        public virtual pedido pedido { get; set; }
+        public virtual pedidos pedidos { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tipo_producto()
         {
-            productos = new HashSet<producto>();
+            productos = new HashSet<productos>();
         }
 
         [Key]
@@ -23,6 +23,6 @@ namespace DAL
         public string descripcion { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<producto> productos { get; set; }
+        public virtual ICollection<productos> productos { get; set; }
     }
 }

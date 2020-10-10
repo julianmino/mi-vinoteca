@@ -3,22 +3,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Business.Logic 
+namespace Business.Logic
 {
-    public class ClienteLogic : BusinessLogic 
+    public class ClienteLogic : BusinessLogic
     {
         private YaguaronEntities context = new YaguaronEntities();
         public ClienteLogic() 
         {
         }
 
-        public List<cliente> GetAll() 
+        public List<clientes> GetAll() 
         {
-            List<cliente> listaClientes = context.clientes.ToList();
+            List<clientes> listaClientes = context.clientes.ToList();
 
             return listaClientes;
         }
-        public cliente GetOne(string usuario) 
+        public clientes GetOne(string usuario) 
         {
             return context.clientes.SingleOrDefault(x => x.usuario == usuario);
 
@@ -29,7 +29,7 @@ namespace Business.Logic
         {
             try 
             {
-                var cliente = new cliente()
+                var cliente = new clientes()
                 {
                     nombre = nombre,
                     apellido = apellido,
@@ -54,7 +54,7 @@ namespace Business.Logic
         public void Modificacion(string usuario, string nombre, string apellido, 
             string email, string clave, DateTime fecha_nac, bool premium, int? id_descuento, string estado) {
             try {                
-                cliente cliente = this.GetOne(usuario);
+                clientes cliente = this.GetOne(usuario);
                     {
                     cliente.nombre = nombre;
                     cliente.apellido = apellido;
@@ -77,7 +77,7 @@ namespace Business.Logic
 
         public void Baja(string usuario) {
 
-            cliente clienteAEliminar = this.GetOne(usuario);
+            clientes clienteAEliminar = this.GetOne(usuario);
             if (clienteAEliminar != null) {
                 context.clientes.Remove(clienteAEliminar);
                 context.Entry(clienteAEliminar).State = System.Data.Entity.EntityState.Deleted;
@@ -86,9 +86,9 @@ namespace Business.Logic
 
             }
 
-        public List<cliente> ConsultaEnTabla(string filtro) 
+        public List<clientes> ConsultaEnTabla(string filtro) 
         {
-            List<cliente> listaClientes = new List<cliente>();
+            List<clientes> listaClientes = new List<clientes>();
 
             if (!String.IsNullOrEmpty(filtro))
             {
@@ -111,7 +111,7 @@ namespace Business.Logic
             }
         }
 
-        public void CambiarEstado(cliente cliente, string estado)
+        public void CambiarEstado(clientes cliente, string estado)
         {
             if (cliente != null)
             {

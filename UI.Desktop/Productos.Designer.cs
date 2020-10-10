@@ -30,25 +30,26 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.yaguaronDBDataSet = new UI.Desktop.yaguaronDBDataSet();
-            this.productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idproductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idtipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idproductorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.volalcoholDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mlDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.añoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.añejamientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ibuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fotoDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.yaguaronDBDataSet = new UI.Desktop.yaguaronDBDataSet();
+            this.productosTableAdapter = new UI.Desktop.yaguaronDBDataSetTableAdapters.productosTableAdapter();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -63,7 +64,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.23952F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.76048F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(862, 327);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(745, 327);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -80,7 +81,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(856, 59);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(739, 59);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // btnAgregar
@@ -88,7 +89,7 @@
             this.btnAgregar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAgregar.Location = new System.Drawing.Point(3, 3);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(279, 53);
+            this.btnAgregar.Size = new System.Drawing.Size(240, 53);
             this.btnAgregar.TabIndex = 0;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -97,9 +98,9 @@
             // btnModificar
             // 
             this.btnModificar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnModificar.Location = new System.Drawing.Point(288, 3);
+            this.btnModificar.Location = new System.Drawing.Point(249, 3);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(279, 53);
+            this.btnModificar.Size = new System.Drawing.Size(240, 53);
             this.btnModificar.TabIndex = 1;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
@@ -108,9 +109,9 @@
             // btnBorrar
             // 
             this.btnBorrar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnBorrar.Location = new System.Drawing.Point(573, 3);
+            this.btnBorrar.Location = new System.Drawing.Point(495, 3);
             this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(280, 53);
+            this.btnBorrar.Size = new System.Drawing.Size(241, 53);
             this.btnBorrar.TabIndex = 2;
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.UseVisualStyleBackColor = true;
@@ -123,17 +124,17 @@
             this.dgvProductos.AutoGenerateColumns = false;
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17,
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewTextBoxColumn19,
-            this.dataGridViewTextBoxColumn20,
-            this.dataGridViewTextBoxColumn21,
+            this.idproductoDataGridViewTextBoxColumn,
+            this.idtipoDataGridViewTextBoxColumn,
+            this.idproductorDataGridViewTextBoxColumn,
+            this.nombreDataGridViewTextBoxColumn,
+            this.volalcoholDataGridViewTextBoxColumn,
+            this.precioDataGridViewTextBoxColumn,
+            this.stockDataGridViewTextBoxColumn,
+            this.mlDataGridViewTextBoxColumn,
+            this.añoDataGridViewTextBoxColumn,
+            this.añejamientoDataGridViewTextBoxColumn,
+            this.ibuDataGridViewTextBoxColumn,
             this.fotoDataGridViewImageColumn});
             this.dgvProductos.DataSource = this.productosBindingSource;
             this.dgvProductos.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -141,95 +142,85 @@
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.ReadOnly = true;
             this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProductos.Size = new System.Drawing.Size(856, 256);
+            this.dgvProductos.Size = new System.Drawing.Size(739, 256);
             this.dgvProductos.TabIndex = 1;
             // 
-            // yaguaronDBDataSet
+            // idproductoDataGridViewTextBoxColumn
             // 
-            this.yaguaronDBDataSet.DataSetName = "yaguaronDBDataSet";
-            this.yaguaronDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.idproductoDataGridViewTextBoxColumn.DataPropertyName = "id_producto";
+            this.idproductoDataGridViewTextBoxColumn.HeaderText = "id_producto";
+            this.idproductoDataGridViewTextBoxColumn.Name = "idproductoDataGridViewTextBoxColumn";
+            this.idproductoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // productosBindingSource
+            // idtipoDataGridViewTextBoxColumn
             // 
-            this.productosBindingSource.DataMember = "productos";
-            this.productosBindingSource.DataSource = this.yaguaronDBDataSet;
+            this.idtipoDataGridViewTextBoxColumn.DataPropertyName = "id_tipo";
+            this.idtipoDataGridViewTextBoxColumn.HeaderText = "id_tipo";
+            this.idtipoDataGridViewTextBoxColumn.Name = "idtipoDataGridViewTextBoxColumn";
+            this.idtipoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn11
+            // idproductorDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "id_producto";
-            this.dataGridViewTextBoxColumn11.HeaderText = "id_producto";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.idproductorDataGridViewTextBoxColumn.DataPropertyName = "id_productor";
+            this.idproductorDataGridViewTextBoxColumn.HeaderText = "id_productor";
+            this.idproductorDataGridViewTextBoxColumn.Name = "idproductorDataGridViewTextBoxColumn";
+            this.idproductorDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn12
+            // nombreDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "ml";
-            this.dataGridViewTextBoxColumn12.HeaderText = "ml";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn13
+            // volalcoholDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "nombre";
-            this.dataGridViewTextBoxColumn13.HeaderText = "nombre";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.volalcoholDataGridViewTextBoxColumn.DataPropertyName = "vol_alcohol";
+            this.volalcoholDataGridViewTextBoxColumn.HeaderText = "vol_alcohol";
+            this.volalcoholDataGridViewTextBoxColumn.Name = "volalcoholDataGridViewTextBoxColumn";
+            this.volalcoholDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn14
+            // precioDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "productor";
-            this.dataGridViewTextBoxColumn14.HeaderText = "productor";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.precioDataGridViewTextBoxColumn.DataPropertyName = "precio";
+            this.precioDataGridViewTextBoxColumn.HeaderText = "precio";
+            this.precioDataGridViewTextBoxColumn.Name = "precioDataGridViewTextBoxColumn";
+            this.precioDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn15
+            // stockDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "id_tipo";
-            this.dataGridViewTextBoxColumn15.HeaderText = "id_tipo";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.stockDataGridViewTextBoxColumn.DataPropertyName = "stock";
+            this.stockDataGridViewTextBoxColumn.HeaderText = "stock";
+            this.stockDataGridViewTextBoxColumn.Name = "stockDataGridViewTextBoxColumn";
+            this.stockDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn16
+            // mlDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "vol_alcohol";
-            this.dataGridViewTextBoxColumn16.HeaderText = "vol_alcohol";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            this.mlDataGridViewTextBoxColumn.DataPropertyName = "ml";
+            this.mlDataGridViewTextBoxColumn.HeaderText = "ml";
+            this.mlDataGridViewTextBoxColumn.Name = "mlDataGridViewTextBoxColumn";
+            this.mlDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn17
+            // añoDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "precio";
-            this.dataGridViewTextBoxColumn17.HeaderText = "precio";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            this.añoDataGridViewTextBoxColumn.DataPropertyName = "año";
+            this.añoDataGridViewTextBoxColumn.HeaderText = "año";
+            this.añoDataGridViewTextBoxColumn.Name = "añoDataGridViewTextBoxColumn";
+            this.añoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn18
+            // añejamientoDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "stock";
-            this.dataGridViewTextBoxColumn18.HeaderText = "stock";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            this.añejamientoDataGridViewTextBoxColumn.DataPropertyName = "añejamiento";
+            this.añejamientoDataGridViewTextBoxColumn.HeaderText = "añejamiento";
+            this.añejamientoDataGridViewTextBoxColumn.Name = "añejamientoDataGridViewTextBoxColumn";
+            this.añejamientoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn19
+            // ibuDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "año";
-            this.dataGridViewTextBoxColumn19.HeaderText = "año";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "añejamiento";
-            this.dataGridViewTextBoxColumn20.HeaderText = "añejamiento";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn21
-            // 
-            this.dataGridViewTextBoxColumn21.DataPropertyName = "ibu";
-            this.dataGridViewTextBoxColumn21.HeaderText = "ibu";
-            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
-            this.dataGridViewTextBoxColumn21.ReadOnly = true;
+            this.ibuDataGridViewTextBoxColumn.DataPropertyName = "ibu";
+            this.ibuDataGridViewTextBoxColumn.HeaderText = "ibu";
+            this.ibuDataGridViewTextBoxColumn.Name = "ibuDataGridViewTextBoxColumn";
+            this.ibuDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // fotoDataGridViewImageColumn
             // 
@@ -238,11 +229,25 @@
             this.fotoDataGridViewImageColumn.Name = "fotoDataGridViewImageColumn";
             this.fotoDataGridViewImageColumn.ReadOnly = true;
             // 
+            // productosBindingSource
+            // 
+            this.productosBindingSource.DataMember = "productos";
+            this.productosBindingSource.DataSource = this.yaguaronDBDataSet;
+            // 
+            // yaguaronDBDataSet
+            // 
+            this.yaguaronDBDataSet.DataSetName = "yaguaronDBDataSet";
+            this.yaguaronDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // productosTableAdapter
+            // 
+            this.productosTableAdapter.ClearBeforeFill = true;
+            // 
             // Productos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(862, 327);
+            this.ClientSize = new System.Drawing.Size(745, 327);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Productos";
             this.Text = "Productos";
@@ -250,8 +255,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.yaguaronDBDataSet)).EndInit();
             this.ResumeLayout(false);
 
             }
@@ -263,19 +268,20 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnBorrar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
-        private System.Windows.Forms.DataGridViewImageColumn fotoDataGridViewImageColumn;
-        private System.Windows.Forms.BindingSource productosBindingSource;
         private yaguaronDBDataSet yaguaronDBDataSet;
+        private System.Windows.Forms.BindingSource productosBindingSource;
+        private yaguaronDBDataSetTableAdapters.productosTableAdapter productosTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idproductoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idtipoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idproductorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn volalcoholDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stockDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mlDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn añoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn añejamientoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ibuDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn fotoDataGridViewImageColumn;
         }
     }

@@ -47,6 +47,7 @@
             this.panelFormHijo = new System.Windows.Forms.Panel();
             this.resizeSideMenu = new System.Windows.Forms.PictureBox();
             this.lblFormActual = new System.Windows.Forms.Label();
+            this.btnProductores = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
             this.panelClientesSubmenu.SuspendLayout();
             this.panelProductosSubmenu.SuspendLayout();
@@ -61,6 +62,7 @@
             // 
             this.panelSideMenu.AutoScroll = true;
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(19)))), ((int)(((byte)(54)))));
+            this.panelSideMenu.Controls.Add(this.btnProductores);
             this.panelSideMenu.Controls.Add(this.btnPedidos);
             this.panelSideMenu.Controls.Add(this.panelClientesSubmenu);
             this.panelSideMenu.Controls.Add(this.btnClientes);
@@ -328,6 +330,22 @@
             this.lblFormActual.TabIndex = 2;
             this.lblFormActual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnProductores
+            // 
+            this.btnProductores.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProductores.FlatAppearance.BorderSize = 0;
+            this.btnProductores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Crimson;
+            this.btnProductores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProductores.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnProductores.Location = new System.Drawing.Point(0, 507);
+            this.btnProductores.Name = "btnProductores";
+            this.btnProductores.Size = new System.Drawing.Size(250, 50);
+            this.btnProductores.TabIndex = 7;
+            this.btnProductores.Text = "Productores";
+            this.btnProductores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProductores.UseVisualStyleBackColor = true;
+            this.btnProductores.Click += new System.EventHandler(this.btnProductores_Click);
+            // 
             // AdminMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -376,5 +394,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox resizeSideMenu;
         private System.Windows.Forms.Label lblFormActual;
-    }
+        private System.Windows.Forms.Button btnProductores;
+        }
 }

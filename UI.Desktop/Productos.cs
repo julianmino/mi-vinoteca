@@ -28,6 +28,8 @@ namespace UI.Desktop {
         public int Id_tipo { get => _id_tipo; set => _id_tipo = value; }
 
         private void Productos_Load(object sender, EventArgs e) {
+            // TODO: This line of code loads data into the 'yaguaronDBDataSet.productos' table. You can move, or remove it, as needed.
+            this.productosTableAdapter.Fill(this.yaguaronDBDataSet.productos);
             Listar();
             }
         public void Listar() {
