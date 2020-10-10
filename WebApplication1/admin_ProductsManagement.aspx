@@ -78,26 +78,22 @@
                            <asp:ListBox CssClass="form-control text-center" ID="listProductores" runat="server" SelectionMode="Single" Rows="5">
                               
                               
-                              <asp:ListItem Text="Quilmes" Value="Quilmes" Enabled="false"/>
-                              <asp:ListItem Text="Brahma" Value="Brahma" Enabled="false"/>
-                              <asp:ListItem Text="Stella Artois" Value="Stella Artois" Enabled="false"/>
-                              <asp:ListItem Text="Andes Origen" Value="Andes Origen" Enabled="false" />
-                              <asp:ListItem Text="Corona" Value="Corona" Enabled="false"/>
+                              <asp:ListItem Text="Cervecería Modelo" Value="Cervecería Modelo" Enabled="false"/>
+                              <asp:ListItem Text="Cervecería y Malteria Quilmes" Value="Cervecería y Malteria Quilmes" Enabled="false"/>
+                              <asp:ListItem Text="Heineken" Value="Heineken" Enabled="false"/>
                               <asp:ListItem Text="Budweiser" Value="Budweiser" Enabled="false"/>
 
-                               <asp:ListItem Text="Johnnie Walker" Value="Johnnie Walker" Enabled="false"/>
-                               <asp:ListItem Text="Jameson" Value="Jameson" Enabled="false"/>
+                               <asp:ListItem Text="Jhonnie Walker" Value="Jhonnie Walker" Enabled="false"/>
                                <asp:ListItem Text="Jack Daniels" Value="Jack Daniels" Enabled="false"/>
-                               <asp:ListItem Text="Chivas Regal" Value="Chivas Regal" Enabled="false" />
                                
-                               <asp:ListItem Text="Santa Julia" Value="Santa Julia" />
+                               <asp:ListItem Text="Norton" Value="Norton" />
+                               <asp:ListItem Text="Trapiche" Value="Trapiche" />
+                               <asp:ListItem Text="Bodega Finca Las Moras" Value="Bodega Finca Las Moras" />
+                               <asp:ListItem Text="Los Haroldos" Value="Los Haroldos" />
                                <asp:ListItem Text="Luigi Bosca" Value="Luigi Bosca" />
-                               <asp:ListItem Text="Rutini" Value="Rutini" />
-                               <asp:ListItem Text="Alma Mora" Value="Alma Mora" />
 
-                               <asp:ListItem Text="Cusenier" Value="Cusenier" Enabled="false"/>
-                               <asp:ListItem Text="Bols" Value="Bols" Enabled="false"/>
-                               <asp:ListItem Text="Tía María" Value="Tia Maria" Enabled="false"/>
+                               <asp:ListItem Text="Verma" Value="Verma" Enabled="false"/>
+                               <asp:ListItem Text="Borgheti" Value="Borgheti" Enabled="false"/>
 
                            </asp:ListBox>
 
@@ -199,7 +195,7 @@
                             <Columns>
                                 <asp:BoundField DataField="id_producto" HeaderText="ID Producto" />
                                 <asp:BoundField DataField="nombre" HeaderText="Nombre" />
-                                <asp:BoundField DataField="productor" HeaderText="Productor" />
+                                <asp:BoundField DataField="id_productor" HeaderText="Productor" />
                                 <asp:BoundField DataField="id_tipo" HeaderText="Tipo Producto" />
                                 <asp:BoundField DataField="vol_alcohol" HeaderText="Vol. Alcohol" />
                                 <asp:BoundField DataField="ml" HeaderText="Cantidad en ml" />

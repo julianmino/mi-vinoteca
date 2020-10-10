@@ -95,5 +95,23 @@ namespace Business.Logic {
                 context.SaveChanges();
                 }
             }
+
+        public productores GetProductorEspecifico(int id)
+        {
+            productores prod = context.productores.Where(x => x.id_productor == id).SingleOrDefault();
+            return prod;
+        }
+
+        public string[] GetProductoresDeTipo(string tipo)
+        {
+            var productores = from p in context.productos
+                                        join t in context.tipo_producto
+                                        on p.id_tipo equals t.id_tipo
+                                        join prod in context.productores
+                                        on p.id_productor equals prod.id_productor
+                                        where t.descripcion == tipo
+                                        select prod.nombre;
+            return productores.ToArray();
         }
     }
+}

@@ -14,7 +14,7 @@ namespace WebApplication1 {
 
         protected void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            cliente cli = new cliente();
+            clientes cli = new clientes();
             try
             {
                 cli = cliLog.GetOne(txtUsuario.Text.Trim());

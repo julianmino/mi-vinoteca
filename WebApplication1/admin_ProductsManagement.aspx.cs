@@ -11,12 +11,8 @@ namespace WebApplication1
 {
     public partial class admin_ProductsManagement : System.Web.UI.Page
     {
-        private string[] vinos = { "Santa Julia", "Luigi Bosca", "Rutini", "Alma Mora"};
-        private string[] cervezas = { "Quilmes", "Brahma", "Stella Artois", "Andes Origen", "Corona", "Budweiser" };
-        private string[] licores = { "Cusenier", "Bols", "Tia Maria"};
-        private string[] whiskies = { "Johnnie Walker", "Jameson", "Jack Daniels", "Chivas Regal"};
         ProductoLogic prodLog = new ProductoLogic();
-        producto productoActual;
+        productos productoActual;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,19 +26,19 @@ namespace WebApplication1
             switch (dropTipos.SelectedIndex)
             {
                 case 0: 
-                    filtrarProductores(vinos);
+                    filtrarProductores("Vino");
                     cambiarReadOnly(true, false, true);
                     break;
                 case 1: 
-                    filtrarProductores(cervezas);
+                    filtrarProductores("Cerveza");
                     cambiarReadOnly(false, true, true);
                     break;
                 case 2: 
-                    filtrarProductores(licores);
+                    filtrarProductores("Licor");
                     cambiarReadOnly(true, true, true);
                     break;
                 case 3: 
-                    filtrarProductores(whiskies);
+                    filtrarProductores("Whisky");
                     cambiarReadOnly(true, false, false);
                     break;
             }
@@ -50,13 +46,15 @@ namespace WebApplication1
             listProductores.DataBind();
         }
 
-        private void filtrarProductores(string[] tipo)
+        private void filtrarProductores(string tipo)
         {
+            string[] productores = prodLog.GetProductoresDeTipo(tipo);
+
             for (int i=0;i<listProductores.Items.Count;i++)
             {
-                for (int j=0;j<tipo.Length;j++)
+                for (int j=0;j<productores.Length;j++)
                 {
-                    if (listProductores.Items[i].Value != tipo[j])
+                    if (listProductores.Items[i].Value != productores[j])
                     {
                         listProductores.Items[i].Enabled = false;
                     } else
@@ -113,7 +111,7 @@ namespace WebApplication1
 
         }
 
-        private void llenarDatos(producto prod)
+        private void llenarDatos(productos prod)
         {
             txtIDProducto.Text = prod.id_producto.ToString();
             txtNombre.Text = prod.nombre;
@@ -130,29 +128,30 @@ namespace WebApplication1
             {
                 case 0: 
                     dropTipos.SelectedIndex = 0;
-                    filtrarProductores(vinos);
+                    filtrarProductores("Vino");
                     cambiarReadOnly(true, false, true);
                     break;
                 case 1: 
                     dropTipos.SelectedIndex = 1;
-                    filtrarProductores(cervezas);
+                    filtrarProductores("Cerveza");
                     cambiarReadOnly(false, true, true);
                     break;
                 case 2: 
                     dropTipos.SelectedIndex = 2;
-                    filtrarProductores(licores);
+                    filtrarProductores("Licor");
                     cambiarReadOnly(true, true, true);
                     break;
                 case 3: 
                     dropTipos.SelectedIndex = 3;
-                    filtrarProductores(whiskies);
+                    filtrarProductores("Whisky");
                     cambiarReadOnly(true, false, false);
                     break;
             }
 
+            productores productores = prodLog.GetProductorEspecifico(prod.id_productor);
             for (int i = 0; i < listProductores.Items.Count; i++)
             {
-                if (listProductores.Items[i].Text == prod.productor)
+                if (listProductores.Items[i].Text == productores.nombre)
                 {
                     listProductores.SelectedIndex = i;
                     break;
