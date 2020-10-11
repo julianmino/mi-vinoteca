@@ -18,9 +18,10 @@ namespace Business.Logic {
             return context.productos.SingleOrDefault(x => x.id_producto == id);
             }
         public List<productos> GetProductoPorTipo(int id) {
-            List<productos> listaVinos = context.productos.Where(x => x.id_tipo == id).ToList();
-            return listaVinos;
+            List<productos> lista = context.productos.Where(x => x.id_tipo == id).ToList();
+            return lista;
             }
+
         public void Alta(string nombre, int id_productor, double precio,
             int stock, double vol_alcohol, double ml, double? ibu,
             int? año, int? añejamiento,int id_tipo) {
@@ -102,6 +103,12 @@ namespace Business.Logic {
             return prod;
         }
 
+        public int GetIdProductorPorNombre(string nombre)
+        {
+            productores prod = context.productores.Where(x => x.nombre == nombre).SingleOrDefault();
+            return prod.id_productor;
+        }
+
         public string[] GetProductoresDeTipo(string tipo)
         {
             var productores = from p in context.productos
@@ -113,5 +120,12 @@ namespace Business.Logic {
                                         select prod.nombre;
             return productores.ToArray();
         }
+
+        public List<productos> GetProductosDeProductor(int id_productor)
+        {
+            List<productos> productos = context.productos.Where(x => x.id_productor == id_productor).ToList();
+            return productos;
+        }
+
     }
 }

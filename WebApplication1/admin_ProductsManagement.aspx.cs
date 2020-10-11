@@ -12,8 +12,8 @@ namespace WebApplication1
     public partial class admin_ProductsManagement : System.Web.UI.Page
     {
         ProductoLogic prodLog = new ProductoLogic();
-        productos productoActual;
-
+        productos productoActual = new productos();
+        bool validar = false;
         protected void Page_Load(object sender, EventArgs e)
         {
             dgvProductos.DataSource = prodLog.GetAll();
@@ -42,7 +42,7 @@ namespace WebApplication1
                     cambiarReadOnly(true, false, false);
                     break;
             }
-
+            if (validar) { SetVisibilidades(); }
             listProductores.DataBind();
         }
 
@@ -82,6 +82,7 @@ namespace WebApplication1
                 if (productoActual != null)
                 {
                     llenarDatos(productoActual);
+                    SetVisibilidades();
                 }
             } catch (Exception)
             {
@@ -93,10 +94,21 @@ namespace WebApplication1
         {
             try
             {
+                validar = true;
                 SetVisibilidades();
                 if(ValidarCampos())
                 {
-                    Response.Redirect("homepage.aspx");
+                    mapearDatosProducto("agregar");
+                    if (ProductoPuedeRegistrarse(productoActual))
+                    {
+                        prodLog.Alta(productoActual.nombre, productoActual.id_productor, productoActual.precio, productoActual.stock, productoActual.vol_alcohol,
+                        productoActual.ml, productoActual.ibu, productoActual.año, productoActual.añejamiento, productoActual.id_tipo);
+                        
+                        dgvProductos.DataBind();
+                        validar = false;
+                        Page.Response.Redirect(Page.Request.Url.ToString(), true);
+                    }
+                    
                 }
             } 
             catch (Exception)
@@ -107,12 +119,45 @@ namespace WebApplication1
 
         protected void onActualizarPressed(object sender, EventArgs e)
         {
-
+            try
+            {
+                validar = true;
+                SetVisibilidades();
+                if (ValidarCampos())
+                {
+                    mapearDatosProducto("actualizar");
+                    prodLog.Modificacion(productoActual.id_producto,productoActual.nombre, productoActual.id_productor, productoActual.precio, productoActual.stock, productoActual.vol_alcohol,
+                    productoActual.ml, productoActual.ibu, productoActual.año, productoActual.añejamiento, productoActual.id_tipo);
+                    
+                    dgvProductos.DataBind();
+                    validar = false;
+                    Page.Response.Redirect(Page.Request.Url.ToString(), true);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         protected void onBorrarPressed(object sender, EventArgs e)
         {
+            try
+            {
+                mapearDatosProducto("borrar");
+                prodLog.Baja(productoActual.id_producto);
+                dgvProductos.DataBind();
+                Page.Response.Redirect(Page.Request.Url.ToString(), true);
+            } 
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
+        protected void onTxtChanged(object sender, EventArgs e)
+        {
+            if (validar) { SetVisibilidades(); }
         }
 
         private void llenarDatos(productos prod)
@@ -152,10 +197,10 @@ namespace WebApplication1
                     break;
             }
 
-            productores productores = prodLog.GetProductorEspecifico(prod.id_productor);
+            productores productor = prodLog.GetProductorEspecifico(prod.id_productor);
             for (int i = 0; i < listProductores.Items.Count; i++)
             {
-                if (listProductores.Items[i].Text == productores.nombre)
+                if (listProductores.Items[i].Text == productor.nombre)
                 {
                     listProductores.SelectedIndex = i;
                     break;
@@ -163,6 +208,60 @@ namespace WebApplication1
             }
         }
 
+        private void limpiarDatos()
+        {
+            txtIDProducto.Text = "";
+            txtNombre.Text = "";
+            txtMililitros.Text = "";
+            txtIBU.Text = "";
+            txtAnio.Text = "";
+            txtAniejamiento.Text = "";
+            txtPrecio.Text = "";
+            txtStock.Text = "";
+            txtVolAlcohol.Text = "";
+            dropTipos.ClearSelection();
+            listProductores.ClearSelection();
+        }
+
+        private void mapearDatosProducto(string accion)
+        {
+            try
+            {
+                if ((accion == "borrar" || accion == "actualizar") && !String.IsNullOrEmpty(txtIDProducto.Text))
+                {
+                    productoActual.id_producto = Int32.Parse(txtIDProducto.Text);
+                }
+                productoActual.nombre = txtNombre.Text;
+                productoActual.ml = Int32.Parse(txtMililitros.Text);
+                productoActual.vol_alcohol = Int32.Parse(txtVolAlcohol.Text);
+                productoActual.ibu = String.IsNullOrEmpty(txtIBU.Text) ? 0 : Int32.Parse(txtIBU.Text);
+                productoActual.año = String.IsNullOrEmpty(txtAnio.Text) ? 0 : Int32.Parse(txtAnio.Text);
+                productoActual.añejamiento = String.IsNullOrEmpty(txtAniejamiento.Text) ? 0 : Int32.Parse(txtAniejamiento.Text);
+                productoActual.precio = Int32.Parse(txtPrecio.Text);
+                productoActual.stock = Int32.Parse(txtStock.Text);
+                switch (dropTipos.SelectedValue)
+                {
+                    case "Vino":
+                        productoActual.id_tipo = 0;
+                        break;
+                    case "Cerveza":
+                        productoActual.id_tipo = 1;
+                        break;
+                    case "Licor":
+                        productoActual.id_tipo = 2;
+                        break;
+                    case "Whisky":
+                        productoActual.id_tipo = 3;
+                        break;
+                }
+
+                productoActual.id_productor = prodLog.GetIdProductorPorNombre(listProductores.SelectedValue);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
         private void VisibilityOf(Label label, bool value)
         {
@@ -241,6 +340,48 @@ namespace WebApplication1
             }
             else ban = false;
             
+            return ban;
+        }
+
+        private bool ProductoPuedeRegistrarse(productos producto)
+        {
+            bool ban = false;
+            List<productos> productosExistentes = new List<productos>();
+            productosExistentes = prodLog.GetProductosDeProductor(producto.id_productor);
+            foreach (productos p in productosExistentes)
+            {
+                if (producto.nombre == p.nombre)
+                {
+                    if (producto.ml == p.ml)
+                    {
+                        if (producto.vol_alcohol == p.vol_alcohol)
+                        {
+                            switch (producto.id_tipo)
+                            {
+                                case 0:
+                                    ban = !(producto.año == p.año);
+                                    break;
+                                case 1:
+                                    ban = !(producto.ibu == p.ibu);
+                                    break;
+                                case 2:
+                                    ban = false;
+                                    break;
+                                case 3:
+                                    if (producto.año == p.año)
+                                    {
+                                        ban = !(producto.añejamiento == p.añejamiento);
+                                    }
+                                    else ban = true;
+                                    break;
+                            }
+                        }
+                        else ban = true;
+                    }
+                    else ban = true;
+                }
+                else ban = true;
+            }
             return ban;
         }
     }
