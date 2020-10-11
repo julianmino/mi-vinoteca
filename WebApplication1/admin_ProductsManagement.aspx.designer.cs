@@ -69,13 +69,13 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.TextBox txtNombre;
 
         /// <summary>
-        /// rfvNombre control.
+        /// lblNombre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNombre;
+        protected global::System.Web.UI.WebControls.Label lblNombre;
 
         /// <summary>
         /// dropTipos control.
@@ -87,13 +87,13 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.DropDownList dropTipos;
 
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// lblTipo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.Label lblTipo;
 
         /// <summary>
         /// txtMililitros control.
@@ -105,13 +105,13 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.TextBox txtMililitros;
 
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// lblMililitros control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.Label lblMililitros;
 
         /// <summary>
         /// listProductores control.
@@ -123,13 +123,13 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.ListBox listProductores;
 
         /// <summary>
-        /// RequiredFieldValidator3 control.
+        /// lblProductor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        protected global::System.Web.UI.WebControls.Label lblProductor;
 
         /// <summary>
         /// txtIBU control.
@@ -141,13 +141,13 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.TextBox txtIBU;
 
         /// <summary>
-        /// RequiredFieldValidator4 control.
+        /// lblIBU control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+        protected global::System.Web.UI.WebControls.Label lblIBU;
 
         /// <summary>
         /// txtAnio control.
@@ -159,13 +159,13 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.TextBox txtAnio;
 
         /// <summary>
-        /// RequiredFieldValidator5 control.
+        /// lblAnio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
+        protected global::System.Web.UI.WebControls.Label lblAnio;
 
         /// <summary>
         /// txtAniejamiento control.
@@ -177,13 +177,13 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.TextBox txtAniejamiento;
 
         /// <summary>
-        /// RequiredFieldValidator6 control.
+        /// lblAniejamiento control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
+        protected global::System.Web.UI.WebControls.Label lblAniejamiento;
 
         /// <summary>
         /// txtVolAlcohol control.
@@ -195,13 +195,13 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.TextBox txtVolAlcohol;
 
         /// <summary>
-        /// RequiredFieldValidator7 control.
+        /// lblVolAlcohol control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
+        protected global::System.Web.UI.WebControls.Label lblVolAlcohol;
 
         /// <summary>
         /// txtPrecio control.
@@ -213,13 +213,13 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.TextBox txtPrecio;
 
         /// <summary>
-        /// RequiredFieldValidator8 control.
+        /// lblPrecio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
+        protected global::System.Web.UI.WebControls.Label lblPrecio;
 
         /// <summary>
         /// txtStock control.
@@ -231,13 +231,13 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.TextBox txtStock;
 
         /// <summary>
-        /// RequiredFieldValidator9 control.
+        /// lblStock control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator9;
+        protected global::System.Web.UI.WebControls.Label lblStock;
 
         /// <summary>
         /// Button1 control.

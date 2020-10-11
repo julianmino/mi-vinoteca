@@ -79,7 +79,10 @@ namespace WebApplication1
             try
             {
                 productoActual = prodLog.GetOne(Int32.Parse(txtIDProducto.Text));
-                llenarDatos(productoActual);
+                if (productoActual != null)
+                {
+                    llenarDatos(productoActual);
+                }
             } catch (Exception)
             {
                 throw;
@@ -90,7 +93,8 @@ namespace WebApplication1
         {
             try
             {
-                if(Page.IsValid)
+                SetVisibilidades();
+                if(ValidarCampos())
                 {
                     Response.Redirect("homepage.aspx");
                 }
@@ -157,6 +161,87 @@ namespace WebApplication1
                     break;
                 }
             }
+        }
+
+
+        private void VisibilityOf(Label label, bool value)
+        {
+            label.Visible = value;
+        }
+        private void SetVisibilidades()
+        {
+            VisibilityOf(lblNombre, String.IsNullOrEmpty(txtNombre.Text));
+            VisibilityOf(lblTipo, String.IsNullOrEmpty(dropTipos.Text));
+            VisibilityOf(lblProductor, String.IsNullOrEmpty(listProductores.Text));
+            VisibilityOf(lblMililitros, String.IsNullOrEmpty(txtMililitros.Text));
+            VisibilityOf(lblVolAlcohol, String.IsNullOrEmpty(txtVolAlcohol.Text));
+            VisibilityOf(lblPrecio, String.IsNullOrEmpty(txtPrecio.Text));
+            VisibilityOf(lblStock, String.IsNullOrEmpty(txtStock.Text));
+            switch (dropTipos.SelectedIndex)
+            {
+                case 0:
+                    VisibilityOf(lblAnio, String.IsNullOrEmpty(txtAnio.Text));
+                    break;
+                case 1:
+                    VisibilityOf(lblIBU, String.IsNullOrEmpty(txtIBU.Text));
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    VisibilityOf(lblAniejamiento, String.IsNullOrEmpty(txtAniejamiento.Text));
+                    VisibilityOf(lblAnio, String.IsNullOrEmpty(txtAnio.Text));
+                    break;
+            }
+        }
+
+        private bool ValidarCampos()
+        {
+            bool ban = false;
+            if (!String.IsNullOrEmpty(txtNombre.Text))
+            {
+                if (!String.IsNullOrEmpty(dropTipos.Text))
+                {
+                    if (!String.IsNullOrEmpty(listProductores.Text))
+                    {
+                        if (!String.IsNullOrEmpty(txtMililitros.Text))
+                        {
+                            if (!String.IsNullOrEmpty(txtVolAlcohol.Text))
+                            {
+                                if (!String.IsNullOrEmpty(txtPrecio.Text))
+                                {
+                                    if (!String.IsNullOrEmpty(txtStock.Text))
+                                    {
+                                        switch (dropTipos.SelectedIndex)
+                                        {
+                                            case 0:
+                                                ban = (!String.IsNullOrEmpty(txtAnio.Text));
+                                                break;
+                                            case 1:
+                                                ban = (!String.IsNullOrEmpty(txtIBU.Text));
+                                                break;
+                                            case 2:
+                                                ban = true;
+                                                break;
+                                            case 3:
+                                                ban = (!String.IsNullOrEmpty(txtAniejamiento.Text) && !String.IsNullOrEmpty(txtAnio.Text));
+                                                break;
+                                        }
+                                    }
+                                    else ban = false;
+                                }
+                                else ban = false;
+                            }
+                            else ban = false;
+                        }
+                        else ban = false;
+                    }
+                    else ban = false;
+                }
+                else ban = false;
+            }
+            else ban = false;
+            
+            return ban;
         }
     }
 }

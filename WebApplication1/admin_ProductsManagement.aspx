@@ -30,9 +30,9 @@
                      </div>
                   </div>
 
-        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-            <asp:UpdatePanel ID="UpdatePanel1" runat="server" updatemode="Always">
-                <ContentTemplate>
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server" updatemode="Always">
+            <ContentTemplate>
                   <div class="row">
                      <div class="col-md-4">
                         <label>ID Producto</label>
@@ -44,15 +44,17 @@
                            </div>
                         </div>
                      </div>
+                   
                      <div class="col-md-8">
                         <label>Nombre</label>
                         <div class="form-group">
                            <asp:TextBox CssClass="form-control" ID="txtNombre" runat="server" placeholder="Nombre"></asp:TextBox>
-                           <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ErrorMessage="Ingrese su nombre" ForeColor="#FF0033" ControlToValidate="txtNombre"></asp:RequiredFieldValidator>
+                            <asp:Label ID="lblNombre" runat="server" Text="Label" ForeColor="#FF0033" Visible="False">Ingrese su nombre</asp:Label>
+                           <%--<asp:RequiredFieldValidator ID="rfvNombre" runat="server" ErrorMessage="Ingrese su nombre" ForeColor="#FF0033" ControlToValidate="txtNombre"></asp:RequiredFieldValidator>--%>
                         </div>
                      </div>
                   </div>
-        
+            
                   <div class="row">   
                   
                      <div class="col-md-4">
@@ -64,12 +66,14 @@
                               <asp:ListItem Text="Licor" Value="Licor" />
                               <asp:ListItem Text="Whisky" Value="Whisky" />
                            </asp:DropDownList>
-                           <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Seleccione un Tipo" ForeColor="#FF0033" ControlToValidate="dropTipos"></asp:RequiredFieldValidator>
+                           <asp:Label ID="lblTipo" runat="server" Text="Label" ForeColor="#FF0033" Visible="False">Seleccione un Tipo</asp:Label>
+                           <%--<asp:RequiredFieldValidator ID="rfvTipo" runat="server" ErrorMessage="Seleccione un Tipo" ForeColor="#FF0033" ControlToValidate="dropTipos"></asp:RequiredFieldValidator>--%>
                         </div>
                         <label>Cantidad de Mililítros</label>
                         <div class="form-group">
                            <asp:TextBox CssClass="form-control" ID="txtMililitros" runat="server" placeholder="Mililítros" TextMode="Number"></asp:TextBox>
-                           <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Ingrese cantidad en mililítros" ForeColor="#FF0033" ControlToValidate="txtMililitros"></asp:RequiredFieldValidator>
+                           <asp:Label ID="lblMililitros" runat="server" Text="Label" ForeColor="#FF0033" Visible="False">Ingrese cantidad en mililítros</asp:Label>
+                           <%--<asp:RequiredFieldValidator ID="rfvMililitros" runat="server" ErrorMessage="Ingrese cantidad en mililítros" ForeColor="#FF0033" ControlToValidate="txtMililitros"></asp:RequiredFieldValidator>--%>
                         </div>
                      </div>
                      <div class="col-md-8">
@@ -96,8 +100,8 @@
                                <asp:ListItem Text="Borgheti" Value="Borgheti" Enabled="false"/>
 
                            </asp:ListBox>
-
-                           <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Seleccione un Productor" ForeColor="#FF0033" ControlToValidate="listProductores"></asp:RequiredFieldValidator>
+                           <asp:Label ID="lblProductor" runat="server" Text="Label" ForeColor="#FF0033" Visible="False">Seleccione un Productor</asp:Label>
+                           <%--<asp:RequiredFieldValidator ID="rfvProductor" runat="server" ErrorMessage="Seleccione un Productor" ForeColor="#FF0033" ControlToValidate="listProductores"></asp:RequiredFieldValidator>--%>
                         </div>
                      </div>
                   </div>
@@ -113,21 +117,24 @@
                         <label>IBU</label>
                         <div class="form-group">
                            <asp:TextBox CssClass="form-control" ID="txtIBU" runat="server" placeholder="IBU" ReadOnly="True"></asp:TextBox>
-                           <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Ingrese un IBU" ForeColor="#FF0033" ControlToValidate="txtIBU"></asp:RequiredFieldValidator>
+                           <asp:Label ID="lblIBU" runat="server" Text="Label" ForeColor="#FF0033" Visible="False">Ingrese un IBU</asp:Label>
+                           <%--<asp:RequiredFieldValidator ID="rfvIBU" runat="server" ErrorMessage="Ingrese un IBU" ForeColor="#FF0033" ControlToValidate="txtIBU"></asp:RequiredFieldValidator>--%>
                         </div>
                      </div>
                      <div class="col-md-4">
                         <label>Año</label>
                         <div class="form-group">
                            <asp:TextBox CssClass="form-control" ID="txtAnio" runat="server" placeholder="Año" TextMode="Number" ReadOnly="False"></asp:TextBox>
-                           <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Ingrese el año" ForeColor="#FF0033" ControlToValidate="txtAnio"></asp:RequiredFieldValidator>
+                            <asp:Label ID="lblAnio" runat="server" Text="Label" ForeColor="#FF0033" Visible="False">Ingrese el año</asp:Label>
+                           <%--<asp:RequiredFieldValidator ID="rfvAnio" runat="server" ErrorMessage="Ingrese el año" ForeColor="#FF0033" ControlToValidate="txtAnio"></asp:RequiredFieldValidator>--%>
                         </div>
                      </div>
                      <div class="col-md-4">
                         <label>Añejamiento</label>
                         <div class="form-group">
                            <asp:TextBox CssClass="form-control" ID="txtAniejamiento" runat="server" placeholder="Añejamiento" TextMode="Number" ReadOnly="True"></asp:TextBox>
-                           <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Ingrese el Añejamiento" ForeColor="#FF0033" ControlToValidate="txtAniejamiento"></asp:RequiredFieldValidator>
+                            <asp:Label ID="lblAniejamiento" runat="server" Text="Label" ForeColor="#FF0033" Visible="False">Ingrese el Añejamiento</asp:Label>
+                           <%--<asp:RequiredFieldValidator ID="rfvAniejamiento" runat="server" ErrorMessage="Ingrese el Añejamiento" ForeColor="#FF0033" ControlToValidate="txtAniejamiento"></asp:RequiredFieldValidator>--%>
                         </div>
                      </div>
 
@@ -138,29 +145,31 @@
                         <label>Volúmen de Alcohol</label>
                         <div class="form-group">
                             <asp:TextBox CssClass="form-control" ID="txtVolAlcohol" runat="server" placeholder="Vol. Alcohol"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="Ingrese el Volumen de Alcohol" ForeColor="#FF0033" ControlToValidate="txtVolAlcohol"></asp:RequiredFieldValidator>
+                             <asp:Label ID="lblVolAlcohol" runat="server" Text="Label" ForeColor="#FF0033" Visible="False">Ingrese el Volumen de Alcohol</asp:Label>
+                            <%--<asp:RequiredFieldValidator ID="rfvVolAlcohol" runat="server" ErrorMessage="Ingrese el Volumen de Alcohol" ForeColor="#FF0033" ControlToValidate="txtVolAlcohol"></asp:RequiredFieldValidator>--%>
                         </div>
                      </div>
                      <div class="col-md-4">
                         <label>Precio</label>
                         <div class="form-group">
                            <asp:TextBox CssClass="form-control" ID="txtPrecio" runat="server" placeholder="Precio" TextMode="Number"></asp:TextBox>
-                           <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="Ingrese el Precio" ForeColor="#FF0033" ControlToValidate="txtPrecio"></asp:RequiredFieldValidator>
+                            <asp:Label ID="lblPrecio" runat="server" Text="Label" ForeColor="#FF0033" Visible="False">Ingrese el Precio</asp:Label>
+                           <%--<asp:RequiredFieldValidator ID="rfvPrecio" runat="server" ErrorMessage="Ingrese el Precio" ForeColor="#FF0033" ControlToValidate="txtPrecio"></asp:RequiredFieldValidator>--%>
                         </div>
                      </div>
                      <div class="col-md-4">
                         <label>Stock</label>
                         <div class="form-group">
                            <asp:TextBox CssClass="form-control" ID="txtStock" runat="server" placeholder="Stock" TextMode="Number" ReadOnly="True"></asp:TextBox>
-                           <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="Ingrese un Stock" ForeColor="#FF0033" ControlToValidate="txtStock"></asp:RequiredFieldValidator> 
+                            <asp:Label ID="lblStock" runat="server" Text="Label" ForeColor="#FF0033" Visible="False">Ingrese Stock</asp:Label>
+                           <%--<asp:RequiredFieldValidator ID="rfvStock" runat="server" ErrorMessage="Ingrese un Stock" ForeColor="#FF0033" ControlToValidate="txtStock"></asp:RequiredFieldValidator>--%> 
                         </div>
                      </div>
                   </div>
-                </ContentTemplate>
-            </asp:UpdatePanel>
+                
                   <div class="row">
                      <div class="col-4">
-                        <asp:Button ID="Button1" class="btn btn-lg btn-block btn-success" runat="server" Text="Agregar" />
+                        <asp:Button ID="Button1" class="btn btn-lg btn-block btn-success" runat="server" Text="Agregar" OnClick="onAgregarPressed"/>
                      </div>
                      <div class="col-4">
                         <asp:Button ID="Button3" class="btn btn-lg btn-block btn-warning" runat="server" Text="Actualizar" />
@@ -169,6 +178,8 @@
                         <asp:Button ID="Button2" class="btn btn-lg btn-block btn-danger" runat="server" Text="Borrar" />
                      </div>
                   </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
                </div>
             </div>
             <a href="homepage.aspx"><< Volver a la Página Principal</a><br>
