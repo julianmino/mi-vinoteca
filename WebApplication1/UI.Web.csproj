@@ -74,6 +74,7 @@
   <ItemGroup>
     <Content Include="admin-UsersManagement.aspx" />
     <Content Include="adminlogin.aspx" />
+    <Content Include="admin_ProducerManagement.aspx" />
     <Content Include="admin_ProductsManagement.aspx" />
     <Content Include="bootstrap\css\bootstrap.min.css" />
     <Content Include="bootstrap\js\bootstrap.min.js" />
@@ -1753,6 +1754,13 @@
     </Compile>
     <Compile Include="adminlogin.aspx.designer.cs">
       <DependentUpon>adminlogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin_ProducerManagement.aspx.cs">
+      <DependentUpon>admin_ProducerManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_ProducerManagement.aspx.designer.cs">
+      <DependentUpon>admin_ProducerManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin_ProductsManagement.aspx.cs">
       <DependentUpon>admin_ProductsManagement.aspx</DependentUpon>
