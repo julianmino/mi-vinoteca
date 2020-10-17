@@ -36,7 +36,7 @@
                                             <ItemTemplate>
                                                 <div class="conteinner fluid">
                                                     <div class="row">
-                                                        <div class="col-lg-9">
+                                                        <div class="col-lg-7">
                                                             <div class="row">
                                                                 <div class="col-lg-12">
                                                                     <asp:Label runat="server" Text='<%# Eval("nombre") %>' ID="lblNombre" Font-Bold="True" Font-Size="Large"></asp:Label>
@@ -61,7 +61,7 @@
                                                                 <div class="col-lg-12">
 
                                                                     Productor -
-                                                                    <asp:Label ID="lblProductor" runat="server" Font-Bold="True" Text='<%# Eval("productor") %>'></asp:Label>
+                                                                    <asp:Label ID="lblProductor" runat="server" Font-Bold="True" Text='<%# Eval("nombre1") %>'></asp:Label>
                                                                     &nbsp;| Vol. Alcohol %
                                                                     <asp:Label ID="lblVolAlcohol" runat="server" Font-Bold="True" Text='<%# Eval("vol_alcohol") %>'></asp:Label>
                                                                     &nbsp;|
@@ -97,6 +97,10 @@
                                                         <div class="col-lg-3">
                                                             <asp:Image ID="Image" Class="img-fluid" runat="server" ImageUrl='<%# Eval("foto") %>' ImageAlign="Middle" />
                                                         </div>
+                                                        <div class="col-lg-2">
+                                                            <asp:LinkButton class="btn btn-primary" ID="btnAddToCart" runat="server" Width="44px" OnClick="btnAddToCart_Click"><i class="fas fa-shopping-cart"></i></i></asp:LinkButton>
+                                                        </div>
+                                                            
                                                     </div>
                                                 </div>
                                             </ItemTemplate>
@@ -107,7 +111,9 @@
                                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:YaguaronEntities %>" 
                                         SelectCommand="SELECT * FROM [productos]
                                         INNER JOIN [tipo_producto]
-	                                    ON productos.id_tipo = tipo_producto.id_tipo;">
+	                                    ON productos.id_tipo = tipo_producto.id_tipo
+                                        INNER JOIN [productores]
+                                        ON productos.id_productor = productores.id_productor;" OnSelecting="SqlDataSource1_Selecting">
                                 </asp:SqlDataSource>
                             </div>
                         </div> 
