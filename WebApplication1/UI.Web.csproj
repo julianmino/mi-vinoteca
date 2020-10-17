@@ -72,6 +72,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin_PedidosManagement.aspx" />
     <Content Include="admin_UsersManagement.aspx" />
     <Content Include="adminlogin.aspx" />
     <Content Include="admin_ProducerManagement.aspx" />
@@ -1741,6 +1742,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin_PedidosManagement.aspx.cs">
+      <DependentUpon>admin_PedidosManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_PedidosManagement.aspx.designer.cs">
+      <DependentUpon>admin_PedidosManagement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin_UsersManagement.aspx.cs">
       <DependentUpon>admin_UsersManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
