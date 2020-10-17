@@ -16,6 +16,9 @@ namespace WebApplication1 {
                     lbRegistrarse.Visible = true;
 
                     lbAdminLogin.Visible = true;
+                    lbProducerManagement.Visible = false;
+                    lbProductsManagement.Visible = false;
+                    lbUserManagement.Visible = false;
                 }
                 else if (Session["role"].Equals("cliente"))
                 {
@@ -25,6 +28,9 @@ namespace WebApplication1 {
                     lbRegistrarse.Visible = false;
 
                     lbAdminLogin.Visible = false;
+                    lbProducerManagement.Visible = false;
+                    lbProductsManagement.Visible = false;
+                    lbUserManagement.Visible = false;
 
                     lbHiThere.Text = "Hola "+ Session["name"].ToString();
                 }
@@ -37,6 +43,9 @@ namespace WebApplication1 {
                     lbRegistrarse.Visible = false;
 
                     lbAdminLogin.Visible = false;
+                    lbProducerManagement.Visible = true;
+                    lbProductsManagement.Visible = true;
+                    lbUserManagement.Visible = true;
 
                     lbHiThere.Text = "Admin, " + Session["name"].ToString();
                 }
@@ -72,6 +81,26 @@ namespace WebApplication1 {
             lbRegistrarse.Visible = true;
 
             lbAdminLogin.Visible = true;
+        }
+
+        protected void lbUserManagement_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("admin_UsersManagement.aspx");
+        }
+
+        protected void lbProductsManagement_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("admin_ProductsManagement.aspx");
+        }
+
+        protected void lbProducerManagement_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("admin_ProducerManagement.aspx");
+        }
+
+        protected void lbAdminLogin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("adminlogin.aspx");
         }
     }
     }

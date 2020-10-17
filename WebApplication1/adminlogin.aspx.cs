@@ -26,7 +26,7 @@ namespace WebApplication1 {
                     Session["name"] = admin.nombre.ToString();
                     Session["role"] = "admin";
                     Session["status"] = "";
-                    Response.Redirect("admin-UsersManagement.aspx");
+                    Response.Redirect("homepage.aspx");
 
                 }
                 else
