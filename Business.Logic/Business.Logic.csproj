@@ -55,6 +55,8 @@
     <Compile Include="BusinessLogic.cs" />
     <Compile Include="AdminLogic.cs" />
     <Compile Include="ProductorLogic.cs" />
+    <Compile Include="LineaPedidoLogic.cs" />
+    <Compile Include="PedidoLogic.cs" />
     <Compile Include="ProductoLogic.cs" />
     <Compile Include="ClienteLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

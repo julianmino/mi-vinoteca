@@ -34,7 +34,7 @@
                                             <ItemTemplate>
                                                 <div class="conteinner fluid">
                                                     <div class="row">
-                                                        <div class="col-lg-9">
+                                                        <div class="col-lg-7">
                                                             <div class="row">
                                                                 <div class="col-lg-12">
                                                                     <asp:Label runat="server" Text='<%# Eval("nombre") %>' ID="lblNombre" Font-Bold="True" Font-Size="Large"></asp:Label>
@@ -95,6 +95,10 @@
                                                         <div class="col-lg-3">
                                                             <asp:Image ID="Image" Class="img-fluid" runat="server" ImageUrl='<%# Eval("foto") %>' ImageAlign="Middle" />
                                                         </div>
+                                                        <div class="col-lg-2">
+                                                            <asp:LinkButton class="btn btn-primary" ID="btnAddToCart" runat="server" Width="44px" OnClick="btnAddToCart_Click"><i class="fas fa-shopping-cart"></i></i></asp:LinkButton>
+                                                        </div>
+                                                            
                                                     </div>
                                                 </div>
                                             </ItemTemplate>

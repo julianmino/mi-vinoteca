@@ -17,5 +17,15 @@ namespace WebApplication1 {
                 (e.Row.FindControl("Image") as Image).ImageUrl = imageUrl;
             }
         }
+
+        protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+        {
+
         }
+
+        protected void btnAddToCart_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
     }
