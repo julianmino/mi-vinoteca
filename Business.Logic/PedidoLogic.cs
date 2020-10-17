@@ -13,17 +13,17 @@ namespace Business.Logic
 
         public PedidoLogic() { }
 
-        public List<pedido> GetAll()
+        public List<pedidos> GetAll()
         {
-            List<pedido> listaPedidos = context.pedidos.ToList();
+            List<pedidos> listaPedidos = context.pedidos.ToList();
 
             return listaPedidos;
         }
-        public pedido GetOne(int id)
+        public pedidos GetOne(int id)
         {
             return context.pedidos.SingleOrDefault(x => x.id_pedido == id);
         }
-        public pedido GetByUsuario(string usuario)
+        public pedidos GetByUsuario(string usuario)
         {
             return context.pedidos.SingleOrDefault(x => x.usuario == usuario);
         }
@@ -31,7 +31,7 @@ namespace Business.Logic
         {
             try
             {
-                var pedido = new pedido()
+                var pedido = new pedidos()
                 {
                     usuario = usuario,
                     id_descuento = id_descuento,
@@ -52,7 +52,7 @@ namespace Business.Logic
         {
             try
             {
-                pedido pedido = this.GetOne(id_pedido);
+                pedidos pedido = this.GetOne(id_pedido);
                 {
                     pedido.usuario = usuario;
                     pedido.id_descuento = id_descuento;
@@ -71,7 +71,7 @@ namespace Business.Logic
         public void Baja(int id_pedido)
         {
 
-            pedido pedidoAEliminar = this.GetOne(id_pedido);
+            pedidos pedidoAEliminar = this.GetOne(id_pedido);
             if (pedidoAEliminar != null)
             {
                 context.pedidos.Remove(pedidoAEliminar);
