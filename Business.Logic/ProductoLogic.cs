@@ -5,7 +5,6 @@ using System.Linq;
 
 namespace Business.Logic {
     public class ProductoLogic : BusinessLogic {
-        private YaguaronEntities context = new YaguaronEntities();
         public ProductoLogic() {
             }
 

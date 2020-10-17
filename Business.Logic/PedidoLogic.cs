@@ -9,8 +9,6 @@ namespace Business.Logic
 {
     public class PedidoLogic:BusinessLogic
     {
-        private YaguaronEntities context = new YaguaronEntities();
-
         public PedidoLogic() { }
 
         public List<pedidos> GetAll()
