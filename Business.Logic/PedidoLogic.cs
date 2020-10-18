@@ -18,15 +18,19 @@ namespace Business.Logic
 
             return listaPedidos;
         }
+
         public pedidos GetOne(int id)
         {
             return context.pedidos.SingleOrDefault(x => x.id_pedido == id);
         }
-        public pedidos GetByUsuario(string usuario)
+
+        public List<pedidos> GetByUsuario(string usuario)
         {
-            return context.pedidos.SingleOrDefault(x => x.usuario == usuario);
+            List < pedidos > listaPedidos = context.pedidos.Where(x => x.usuario == usuario).ToList();
+            return listaPedidos;
         }
-        public void Alta(string usuario, int? id_descuento, DateTime fecha, string observaciones, lineas_pedidos[] lineas_pedidos)
+
+        public void Alta(string usuario, int? id_descuento, DateTime fecha, string observaciones)
         {
             try
             {
@@ -36,7 +40,7 @@ namespace Business.Logic
                     id_descuento = id_descuento,
                     fecha = fecha,
                     observaciones = observaciones,
-                    total = this.calcularTotal(lineas_pedidos, id_descuento)
+                    total = 0
                 };
                 context.pedidos.Add(pedido);
                 context.Entry(pedido).State = System.Data.Entity.EntityState.Added;

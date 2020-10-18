@@ -30,21 +30,57 @@ namespace WebApplication1
 
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
-            LinkButton button = (LinkButton)sender;
-            int id_prod = Convert.ToInt32(button.CommandArgument);
-            productoActual = prodLogic.GetOne(id_prod);
-            mapearDatosPedido();
-            mapearDatosLineaPedido();
-            if (ValidaEstadoCliente()) 
+            try 
             {
-                if (ProductoPuedeRegistrarse(pedidoActual, productoActual))
-                {
+                LinkButton button = (LinkButton)sender;
+                int id_prod = Convert.ToInt32(button.CommandArgument);
+                productoActual = prodLogic.GetOne(id_prod);
+                
+                pedidoActual = validaCreacionPedido();
+                bool ban = false;
 
+                if ( pedidoActual == null) 
+                {
+                    mapearDatosPedido();
+                    ban = true;
                 }
+                mapearDatosLineaPedido();
+                if (ValidaEstadoCliente())
+                {
+                    if (ProductoPuedeRegistrarse(pedidoActual, productoActual))
+                    {
+                        if (ban)
+                        {
+                            pedidoLogic.Alta(pedidoActual.usuario, pedidoActual.id_descuento, pedidoActual.fecha, pedidoActual.observaciones);
+                        }
+
+                        lpLogic.Alta(pedidoActual.id_pedido, productoActual.id_producto,1,productoActual.precio)
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
             }
             
         }
 
+        private pedidos validaCreacionPedido()
+        {
+            pedidos pedido = new pedidos();
+            pedido = null;
+            List<pedidos> pedidosUsuario = new List<pedidos>();
+            string usuario = Session["username"].ToString();
+            pedidosUsuario = pedidoLogic.GetByUsuario(usuario);
+            foreach (pedidos p in pedidosUsuario)
+            {
+                if (p.fecha == DateTime.Now)
+                {
+                    pedido = p;
+                }
+            }
+            return pedido;
+        }
 
         private void mapearDatosPedido()
         {
