@@ -5,9 +5,7 @@ using System.Linq;
 
 namespace Business.Logic {
     public class ProductoLogic : BusinessLogic {
-
-        private int a = 1;
-
+      
         public ProductoLogic() {
             }
 

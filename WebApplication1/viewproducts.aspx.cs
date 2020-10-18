@@ -18,11 +18,6 @@ namespace WebApplication1 {
             }
         }
 
-        protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
-        {
-
-        }
-
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
 

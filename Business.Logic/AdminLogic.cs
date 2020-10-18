@@ -9,8 +9,6 @@ namespace Business.Logic
 {
     public class AdminLogic : BusinessLogic
     {
-        private int a = 1;
-
         public AdminLogic()
         {
         }

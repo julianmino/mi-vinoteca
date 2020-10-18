@@ -27,10 +27,10 @@
                             <div class="col">
                                 <asp:GridView class="table table-striped table-bordered" ID="dgvProductos" runat="server" AutoGenerateColumns="False" DataKeyNames="id_producto,id_tipo1,id_productor1" DataSourceID="SqlDataSource1" OnRowDataBound="OnRowDataBound">
                                     <Columns>
-                                        <asp:BoundField DataField="id_producto" HeaderText="id_producto" InsertVisible="False" ReadOnly="True" SortExpression="id_producto" >
+                                        <asp:BoundField DataField="id_producto" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="id_producto" >
                                        
                                         </asp:BoundField>
-                                        <asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Producto">
                                             <ItemTemplate>
                                                 <div class="conteinner fluid">
                                                     <div class="row">
@@ -96,9 +96,8 @@
                                                             <asp:Image ID="Image" Class="img-fluid" runat="server" ImageUrl='<%# Eval("foto") %>' ImageAlign="Middle" />
                                                         </div>
                                                         <div class="col-lg-2">
-                                                            <asp:LinkButton class="btn btn-primary" ID="btnAddToCart" runat="server" Width="44px" OnClick="btnAddToCart_Click"><i class="fas fa-shopping-cart"></i></i></asp:LinkButton>
+                                                            <asp:LinkButton class="btn btn-primary" ID="btnAddToCart" runat="server" OnClick="btnAddToCart_Click" Width="27px"><i class="fas fa-shopping-cart"></i></asp:LinkButton>
                                                         </div>
-                                                            
                                                     </div>
                                                 </div>
                                             </ItemTemplate>
