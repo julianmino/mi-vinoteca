@@ -13,11 +13,12 @@ namespace WebApplication1
     {
         private PedidoLogic pedLog = new PedidoLogic();
         private ClienteLogic cliLog = new ClienteLogic();
-        private DescuentoLogic descLog = new DescuentoLogic();
         private pedidos pedidoActual = new pedidos();
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            dgvPedidos.DataSource = pedLog.GetAll();
+            dgvPedidos.DataBind();
         }
 
         protected void onCheckedPressed(object sender, EventArgs e)
@@ -35,6 +36,7 @@ namespace WebApplication1
                 if (pedidoActual != null)
                 {
                     llenarDatos(pedidoActual);
+                    //Falta el DataSource y DataBind del dgvProductos aca.
                 }
             }
             catch (Exception)
@@ -62,7 +64,7 @@ namespace WebApplication1
             txtObservaciones.Text = pedido.observaciones;
             txtFecha.Text = pedido.fecha.ToString("dd/MM/yyyy");
             txtDescuento.Text = pedido.id_descuento.ToString();
-            txtTotal.Text = pedLog.calcularTotal(pedido).ToString();
+            txtTotal.Text = pedido.total.ToString();
         }
     }
 }

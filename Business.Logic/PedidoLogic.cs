@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Business.Logic
 {
-    public class PedidoLogic:BusinessLogic
+    public class PedidoLogic : BusinessLogic
     {
         private DescuentoLogic descLog = new DescuentoLogic();
         public PedidoLogic() { }
@@ -26,7 +26,7 @@ namespace Business.Logic
         {
             return context.pedidos.SingleOrDefault(x => x.usuario == usuario);
         }
-        public void Alta(string usuario, int? id_descuento, DateTime fecha, string observaciones, float total)
+        public void Alta(string usuario, int? id_descuento, DateTime fecha, string observaciones, lineas_pedidos[] lineas_pedidos)
         {
             try
             {
@@ -36,7 +36,7 @@ namespace Business.Logic
                     id_descuento = id_descuento,
                     fecha = fecha,
                     observaciones = observaciones,
-                    total = total
+                    total = this.calcularTotal(lineas_pedidos, id_descuento)
                 };
                 context.pedidos.Add(pedido);
                 context.Entry(pedido).State = System.Data.Entity.EntityState.Added;
@@ -78,15 +78,15 @@ namespace Business.Logic
             }
         }
 
-        public double calcularTotal(pedidos pedido)
+        public double calcularTotal(lineas_pedidos[] lineas, int? id_descuento)
         {
-            descuentos descuento = descLog.GetOne(pedido.id_descuento);
+            descuentos descuento = descLog.GetOne(id_descuento);
 
             double total = 0;
             if (descuento != null)
             {
 
-                foreach (lineas_pedidos lp in pedido.lineas_pedidos)
+                foreach (lineas_pedidos lp in lineas)
                 {
                     if (lp.id_producto == descuento.id_producto)
                     {
@@ -100,7 +100,7 @@ namespace Business.Logic
             }
             else
             {
-                foreach (lineas_pedidos lp in pedido.lineas_pedidos)
+                foreach (lineas_pedidos lp in lineas)
                 {
                     total += lp.subtotal;
                 }
