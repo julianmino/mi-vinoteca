@@ -9,6 +9,7 @@ namespace Business.Logic
 {
     public class PedidoLogic : BusinessLogic
     {
+        private int a = 1;
         private DescuentoLogic descLog = new DescuentoLogic();
         public PedidoLogic() { }
 

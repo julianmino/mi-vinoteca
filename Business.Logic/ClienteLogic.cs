@@ -7,6 +7,7 @@ namespace Business.Logic
 {
     public class ClienteLogic : BusinessLogic
     {
+        private int a = 1;
         public ClienteLogic() 
         {
         }

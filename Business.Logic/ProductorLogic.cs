@@ -7,6 +7,8 @@ namespace Business.Logic
 {
     public class ProductorLogic : BusinessLogic
     {
+        private int a = 1;
+
         public ProductorLogic()
         {
         }

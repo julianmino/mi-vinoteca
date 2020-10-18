@@ -9,6 +9,7 @@ namespace Business.Logic
 {
     class LineaPedidoLogic:BusinessLogic
     {
+        private int a = 1;
         public LineaPedidoLogic() { }
 
         public List<lineas_pedidos> GetById_pedido(int id_pedido)
