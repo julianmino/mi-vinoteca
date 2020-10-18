@@ -9,8 +9,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    <div class="container-fluid">
-                       <h1></h1>
-
       <div class="row">
          <div class = "col-lg-5">
                 <div class="card">
