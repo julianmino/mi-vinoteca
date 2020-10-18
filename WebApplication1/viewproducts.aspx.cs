@@ -17,5 +17,10 @@ namespace WebApplication1 {
                 (e.Row.FindControl("Image") as Image).ImageUrl = imageUrl;
             }
         }
+
+        protected void btnAddToCart_Click(object sender, EventArgs e)
+        {
+
         }
+    }
     }
