@@ -57,9 +57,9 @@
                                             <asp:TextBox CssClass="form-control" ID="txtNombreYApellido" runat="server" placeholder="Nombre completo" ReadOnly="True"></asp:TextBox>
                                         </div>
 
-                                        <label>N° Documento</label>
+                                        <label>E-mail</label>
                                         <div class="form-group">
-                                            <asp:TextBox CssClass="form-control" ID="txtDocumento" runat="server" placeholder="N° Documento" ReadOnly="True"></asp:TextBox>
+                                            <asp:TextBox CssClass="form-control" ID="txtEmail" runat="server" placeholder="Email" ReadOnly="True"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -105,10 +105,10 @@
 
                                 <div class="row">
                                     <div class="col-6">
-                                        <asp:Button ID="btnCancelar" class="btn btn-lg btn-block btn-dark" runat="server" Text="Cancelar Pedido" />
+                                        <asp:Button ID="btnCancelar" class="btn btn-lg btn-block btn-dark" runat="server" Text="Cancelar Pedido" OnClick="onCancelarPressed"/>
                                     </div>
                                     <div class="col-6">
-                                        <asp:Button ID="btnFinalizar" class="btn btn-lg btn-block btn-success" runat="server" Text="Finalizar Pedido" />
+                                        <asp:Button ID="btnFinalizar" class="btn btn-lg btn-block btn-success" runat="server" Text="Finalizar Pedido" OnClick="onFinalizarPressed"/>
                                     </div>
                                 </div>
                             </ContentTemplate>

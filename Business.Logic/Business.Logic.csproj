@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="BusinessLogic.cs" />
     <Compile Include="AdminLogic.cs" />
+    <Compile Include="DescuentoLogic.cs" />
     <Compile Include="ProductorLogic.cs" />
     <Compile Include="LineaPedidoLogic.cs" />
     <Compile Include="PedidoLogic.cs" />

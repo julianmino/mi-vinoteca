@@ -9,6 +9,7 @@ namespace Business.Logic
 {
     public class PedidoLogic:BusinessLogic
     {
+        private DescuentoLogic descLog = new DescuentoLogic();
         public PedidoLogic() { }
 
         public List<pedidos> GetAll()
@@ -75,6 +76,37 @@ namespace Business.Logic
                 context.pedidos.Remove(pedidoAEliminar);
                 context.SaveChanges();
             }
+        }
+
+        public double calcularTotal(pedidos pedido)
+        {
+            descuentos descuento = descLog.GetOne(pedido.id_descuento);
+
+            double total = 0;
+            if (descuento != null)
+            {
+
+                foreach (lineas_pedidos lp in pedido.lineas_pedidos)
+                {
+                    if (lp.id_producto == descuento.id_producto)
+                    {
+                        total += (lp.subtotal * descuento.porcentaje);
+                    }
+                    else
+                    {
+                        total += lp.subtotal;
+                    }
+                }
+            }
+            else
+            {
+                foreach (lineas_pedidos lp in pedido.lineas_pedidos)
+                {
+                    total += lp.subtotal;
+                }
+            }
+
+            return total;
         }
     }
 }
