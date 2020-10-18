@@ -9,7 +9,6 @@ namespace Business.Logic
 {
     public class PedidoLogic : BusinessLogic
     {
-        private int a = 1;
         private DescuentoLogic descLog = new DescuentoLogic();
         public PedidoLogic() { }
 
@@ -48,17 +47,17 @@ namespace Business.Logic
                 throw Ex;
             }
         }
-        public void Modificacion(int id_pedido, string usuario, int? id_descuento, DateTime fecha, string observaciones, float total)
+        public void Modificacion(int id_pedido, string usuario, int? id_descuento, DateTime fecha, string observaciones)
         {
             try
             {
                 pedidos pedido = this.GetOne(id_pedido);
                 {
-                    pedido.usuario = usuario;
-                    pedido.id_descuento = id_descuento;
-                    pedido.fecha = fecha;
-                    pedido.observaciones = observaciones;
-                    pedido.total = total;
+                    pedido.usuario = usuario,
+                    pedido.id_descuento = id_descuento,
+                    pedido.fecha = fecha,
+                    pedido.observaciones = observaciones,
+                    pedido.total = this.calcularTotal(lineas_pedidos, id_descuento)
                 };
                 context.Entry(pedido).State = System.Data.Entity.EntityState.Modified;
                 context.SaveChanges();
