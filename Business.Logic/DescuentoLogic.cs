@@ -9,8 +9,6 @@ namespace Business.Logic
 {
     public class DescuentoLogic : BusinessLogic
     {
-        private int a = 1;
-
         public DescuentoLogic() { }
 
         public List<descuentos> GetAll()
