@@ -25,7 +25,7 @@
                 <h1></h1>
                        <div class="row">
                             <div class="col">
-                                <asp:GridView class="table table-striped table-bordered" ID="dgvProductos" runat="server" AutoGenerateColumns="False" DataKeyNames="id_producto,id_tipo1,id_productor1" DataSourceID="SqlDataSource1" OnRowDataBound="OnRowDataBound">
+                                <asp:GridView class="table table-striped table-bordered" ID="dgvProductos" runat="server" AutoGenerateColumns="False" DataKeyNames="id_producto" DataSourceID="SqlDataSource1" OnRowDataBound="OnRowDataBound">
                                     <Columns>
                                         <asp:BoundField DataField="id_producto" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="id_producto" >
                                        
@@ -63,7 +63,7 @@
                                                                     &nbsp;| Vol. Alcohol %
                                                                     <asp:Label ID="lblVolAlcohol" runat="server" Font-Bold="True" Text='<%# Eval("vol_alcohol") %>'></asp:Label>
                                                                     &nbsp;|
-                                                                    <asp:Label ID="Label1" runat="server" Text="IBU" OnLoad="Page_Load"></asp:Label>
+                                                                    <asp:Label ID="Label1" runat="server" Text="IBU"></asp:Label>
                                                                     &nbsp;<asp:Label ID="lblIBU" runat="server" Font-Bold="True" Text='<%# Eval("ibu") %>'></asp:Label>
 
                                                                 </div>
@@ -71,10 +71,10 @@
                                                             <div class="row">
                                                                 <div class="col-lg-12">
 
-                                                                    <asp:Label ID="Label2" runat="server" Text="Año -" OnLoad="Page_Load"></asp:Label>
+                                                                    <asp:Label ID="Label2" runat="server" Text="Año -"></asp:Label>
                                                                     &nbsp;<asp:Label ID="lblAño" runat="server" Font-Bold="True" Text='<%# Eval("año") %>'></asp:Label>
                                                                     &nbsp;|
-                                                                    <asp:Label ID="Label3" runat="server" Text=" Añejamiento -" OnLoad="Page_Load"></asp:Label>
+                                                                    <asp:Label ID="Label3" runat="server" Text=" Añejamiento -"></asp:Label>
                                                                     &nbsp;<asp:Label ID="lblAñejamiento" runat="server" Font-Bold="True" Text='<%# Eval("añejamiento") %>'></asp:Label>
 
                                                                 </div>
@@ -96,7 +96,7 @@
                                                             <asp:Image ID="Image" Class="img-fluid" runat="server" ImageUrl='<%# Eval("foto") %>' ImageAlign="Middle" />
                                                         </div>
                                                         <div class="col-lg-2">
-                                                            <asp:LinkButton class="btn btn-primary" ID="btnAddToCart" runat="server" OnClick="btnAddToCart_Click" Width="27px"><i class="fas fa-shopping-cart"></i></asp:LinkButton>
+                                                            <asp:LinkButton class="btn btn-primary" ID="btnAddToCart" runat="server" CommandArgument='<%#Eval("id_producto")%>' Width="25px" OnClick="btnAddToCart_Click"><i class="fas fa-shopping-cart"></i></asp:LinkButton>
                                                         </div>
                                                     </div>
                                                 </div>
