@@ -22,7 +22,7 @@
 
 
                         
-
+                <h1></h1>
                        <div class="row">
                             <div class="col">
                                 <asp:GridView class="table table-striped table-bordered" ID="dgvProductos" runat="server" AutoGenerateColumns="False" DataKeyNames="id_producto,id_tipo1,id_productor1" DataSourceID="SqlDataSource1" OnRowDataBound="OnRowDataBound">

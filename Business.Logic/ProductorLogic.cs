@@ -7,7 +7,6 @@ namespace Business.Logic
 {
     public class ProductorLogic : BusinessLogic
     {
-        private YaguaronEntities context = new YaguaronEntities();
         public ProductorLogic()
         {
         }
