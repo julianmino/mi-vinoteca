@@ -96,7 +96,7 @@
                                                             <asp:Image ID="Image" Class="img-fluid" runat="server" ImageUrl='<%# Eval("foto") %>' ImageAlign="Middle" />
                                                         </div>
                                                         <div class="col-lg-2">
-                                                            <asp:LinkButton class="btn btn-primary" ID="btnAddToCart" runat="server" CommandArgument='<%#Eval("id_producto")%>' Width="25px"><i class="fas fa-shopping-cart"></i></asp:LinkButton>
+                                                            <asp:LinkButton class="btn btn-primary" ID="btnAddToCart" runat="server" CommandArgument='<%#Eval("id_producto")%>' Width="33px"><i class="fas fa-shopping-cart"></i></asp:LinkButton>
                                                         </div>
                                                     </div>
                                                 </div>

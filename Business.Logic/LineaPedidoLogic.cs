@@ -70,8 +70,11 @@ namespace Business.Logic
                 context.lineas_pedidos.Remove(linea_pedidoAEliminar);
                 context.SaveChanges();
             }
-            
+        }
 
+        public float calculaSubtotal(productos producto, int cantidad) 
+        {
+            return (float)(producto.precio * cantidad);
         }
     }
 }

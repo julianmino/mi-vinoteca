@@ -9,6 +9,31 @@ namespace WebApplication1
 {
     public partial class viewproducts : System.Web.UI.Page
     {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            //para que se vean los botones de ir al carrito o no
+            bool ban = Session.IsNewSession;
+            Session["role"] = (ban) ? "" : Session["role"];
+            try
+            {
+                if (Session["role"].Equals(""))
+                {
+                    
+                }
+                else
+                {
+                    
+                }
+                
+            }
+            catch
+            {
+
+            }
+        }
+
+
+
         PedidoLogic pedidoLogic = new PedidoLogic();
         pedidos pedidoActual = new pedidos();
 
@@ -17,6 +42,8 @@ namespace WebApplication1
 
         ProductoLogic prodLogic = new ProductoLogic();
         productos productoActual = new productos();
+
+        List<lineas_pedidos> lp = new List<lineas_pedidos>();
 
         protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
         {
@@ -32,31 +59,22 @@ namespace WebApplication1
         {
             try 
             {
-                LinkButton button = (LinkButton)sender;
-                int id_prod = Convert.ToInt32(button.CommandArgument);
-                productoActual = prodLogic.GetOne(id_prod);
-                
-                pedidoActual = validaCreacionPedido();
-                bool ban = false;
 
-                if ( pedidoActual == null) 
-                {
-                    mapearDatosPedido();
-                    ban = true;
-                }
-                mapearDatosLineaPedido();
                 if (ValidaEstadoCliente())
                 {
-                    if (ProductoPuedeRegistrarse(pedidoActual, productoActual))
+                    LinkButton button = (LinkButton)sender;
+                    int id_prod = Convert.ToInt32(button.CommandArgument);
+                
+                    productoActual = prodLogic.GetOne(id_prod);
+                
+                    mapearDatosLineaPedido();
+                
+                    if (ProductoPuedeRegistrarse(lpActual))
                     {
-                        if (ban)
-                        {
-                            pedidoLogic.Alta(pedidoActual.usuario, pedidoActual.id_descuento, pedidoActual.fecha, pedidoActual.observaciones);
-                        }
-
-                        lpLogic.Alta(pedidoActual.id_pedido, productoActual.id_producto,1,productoActual.precio)
+                        lp.Add(lpActual);
                     }
                 }
+                
             }
             catch (Exception)
             {
@@ -65,22 +83,6 @@ namespace WebApplication1
             
         }
 
-        private pedidos validaCreacionPedido()
-        {
-            pedidos pedido = new pedidos();
-            pedido = null;
-            List<pedidos> pedidosUsuario = new List<pedidos>();
-            string usuario = Session["username"].ToString();
-            pedidosUsuario = pedidoLogic.GetByUsuario(usuario);
-            foreach (pedidos p in pedidosUsuario)
-            {
-                if (p.fecha == DateTime.Now)
-                {
-                    pedido = p;
-                }
-            }
-            return pedido;
-        }
 
         private void mapearDatosPedido()
         {
@@ -105,10 +107,10 @@ namespace WebApplication1
             try
             {
                 
-                lpActual.id_pedido = pedidoActual.id_pedido;
+                lpActual.id_pedido = 0;
                 lpActual.id_producto = productoActual.id_producto;
                 lpActual.cantidad = 1;
-                lpActual.subtotal = lpActual.cantidad * productoActual.precio;
+                lpActual.subtotal = lpLogic.calculaSubtotal(productoActual,lpActual.cantidad);
                 
             }
             catch (Exception)
@@ -117,12 +119,17 @@ namespace WebApplication1
             }
         }
 
-        private bool ProductoPuedeRegistrarse(pedidos pedido, productos producto)
+        private bool ProductoPuedeRegistrarse(lineas_pedidos linea_pedido)
         {
-            bool ban = false;
-            lineas_pedidos lp = new lineas_pedidos();
-            lp = lpLogic.GetOne(pedido.id_pedido, producto.id_producto);
-            if (lp == null) { ban = true; }
+            bool ban = true;
+            foreach (lineas_pedidos l in lp)
+            {
+                if(l.id_producto == linea_pedido.id_producto) 
+                {
+                    ban = false; 
+                }
+            }
+            
             return ban;
         }
 

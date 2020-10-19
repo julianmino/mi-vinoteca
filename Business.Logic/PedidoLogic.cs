@@ -26,7 +26,7 @@ namespace Business.Logic
 
         public List<pedidos> GetByUsuario(string usuario)
         {
-            List < pedidos > listaPedidos = context.pedidos.Where(x => x.usuario == usuario).ToList();
+            List <pedidos> listaPedidos = context.pedidos.Where(x => x.usuario == usuario).ToList();
             return listaPedidos;
         }
 
