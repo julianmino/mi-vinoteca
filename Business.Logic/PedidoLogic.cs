@@ -10,6 +10,7 @@ namespace Business.Logic
     public class PedidoLogic : BusinessLogic
     {
         private DescuentoLogic descLog = new DescuentoLogic();
+        LineaPedidoLogic lpLogic = new LineaPedidoLogic();
         public PedidoLogic() { }
 
         public List<pedidos> GetAll()
@@ -30,7 +31,7 @@ namespace Business.Logic
             return listaPedidos;
         }
 
-        public void Alta(string usuario, int? id_descuento, DateTime fecha, string observaciones)
+        public int Alta(string usuario, int? id_descuento, DateTime fecha, string observaciones)
         {
             try
             {
@@ -45,6 +46,7 @@ namespace Business.Logic
                 context.pedidos.Add(pedido);
                 context.Entry(pedido).State = System.Data.Entity.EntityState.Added;
                 context.SaveChanges();
+                return pedido.id_pedido;
             }
             catch (Exception Ex)
             {
@@ -82,11 +84,14 @@ namespace Business.Logic
             }
         }
 
-        public double calcularTotal(lineas_pedidos[] lineas, int? id_descuento)
+        public float calcularTotal( int? id_descuento, int id_pedido)
         {
+            List<lineas_pedidos> lineas = new List<lineas_pedidos>();
+            lineas = lpLogic.GetById_pedido(id_pedido);
+
             descuentos descuento = descLog.GetOne(id_descuento);
 
-            double total = 0;
+            float total = 0;
             if (descuento != null)
             {
 
@@ -94,11 +99,11 @@ namespace Business.Logic
                 {
                     if (lp.id_producto == descuento.id_producto)
                     {
-                        total += (lp.subtotal * descuento.porcentaje);
+                        total += (float)(lp.subtotal * descuento.porcentaje);
                     }
                     else
                     {
-                        total += lp.subtotal;
+                        total += (float)lp.subtotal;
                     }
                 }
             }

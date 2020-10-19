@@ -11,7 +11,7 @@
 
     <div class = "container">
         <div class = "row">
-            <div class = "col-md-6 mx-auto">
+            <div class = "col-md-10 mx-auto">
                 <div class="row">
                         <div class="col">
                                 <center>
@@ -20,12 +20,12 @@
                             </div>
                         </div>
                 <div class="row">
-                        <div class="col-lg-8"></div>
-                        <div class="col-lg-2">
-                            <asp:LinkButton class="btn btn-success" ID="btnGoToCart" runat="server" Width="85px" OnClick="btnGoToCart_Click">Carrito</asp:LinkButton>
+                        <div class="col-lg-10"></div>
+                        <div class="col-lg-1">
+                            <asp:LinkButton class="btn btn-success" ID="btnGoToCart" runat="server" OnClick="btnGoToCart_Click">Carrito</asp:LinkButton>
                         </div>
-                        <div class="col-lg-2">
-                            <asp:LinkButton class="btn btn-danger" ID="Cancel" runat="server" Width="85px" OnClick="Cancel_Click" >Cancelar</asp:LinkButton>
+                        <div class="col-lg-1">
+                            <asp:LinkButton class="btn btn-danger" ID="Cancel" runat="server" OnClick="Cancel_Click" >Cancelar</asp:LinkButton>
                         </div>
                 </div>
                 <h1></h1>
@@ -102,7 +102,7 @@
                                                             <asp:Image ID="Image" Class="img-fluid" runat="server" ImageUrl='<%# Eval("foto") %>' ImageAlign="Middle" />
                                                         </div>
                                                         <div class="col-lg-2">
-                                                            <asp:LinkButton class="btn btn-primary" ID="btnAddToCart" runat="server" CommandArgument='<%#Eval("id_producto")%>' Width="26px" OnClick="btnAddToCart_Click"><i class="fas fa-shopping-cart"></i></asp:LinkButton>
+                                                            <asp:LinkButton class="btn btn-primary" ID="btnAddToCart" runat="server" CommandArgument='<%#Eval("id_producto")%>' OnClick="btnAddToCart_Click"><i class="fas fa-shopping-cart"></i></asp:LinkButton>
                                                         </div>
                                                     </div>
                                                 </div>
