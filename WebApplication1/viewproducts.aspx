@@ -19,9 +19,15 @@
                                 </center>
                             </div>
                         </div>
-
-
-                        
+                <div class="row">
+                        <div class="col-lg-8"></div>
+                        <div class="col-lg-2">
+                            <asp:LinkButton class="btn btn-success" ID="btnGoToCart" runat="server" Width="85px" OnClick="btnGoToCart_Click">Carrito</asp:LinkButton>
+                        </div>
+                        <div class="col-lg-2">
+                            <asp:LinkButton class="btn btn-danger" ID="Cancel" runat="server" Width="85px" OnClick="Cancel_Click">Cancelar</asp:LinkButton>
+                        </div>
+                </div>
                 <h1></h1>
                        <div class="row">
                             <div class="col">

@@ -15,6 +15,24 @@ namespace WebApplication1
     {
 
         /// <summary>
+        /// btnGoToCart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnGoToCart;
+
+        /// <summary>
+        /// Cancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton Cancel;
+
+        /// <summary>
         /// dgvProductos control.
         /// </summary>
         /// <remarks>

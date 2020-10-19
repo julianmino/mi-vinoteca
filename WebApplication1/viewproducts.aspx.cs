@@ -32,11 +32,6 @@ namespace WebApplication1
             }
         }
 
-
-
-        PedidoLogic pedidoLogic = new PedidoLogic();
-        pedidos pedidoActual = new pedidos();
-
         LineaPedidoLogic lpLogic = new LineaPedidoLogic();
         lineas_pedidos lpActual = new lineas_pedidos();
 
@@ -57,44 +52,27 @@ namespace WebApplication1
 
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
-            try 
-            {
-
-                if (ValidaEstadoCliente())
-                {
-                    LinkButton button = (LinkButton)sender;
-                    int id_prod = Convert.ToInt32(button.CommandArgument);
-                
-                    productoActual = prodLogic.GetOne(id_prod);
-                
-                    mapearDatosLineaPedido();
-                
-                    if (ProductoPuedeRegistrarse(lpActual))
-                    {
-                        lp.Add(lpActual);
-                    }
-                }
-                
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            
-        }
-
-
-        private void mapearDatosPedido()
-        {
             try
             {
+                if ((Session["role"].Equals("Cliente")) || (Session["role"].Equals("Admin")))
+                {
+                    if (ValidaEstadoCliente())
+                    {
+                        LinkButton button = (LinkButton)sender;
+                        int id_prod = Convert.ToInt32(button.CommandArgument);
 
-                pedidoActual.usuario = Session["username"].ToString();
-                pedidoActual.id_descuento = null;
-                pedidoActual.fecha = DateTime.Now;
-                pedidoActual.observaciones = "";
-                pedidoActual.total = 0;
-                
+                        productoActual = prodLogic.GetOne(id_prod);
+
+                        mapearDatosLineaPedido();
+
+                        if (ProductoPuedeRegistrarse(lpActual))
+                        {
+                            lp.Add(lpActual);
+                            button.Visible = false;
+                        }
+                    }
+
+                }
             }
             catch (Exception)
             {
@@ -143,6 +121,16 @@ namespace WebApplication1
             return ban;
         }
 
-       
+        protected void btnGoToCart_Click(object sender, EventArgs e)
+        {
+            Session["pedidos"] = lp;
+            Response.Redirect("shopping_cart.aspx");
+        }
+
+        protected void Cancel_Click(object sender, EventArgs e)
+        {
+            Response.Write("<scrpit>alert('Se borrarán todos los productos añadidos');</script>");
+            lp.Clear();
+        }
     }
 }
