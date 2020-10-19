@@ -3,6 +3,7 @@ using DAL;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Web.UI.WebControls;
 
 namespace WebApplication1
@@ -31,6 +32,8 @@ namespace WebApplication1
 
             }
         }
+        ClienteLogic cliLogic = new ClienteLogic();
+        clientes cliente = new clientes();
 
         LineaPedidoLogic lpLogic = new LineaPedidoLogic();
         lineas_pedidos lpActual = new lineas_pedidos();
@@ -38,7 +41,9 @@ namespace WebApplication1
         ProductoLogic prodLogic = new ProductoLogic();
         productos productoActual = new productos();
 
-        List<lineas_pedidos> lp = new List<lineas_pedidos>();
+        private static List<lineas_pedidos> lp = new List<lineas_pedidos>();
+
+        //arreglo de indices para mantener los botones escondidos
 
         protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
         {
@@ -54,7 +59,10 @@ namespace WebApplication1
         {
             try
             {
-                if ((Session["role"].Equals("Cliente")) || (Session["role"].Equals("Admin")))
+                //Response.Write("<scrpit> alert('ANDA O NO ANDA?');</script > ");
+                bool ban = Session.IsNewSession;
+                Session["role"] = (ban) ? "" : Session["role"];
+                if ((Session["role"].Equals("cliente")) || (Session["role"].Equals("admin")))
                 {
                     if (ValidaEstadoCliente())
                     {
@@ -114,10 +122,9 @@ namespace WebApplication1
         private bool ValidaEstadoCliente()
         {
             bool ban = false;
-            ClienteLogic cliLogic = new ClienteLogic();
-            clientes cliente = new clientes();
+            
             cliente = cliLogic.GetOne(Session["username"].ToString());
-            if (cliente.estado == "Activo") { ban = true; }
+            if (cliente.estado == "Habilitado") { ban = true; }
             return ban;
         }
 

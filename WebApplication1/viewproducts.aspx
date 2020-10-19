@@ -25,7 +25,7 @@
                             <asp:LinkButton class="btn btn-success" ID="btnGoToCart" runat="server" Width="85px" OnClick="btnGoToCart_Click">Carrito</asp:LinkButton>
                         </div>
                         <div class="col-lg-2">
-                            <asp:LinkButton class="btn btn-danger" ID="Cancel" runat="server" Width="85px" OnClick="Cancel_Click">Cancelar</asp:LinkButton>
+                            <asp:LinkButton class="btn btn-danger" ID="Cancel" runat="server" Width="85px" OnClick="Cancel_Click" >Cancelar</asp:LinkButton>
                         </div>
                 </div>
                 <h1></h1>
@@ -102,7 +102,7 @@
                                                             <asp:Image ID="Image" Class="img-fluid" runat="server" ImageUrl='<%# Eval("foto") %>' ImageAlign="Middle" />
                                                         </div>
                                                         <div class="col-lg-2">
-                                                            <asp:LinkButton class="btn btn-primary" ID="btnAddToCart" runat="server" CommandArgument='<%#Eval("id_producto")%>' Width="33px"><i class="fas fa-shopping-cart"></i></asp:LinkButton>
+                                                            <asp:LinkButton class="btn btn-primary" ID="btnAddToCart" runat="server" CommandArgument='<%#Eval("id_producto")%>' Width="26px" OnClick="btnAddToCart_Click"><i class="fas fa-shopping-cart"></i></asp:LinkButton>
                                                         </div>
                                                     </div>
                                                 </div>

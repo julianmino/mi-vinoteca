@@ -17,6 +17,12 @@
 
                         
                 <h1></h1>
+                <div class="row">
+
+                    <asp:GridView ID="GridView1" runat="server">
+                    </asp:GridView>
+
+                </div>
                 </div>
             </div>
         </div>
