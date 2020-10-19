@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -21,6 +22,7 @@ namespace WebApplication1
         pedidos pedidoActual = new pedidos();
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             DataTable dt = new DataTable();
             dt.Columns.AddRange(new DataColumn[5] { new DataColumn("id_producto"), new DataColumn("producto"), new DataColumn("productor"), new DataColumn("cantidad"), new DataColumn("subtotal") });
             GridView1.DataSource = dt;
@@ -32,6 +34,16 @@ namespace WebApplication1
 
             List<lineas_pedidos> lp = new List<lineas_pedidos>();
             lp = (List<lineas_pedidos>)Session["pedidos"];
+
+            if (lp.Count < 0)
+            {
+                btnConfirm.Visible = false;
+            }
+            else
+            {
+                btnConfirm.Visible = true;
+            }
+
             foreach(lineas_pedidos l in lp) 
             {
                 prod = prodLogic.GetOne(l.id_producto);
@@ -63,19 +75,28 @@ namespace WebApplication1
 
             
             GridViewRow row = (sender as LinkButton).NamingContainer as GridViewRow;
-            int cantidad = Convert.ToInt32(((TextBox)row.Cells[3].Controls[0]).Text);
+            int cantidad = Convert.ToInt32(((TextBox)row.Cells[3].Controls[1]).Text);
 
             DataTable dt = ViewState["dt"] as DataTable;
 
             int id_prod = int.Parse(dt.Rows[row.RowIndex]["id_producto"].ToString());
             prod = prodLogic.GetOne(id_prod);
 
-            dt.Rows[row.RowIndex]["cantidad"] = cantidad;
-            dt.Rows[row.RowIndex]["subtotal"] = (cantidad * prod.precio);
+            if (cantidad < prod.stock)
+            {
+                dt.Rows[row.RowIndex]["cantidad"] = cantidad;
+                dt.Rows[row.RowIndex]["subtotal"] = (cantidad * prod.precio);
+
+                ViewState["dt"] = dt;
+                GridView1.EditIndex = -1;
+                BindGrid();
+            }
+            else
+            {
+                //mostrar que el stock no es valido rey
+            }
+
             
-            ViewState["dt"] = dt;
-            GridView1.EditIndex = -1;
-            BindGrid();
         }
         protected void OnCancel(object sender, EventArgs e)
         {
@@ -122,10 +143,18 @@ namespace WebApplication1
                 linea.id_producto = int.Parse(row.Cells[0].Text);
                 linea.subtotal = float.Parse(row.Cells[4].Text);
                 lpLogic.Alta(linea.id_pedido, linea.id_producto, linea.cantidad, (float)linea.subtotal);
+                
+                productos prod = prodLogic.GetOne(int.Parse(row.Cells[0].Text));
+                int nuevoStock = prod.stock - int.Parse(row.Cells[3].Text);
+                prodLogic.Modificacion( prod.id_producto, prod.nombre, prod.id_productor, prod.precio, 
+                                        nuevoStock, prod.vol_alcohol, prod.ml, prod.ibu, prod.año, prod.añejamiento,
+                                        prod.id_tipo);
             }
             pedidoLogic.Modificacion(   id_pedido, pedidoActual.usuario, pedidoActual.id_descuento,
                                         pedidoActual.fecha, pedidoActual.observaciones,
-                                        pedidoLogic.calcularTotal(pedidoActual.id_descuento, pedidoActual.id_pedido));
+                                        pedidoLogic.calcularTotal(pedidoActual.id_descuento, id_pedido));
+            //mostrar pedido registrado con exito
+            Response.Redirect("userprofile.aspx");
         }
 
         private void mapearDatosPedido(clientes cliente)
@@ -143,5 +172,6 @@ namespace WebApplication1
                 throw;
             }
         }
+
     }
 }

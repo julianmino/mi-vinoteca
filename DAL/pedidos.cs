@@ -15,7 +15,6 @@ namespace DAL
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int id_pedido { get; set; }
 
         [Required]
@@ -26,7 +25,6 @@ namespace DAL
 
         public DateTime fecha { get; set; }
 
-        [Required]
         public string observaciones { get; set; }
 
         public double total { get; set; }

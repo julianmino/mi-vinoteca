@@ -84,6 +84,7 @@
     <Content Include="css\customstylesheet.css" />
     <Content Include="datatables\css\jquery.dataTables.min.css" />
     <Content Include="datatables\js\jquery.dataTables.min.js" />
+    <Content Include="detalle_pedido.aspx" />
     <Content Include="fontawesome\css\all.css" />
     <Content Include="fontawesome\css\all.min.css" />
     <Content Include="fontawesome\css\brands.css" />
@@ -1778,6 +1779,13 @@
     <Compile Include="admin_ProductsManagement.aspx.designer.cs">
       <DependentUpon>admin_ProductsManagement.aspx</DependentUpon>
     </Compile>
+    <Compile Include="detalle_pedido.aspx.cs">
+      <DependentUpon>detalle_pedido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="detalle_pedido.aspx.designer.cs">
+      <DependentUpon>detalle_pedido.aspx</DependentUpon>
+    </Compile>
     <Compile Include="homepage.aspx.cs">
       <DependentUpon>homepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1899,7 +1907,7 @@
       <Name>Business.Logic</Name>
     </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{ff859f62-df1f-45ce-8e59-095987a69bbf}</Project>
+      <Project>{cb3b52ab-11e9-445a-85fd-dfab7a698184}</Project>
       <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>

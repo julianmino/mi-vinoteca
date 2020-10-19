@@ -25,7 +25,7 @@
                             <asp:LinkButton class="btn btn-success" ID="btnGoToCart" runat="server" OnClick="btnGoToCart_Click">Carrito</asp:LinkButton>
                         </div>
                         <div class="col-lg-1">
-                            <asp:LinkButton class="btn btn-danger" ID="Cancel" runat="server" OnClick="Cancel_Click" >Cancelar</asp:LinkButton>
+                            <asp:LinkButton class="btn btn-danger" ID="BtnCancel" runat="server" OnClick="Cancel_Click" >Cancelar</asp:LinkButton>
                         </div>
                 </div>
                 <h1></h1>

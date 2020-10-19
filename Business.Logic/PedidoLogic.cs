@@ -111,7 +111,7 @@ namespace Business.Logic
             {
                 foreach (lineas_pedidos lp in lineas)
                 {
-                    total += lp.subtotal;
+                    total += (float)lp.subtotal;
                 }
             }
 

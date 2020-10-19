@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Consola", "UI.Console\UI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Desktop", "UI.Desktop\UI.Desktop.csproj", "{71B06F1C-40DF-4ABA-BD0C-EB9E95826B56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{FF859F62-DF1F-45CE-8E59-095987A69BBF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{CB3B52AB-11E9-445A-85FD-DFAB7A698184}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{71B06F1C-40DF-4ABA-BD0C-EB9E95826B56}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{71B06F1C-40DF-4ABA-BD0C-EB9E95826B56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71B06F1C-40DF-4ABA-BD0C-EB9E95826B56}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FF859F62-DF1F-45CE-8E59-095987A69BBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF859F62-DF1F-45CE-8E59-095987A69BBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF859F62-DF1F-45CE-8E59-095987A69BBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF859F62-DF1F-45CE-8E59-095987A69BBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB3B52AB-11E9-445A-85FD-DFAB7A698184}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB3B52AB-11E9-445A-85FD-DFAB7A698184}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB3B52AB-11E9-445A-85FD-DFAB7A698184}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB3B52AB-11E9-445A-85FD-DFAB7A698184}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

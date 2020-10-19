@@ -10,28 +10,6 @@ namespace WebApplication1
 {
     public partial class viewproducts : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            //para que se vean los botones de ir al carrito o no
-            bool ban = Session.IsNewSession;
-            Session["role"] = (ban) ? "" : Session["role"];
-            try
-            {
-                if (Session["role"].Equals(""))
-                {
-                    
-                }
-                else
-                {
-                    
-                }
-                
-            }
-            catch
-            {
-
-            }
-        }
         ClienteLogic cliLogic = new ClienteLogic();
         clientes cliente = new clientes();
 
@@ -42,6 +20,42 @@ namespace WebApplication1
         productos productoActual = new productos();
 
         private static List<lineas_pedidos> lp = new List<lineas_pedidos>();
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            //para que se vean los botones de ir al carrito o no
+            bool ban = Session.IsNewSession;
+            Session["role"] = (ban) ? "" : Session["role"];
+            try
+            {
+                if (Session["role"].Equals(""))
+                {
+                    btnGoToCart.Visible = false;
+                    BtnCancel.Visible = false;
+                }
+                else
+                {
+                    if (lp.Count > 0)
+                    {
+                        btnGoToCart.Visible = true;
+                        BtnCancel.Visible = true;
+                    }
+                    else
+                    {
+                        btnGoToCart.Visible = false;
+                        BtnCancel.Visible = false;
+                    }
+                }
+                
+            }
+            catch
+            {
+
+            }
+        }
+        
+
+        
 
         //arreglo de indices para mantener los botones escondidos
 

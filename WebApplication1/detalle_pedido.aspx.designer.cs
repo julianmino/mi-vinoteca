@@ -11,35 +11,26 @@ namespace WebApplication1
 {
 
 
-    public partial class viewproducts
+    public partial class detalle_pedido
     {
 
         /// <summary>
-        /// btnGoToCart control.
+        /// lblNroPedido control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnGoToCart;
+        protected global::System.Web.UI.WebControls.Label lblNroPedido;
 
         /// <summary>
-        /// BtnCancel control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton BtnCancel;
-
-        /// <summary>
-        /// dgvProductos control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvProductos;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
         /// SqlDataSource1 control.
@@ -49,5 +40,14 @@ namespace WebApplication1
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+
+        /// <summary>
+        /// lblTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotal;
     }
 }
