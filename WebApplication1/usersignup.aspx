@@ -64,7 +64,7 @@
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="txtFechaNac" runat="server" placeholder="" TextMode="Date"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="rfvFechaNac" runat="server" ErrorMessage="Ingrese su fecha de nacimiento" ForeColor="#FF0033" ControlToValidate="txtFechaNac" Display="Dynamic"></asp:RequiredFieldValidator>
-                                    <asp:RangeValidator ID="rvFechaNac" runat="server" ControlToValidate="txtFechaNac" Display="Dynamic" ErrorMessage="Debe ser mayor de edad para registrarse" ForeColor="#FF0033" MinimumValue="1945-01-01" Type="Date"></asp:RangeValidator>
+                                    <asp:RangeValidator ID="rvFechaNac" runat="server" ControlToValidate="txtFechaNac" Display="Dynamic" ErrorMessage="Debe tener mas de 18 años" ForeColor="#FF0033" MinimumValue="1945-01-01" Type="Date"></asp:RangeValidator>
                                 </div>
 
                             </div>
@@ -83,6 +83,7 @@
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="txtUsuario" runat="server" placeholder="Nombre de Usuario"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="rfvUsuario" runat="server" ErrorMessage="Ingrese su usuario" ForeColor="#FF0033" ControlToValidate="txtUsuario"></asp:RequiredFieldValidator>
+                                    <asp:Label ID="lblUsuario" runat="server" ForeColor="#FF0033" Text="Ese usuario ya existe" Visible="False"></asp:Label>
                                 </div>                                
 
                             </div>

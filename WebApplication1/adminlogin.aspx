@@ -36,14 +36,20 @@
                          <div class="row">
                             <div class="col">
 
-                                <label>Nombre de Usuario (Admin)</label>
+                                <label>Nombre de Usuario (Admin)</label><asp:TextBox CssClass="form-control" ID="txtUsuario" runat="server" placeholder="Nombre de Usuario (Admin)"></asp:TextBox>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="txtUsuario" runat="server" placeholder="Nombre de Usuario (Admin)"></asp:TextBox>
+
+                                <label>
+                                    <asp:Label ID="lblUsuario" runat="server" ForeColor="#FF0030" Text="Ese usuario no existe" Visible="False"></asp:Label>
+                                    </label>
                                 </div>
 
-                                 <label>Contraseña</label>
+                                 <label>Contraseña</label><asp:TextBox CssClass="form-control" ID="txtPassword" runat="server" placeholder="Contraseña" TextMode="password"></asp:TextBox>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="txtPassword" runat="server" placeholder="Contraseña" TextMode="password"></asp:TextBox>
+
+                                 <label>
+                                    <asp:Label ID="lblContraseña" runat="server" ForeColor="#FF0030" Text="Contraseña incorrecta" Visible="False"></asp:Label>
+                                    </label>
                                 </div>
 
                                 <%-- podemos cambiar los botones hay varios colorcitos --%>

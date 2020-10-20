@@ -6,6 +6,9 @@ namespace WebApplication1 {
     public partial class adminlogin : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
 
+            lblUsuario.Visible = false;
+            lblContraseña.Visible = false;
+
             }
 
         protected void btnIniciarSesion_Click(object sender, EventArgs e)
@@ -31,14 +34,14 @@ namespace WebApplication1 {
                 else
                 {
                     // Mensaje de error contraseña incorrecta
-                    Response.Write("<scrpit language='javascript'>alert('contraseña incorrecta');</script>");
+                    lblContraseña.Visible = true;
+                    }
                 }
-            }
             else
             {
                 // Mensaje de usuario inexistente
-                Response.Write("<scrpit language='javascript'>alert('usuario inexistente');</script>");
+                lblUsuario.Visible = true;
+                }
             }
-        }
     }
 }

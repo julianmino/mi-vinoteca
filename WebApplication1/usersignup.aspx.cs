@@ -16,8 +16,24 @@ namespace WebApplication1 {
         protected void Page_Load() {
             rvFechaNac.MaximumValue = DateTime.Today.AddYears(-18).ToString("yyyy-MM-dd");
             }
+
+        protected bool Validar_Usaurio(string usrname) {
+            ClienteLogic cliLog = new ClienteLogic();
+            cliente cliActual = cliLog.GetOne(usrname);
+
+            if (cliActual is null) {
+                return true;
+                }
+            else {
+                // Muestra que ese nombre de usuario ya existe
+                lblUsuario.Visible = true;
+                return false;
+                }
+            }
         protected void btnRegistrar_Click(object sender, EventArgs e) {
-            if (Page.IsValid) {
+            bool usuario_valido = Validar_Usaurio(txtUsuario.Text);
+
+            if (Page.IsValid & usuario_valido) {
                 Registrar();
                 //volver a homepage
                 Response.Redirect("homepage.aspx");
