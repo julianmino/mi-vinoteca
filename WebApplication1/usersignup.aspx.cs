@@ -19,7 +19,7 @@ namespace WebApplication1 {
 
         protected bool Validar_Usaurio(string usrname) {
             ClienteLogic cliLog = new ClienteLogic();
-            cliente cliActual = cliLog.GetOne(usrname);
+            clientes cliActual = cliLog.GetOne(usrname);
 
             if (cliActual is null) {
                 return true;

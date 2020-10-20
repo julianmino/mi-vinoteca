@@ -92,6 +92,20 @@
                              Inicio de Administrador</asp:LinkButton>
 
                             &nbsp;
+                        
+                            <asp:LinkButton class="footerlinks" ID="lbUserManagement" runat="server" OnClick="lbUserManagement_Click">
+                               Gestión de Usuarios</asp:LinkButton>
+
+                            &nbsp;
+
+                            <asp:LinkButton class="footerlinks" ID="lbProductsManagement" runat="server" OnClick="lbProductsManagement_Click">
+                                Gestión de Productos</asp:LinkButton>
+
+                             &nbsp;
+                            
+                            <asp:LinkButton class="footerlinks" ID="lbProducerManagement" runat="server" OnClick="lbProducerManagement_Click">
+                                 Gestión de Productores</asp:LinkButton>
+
                         </p>
                     </div>
                 </div>

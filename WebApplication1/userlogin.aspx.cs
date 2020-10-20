@@ -16,10 +16,10 @@ namespace WebApplication1 {
 
         protected void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            _ = new cliente();
+            _ = new clientes();
             try
             {
-                cliente cli = cliLog.GetOne(txtUsuario.Text.Trim());
+                clientes cli = cliLog.GetOne(txtUsuario.Text.Trim());
                 if (cli != null)
                 {
                     if (cli.clave == txtPassword.Text.Trim())
