@@ -7,12 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication1
-{
+namespace WebApplication1 {
 
 
-    public partial class adminlogin
-    {
+    public partial class adminlogin {
 
         /// <summary>
         /// txtUsuario control.
@@ -24,6 +22,15 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.TextBox txtUsuario;
 
         /// <summary>
+        /// lblUsuario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUsuario;
+
+        /// <summary>
         /// txtPassword control.
         /// </summary>
         /// <remarks>
@@ -33,6 +40,15 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
 
         /// <summary>
+        /// lblContraseña control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblContraseña;
+
+        /// <summary>
         /// btnIniciarSesion control.
         /// </summary>
         /// <remarks>
@@ -40,5 +56,5 @@ namespace WebApplication1
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnIniciarSesion;
+        }
     }
-}

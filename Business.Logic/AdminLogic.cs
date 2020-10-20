@@ -9,13 +9,14 @@ namespace Business.Logic
 {
     public class AdminLogic : BusinessLogic
     {
+        private readonly YaguaronEntities context = new YaguaronEntities();
         public AdminLogic()
         {
         }
 
         public List<admin> GetAll()
         {
-            List<admin> listaClientes = context.admin.ToList();
+            List<admin> listaClientes = context.admins.ToList();
 
             return listaClientes;
         }
@@ -23,7 +24,7 @@ namespace Business.Logic
         public admin GetByUser(string username)
         {
 
-            return context.admin.SingleOrDefault(x => x.usuario == username);
+            return context.admins.SingleOrDefault(x => x.usuario == username);
 
         }
 
@@ -38,7 +39,7 @@ namespace Business.Logic
                     usuario = usuario,
                     clave = clave,
                 };
-                context.admin.Add(admin);
+                context.admins.Add(admin);
                 context.Entry(admin).State = System.Data.Entity.EntityState.Added;
                 context.SaveChanges();
             }
@@ -74,7 +75,7 @@ namespace Business.Logic
             admin adminAEliminar = this.GetByUser(usuario);
             if (adminAEliminar != null)
             {
-                context.admin.Remove(adminAEliminar);
+                context.admins.Remove(adminAEliminar);
                 context.SaveChanges();
             }
 
@@ -88,7 +89,7 @@ namespace Business.Logic
             {
                 try
                 {
-                    foreach (var admin in context.admin.Where(u => u.usuario.Contains(filtro)))
+                    foreach (var admin in context.admins.Where(u => u.usuario.Contains(filtro)))
                     {
                         listaAdmins.Add(admin);
                     }

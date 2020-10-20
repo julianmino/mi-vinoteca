@@ -54,19 +54,19 @@
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <asp:LinkButton class="nav-link" ID="lbVerProductos" runat="server" OnClick="lbVerProductos_Click">Ver productos</asp:LinkButton>
+                            <asp:LinkButton class="nav-link" ID="lbVerProductos" runat="server" OnClick="lbVerProductos_Click" CausesValidation="False">Ver productos</asp:LinkButton>
                         </li>
                         <li class="nav-item active">
-                            <asp:LinkButton class="nav-link" ID="lbIniciarSesion" runat="server" OnClick="lbIniciarSesion_Click">Iniciar sesión</asp:LinkButton>
+                            <asp:LinkButton class="nav-link" ID="lbIniciarSesion" runat="server" OnClick="lbIniciarSesion_Click" CausesValidation="False">Iniciar sesión</asp:LinkButton>
                         </li>
                         <li class="nav-item active">
-                            <asp:LinkButton class="nav-link" ID="lbRegistrarse" runat="server" OnClick="lbRegistrartse_Click">Registrarse</asp:LinkButton>
+                            <asp:LinkButton class="nav-link" ID="lbRegistrarse" runat="server" OnClick="lbRegistrartse_Click" CausesValidation="False">Registrarse</asp:LinkButton>
                         </li>
                         <li class="nav-item active">
-                            <asp:LinkButton class="nav-link" ID="lbCerrarSesion" runat="server" OnClick="lbCerrarSesion_Click">Cerrar sesión</asp:LinkButton>
+                            <asp:LinkButton class="nav-link" ID="lbCerrarSesion" runat="server" OnClick="lbCerrarSesion_Click" CausesValidation="False">Cerrar sesión</asp:LinkButton>
                         </li>
                         <li class="nav-item active">
-                            <asp:LinkButton class="nav-link" href="userprofile.aspx" ID="lbHiThere" runat="server">Hola usuario</asp:LinkButton>
+                            <asp:LinkButton class="nav-link" href="userprofile.aspx" ID="lbHiThere" runat="server" CausesValidation="False">Hola usuario</asp:LinkButton>
                         </li>
                     </ul>
                 </div>
@@ -88,24 +88,10 @@
                              <!-- <asp:LinkButton class="footerlinks" ID="LinkButton8" runat="server" Visible="false">
                              Inventory</asp:LinkButton> -->
 
-                            <asp:LinkButton class="footerlinks" ID="lbAdminLogin" runat="server" OnClick="lbAdminLogin_Click">
+                            <asp:LinkButton class="footerlinks" href="adminlogin.aspx" ID="lbAdminLogin" runat="server" CausesValidation="False">
                              Inicio de Administrador</asp:LinkButton>
 
                             &nbsp;
-                        
-                            <asp:LinkButton class="footerlinks" ID="lbUserManagement" runat="server" OnClick="lbUserManagement_Click">
-                               Gestión de Usuarios</asp:LinkButton>
-
-                            &nbsp;
-
-                            <asp:LinkButton class="footerlinks" ID="lbProductsManagement" runat="server" OnClick="lbProductsManagement_Click">
-                                Gestión de Productos</asp:LinkButton>
-
-                             &nbsp;
-                            
-                            <asp:LinkButton class="footerlinks" ID="lbProducerManagement" runat="server" OnClick="lbProducerManagement_Click">
-                                 Gestión de Productores</asp:LinkButton>
-
                         </p>
                     </div>
                 </div>

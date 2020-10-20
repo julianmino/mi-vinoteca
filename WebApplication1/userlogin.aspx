@@ -13,7 +13,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                    <img width="150px" src="images/imgs/generaluser.png" />
+                                    <img width="150" src="images/imgs/generaluser.png" />
                                 </center>
                             </div>
                         </div>
@@ -37,14 +37,17 @@
                          <div class="row">
                             <div class="col">
 
-                                <label>Nombre de Usuario</label>
+                                <label>Nombre de Usuario</label><asp:TextBox CssClass="form-control" ID="txtUsuario" runat="server" placeholder="Nombre de usuario"></asp:TextBox>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="txtUsuario" runat="server" placeholder="Nombre de usuario"></asp:TextBox>
+                                    <asp:Label ID="lblUsuario" runat="server" ForeColor="#FF0030" Text="Ese usuario no existe" Visible="False"></asp:Label>
                                 </div>
 
-                                 <label>Contraseña</label>
+                                 <label>Contraseña</label><asp:TextBox CssClass="form-control" ID="txtPassword" runat="server" placeholder="Contraseña" TextMode="password"></asp:TextBox>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="txtPassword" runat="server" placeholder="Contraseña" TextMode="password"></asp:TextBox>
+
+                                 <label>
+                                    <asp:Label ID="lblContraseña" runat="server" ForeColor="#FF0030" Text="Contraseña incorrecta" Visible="False"></asp:Label>
+                                    </label>
                                 </div>
 
                                 <%-- podemos cambiar los botones hay varios colorcitos --%>
