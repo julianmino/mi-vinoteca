@@ -73,7 +73,7 @@ namespace WebApplication1
         {
             try
             {
-                //Response.Write("<scrpit> alert('ANDA O NO ANDA?');</script > ");
+                
                 bool ban = Session.IsNewSession;
                 Session["role"] = (ban) ? "" : Session["role"];
                 if ((Session["role"].Equals("cliente")) || (Session["role"].Equals("admin")))
@@ -146,11 +146,12 @@ namespace WebApplication1
         {
             Session["pedidos"] = lp;
             Response.Redirect("shopping_cart.aspx");
+            
         }
 
         protected void Cancel_Click(object sender, EventArgs e)
         {
-            Response.Write("<scrpit>alert('Se borrarán todos los productos añadidos');</script>");
+            Response.Write("<script language='javascript'>alert('Se borrarán los productos que se hayan añadido')</script>");
             lp.Clear();
         }
     }

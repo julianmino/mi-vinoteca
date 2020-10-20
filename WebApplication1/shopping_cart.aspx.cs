@@ -22,42 +22,45 @@ namespace WebApplication1
         pedidos pedidoActual = new pedidos();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.AddRange(new DataColumn[5] { new DataColumn("id_producto"), new DataColumn("producto"), new DataColumn("productor"), new DataColumn("cantidad"), new DataColumn("subtotal") });
+                GridView1.DataSource = dt;
+                GridView1.DataBind();
+
+                productos prod = new productos();
+
+                productores productor = new productores();
+
+                List<lineas_pedidos> lp = new List<lineas_pedidos>();
+                lp = (List<lineas_pedidos>)Session["pedidos"];
+
+                if (lp.Count < 0)
+                {
+                    btnConfirm.Visible = false;
+                }
+                else
+                {
+                    btnConfirm.Visible = true;
+                }
+
+                foreach (lineas_pedidos l in lp)
+                {
+                    prod = prodLogic.GetOne(l.id_producto);
+                    productor = productorLogic.GetOne(prod.id_productor);
+                    DataRow dr1 = dt.NewRow();
+                    dr1[0] = l.id_producto;
+                    dr1[1] = prod.nombre;
+                    dr1[2] = productor.nombre;
+                    dr1[3] = l.cantidad;
+                    dr1[4] = l.subtotal;
+                    dt.Rows.Add(dr1);
+                }
+                ViewState["dt"] = dt;
+                BindGrid();
+            }
             
-            DataTable dt = new DataTable();
-            dt.Columns.AddRange(new DataColumn[5] { new DataColumn("id_producto"), new DataColumn("producto"), new DataColumn("productor"), new DataColumn("cantidad"), new DataColumn("subtotal") });
-            GridView1.DataSource = dt;
-            GridView1.DataBind();
-
-            productos prod = new productos();
-            
-            productores productor = new productores();
-
-            List<lineas_pedidos> lp = new List<lineas_pedidos>();
-            lp = (List<lineas_pedidos>)Session["pedidos"];
-
-            if (lp.Count < 0)
-            {
-                btnConfirm.Visible = false;
-            }
-            else
-            {
-                btnConfirm.Visible = true;
-            }
-
-            foreach(lineas_pedidos l in lp) 
-            {
-                prod = prodLogic.GetOne(l.id_producto);
-                productor = productorLogic.GetOne(prod.id_productor);
-                DataRow dr1 = dt.NewRow();
-                dr1[0] =l.id_producto ;
-                dr1[1] = prod.nombre;
-                dr1[2] = productor.nombre;
-                dr1[3] =l.cantidad;
-                dr1[4] = l.subtotal;
-                dt.Rows.Add(dr1);
-            }
-            ViewState["dt"] = dt;
-            BindGrid();
         }
         protected void BindGrid()
         {
@@ -75,7 +78,7 @@ namespace WebApplication1
 
             
             GridViewRow row = (sender as LinkButton).NamingContainer as GridViewRow;
-            int cantidad = Convert.ToInt32(((TextBox)row.Cells[3].Controls[1]).Text);
+            int cantidad = Convert.ToInt32(((TextBox)row.Cells[3].Controls[0]).Text);
 
             DataTable dt = ViewState["dt"] as DataTable;
 
@@ -93,7 +96,7 @@ namespace WebApplication1
             }
             else
             {
-                //mostrar que el stock no es valido rey
+                Response.Write("<script language='javascript'>alert('Stock no valido')</script>");
             }
 
             
@@ -153,7 +156,8 @@ namespace WebApplication1
             pedidoLogic.Modificacion(   id_pedido, pedidoActual.usuario, pedidoActual.id_descuento,
                                         pedidoActual.fecha, pedidoActual.observaciones,
                                         pedidoLogic.calcularTotal(pedidoActual.id_descuento, id_pedido));
-            //mostrar pedido registrado con exito
+
+            Response.Write("<script language='javascript'>alert('Pedido Registrado')</script>");
             Response.Redirect("userprofile.aspx");
         }
 
