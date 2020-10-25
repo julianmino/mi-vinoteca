@@ -35,8 +35,17 @@ namespace WebApplication1
                 }
                 else
                 {
+                    if (ValidaEstadoCliente())
+                    {
                         btnGoToCart.Visible = true;
                         BtnCancel.Visible = true;
+                    }
+                    else
+                    {
+                        btnGoToCart.Visible = false;
+                        BtnCancel.Visible = false;
+                    }
+                        
                 }
                 
             }
@@ -85,7 +94,15 @@ namespace WebApplication1
                             button.Visible = false;
                         }
                     }
+                    else
+                    {
+                        Response.Write("<script language='javascript'>alert('El usuario no está habilitado para realizar pedidos')</script>");
+                    }
 
+                }
+                else
+                {
+                    Response.Write("<script language='javascript'>alert('Por favor inicie sesión o cree una cuenta para realizar pedidos')</script>");
                 }
             }
             catch (Exception)
