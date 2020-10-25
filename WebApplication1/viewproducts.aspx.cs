@@ -35,16 +35,8 @@ namespace WebApplication1
                 }
                 else
                 {
-                    if (lp.Count > 0)
-                    {
                         btnGoToCart.Visible = true;
                         BtnCancel.Visible = true;
-                    }
-                    else
-                    {
-                        btnGoToCart.Visible = false;
-                        BtnCancel.Visible = false;
-                    }
                 }
                 
             }
