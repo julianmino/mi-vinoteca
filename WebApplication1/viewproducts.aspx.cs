@@ -91,7 +91,7 @@ namespace WebApplication1
                         if (ProductoPuedeRegistrarse(lpActual))
                         {
                             lp.Add(lpActual);
-                            button.Visible = false;
+                            //button.Visible = false;
                         }
                     }
                     else

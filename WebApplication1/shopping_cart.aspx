@@ -41,9 +41,15 @@
                     </center>
                 </div>
                 <div class="row">
-                    <div class="col-lg-10"></div>
                     <div class="col-lg-2">
-                        <asp:LinkButton class="btn btn-success" ID="btnConfirm" runat="server" OnClick="btnConfirm_Click"><i class="fas fa-check"></i> Confirmar</asp:LinkButton>
+                        <asp:LinkButton ID="btnReturn" runat="server" OnClick="btnReturn_Click" ><-- Ir a Ver Productos</asp:LinkButton>
+                    </div>
+                    <div class="col-lg-6"></div>
+                    <div class="col-lg-2">
+                        <asp:LinkButton class="btn btn-danger" ID="BtnCancel" runat="server" OnClick="BtnCancel_Click" >Cancelar</asp:LinkButton>
+                    </div>
+                    <div class="col-lg-2">
+                        <asp:LinkButton class="btn btn-success" ID="btnConfirm" runat="server" OnClick="btnConfirm_Click">Confirmar</asp:LinkButton>
                     </div>
                 </div>
                 </div>

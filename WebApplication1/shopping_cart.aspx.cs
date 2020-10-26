@@ -22,7 +22,7 @@ namespace WebApplication1
         pedidos pedidoActual = new pedidos();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            if ((!Page.IsPostBack)&&(Session["pedidos"] != null))
             {
                 DataTable dt = new DataTable();
                 dt.Columns.AddRange(new DataColumn[5] { new DataColumn("id_producto"), new DataColumn("producto"), new DataColumn("productor"), new DataColumn("cantidad"), new DataColumn("subtotal") });
@@ -177,5 +177,16 @@ namespace WebApplication1
             }
         }
 
+        protected void BtnCancel_Click(object sender, EventArgs e)
+        {
+            Session["pedidos"] = null;
+            Response.Write("<script language='javascript'>alert('Se ha cancelado con éxito')</script>");
+            Response.Redirect("viewproducts.aspx");
+        }
+
+        protected void btnReturn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("viewproducts.aspx");
+        }
     }
 }
