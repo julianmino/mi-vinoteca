@@ -8,9 +8,9 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
-            <div class="col-lg-5">
+            <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
                         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -118,7 +118,7 @@
                 <a href="homepage.aspx"><< Volver a la Página Principal</a>
             </div>
 
-            <div class="col-lg-7">
+            <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
@@ -135,16 +135,27 @@
                         </div>
                         <div class="row">
                             <div class="col">
+                                <center>
                                 <asp:GridView class="table table-striped table-bordered table-responsive" ID="dgvPedidos" runat="server" AutoGenerateColumns="False">
                                     <Columns>
-                                        <asp:BoundField DataField="id_pedido" HeaderText="ID Pedido" />
-                                        <asp:BoundField DataField="usuario" HeaderText="Usuario" />
-                                        <asp:BoundField DataField="fecha" HeaderText="Fecha de Emisión" />
-                                        <asp:BoundField DataField="total" HeaderText="Total" />
+                                        <asp:BoundField DataField="id_pedido" HeaderText="ID Pedido" >
+                                        <ItemStyle Wrap="True" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="usuario" HeaderText="Usuario" >
+                                        <HeaderStyle Wrap="False" />
+                                        <ItemStyle Wrap="True" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="fecha" HeaderText="Fecha de Emisión" >
+                                        <ItemStyle Wrap="True" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="total" HeaderText="Total" >
+                                        <ItemStyle Wrap="True" />
+                                        </asp:BoundField>
                                     </Columns>
                                     <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                                     <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                                 </asp:GridView>
+                                </center>
                             </div>
                         </div>
                     </div>
@@ -164,24 +175,19 @@
                                 <hr>
                             </div>
                         </div>
-
-                        <asp:GridView class="table table-striped table-bordered table-responsive" ID="dgvProductos" runat="server" AutoGenerateColumns="False">
+                        <div class="row">
+                            <div class="col">
+                                <asp:GridView class="table table-striped table-bordered table-responsive" ID="dgvProductos" runat="server" AutoGenerateColumns="True">
                             <Columns>
                                 <asp:BoundField DataField="id_producto" HeaderText="ID Producto" />
-                                <asp:BoundField DataField="nombre" HeaderText="Nombre" />
-                                <asp:BoundField DataField="id_productor" HeaderText="Productor" />
-                                <asp:BoundField DataField="id_tipo" HeaderText="Tipo Producto" />
-                                <asp:BoundField DataField="vol_alcohol" HeaderText="Vol. Alcohol" />
-                                <asp:BoundField DataField="ml" HeaderText="Cantidad en ml" />
-                                <asp:BoundField DataField="precio" HeaderText="Precio" />
-                                <asp:BoundField DataField="stock" HeaderText="Stock" />
-                                <asp:BoundField DataField="año" HeaderText="Año" />
-                                <asp:BoundField DataField="añejamiento" HeaderText="Añejamiento" />
-                                <asp:BoundField DataField="ibu" HeaderText="IBU" />
+                                <asp:BoundField DataField="cantidad" HeaderText="Cantidad" />
+                                <asp:BoundField DataField="subtotal" HeaderText="Subtotal" />
                             </Columns>
                             <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                             <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                         </asp:GridView>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

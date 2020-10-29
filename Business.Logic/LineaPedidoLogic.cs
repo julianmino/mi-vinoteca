@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Business.Logic
 {
-    class LineaPedidoLogic:BusinessLogic
+    public class LineaPedidoLogic:BusinessLogic
     {
         public LineaPedidoLogic() { }
 
