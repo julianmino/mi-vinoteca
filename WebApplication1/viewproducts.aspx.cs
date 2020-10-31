@@ -25,6 +25,11 @@ namespace WebApplication1
         {
             //para que se vean los botones de ir al carrito o no
             bool ban = Session.IsNewSession;
+            if(Session["pedidos"] != null)
+            {
+                lp = (List<lineas_pedidos>)Session["pedidos"];
+            }
+
             Session["role"] = (ban) ? "" : Session["role"];
             try
             {
@@ -34,8 +39,8 @@ namespace WebApplication1
                     BtnCancel.Visible = false;
                 }
                 else
-                {
-                    if (ValidaEstadoCliente() && lp.Count != 0)
+                { 
+                    if (ValidaEstadoCliente() && lp.Count > 0)
                     {
                         btnGoToCart.Visible = true;
                         BtnCancel.Visible = true;
@@ -45,7 +50,6 @@ namespace WebApplication1
                         btnGoToCart.Visible = false;
                         BtnCancel.Visible = false;
                     }
-                        
                 }
                 
             }
@@ -91,7 +95,13 @@ namespace WebApplication1
                         if (ProductoPuedeRegistrarse(lpActual))
                         {
                             lp.Add(lpActual);
+                            Session["pedidos"] = lp;
+                            btnGoToCart.Visible = true;
+                            BtnCancel.Visible = true;
                             //button.Visible = false;
+                        } else
+                        {
+                            Response.Write("<script language='javascript'>alert('El producto ya se encuentra en el carrito.')</script>");
                         }
                     }
                     else
@@ -167,8 +177,12 @@ namespace WebApplication1
 
         protected void Cancel_Click(object sender, EventArgs e)
         {
-            Response.Write("<script language='javascript'>alert('Se borrarán los productos que se hayan añadido')</script>");
             lp.Clear();
+            Session["pedidos"] = lp;
+            btnGoToCart.Visible = false;
+            BtnCancel.Visible = false;
+            Response.Write("<script language='javascript'>alert('Se borrarán los productos que se hayan añadido')</script>");
+
         }
     }
 }
