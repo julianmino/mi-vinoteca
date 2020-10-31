@@ -2,45 +2,46 @@
 using System;
 using DAL;
 using System.Net.Configuration;
+using System.Web;
 
 namespace WebApplication1 {
     public partial class userlogin : System.Web.UI.Page {
-
-        ClienteLogic cliLog = new ClienteLogic();
+        readonly ClienteLogic cliLog = new ClienteLogic();
         protected void Page_Load(object sender, EventArgs e) {
-            
-            
-        }
+
+            lblUsuario.Visible = false;
+            lblContraseña.Visible = false;
+
+            }
 
         protected void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            clientes cli = new clientes();
+            _ = new clientes();
             try
             {
-                cli = cliLog.GetOne(txtUsuario.Text.Trim());
+                clientes cli = cliLog.GetOne(txtUsuario.Text.Trim());
                 if (cli != null)
                 {
                     if (cli.clave == txtPassword.Text.Trim())
                     {
-                        //inicio sesion voy a homepage
-                        Response.Write("<scrpit>alert('inicia sesion breo');</script>");
+                        // Inicia sesion y redirige a homepage
+                        Response.Write("<script language='javascript'>alert('Sesion iniciada correctamente')</script>");
                         Session["username"] = cli.usuario.ToString();
                         Session["name"] = cli.nombre.ToString();
                         Session["role"] = "cliente";
                         Session["status"] = cli.premium;
                         Response.Redirect("homepage.aspx");
-
                     }
                     else
                     {
-                        //mensaje de error contrasenia incorrecta
-                        Response.Write("<scrpit>alert('contraseña incorrecta');</script>");
+                        // Mensaje de error contraseña incorrecta
+                        lblContraseña.Visible = true;
                     }
                 }
                 else
                 {
-                    //mensaje de usuario inexistente
-                    Response.Write("<scrpit>alert('usuario inexistente');</script>");
+                    // Mensaje de usuario inexistente
+                    lblUsuario.Visible = true;
                 }
             }
             catch (Exception ex)

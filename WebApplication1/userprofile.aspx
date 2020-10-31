@@ -1,5 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="userprofile.aspx.cs" Inherits="WebApplication1.userprofile" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".table").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable();
+
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -139,9 +145,29 @@
 
                             <div class="row">
                                 <div class="col">
-                                    <asp:GridView class="table table-striped table-bordered" ID="dgvPedidos" runat="server">
-
-                                    </asp:GridView>
+                                    <asp:GridView class="table table-striped table-bordered" ID="dgvPedidos" runat="server" AutoGenerateColumns="False" DataKeyNames="id_pedido" DataSourceID="SqlDataSource1">
+                                    <Columns>
+                                        <asp:BoundField DataField="id_pedido" HeaderText="Nro Pedido" InsertVisible="False" ReadOnly="True" SortExpression="id_pedido" >
+                                       
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="observaciones" HeaderText="Observaciones" SortExpression="observaciones" />
+                                        <asp:BoundField DataField="fecha" HeaderText="Fecha" SortExpression="fecha" />
+                                        <asp:BoundField DataField="total" HeaderText="Total" SortExpression="total" />
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <asp:LinkButton class="btn btn-primary" ID="btnVerDetalle" runat="server" CommandArgument='<%#Eval("id_pedido")%>' OnClick="btnVerDetalle_Click">Ver Detalle</asp:LinkButton> 
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                       
+                                    </Columns>
+                                </asp:GridView>
+                                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:YaguaronEntities %>"
+                                        SelectCommand=  "SELECT * FROM [pedidos] WHERE ([usuario] = @usuario)">
+                                        <SelectParameters>
+                                            <asp:SessionParameter DefaultValue="" Name="usuario" SessionField="username" Type="String" />
+                                        </SelectParameters>
+                                        
+                                    </asp:SqlDataSource>
                                 </div>
                             </div>
 

@@ -81,6 +81,8 @@ namespace WebApplication1 {
             lbRegistrarse.Visible = true;
 
             lbAdminLogin.Visible = true;
+            
+            Response.Redirect("homepage.aspx");
         }
 
         protected void lbUserManagement_Click(object sender, EventArgs e)

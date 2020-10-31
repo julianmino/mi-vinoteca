@@ -47,7 +47,7 @@ namespace WebApplication1
             {
                 if (!String.IsNullOrEmpty(txtUsuario.Text))
                 {
-                    pedidoActual = pedLog.GetByUsuario(txtUsuario.Text);
+                    //pedidoActual = pedLog.GetByUsuario(txtUsuario.Text);
                 } else
                 {
                     pedidoActual = pedLog.GetOne(Int32.Parse(txtIdPedido.Text));
