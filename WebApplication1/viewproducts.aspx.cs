@@ -35,7 +35,7 @@ namespace WebApplication1
                 }
                 else
                 {
-                    if (ValidaEstadoCliente())
+                    if (ValidaEstadoCliente() && lp.Count != 0)
                     {
                         btnGoToCart.Visible = true;
                         BtnCancel.Visible = true;
@@ -145,9 +145,16 @@ namespace WebApplication1
         private bool ValidaEstadoCliente()
         {
             bool ban = false;
-            
             cliente = cliLogic.GetOne(Session["username"].ToString());
-            if (cliente.estado == "Habilitado") { ban = true; }
+            if (cliente != null)
+            {
+                if (cliente.estado == "Habilitado") { ban = true; }
+            }
+
+            if (Session["role"].Equals("admin"))
+            {
+                ban = true;
+            }
             return ban;
         }
 

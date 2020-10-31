@@ -56,6 +56,7 @@
                                     <%--Valida el formato del mail--%>
                                     <asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="Ingrese un email válido" ForeColor="#FF0033"
                                         ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" Display="Dynamic"></asp:RegularExpressionValidator>
+                                    <asp:Label ID="lblEmailRegistrado" runat="server" ForeColor="#FF3300" Text="Este email ya se encuentra registrado" Visible="False"></asp:Label>
                                     <br />
 
                                 </div>
