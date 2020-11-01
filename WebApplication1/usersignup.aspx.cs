@@ -17,7 +17,7 @@ namespace WebApplication1 {
             rvFechaNac.MaximumValue = DateTime.Today.AddYears(-18).ToString("yyyy-MM-dd");
             }
 
-        protected bool Validar_Usaurio(string usrname) {
+        protected bool Validar_Usuario(string usrname) {
             clientes cliActual = cliLog.GetOne(usrname);
             bool ban = false;
             if (cliActual is null) {
@@ -43,7 +43,7 @@ namespace WebApplication1 {
             return ban;
         }
         protected void btnRegistrar_Click(object sender, EventArgs e) {
-            bool usuario_valido = Validar_Usaurio(txtUsuario.Text);
+            bool usuario_valido = Validar_Usuario(txtUsuario.Text);
             bool email_valido = Validar_Email(txtEmail.Text);
             if (Page.IsValid && usuario_valido && email_valido) {
                 Registrar();

@@ -11,7 +11,7 @@ namespace WebApplication1 {
 
             lblUsuario.Visible = false;
             lblContraseña.Visible = false;
-
+            
             }
 
         protected void btnIniciarSesion_Click(object sender, EventArgs e)

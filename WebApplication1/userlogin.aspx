@@ -50,10 +50,8 @@
                                     </label>
                                 </div>
 
-                                <%-- podemos cambiar los botones hay varios colorcitos --%>
 
                                 <div class="form-group">
-                                    <%-- falta el manejador de eventos, lo veremos en el siguiente episodio, eso es todo amigos --%>
                                     <asp:Button class="btn btn-success btn-block btn-lg" ID="btnIniciarSesion" runat="server" Text="Iniciar Sesión" OnClick="btnIniciarSesion_Click" />
                                 </div>
 
