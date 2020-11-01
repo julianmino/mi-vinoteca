@@ -14,11 +14,39 @@ namespace WebApplication1
         ProductoLogic prodLog = new ProductoLogic();
         productos productoActual = new productos();
         bool validar = false;
+
+        private enum Accion
+        {
+            Agregar,
+            Modificar,
+            Borrar
+        }
+
+        private enum Producto
+        {
+            Vino,
+            Cerveza,
+            Licor,
+            Whisky
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             dgvProductos.DataSource = prodLog.GetAll();
             dgvProductos.DataBind();
-            
+            bool ban = Session.IsNewSession;
+            Session["role"] = (ban) ? "" : Session["role"];
+            try
+            {
+
+                if (!Session["role"].Equals("admin"))
+                {
+                    Response.Redirect("homepage.aspx");
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         protected void onTipoChanged(object sender, EventArgs e)
@@ -26,19 +54,19 @@ namespace WebApplication1
             switch (dropTipos.SelectedIndex)
             {
                 case 0: 
-                    filtrarProductores("Vino");
+                    filtrarProductores(Producto.Vino.ToString());
                     cambiarReadOnly(true, false, true);
                     break;
                 case 1: 
-                    filtrarProductores("Cerveza");
+                    filtrarProductores(Producto.Cerveza.ToString());
                     cambiarReadOnly(false, true, true);
                     break;
                 case 2: 
-                    filtrarProductores("Licor");
+                    filtrarProductores(Producto.Licor.ToString());
                     cambiarReadOnly(true, true, true);
                     break;
-                case 3: 
-                    filtrarProductores("Whisky");
+                case 3:
+                    filtrarProductores(Producto.Whisky.ToString());
                     cambiarReadOnly(true, false, false);
                     break;
             }
@@ -98,7 +126,7 @@ namespace WebApplication1
                 SetVisibilidades();
                 if(ValidarCampos())
                 {
-                    mapearDatosProducto("agregar");
+                    mapearDatosProducto(Accion.Agregar);
                     if (ProductoPuedeRegistrarse(productoActual))
                     {
                         prodLog.Alta(productoActual.nombre, productoActual.id_productor, productoActual.precio, productoActual.stock, productoActual.vol_alcohol,
@@ -125,7 +153,7 @@ namespace WebApplication1
                 SetVisibilidades();
                 if (ValidarCampos())
                 {
-                    mapearDatosProducto("actualizar");
+                    mapearDatosProducto(Accion.Modificar);
                     prodLog.Modificacion(productoActual.id_producto,productoActual.nombre, productoActual.id_productor, productoActual.precio, productoActual.stock, productoActual.vol_alcohol,
                     productoActual.ml, productoActual.ibu, productoActual.año, productoActual.añejamiento, productoActual.id_tipo);
                     
@@ -144,7 +172,7 @@ namespace WebApplication1
         {
             try
             {
-                mapearDatosProducto("borrar");
+                mapearDatosProducto(Accion.Borrar);
                 prodLog.Baja(productoActual.id_producto);
                 dgvProductos.DataBind();
                 Page.Response.Redirect(Page.Request.Url.ToString(), true);
@@ -177,22 +205,22 @@ namespace WebApplication1
             {
                 case 0: 
                     dropTipos.SelectedIndex = 0;
-                    filtrarProductores("Vino");
+                    filtrarProductores(Producto.Vino.ToString());
                     cambiarReadOnly(true, false, true);
                     break;
                 case 1: 
                     dropTipos.SelectedIndex = 1;
-                    filtrarProductores("Cerveza");
+                    filtrarProductores(Producto.Cerveza.ToString());
                     cambiarReadOnly(false, true, true);
                     break;
                 case 2: 
                     dropTipos.SelectedIndex = 2;
-                    filtrarProductores("Licor");
+                    filtrarProductores(Producto.Licor.ToString());
                     cambiarReadOnly(true, true, true);
                     break;
                 case 3: 
                     dropTipos.SelectedIndex = 3;
-                    filtrarProductores("Whisky");
+                    filtrarProductores(Producto.Whisky.ToString());
                     cambiarReadOnly(true, false, false);
                     break;
             }
@@ -223,11 +251,11 @@ namespace WebApplication1
             listProductores.ClearSelection();
         }
 
-        private void mapearDatosProducto(string accion)
+        private void mapearDatosProducto(Enum accion)
         {
             try
             {
-                if ((accion == "borrar" || accion == "actualizar") && !String.IsNullOrEmpty(txtIDProducto.Text))
+                if ((accion.Equals(Accion.Borrar) || accion.Equals(Accion.Modificar)) && !String.IsNullOrEmpty(txtIDProducto.Text))
                 {
                     productoActual.id_producto = Int32.Parse(txtIDProducto.Text);
                 }

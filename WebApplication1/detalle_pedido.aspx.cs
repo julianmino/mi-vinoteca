@@ -14,9 +14,32 @@ namespace WebApplication1
         PedidoLogic pedidoLogic = new PedidoLogic();
         protected void Page_Load(object sender, EventArgs e)
         {
-            pedidos pedido = pedidoLogic.GetOne((int)Session["nro_pedido"]);
-            lblNroPedido.Text = pedido.id_pedido.ToString();
-            lblTotal.Text = "Total $" + pedido.total.ToString();
+            bool ban = Session.IsNewSession;
+            Session["role"] = (ban) ? "" : Session["role"];
+            try
+            {
+
+                if (!Session["role"].Equals("cliente"))
+                {
+                    Response.Redirect("homepage.aspx");
+                }
+                else
+                {
+                    pedidos pedido = pedidoLogic.GetOne((int)Session["nro_pedido"]);
+                    lblNroPedido.Text = pedido.id_pedido.ToString();
+                    lblTotal.Text = "Total $" + pedido.total.ToString();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            
+        }
+
+        protected void btnReturn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("userprofile.aspx");
         }
     }
 }

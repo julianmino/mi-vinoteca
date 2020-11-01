@@ -28,7 +28,7 @@
                                 <asp:BoundField DataField="subtotal" HeaderText="Subtotal" ReadOnly="true" />
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:LinkButton class="btn btn-primary" Text="Edit" runat="server" CommandName="Edit" />
+                                        <asp:LinkButton class="btn btn-primary" Text="Edit" runat="server" CommandName="Edit" OnClick="OnEdit"/>
                                         <asp:LinkButton class="btn btn-danger" Text="Delete" runat="server" OnClick="OnDelete" />
                                     </ItemTemplate>
                                     <EditItemTemplate>

@@ -25,9 +25,12 @@ namespace WebApplication1
         {
             //para que se vean los botones de ir al carrito o no
             bool ban = Session.IsNewSession;
-            if(Session["pedidos"] != null)
+            if(Session["pedido"] != null)
             {
-                lp = (List<lineas_pedidos>)Session["pedidos"];
+                lp = (List<lineas_pedidos>)Session["pedido"];
+            } else
+            {
+                lp.Clear();
             }
 
             Session["role"] = (ban) ? "" : Session["role"];
@@ -55,7 +58,7 @@ namespace WebApplication1
             }
             catch
             {
-
+                throw;
             }
         }
         
@@ -95,7 +98,7 @@ namespace WebApplication1
                         if (ProductoPuedeRegistrarse(lpActual))
                         {
                             lp.Add(lpActual);
-                            Session["pedidos"] = lp;
+                            Session["pedido"] = lp;
                             btnGoToCart.Visible = true;
                             BtnCancel.Visible = true;
                             //button.Visible = false;
@@ -170,7 +173,7 @@ namespace WebApplication1
 
         protected void btnGoToCart_Click(object sender, EventArgs e)
         {
-            Session["pedidos"] = lp;
+            Session["pedido"] = lp;
             Response.Redirect("shopping_cart.aspx");
             
         }
@@ -178,7 +181,7 @@ namespace WebApplication1
         protected void Cancel_Click(object sender, EventArgs e)
         {
             lp.Clear();
-            Session["pedidos"] = lp;
+            Session["pedido"] = lp;
             btnGoToCart.Visible = false;
             BtnCancel.Visible = false;
             Response.Write("<script language='javascript'>alert('Se borrarán los productos que se hayan añadido')</script>");

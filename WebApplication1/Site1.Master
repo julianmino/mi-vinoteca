@@ -106,6 +106,11 @@
                             <asp:LinkButton class="footerlinks" ID="lbProducerManagement" runat="server" OnClick="lbProducerManagement_Click">
                                  Gestión de Productores</asp:LinkButton>
 
+                            &nbsp;
+
+                            <asp:LinkButton class="footerlinks" ID="lbPedidosManagement" runat="server" OnClick="lbPedidosManagement_Click">
+                                 Gestión de Pedidos</asp:LinkButton>
+
                         </p>
                     </div>
                 </div>
