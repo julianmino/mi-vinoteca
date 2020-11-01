@@ -22,7 +22,7 @@ namespace WebApplication1
         pedidos pedidoActual = new pedidos();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if ((!Page.IsPostBack)&&(Session["pedidos"] != null))
+            if ((!Page.IsPostBack)&&(Session["pedido"] != null))
             {
                 DataTable dt = new DataTable();
                 dt.Columns.AddRange(new DataColumn[5] { new DataColumn("id_producto"), new DataColumn("producto"), new DataColumn("productor"), new DataColumn("cantidad"), new DataColumn("subtotal") });
@@ -34,7 +34,7 @@ namespace WebApplication1
                 productores productor = new productores();
 
                 List<lineas_pedidos> lp = new List<lineas_pedidos>();
-                lp = (List<lineas_pedidos>)Session["pedidos"];
+                lp = (List<lineas_pedidos>)Session["pedido"];
 
                 if (lp.Count < 0)
                 {
@@ -72,8 +72,14 @@ namespace WebApplication1
             GridView1.EditIndex = e.NewEditIndex;
             BindGrid();
         }
+
+        protected void OnEdit(object sender, EventArgs e)
+        {
+            setVisibility(false);
+        }
         protected void OnUpdate(object sender, EventArgs e)
         {
+            setVisibility(true);
             productos prod = new productos();
 
             
@@ -103,6 +109,7 @@ namespace WebApplication1
         }
         protected void OnCancel(object sender, EventArgs e)
         {
+            setVisibility(true);
             GridView1.EditIndex = -1;
             BindGrid();
         }
@@ -114,7 +121,7 @@ namespace WebApplication1
             int id_prod = int.Parse(dt.Rows[row.RowIndex]["id_producto"].ToString());
 
             List<lineas_pedidos> lp = new List<lineas_pedidos>();
-            lp = (List<lineas_pedidos>)Session["pedidos"];
+            lp = (List<lineas_pedidos>)Session["pedido"];
             foreach(lineas_pedidos l in lp)
             {
                 if (l.id_producto == id_prod)
@@ -131,34 +138,55 @@ namespace WebApplication1
 
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
-            clientes cli = new clientes();
-            cli = cliLogic.GetOne(Session["username"].ToString());
-            
-            mapearDatosPedido(cli);
-
-            int id_pedido = pedidoLogic.Alta(pedidoActual.usuario, pedidoActual.id_descuento, pedidoActual.fecha, pedidoActual.observaciones);
-
-            foreach (GridViewRow row in GridView1.Rows)
+            try
             {
-                lineas_pedidos linea = new lineas_pedidos();
-                linea.id_pedido = id_pedido;
-                linea.cantidad = int.Parse(row.Cells[3].Text);
-                linea.id_producto = int.Parse(row.Cells[0].Text);
-                linea.subtotal = float.Parse(row.Cells[4].Text);
-                lpLogic.Alta(linea.id_pedido, linea.id_producto, linea.cantidad, (float)linea.subtotal);
-                
-                productos prod = prodLogic.GetOne(int.Parse(row.Cells[0].Text));
-                int nuevoStock = prod.stock - int.Parse(row.Cells[3].Text);
-                prodLogic.Modificacion( prod.id_producto, prod.nombre, prod.id_productor, prod.precio, 
-                                        nuevoStock, prod.vol_alcohol, prod.ml, prod.ibu, prod.año, prod.añejamiento,
-                                        prod.id_tipo);
-            }
-            pedidoLogic.Modificacion(   id_pedido, pedidoActual.usuario, pedidoActual.id_descuento,
-                                        pedidoActual.fecha, pedidoActual.observaciones,
-                                        pedidoLogic.calcularTotal(pedidoActual.id_descuento, id_pedido));
+                bool ban = true;
+                clientes cli = new clientes();
+                cli = cliLogic.GetOne(Session["username"].ToString());
 
-            Response.Write("<script language='javascript'>alert('Pedido Registrado')</script>");
-            Response.Redirect("userprofile.aspx");
+                mapearDatosPedido(cli);
+
+                int id_pedido = pedidoLogic.Alta(pedidoActual.usuario, pedidoActual.id_descuento, pedidoActual.fecha, pedidoActual.observaciones);
+
+                foreach (GridViewRow row in GridView1.Rows)
+                {
+                    lineas_pedidos linea = new lineas_pedidos();
+                    linea.id_pedido = id_pedido;
+                    linea.cantidad = int.Parse(row.Cells[3].Text);
+                    linea.id_producto = int.Parse(row.Cells[0].Text);
+                    linea.subtotal = float.Parse(row.Cells[4].Text);
+                    lpLogic.Alta(linea.id_pedido, linea.id_producto, linea.cantidad, (float)linea.subtotal);
+
+                    productos prod = prodLogic.GetOne(int.Parse(row.Cells[0].Text));
+                    int nuevoStock = prod.stock - linea.cantidad;
+                    if (nuevoStock >= 0)
+                    {
+                        prodLogic.Modificacion(prod.id_producto, prod.nombre, prod.id_productor, prod.precio,
+                                           nuevoStock, prod.vol_alcohol, prod.ml, prod.ibu, prod.año, prod.añejamiento,
+                                           prod.id_tipo);
+                    } else
+                    {
+                        ban = false;
+                        Response.Write($"<script language='javascript'>alert('El stock para el producto {linea.id_producto} es insuficiente. Stock actual: {prod.stock}')</script>");
+                    }
+                   
+                }
+                if (ban)
+                {
+                    pedidoLogic.Modificacion(id_pedido, pedidoActual.usuario, pedidoActual.id_descuento,
+                                                                pedidoActual.fecha, pedidoActual.observaciones,
+                                                                pedidoLogic.calcularTotal(pedidoActual.id_descuento, id_pedido));
+
+                    Session["pedido"] = null;
+                    Response.Write("<script language='javascript'>alert('Pedido Registrado')</script>");
+                    Response.Redirect("userprofile.aspx");
+                }
+                
+            } catch (Exception)
+            {
+                throw;
+            }
+            
         }
 
         private void mapearDatosPedido(clientes cliente)
@@ -179,7 +207,7 @@ namespace WebApplication1
 
         protected void BtnCancel_Click(object sender, EventArgs e)
         {
-            Session["pedidos"] = null;
+            Session["pedido"] = null;
             Response.Write("<script language='javascript'>alert('Se ha cancelado con éxito')</script>");
             Response.Redirect("viewproducts.aspx");
         }
@@ -188,5 +216,13 @@ namespace WebApplication1
         {
             Response.Redirect("viewproducts.aspx");
         }
+
+        private void setVisibility(bool valor)
+        {
+            btnConfirm.Visible = valor;
+            BtnCancel.Visible = valor;
+            btnReturn.Visible = valor;
+        }
+
     }
 }

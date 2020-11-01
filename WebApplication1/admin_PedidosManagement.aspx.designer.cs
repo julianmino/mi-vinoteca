@@ -33,15 +33,6 @@ namespace WebApplication1
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
 
         /// <summary>
-        /// txtUsuario control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUsuario;
-
-        /// <summary>
         /// txtIdPedido control.
         /// </summary>
         /// <remarks>
@@ -114,13 +105,13 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.TextBox txtTotal;
 
         /// <summary>
-        /// btnCancelar control.
+        /// btnBorrar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelar;
+        protected global::System.Web.UI.WebControls.Button btnBorrar;
 
         /// <summary>
         /// btnFinalizar control.

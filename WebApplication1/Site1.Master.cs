@@ -19,6 +19,7 @@ namespace WebApplication1 {
                     lbProducerManagement.Visible = false;
                     lbProductsManagement.Visible = false;
                     lbUserManagement.Visible = false;
+                    lbPedidosManagement.Visible = false;
                 }
                 else if (Session["role"].Equals("cliente"))
                 {
@@ -31,6 +32,7 @@ namespace WebApplication1 {
                     lbProducerManagement.Visible = false;
                     lbProductsManagement.Visible = false;
                     lbUserManagement.Visible = false;
+                    lbPedidosManagement.Visible = false;
 
                     lbHiThere.Text = "Hola "+ Session["name"].ToString();
                 }
@@ -46,6 +48,7 @@ namespace WebApplication1 {
                     lbProducerManagement.Visible = true;
                     lbProductsManagement.Visible = true;
                     lbUserManagement.Visible = true;
+                    lbPedidosManagement.Visible = true;
 
                     lbHiThere.Text = "Admin, " + Session["name"].ToString();
                 }
@@ -98,6 +101,11 @@ namespace WebApplication1 {
         protected void lbProducerManagement_Click(object sender, EventArgs e)
         {
             Response.Redirect("admin_ProducerManagement.aspx");
+        }
+
+        protected void lbPedidosManagement_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("admin_PedidosManagement.aspx");
         }
 
         protected void lbAdminLogin_Click(object sender, EventArgs e)
