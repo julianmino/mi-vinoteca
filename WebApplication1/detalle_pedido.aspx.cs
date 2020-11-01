@@ -18,5 +18,10 @@ namespace WebApplication1
             lblNroPedido.Text = pedido.id_pedido.ToString();
             lblTotal.Text = "Total $" + pedido.total.ToString();
         }
+
+        protected void btnReturn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("userprofile.aspx");
+        }
     }
 }
