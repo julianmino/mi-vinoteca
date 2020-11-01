@@ -78,6 +78,9 @@ namespace WebApplication1 {
             Session["role"] = "";
             Session["status"] = "";
 
+            Session["pedido"] = null;
+            Session[""] = null;
+
             lbCerrarSesion.Visible = false;
             lbHiThere.Visible = false;
             lbIniciarSesion.Visible = true;

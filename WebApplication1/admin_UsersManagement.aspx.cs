@@ -17,6 +17,20 @@ namespace WebApplication1
         {
             dgvUsuarios.DataSource = cliLog.GetAll();
             dgvUsuarios.DataBind();
+            bool ban = Session.IsNewSession;
+            Session["role"] = (ban) ? "" : Session["role"];
+            try
+            {
+
+                if (!Session["role"].Equals("admin"))
+                {
+                    Response.Redirect("homepage.aspx");
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         protected void btnCheckPressed(object sender, EventArgs e)

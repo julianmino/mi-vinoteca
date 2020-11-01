@@ -22,44 +22,61 @@ namespace WebApplication1
         pedidos pedidoActual = new pedidos();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if ((!Page.IsPostBack)&&(Session["pedido"] != null))
+            bool ban = Session.IsNewSession;
+            Session["role"] = (ban) ? "" : Session["role"];
+            try
             {
-                DataTable dt = new DataTable();
-                dt.Columns.AddRange(new DataColumn[5] { new DataColumn("id_producto"), new DataColumn("producto"), new DataColumn("productor"), new DataColumn("cantidad"), new DataColumn("subtotal") });
-                GridView1.DataSource = dt;
-                GridView1.DataBind();
 
-                productos prod = new productos();
-
-                productores productor = new productores();
-
-                List<lineas_pedidos> lp = new List<lineas_pedidos>();
-                lp = (List<lineas_pedidos>)Session["pedido"];
-
-                if (lp.Count < 0)
+                if (!Session["role"].Equals("admin") || !Session["role"].Equals("cliente"))
                 {
-                    btnConfirm.Visible = false;
-                }
-                else
+                    Response.Redirect("homepage.aspx");
+                } else
                 {
-                    btnConfirm.Visible = true;
-                }
+                    if ((!Page.IsPostBack) && (Session["pedido"] != null))
+                    {
+                        DataTable dt = new DataTable();
+                        dt.Columns.AddRange(new DataColumn[5] { new DataColumn("id_producto"), new DataColumn("producto"), new DataColumn("productor"), new DataColumn("cantidad"), new DataColumn("subtotal") });
+                        GridView1.DataSource = dt;
+                        GridView1.DataBind();
 
-                foreach (lineas_pedidos l in lp)
-                {
-                    prod = prodLogic.GetOne(l.id_producto);
-                    productor = productorLogic.GetOne(prod.id_productor);
-                    DataRow dr1 = dt.NewRow();
-                    dr1[0] = l.id_producto;
-                    dr1[1] = prod.nombre;
-                    dr1[2] = productor.nombre;
-                    dr1[3] = l.cantidad;
-                    dr1[4] = l.subtotal;
-                    dt.Rows.Add(dr1);
+                        productos prod = new productos();
+
+                        productores productor = new productores();
+
+                        List<lineas_pedidos> lp = new List<lineas_pedidos>();
+                        lp = (List<lineas_pedidos>)Session["pedido"];
+
+                        if (lp.Count < 0)
+                        {
+                            btnConfirm.Visible = false;
+                        }
+                        else
+                        {
+                            btnConfirm.Visible = true;
+                        }
+
+                        foreach (lineas_pedidos l in lp)
+                        {
+                            prod = prodLogic.GetOne(l.id_producto);
+                            productor = productorLogic.GetOne(prod.id_productor);
+                            DataRow dr1 = dt.NewRow();
+                            dr1[0] = l.id_producto;
+                            dr1[1] = prod.nombre;
+                            dr1[2] = productor.nombre;
+                            dr1[3] = l.cantidad;
+                            dr1[4] = l.subtotal;
+                            dt.Rows.Add(dr1);
+                        }
+                        ViewState["dt"] = dt;
+                        BindGrid();
+                    }
                 }
-                ViewState["dt"] = dt;
-                BindGrid();
             }
+            catch (Exception)
+            {
+                throw;
+            }
+            
             
         }
         protected void BindGrid()

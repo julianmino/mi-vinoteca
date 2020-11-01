@@ -25,7 +25,6 @@ namespace WebApplication1
         {
             dgvPedidos.DataSource = pedLog.GetAll();
             dgvPedidos.DataBind();
-
             bool ban = Session.IsNewSession;
             Session["role"] = (ban) ? "" : Session["role"];
             try
@@ -48,6 +47,9 @@ namespace WebApplication1
                         }
                         
                     }
+                } else
+                {
+                    Response.Redirect("homepage.aspx");
                 }
             }
             catch (Exception)

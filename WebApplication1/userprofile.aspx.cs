@@ -5,7 +5,19 @@ namespace WebApplication1 {
     public partial class userprofile : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) 
         {
-
+            bool ban = Session.IsNewSession;
+            Session["role"] = (ban) ? "" : Session["role"];
+            try
+            {
+                if (!Session["role"].Equals("cliente"))
+                {
+                    Response.Redirect("homepage.aspx");
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         protected void btnVerDetalle_Click(object sender, EventArgs e)

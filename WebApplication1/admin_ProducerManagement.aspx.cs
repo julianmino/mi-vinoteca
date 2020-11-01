@@ -14,10 +14,30 @@ namespace WebApplication1
         private ProductorLogic prodLog = new ProductorLogic();
         private productores productorActual = new productores();
 
+        private enum Accion
+        {
+            Agregar,
+            Modificar,
+            Borrar
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             dgvProductores.DataSource = prodLog.GetAll();
             dgvProductores.DataBind();
+            bool ban = Session.IsNewSession;
+            Session["role"] = (ban) ? "" : Session["role"];
+            try
+            {
+
+                if (!Session["role"].Equals("admin"))
+                {
+                    Response.Redirect("homepage.aspx");
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         protected void onCheckedPressed(object sender, EventArgs e)
@@ -43,7 +63,7 @@ namespace WebApplication1
                 VisibilityOf(lblNombre, String.IsNullOrEmpty(txtNombre.Text));
                 if (!lblNombre.Visible)
                 {
-                    MapearProductor("agregar");
+                    MapearProductor(Accion.Agregar);
                     if (ProductorPuedeRegistrarse(productorActual))
                     {
                         prodLog.Alta(productorActual.nombre);
@@ -64,7 +84,7 @@ namespace WebApplication1
                 VisibilityOf(lblNombre, String.IsNullOrEmpty(txtNombre.Text));
                 if (!lblNombre.Visible && !String.IsNullOrEmpty(txtIdProductor.Text))
                 {
-                    MapearProductor("actualizar");
+                    MapearProductor(Accion.Modificar);
                     prodLog.Modificacion(productorActual.id_productor, productorActual.nombre);
                     dgvProductores.DataBind();
                     Page.Response.Redirect(Page.Request.Url.ToString(), true);
@@ -82,7 +102,7 @@ namespace WebApplication1
                 VisibilityOf(lblNombre, String.IsNullOrEmpty(txtNombre.Text));
                 if (!lblNombre.Visible && !String.IsNullOrEmpty(txtIdProductor.Text))
                 {
-                    MapearProductor("borrar");
+                    MapearProductor(Accion.Borrar);
                     prodLog.Baja(productorActual.id_productor);
                     dgvProductores.DataBind();
                     Page.Response.Redirect(Page.Request.Url.ToString(), true);
@@ -104,9 +124,9 @@ namespace WebApplication1
             label.Visible = value;
         }
 
-        private void MapearProductor(string accion)
+        private void MapearProductor(Enum accion)
         {
-            if ((accion == "borrar" || accion == "actualizar") && !String.IsNullOrEmpty(txtIdProductor.Text))
+            if ((accion.Equals(Accion.Borrar) || accion.Equals(Accion.Modificar)) && !String.IsNullOrEmpty(txtIdProductor.Text))
             {
                 productorActual.id_productor = Int32.Parse(txtIdProductor.Text);
             }
