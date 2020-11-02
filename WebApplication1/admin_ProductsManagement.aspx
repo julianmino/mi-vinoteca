@@ -60,12 +60,9 @@
                      <div class="col-md-4">
                         <label>Tipo de Producto</label>
                         <div class="form-group">
-                           <asp:DropDownList class="form-control text-center" ID="dropTipos" runat="server" AutoPostBack="True">
-                              <asp:ListItem Text="Vino" Value="Vino" />
-                              <asp:ListItem Text="Cerveza" Value="Cerveza" />
-                              <asp:ListItem Text="Licor" Value="Licor" />
-                              <asp:ListItem Text="Whisky" Value="Whisky" />
-                           </asp:DropDownList>
+                            <asp:DropDownList class="form-control text-center" ID="dropTipos" runat="server" DataSourceID="dsTipos" DataTextField="descripcion" DataValueField="id_tipo" AutoPostBack="True" OnSelectedIndexChanged="onTipoChanged"></asp:DropDownList>
+
+                            <asp:SqlDataSource ID="dsTipos" runat="server" ConnectionString="<%$ ConnectionStrings:YaguaronEntities %>" SelectCommand="SELECT * FROM [tipo_producto]"></asp:SqlDataSource>
                            <asp:Label ID="lblTipo" runat="server" Text="Label" ForeColor="#FF0033" Visible="False">Seleccione un Tipo</asp:Label>
                            <%--<asp:RequiredFieldValidator ID="rfvTipo" runat="server" ErrorMessage="Seleccione un Tipo" ForeColor="#FF0033" ControlToValidate="dropTipos"></asp:RequiredFieldValidator>--%>
                         </div>
@@ -79,27 +76,10 @@
                      <div class="col-md-8">
                         <label>Productor</label>
                         <div class="form-group">
-                           <asp:ListBox CssClass="form-control text-center" ID="listProductores" runat="server" SelectionMode="Single" Rows="5" AutoPostBack="True" OnSelectedIndexChanged="onTxtChanged">
-                              
-                              
-                              <asp:ListItem Text="Cervecería Modelo" Value="Cervecería Modelo" Enabled="false"/>
-                              <asp:ListItem Text="Cervecería y Malteria Quilmes" Value="Cervecería y Malteria Quilmes" Enabled="false"/>
-                              <asp:ListItem Text="Heineken" Value="Heineken" Enabled="false"/>
-                              <asp:ListItem Text="Budweiser" Value="Budweiser" Enabled="false"/>
+                            <asp:ListBox CssClass="form-control text-center" ID="listProductores" runat="server" OnSelectedIndexChanged="onTxtChanged" DataSourceID="dsProductores" DataTextField="nombre" DataValueField="id_productor"></asp:ListBox>
 
-                               <asp:ListItem Text="Jhonnie Walker" Value="Jhonnie Walker" Enabled="false"/>
-                               <asp:ListItem Text="Jack Daniels" Value="Jack Daniels" Enabled="false"/>
-                               
-                               <asp:ListItem Text="Norton" Value="Norton" />
-                               <asp:ListItem Text="Trapiche" Value="Trapiche" />
-                               <asp:ListItem Text="Bodega Finca Las Moras" Value="Bodega Finca Las Moras" />
-                               <asp:ListItem Text="Los Haroldos" Value="Los Haroldos" />
-                               <asp:ListItem Text="Luigi Bosca" Value="Luigi Bosca" />
+                            <asp:SqlDataSource ID="dsProductores" runat="server" ConnectionString="<%$ ConnectionStrings:YaguaronEntities %>" SelectCommand="SELECT * FROM [productores] ORDER BY [nombre]"></asp:SqlDataSource>
 
-                               <asp:ListItem Text="Verma" Value="Verma" Enabled="false"/>
-                               <asp:ListItem Text="Borgheti" Value="Borgheti" Enabled="false"/>
-
-                           </asp:ListBox>
                            <asp:Label ID="lblProductor" runat="server" Text="Label" ForeColor="#FF0033" Visible="False">Seleccione un Productor</asp:Label>
                            <%--<asp:RequiredFieldValidator ID="rfvProductor" runat="server" ErrorMessage="Seleccione un Productor" ForeColor="#FF0033" ControlToValidate="listProductores"></asp:RequiredFieldValidator>--%>
                         </div>
@@ -182,9 +162,9 @@
         </asp:UpdatePanel>
                </div>
             </div>
-         <a href="homepage.aspx"><< Volver a la Página Principal/a>
+         <a href="homepage.aspx"><< Volver a la Página Principal</a>
          </div>
-                   
+                  
          <div class="col-md-7">
             <div class="card">
                <div class="card-body">
@@ -224,6 +204,7 @@
                </div>
             </div>
          </div>
-      </div>
+        
+         </div>
    </div>
 </asp:Content>

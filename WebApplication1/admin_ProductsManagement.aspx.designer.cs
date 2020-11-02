@@ -87,6 +87,15 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.DropDownList dropTipos;
 
         /// <summary>
+        /// dsTipos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dsTipos;
+
+        /// <summary>
         /// lblTipo control.
         /// </summary>
         /// <remarks>
@@ -121,6 +130,15 @@ namespace WebApplication1
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox listProductores;
+
+        /// <summary>
+        /// dsProductores control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dsProductores;
 
         /// <summary>
         /// lblProductor control.

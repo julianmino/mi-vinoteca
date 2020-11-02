@@ -177,7 +177,7 @@ namespace WebApplication1
                     {
                         prodLogic.Modificacion(prod.id_producto, prod.nombre, prod.id_productor, prod.precio,
                                            nuevoStock, prod.vol_alcohol, prod.ml, prod.ibu, prod.año, prod.añejamiento,
-                                           prod.id_tipo);
+                                           prod.id_tipo, prod.foto);
                     } else
                     {
                         ban = false;

@@ -81,6 +81,7 @@ namespace WebApplication1
             try
             {
                 realizarBaja(Acciones.Borrar);
+                //falta corregir el stock de los productos en cada linea
             } catch (Exception)
             {
                 throw;

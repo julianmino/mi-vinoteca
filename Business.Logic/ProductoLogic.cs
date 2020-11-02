@@ -24,7 +24,7 @@ namespace Business.Logic {
 
         public void Alta(string nombre, int id_productor, double precio,
             int stock, double vol_alcohol, double ml, double? ibu,
-            int? año, int? añejamiento,int id_tipo) {
+            int? año, int? añejamiento,int id_tipo, byte[] foto) {
             if (ibu == 0) {
                 ibu = null;
                 }
@@ -46,6 +46,7 @@ namespace Business.Logic {
                     ibu = ibu,
                     añejamiento = añejamiento,
                     año = año,
+                    foto = foto,
                 };
                 context.productos.Add(producto);
                 context.Entry(producto).State = System.Data.Entity.EntityState.Added;
@@ -57,7 +58,7 @@ namespace Business.Logic {
             }
         public void Modificacion(int id, string nombre, int id_productor, double precio,
             int stock, double vol_alcohol,double ml, double? ibu,
-            int? año, int? añejamiento,int id_tipo) {
+            int? año, int? añejamiento,int id_tipo, byte[] foto) {
             if (ibu == 0) {
                 ibu = null;
                 }
@@ -80,6 +81,7 @@ namespace Business.Logic {
                     producto.añejamiento = añejamiento;
                     producto.año = año;
                     producto.id_tipo = id_tipo;
+                    producto.foto = foto;
                     };
                 context.Entry(producto).State = System.Data.Entity.EntityState.Modified;
                 context.SaveChanges();
