@@ -27,11 +27,8 @@ namespace WebApplication1
             try
             {
 
-                if (!Session["role"].Equals("admin") || !Session["role"].Equals("cliente"))
-                {
-                    Response.Redirect("homepage.aspx");
-                } else
-                {
+                
+                
                     if ((!Page.IsPostBack) && (Session["pedido"] != null))
                     {
                         DataTable dt = new DataTable();
@@ -70,7 +67,7 @@ namespace WebApplication1
                         ViewState["dt"] = dt;
                         BindGrid();
                     }
-                }
+                
             }
             catch (Exception)
             {

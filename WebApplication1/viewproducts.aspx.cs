@@ -171,12 +171,6 @@ namespace WebApplication1
             return ban;
         }
 
-        protected void btnGoToCart_Click(object sender, EventArgs e)
-        {
-            Session["pedido"] = lp;
-            Response.Redirect("shopping_cart.aspx");
-            
-        }
 
         protected void Cancel_Click(object sender, EventArgs e)
         {
@@ -186,6 +180,12 @@ namespace WebApplication1
             BtnCancel.Visible = false;
             Response.Write("<script language='javascript'>alert('Se borrarán los productos que se hayan añadido')</script>");
 
+        }
+
+        protected void btnGoToCart_Click1(object sender, EventArgs e)
+        {
+            Session["pedido"] = lp;
+            Response.Redirect("shopping_cart.aspx");
         }
     }
 }

@@ -22,7 +22,7 @@
                 <div class="row">
                         <div class="col-lg-10"></div>
                         <div class="col-lg-1">
-                            <asp:LinkButton class="btn btn-success" ID="btnGoToCart" runat="server" OnClick="btnGoToCart_Click">Carrito</asp:LinkButton>
+                            <asp:LinkButton class="btn btn-success" ID="btnGoToCart" runat="server" OnClick="btnGoToCart_Click1">Carrito</asp:LinkButton>
                         </div>
                         <div class="col-lg-1">
                             <asp:LinkButton class="btn btn-danger" ID="BtnCancel" runat="server" OnClick="Cancel_Click" >Cancelar</asp:LinkButton>
