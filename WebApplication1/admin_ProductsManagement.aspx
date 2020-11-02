@@ -9,7 +9,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    <div class="container-fluid">
       <div class="row">
-         <div class="col-lg-5">
+         <div class="col-md-5">
             <div class="card">
                <div class="card-body">
                   <div class="row">
@@ -60,7 +60,7 @@
                      <div class="col-md-4">
                         <label>Tipo de Producto</label>
                         <div class="form-group">
-                           <asp:DropDownList class="form-control text-center" ID="dropTipos" runat="server" OnSelectedIndexChanged="onTipoChanged" AutoPostBack="True">
+                           <asp:DropDownList class="form-control text-center" ID="dropTipos" runat="server" AutoPostBack="True">
                               <asp:ListItem Text="Vino" Value="Vino" />
                               <asp:ListItem Text="Cerveza" Value="Cerveza" />
                               <asp:ListItem Text="Licor" Value="Licor" />
@@ -182,10 +182,10 @@
         </asp:UpdatePanel>
                </div>
             </div>
-         <a href="homepage.aspx"><< Volver a la Página Principal</a>
+         <a href="homepage.aspx"><< Volver a la Página Principal/a>
          </div>
                    
-         <div class="col-lg-7">
+         <div class="col-md-7">
             <div class="card">
                <div class="card-body">
                   <div class="row">
