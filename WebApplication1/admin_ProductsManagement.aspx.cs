@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Business.Logic;
 using DAL;
+using System.IO;
 
 namespace WebApplication1
 {
@@ -53,47 +54,23 @@ namespace WebApplication1
         {
             switch (dropTipos.SelectedIndex)
             {
-                case 0: 
-                    filtrarProductores(Producto.Vino.ToString());
+                case 0:
                     cambiarReadOnly(true, false, true);
                     break;
-                case 1: 
-                    filtrarProductores(Producto.Cerveza.ToString());
+                case 1:
                     cambiarReadOnly(false, true, true);
                     break;
-                case 2: 
-                    filtrarProductores(Producto.Licor.ToString());
+                case 2:
                     cambiarReadOnly(true, true, true);
                     break;
                 case 3:
-                    filtrarProductores(Producto.Whisky.ToString());
                     cambiarReadOnly(true, false, false);
                     break;
             }
             if (validar) { SetVisibilidades(); }
-            listProductores.DataBind();
         }
 
-        private void filtrarProductores(string tipo)
-        {
-            string[] productores = prodLog.GetProductoresDeTipo(tipo);
 
-            for (int i=0;i<listProductores.Items.Count;i++)
-            {
-                for (int j=0;j<productores.Length;j++)
-                {
-                    if (listProductores.Items[i].Value != productores[j])
-                    {
-                        listProductores.Items[i].Enabled = false;
-                    } else
-                    {
-                        listProductores.Items[i].Enabled = true;
-                        break;
-                    }
-                }
-                
-            }
-        }
 
         private void cambiarReadOnly(bool ibu, bool anio, bool aniejamiento)
         {
@@ -112,7 +89,8 @@ namespace WebApplication1
                     llenarDatos(productoActual);
                     SetVisibilidades();
                 }
-            } catch (Exception)
+            }
+            catch (Exception)
             {
                 throw;
             }
@@ -124,21 +102,21 @@ namespace WebApplication1
             {
                 validar = true;
                 SetVisibilidades();
-                if(ValidarCampos())
+                if (ValidarCampos())
                 {
                     mapearDatosProducto(Accion.Agregar);
                     if (ProductoPuedeRegistrarse(productoActual))
                     {
                         prodLog.Alta(productoActual.nombre, productoActual.id_productor, productoActual.precio, productoActual.stock, productoActual.vol_alcohol,
-                        productoActual.ml, productoActual.ibu, productoActual.año, productoActual.añejamiento, productoActual.id_tipo);
-                        
+                        productoActual.ml, productoActual.ibu, productoActual.año, productoActual.añejamiento, productoActual.id_tipo, productoActual.foto);
+
                         dgvProductos.DataBind();
                         validar = false;
                         Page.Response.Redirect(Page.Request.Url.ToString(), true);
                     }
-                    
+
                 }
-            } 
+            }
             catch (Exception)
             {
                 throw;
@@ -154,9 +132,9 @@ namespace WebApplication1
                 if (ValidarCampos())
                 {
                     mapearDatosProducto(Accion.Modificar);
-                    prodLog.Modificacion(productoActual.id_producto,productoActual.nombre, productoActual.id_productor, productoActual.precio, productoActual.stock, productoActual.vol_alcohol,
-                    productoActual.ml, productoActual.ibu, productoActual.año, productoActual.añejamiento, productoActual.id_tipo);
-                    
+                    prodLog.Modificacion(productoActual.id_producto, productoActual.nombre, productoActual.id_productor, productoActual.precio, productoActual.stock, productoActual.vol_alcohol,
+                    productoActual.ml, productoActual.ibu, productoActual.año, productoActual.añejamiento, productoActual.id_tipo, productoActual.foto);
+
                     dgvProductos.DataBind();
                     validar = false;
                     Page.Response.Redirect(Page.Request.Url.ToString(), true);
@@ -176,7 +154,7 @@ namespace WebApplication1
                 prodLog.Baja(productoActual.id_producto);
                 dgvProductos.DataBind();
                 Page.Response.Redirect(Page.Request.Url.ToString(), true);
-            } 
+            }
             catch (Exception)
             {
                 throw;
@@ -203,24 +181,20 @@ namespace WebApplication1
 
             switch (prod.id_tipo)
             {
-                case 0: 
+                case 0:
                     dropTipos.SelectedIndex = 0;
-                    filtrarProductores(Producto.Vino.ToString());
                     cambiarReadOnly(true, false, true);
                     break;
-                case 1: 
+                case 1:
                     dropTipos.SelectedIndex = 1;
-                    filtrarProductores(Producto.Cerveza.ToString());
                     cambiarReadOnly(false, true, true);
                     break;
-                case 2: 
+                case 2:
                     dropTipos.SelectedIndex = 2;
-                    filtrarProductores(Producto.Licor.ToString());
                     cambiarReadOnly(true, true, true);
                     break;
-                case 3: 
+                case 3:
                     dropTipos.SelectedIndex = 3;
-                    filtrarProductores(Producto.Whisky.ToString());
                     cambiarReadOnly(true, false, false);
                     break;
             }
@@ -267,27 +241,13 @@ namespace WebApplication1
                 productoActual.añejamiento = String.IsNullOrEmpty(txtAniejamiento.Text) ? 0 : Int32.Parse(txtAniejamiento.Text);
                 productoActual.precio = Int32.Parse(txtPrecio.Text);
                 productoActual.stock = Int32.Parse(txtStock.Text);
-                switch (dropTipos.SelectedValue)
-                {
-                    case "Vino":
-                        productoActual.id_tipo = 0;
-                        break;
-                    case "Cerveza":
-                        productoActual.id_tipo = 1;
-                        break;
-                    case "Licor":
-                        productoActual.id_tipo = 2;
-                        break;
-                    case "Whisky":
-                        productoActual.id_tipo = 3;
-                        break;
-                }
-
-                productoActual.id_productor = prodLog.GetIdProductorPorNombre(listProductores.SelectedValue);
+                productoActual.id_tipo = Int32.Parse(dropTipos.SelectedValue);
+                productoActual.id_productor = Int32.Parse(listProductores.SelectedValue);
+                productoActual.foto = uploaderFoto.FileBytes;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                throw e;
             }
         }
 
@@ -367,7 +327,7 @@ namespace WebApplication1
                 else ban = false;
             }
             else ban = false;
-            
+
             return ban;
         }
 
@@ -376,41 +336,59 @@ namespace WebApplication1
             bool ban = false;
             List<productos> productosExistentes = new List<productos>();
             productosExistentes = prodLog.GetProductosDeProductor(producto.id_productor);
-            foreach (productos p in productosExistentes)
+            if (productosExistentes.Count == 0)
             {
-                if (producto.nombre == p.nombre)
+                ban = true;
+            }
+            else
+            {
+                foreach (productos p in productosExistentes)
                 {
-                    if (producto.ml == p.ml)
+                    if (producto.nombre == p.nombre)
                     {
-                        if (producto.vol_alcohol == p.vol_alcohol)
+                        if (producto.ml == p.ml)
                         {
-                            switch (producto.id_tipo)
+                            if (producto.vol_alcohol == p.vol_alcohol)
                             {
-                                case 0:
-                                    ban = !(producto.año == p.año);
-                                    break;
-                                case 1:
-                                    ban = !(producto.ibu == p.ibu);
-                                    break;
-                                case 2:
-                                    ban = false;
-                                    break;
-                                case 3:
-                                    if (producto.año == p.año)
-                                    {
-                                        ban = !(producto.añejamiento == p.añejamiento);
-                                    }
-                                    else ban = true;
-                                    break;
+                                switch (producto.id_tipo)
+                                {
+                                    case 0:
+                                        ban = !(producto.año == p.año);
+                                        break;
+                                    case 1:
+                                        ban = !(producto.ibu == p.ibu);
+                                        break;
+                                    case 2:
+                                        ban = false;
+                                        break;
+                                    case 3:
+                                        if (producto.año == p.año)
+                                        {
+                                            ban = !(producto.añejamiento == p.añejamiento);
+                                        }
+                                        else ban = true;
+                                        break;
+                                }
                             }
+                            else ban = true;
                         }
                         else ban = true;
                     }
                     else ban = true;
                 }
-                else ban = true;
             }
+
             return ban;
         }
+
+        public byte[] ImageToByteArray(System.Drawing.Image imageIn)
+        {
+            using (var ms = new MemoryStream())
+            {
+                imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
+                return ms.ToArray();
+            }
+        }
+
     }
 }

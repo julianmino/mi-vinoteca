@@ -76,7 +76,8 @@ namespace UI.Desktop {
                         Convert.ToDouble(numMl.Value), Convert.ToDouble(numIBU.Value),
                         Convert.ToInt32(numAnio.Value),
                         Convert.ToInt32(numAniejamiento.Value),
-                        Id_tipo);
+                        Id_tipo, 
+                        null);
                     }
                 else {
                     prodLog.Modificacion(int.Parse(txtID.Text),
@@ -89,7 +90,8 @@ namespace UI.Desktop {
                         Convert.ToDouble(numIBU.Value),
                         Convert.ToInt32(numAnio.Value),
                         Convert.ToInt32(numAniejamiento.Value),
-                        Id_tipo);
+                        Id_tipo,
+                        null);
                     }
                 }
             else if (this.Modo == ModoForm.Baja) {
