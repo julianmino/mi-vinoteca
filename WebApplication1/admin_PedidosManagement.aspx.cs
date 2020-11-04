@@ -15,6 +15,7 @@ namespace WebApplication1
         private ClienteLogic cliLog = new ClienteLogic();
         private LineaPedidoLogic lpLogic = new LineaPedidoLogic();
         private pedidos pedidoActual = new pedidos();
+        private ProductoLogic prodLogic = new ProductoLogic();
         
         private enum Acciones
         {
@@ -80,11 +81,33 @@ namespace WebApplication1
         {
             try
             {
+                corrigeStock();
                 realizarBaja(Acciones.Borrar);
-                //falta corregir el stock de los productos en cada linea
             } catch (Exception)
             {
                 throw;
+            }
+        }
+
+        private void corrigeStock()
+        {
+            if (pedidoActual != null)
+            {
+                try
+                {
+                    foreach (lineas_pedidos lp in pedidoActual.lineas_pedidos)
+                    {
+                        productos prod = prodLogic.GetOne(lp.id_producto);
+                        int nuevoStock = prod.stock + lp.cantidad;
+                        prodLogic.Modificacion( prod.id_producto, prod.nombre, prod.id_productor, prod.precio, nuevoStock,
+                                                prod.vol_alcohol, prod.ml, prod.ibu, prod.año, prod.añejamiento, prod.id_tipo, prod.foto);
+                    }
+                    Page.Response.Redirect(Page.Request.Url.ToString(), false);
+                }
+                catch(Exception e)
+                {
+                    throw e;
+                }
             }
         }
 
