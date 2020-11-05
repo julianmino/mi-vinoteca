@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using Business.Logic;
 using DAL;
@@ -35,6 +37,17 @@ namespace UI.Desktop {
             numPrecio.Value = Convert.ToDecimal(ProductoActual.precio);
             numStock.Value = ProductoActual.stock;
 
+            if (ProductoActual.foto != null) {
+                //Convierte la imagen de byte[] a Image
+                MemoryStream ms = new MemoryStream(ProductoActual.foto);
+                Image foto = Image.FromStream(ms);
+                pictBoxFoto.Image = foto;
+                }
+            else {
+                pictBoxFoto.Image = default;
+                }
+            ;
+
             //Mapear a 0 los campos que son NULL en la DB
             if (ProductoActual.añejamiento == null) {
                 numAniejamiento.Value = 0M;
@@ -43,7 +56,7 @@ namespace UI.Desktop {
                 numAniejamiento.Value = Convert.ToInt32(ProductoActual.añejamiento);
                 }
             if (ProductoActual.año == null) {
-                numAnio.Value = 0M;
+                numAnio.Value = 2000M;
                 }
             else {
                 numAnio.Value = Convert.ToInt32(ProductoActual.año);
@@ -66,6 +79,9 @@ namespace UI.Desktop {
             ProductoLogic prodLog = new ProductoLogic();
 
             if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion) {
+                // Guarda la foto
+                byte[] foto = File.ReadAllBytes(fileDialogFoto.FileName);
+                
                 if (this.Modo == ModoForm.Alta) {
 
                     prodLog.Alta(txtNombre.Text,
@@ -76,8 +92,8 @@ namespace UI.Desktop {
                         Convert.ToDouble(numMl.Value), Convert.ToDouble(numIBU.Value),
                         Convert.ToInt32(numAnio.Value),
                         Convert.ToInt32(numAniejamiento.Value),
-                        Id_tipo, 
-                        null);
+                        Id_tipo,
+                        foto);
                     }
                 else {
                     prodLog.Modificacion(int.Parse(txtID.Text),
@@ -91,7 +107,7 @@ namespace UI.Desktop {
                         Convert.ToInt32(numAnio.Value),
                         Convert.ToInt32(numAniejamiento.Value),
                         Id_tipo,
-                        null);
+                        foto);
                     }
                 }
             else if (this.Modo == ModoForm.Baja) {
@@ -109,13 +125,14 @@ namespace UI.Desktop {
             if (Modo == ModoForm.Baja) {
                 txtNombre.ReadOnly = true;
                 cbProductor.Enabled = false;
-                numIBU.ReadOnly = true;
-                numAniejamiento.ReadOnly = true;
-                numAnio.ReadOnly = true;
-                numMl.ReadOnly = true;
+                numIBU.Enabled = false;
+                numAniejamiento.Enabled = false;
+                numAnio.Enabled = false;
+                numMl.Enabled = false;
                 numPrecio.Enabled = false;
-                numVolumenAlcohol.ReadOnly = true;
-                numStock.ReadOnly = true;
+                numVolumenAlcohol.Enabled = false;
+                numStock.Enabled = false;
+                btnFoto.Enabled = false;
                 }
 
             // Mapear el combobox
@@ -134,6 +151,8 @@ namespace UI.Desktop {
                     break;
                 //Para Cervezas
                 case 1:
+                    numAnio.Visible = false;
+                    lblAnio.Visible = false;
                     numAniejamiento.Visible = false;
                     lblAniejamiento.Visible = false;
                     break;
@@ -147,7 +166,16 @@ namespace UI.Desktop {
 
         private void btnCancelar_Click(object sender, EventArgs e) {
             this.Dispose();
-            }        
+            }
+
+        private void btnFoto_Click(object sender, EventArgs e) {
+
+            if(fileDialogFoto.ShowDialog() == DialogResult.OK) {
+                pictBoxFoto.Image = new Bitmap(fileDialogFoto.FileName);
+                lblFoto.ForeColor = Color.Green;
+                lblFoto.Text = fileDialogFoto.FileName;
+                }
+            }
         }
     }
         
