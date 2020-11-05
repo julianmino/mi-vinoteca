@@ -5,8 +5,8 @@ using DAL;
 
 namespace UI.Desktop {
     public partial class ABMProductores : ApplicationForm {
-        public productores ProductorActual;
-
+        private productores ProductorActual;
+        private ProductorLogic prodLog = new ProductorLogic();
         public ABMProductores() {
             InitializeComponent();
             }
@@ -16,7 +16,6 @@ namespace UI.Desktop {
 
         public ABMProductores(ModoForm modo, int id_productor) : this() {
             Modo = modo;
-            ProductorLogic prodLog = new ProductorLogic();
             
             ProductorActual = prodLog.GetOne(id_productor);
             this.MapearDeDatos();
@@ -34,7 +33,6 @@ namespace UI.Desktop {
                 }
             }
         public override void MapearADatos() {
-            ProductorLogic prodLog = new ProductorLogic();
 
             if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion) {
                 if (this.Modo == ModoForm.Alta) {
@@ -65,13 +63,31 @@ namespace UI.Desktop {
             }
 
         private void btnAceptar_Click(object sender, EventArgs e) {
-            MapearADatos();
-            this.Dispose();
+            if (Validar())
+            {
+                MapearADatos();
+                this.Dispose();
+            }
+            
             }
 
         private void btnCancelar_Click(object sender, EventArgs e) {
             this.Dispose();
-            }        
+            }
+
+        public override bool Validar()
+        {
+            bool ban = false;
+            msgNombre.Visible = !String.IsNullOrEmpty(msgNombre.Text);
+
+            productores prod = prodLog.GetOne(txtNombre.Text);
+            if (prod == null && Modo != ModoForm.Baja)
+            {
+                    ban = true;
+            }
+            ban = (Modo == ModoForm.Baja) ? true : ban;
+            return ban;
         }
     }
+}
         

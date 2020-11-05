@@ -5,7 +5,8 @@ using System.Windows.Forms;
 
 namespace UI.Desktop {
     public partial class ABMClientes : ApplicationForm {
-        public clientes ClienteActual;
+        private clientes ClienteActual;
+        private ClienteLogic cliLog = new ClienteLogic();
         public ABMClientes() {
             InitializeComponent();
             }
@@ -16,7 +17,6 @@ namespace UI.Desktop {
 
         public ABMClientes(ModoForm modo, string usuario) : this(){
             Modo = modo;
-            ClienteLogic cliLog = new ClienteLogic();
             if (usuario != null) {
                 ClienteActual = cliLog.GetOne(usuario);
                 this.MapearDeDatos();
@@ -50,7 +50,6 @@ namespace UI.Desktop {
             }
 
         public override void MapearADatos() {
-            ClienteLogic cliLog = new ClienteLogic();
 
             if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion) {
                 int? descuento;
@@ -94,20 +93,56 @@ namespace UI.Desktop {
             msgClave.Visible = !String.IsNullOrEmpty(msgClave.Text);
             msgConfirmarClave.Visible = !String.IsNullOrEmpty(msgConfirmarClave.Text);
 
-            if (!msgNombre.Visible) {
-                if (!msgApellido.Visible) {
-                    if (!msgUsuario.Visible) {
-                        if (!msgEmail.Visible) {
-                            if (!msgClave.Visible) {
-                                if (!msgConfirmarClave.Visible) {
-                                    ban = true;
+            if (!msgNombre.Visible)
+            {
+                if (!msgApellido.Visible)
+                {
+                    if (!msgUsuario.Visible)
+                    {
+                        if (!msgEmail.Visible)
+                        {
+                            if (!msgClave.Visible)
+                            {
+                                if (!msgConfirmarClave.Visible)
+                                {
+                                    clientes cli = cliLog.GetOne(txtUsuario.Text);
+                                    if (cli == null)
+                                    {
+                                        clientes[] clientes = cliLog.GetAll().ToArray();
+                                        foreach (clientes c in clientes)
+                                        {
+                                            if (c.email != txtEmail.Text)
+                                            {
+                                                ban = true;
+                                            }
+                                            else
+                                            {
+                                                msgEmail.Text = "El email ingresado ya existe";
+                                                msgEmail.Visible = true;
+                                                ban = false;
+                                                break;
+                                            }
+                                        }
+
                                     }
+                                    else if (this.Modo != ModoForm.Baja)
+                                    {
+                                        msgUsuario.Text = "El nombre de usuario ingresado ya existe";
+                                        msgUsuario.Visible = true;
+                                    }
+                                    else ban = true;
                                 }
                             }
+                        } else
+                        {
+                            msgEmail.Text = "Debe ingresar un email";
                         }
+                    } else
+                    {
+                        msgUsuario.Text = "Debe ingresar un nombre de usuario";
                     }
                 }
-
+            }
             return ban;
             }
 

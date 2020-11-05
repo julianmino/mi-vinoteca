@@ -379,7 +379,7 @@
             this.msgUsuario.Margin = new System.Windows.Forms.Padding(10, 0, 40, 0);
             this.msgUsuario.Name = "msgUsuario";
             this.msgUsuario.Size = new System.Drawing.Size(842, 13);
-            this.msgUsuario.TabIndex = 0;
+            this.msgUsuario.TabIndex = 1;
             this.msgUsuario.Text = "Debe ingresar un nombre de usuario";
             this.msgUsuario.Visible = false;
             // 
@@ -899,7 +899,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private System.Windows.Forms.Label msgEmail;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
-        private System.Windows.Forms.Label msgUsuario;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
@@ -912,5 +911,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.ComboBox cbEstado;
-        }
+        private System.Windows.Forms.Label msgUsuario;
+    }
 }

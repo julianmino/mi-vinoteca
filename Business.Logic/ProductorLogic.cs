@@ -24,6 +24,12 @@ namespace Business.Logic
             return context.productores.SingleOrDefault(x => x.id_productor == id_productor);
         }
 
+        public productores GetOne(string nombre)
+        {
+
+            return context.productores.SingleOrDefault(x => x.nombre == nombre);
+        }
+
 
         public void Alta(string nombre)
         {
