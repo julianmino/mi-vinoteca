@@ -27,7 +27,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <center>
-                                   <h4>Your Profile</h4>
+                                   <h4>Tu perfil</h4>
                                 </center>
                                     </div>
                                 </div>
