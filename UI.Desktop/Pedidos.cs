@@ -28,7 +28,6 @@ namespace UI.Desktop
         {
             PedidoLogic pedidoLog = new PedidoLogic();
             dgvPedidos.DataSource = pedidoLog.GetAll();
-            
         }
     }
 }
