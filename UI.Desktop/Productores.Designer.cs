@@ -30,11 +30,11 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.dgvProductores = new System.Windows.Forms.DataGridView();
-            this.idproductorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.yaguaronDBDataSet = new UI.Desktop.yaguaronDBDataSet();
             this.productoresTableAdapter = new UI.Desktop.yaguaronDBDataSetTableAdapters.productoresTableAdapter();
+            this.idproductorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductores)).BeginInit();
@@ -123,19 +123,6 @@
             this.dgvProductores.Size = new System.Drawing.Size(294, 149);
             this.dgvProductores.TabIndex = 1;
             // 
-            // idproductorDataGridViewTextBoxColumn
-            // 
-            this.idproductorDataGridViewTextBoxColumn.DataPropertyName = "id_productor";
-            this.idproductorDataGridViewTextBoxColumn.HeaderText = "id_productor";
-            this.idproductorDataGridViewTextBoxColumn.Name = "idproductorDataGridViewTextBoxColumn";
-            this.idproductorDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            // 
             // productoresBindingSource
             // 
             this.productoresBindingSource.DataMember = "productores";
@@ -149,6 +136,19 @@
             // productoresTableAdapter
             // 
             this.productoresTableAdapter.ClearBeforeFill = true;
+            // 
+            // idproductorDataGridViewTextBoxColumn
+            // 
+            this.idproductorDataGridViewTextBoxColumn.DataPropertyName = "id_productor";
+            this.idproductorDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.idproductorDataGridViewTextBoxColumn.Name = "idproductorDataGridViewTextBoxColumn";
+            this.idproductorDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             // 
             // Productores
             // 
