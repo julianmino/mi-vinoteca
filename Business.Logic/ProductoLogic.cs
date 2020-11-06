@@ -17,9 +17,20 @@ namespace Business.Logic {
         public productos GetOne(int id) {
             return context.productos.SingleOrDefault(x => x.id_producto == id);
             }
-        public List<productos> GetProductoPorTipo(int id) {
-            List<productos> lista = context.productos.Where(x => x.id_tipo == id).ToList();
-            return lista;
+        public List<Object> GetProductoPorTipo(int id) {
+
+            var query = from producto in context.productos
+                        where producto.id_tipo == id
+                        select new {
+                            producto.nombre,
+                            productorNombre = producto.productores.nombre,
+                            producto.ml,
+                            producto.vol_alcohol,
+                            producto.precio,
+                            producto.stock,
+                            };
+
+            return query.ToList<Object>();
             }
 
         public void Alta(string nombre, int id_productor, double precio,
