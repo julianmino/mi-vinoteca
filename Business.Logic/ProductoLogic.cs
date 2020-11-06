@@ -22,12 +22,17 @@ namespace Business.Logic {
             var query = from producto in context.productos
                         where producto.id_tipo == id
                         select new {
-                            producto.nombre,
-                            productorNombre = producto.productores.nombre,
+                            ID = producto.id_producto,
+                            Nombre = producto.nombre,
+                            Productor = producto.productores.nombre,
                             producto.ml,
-                            producto.vol_alcohol,
-                            producto.precio,
-                            producto.stock,
+                            Alcohol = producto.vol_alcohol,
+                            Precio = producto.precio,
+                            Stock = producto.stock,
+                            Año = producto.año,
+                            Añejamiento = producto.añejamiento,
+                            IBU = producto.ibu,
+                            Foto = producto.foto,
                             };
 
             return query.ToList<Object>();

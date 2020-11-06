@@ -1,12 +1,12 @@
 ﻿using Business.Logic;
 using System;
+using System.Windows.Forms;
 
 namespace UI.Desktop {
     public partial class Productos : ApplicationForm {
 
         public Productos(TipoForm tipo) {
             InitializeComponent();
-            dgvProductos.AutoGenerateColumns = false;
 
             switch (tipo) {
                 case TipoForm.Vino : Id_tipo = 0; break;
@@ -28,13 +28,12 @@ namespace UI.Desktop {
         public int Id_tipo { get => _id_tipo; set => _id_tipo = value; }
 
         private void Productos_Load(object sender, EventArgs e) {
-            // TODO: This line of code loads data into the 'yaguaronDBDataSet.productos' table. You can move, or remove it, as needed.
-            this.productosTableAdapter.Fill(this.yaguaronDBDataSet.productos);
             Listar();
             }
         public void Listar() {
             ProductoLogic prodLog = new ProductoLogic();
-            dgvProductos.DataSource = prodLog.GetProductoPorTipo(Id_tipo);
+            var listaProd = prodLog.GetProductoPorTipo(Id_tipo);
+            dgvProductos.DataSource = listaProd;
             }
         private int? GetId() {
             try {
