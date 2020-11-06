@@ -32,7 +32,7 @@ namespace Business.Logic {
                             Año = producto.año,
                             Añejamiento = producto.añejamiento,
                             IBU = producto.ibu,
-                            Foto = producto.foto,
+                            //Foto = producto.foto,
                             };
 
             return query.ToList<Object>();

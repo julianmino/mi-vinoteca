@@ -174,6 +174,10 @@ namespace UI.Desktop {
                 txtDescuento.ReadOnly = true;
                 cbEstado.Enabled = false;
                 }
+            if (Modo == ModoForm.Modificacion)
+            {
+                txtUsuario.ReadOnly = true;
+            }
             }
 
         private void ckbPremium_CheckedChanged(object sender, EventArgs e) {

@@ -1,4 +1,5 @@
 ﻿using Business.Logic;
+using DAL;
 using System;
 using System.Windows.Forms;
 
@@ -96,5 +97,9 @@ namespace UI.Desktop {
 
             }
 
+        private void btnPedidos_Click(object sender, EventArgs e)
+        {
+            abrirFormHijo(new Pedidos(), "Pedidos");
         }
+    }
     }
