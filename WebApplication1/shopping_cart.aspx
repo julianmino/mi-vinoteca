@@ -32,8 +32,8 @@
                                         <asp:LinkButton class="btn btn-danger" Text="Eliminar" runat="server" OnClick="OnDelete" />
                                     </ItemTemplate>
                                     <EditItemTemplate>
-                                        <asp:LinkButton class="btn btn-success" Text="Update" runat="server" OnClick="OnUpdate" />
-                                        <asp:LinkButton class="btn btn-danger" Text="Cancel" runat="server" OnClick="OnCancel" />
+                                        <asp:LinkButton class="btn btn-success" Text="Confirmar" runat="server" OnClick="OnUpdate" />
+                                        <asp:LinkButton class="btn btn-danger" Text="Cancelar" runat="server" OnClick="OnCancel" />
                                     </EditItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
