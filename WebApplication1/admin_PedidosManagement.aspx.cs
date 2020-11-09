@@ -115,9 +115,15 @@ namespace WebApplication1
         {
             try
             {
-                clientes cliente = cliLog.GetOne(pedidoActual.usuario);
-                cliente.pedidos.Add(pedidoActual);
-                realizarBaja(Acciones.Finalizar);
+                if (pedidoActual != null) 
+                { 
+                    clientes cliente = cliLog.GetOne(pedidoActual.usuario);
+                    if (cliente != null)
+                    {
+                        cliente.pedidos.Add(pedidoActual);
+                        realizarBaja(Acciones.Finalizar);
+                    }
+                }
             }
             catch (Exception)
             {
