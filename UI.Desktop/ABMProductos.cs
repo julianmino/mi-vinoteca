@@ -9,6 +9,7 @@ using DAL;
 namespace UI.Desktop {
     public partial class ABMProductos : ApplicationForm {
         ProductoLogic prodLog = new ProductoLogic();
+        productos productoActual = new productos();
         public productos ProductoActual;
         public int? id;
         private int _id_tipo;
@@ -81,18 +82,16 @@ namespace UI.Desktop {
         {
             try
             {
-                byte[] foto = File.ReadAllBytes(fileDialogFoto.FileName);
-                ProductoActual.nombre = txtNombre.Text;
-                ProductoActual.ml = Convert.ToDouble(numMl.Value);
-                ProductoActual.vol_alcohol = Convert.ToDouble(numVolumenAlcohol.Value);
-                ProductoActual.ibu = String.IsNullOrEmpty(numIBU.Text) ? 0 : Int32.Parse(numIBU.Text);
-                ProductoActual.año = String.IsNullOrEmpty(numAnio.Text) ? 0 : Int32.Parse(numAnio.Text);
-                ProductoActual.añejamiento = String.IsNullOrEmpty(numAniejamiento.Text) ? 0 : Int32.Parse(numAniejamiento.Text);
-                ProductoActual.precio = Int32.Parse(numPrecio.Text);
-                ProductoActual.stock = Int32.Parse(numStock.Text);
-                ProductoActual.id_tipo = Id_tipo;
-                ProductoActual.id_productor = Convert.ToInt32(cbProductor.SelectedValue);
-                ProductoActual.foto = foto;
+                productoActual.nombre = txtNombre.Text;
+                productoActual.ml = Convert.ToDouble(numMl.Value);
+                productoActual.vol_alcohol = Convert.ToDouble(numVolumenAlcohol.Value);
+                productoActual.ibu = String.IsNullOrEmpty(numIBU.Text) ? 0 : Int32.Parse(numIBU.Text);
+                productoActual.año = String.IsNullOrEmpty(numAnio.Text) ? 0 : Int32.Parse(numAnio.Text);
+                productoActual.añejamiento = String.IsNullOrEmpty(numAniejamiento.Text) ? 0 : Int32.Parse(numAniejamiento.Text);
+                productoActual.precio = Convert.ToDouble(numPrecio.Text);
+                productoActual.stock = Int32.Parse(numStock.Text);
+                productoActual.id_tipo = Id_tipo;
+                productoActual.id_productor = Convert.ToInt32(cbProductor.SelectedValue);
             }
             catch (Exception e)
             {
@@ -108,7 +107,7 @@ namespace UI.Desktop {
                 
                 if (this.Modo == ModoForm.Alta) {
                     mapearDatosProducto();
-                    if (ProductoPuedeRegistrarse(ProductoActual))
+                    if (ProductoPuedeRegistrarse(productoActual))
                     {
                         prodLog.Alta(txtNombre.Text,
                         Convert.ToInt32(cbProductor.SelectedValue),
