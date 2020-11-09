@@ -7,6 +7,7 @@ namespace UI.Desktop {
     public partial class ABMProductores : ApplicationForm {
         private productores ProductorActual;
         private ProductorLogic prodLog = new ProductorLogic();
+        private ProductoLogic productoLog = new ProductoLogic();
         public ABMProductores() {
             InitializeComponent();
             }
@@ -47,6 +48,10 @@ namespace UI.Desktop {
             else if (this.Modo == ModoForm.Baja) {
                 DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar " + txtNombre.Text + " de la base de datos?", "Confirmar Baja", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes) {
+                    foreach (productos p in ProductorActual.productos)
+                    {
+                        productoLog.Baja(p.id_producto);
+                    }
                     prodLog.Baja(int.Parse(txtID.Text));
                     }
                 }
@@ -81,9 +86,9 @@ namespace UI.Desktop {
             msgNombre.Visible = !String.IsNullOrEmpty(msgNombre.Text);
 
             productores prod = prodLog.GetOne(txtNombre.Text);
-            if (prod == null && Modo != ModoForm.Baja)
+            if (prod == null || Modo == ModoForm.Modificacion)
             {
-                    ban = true;
+                ban = true;
             }
             ban = (Modo == ModoForm.Baja) ? true : ban;
             return ban;

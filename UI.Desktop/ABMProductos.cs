@@ -253,5 +253,6 @@ namespace UI.Desktop {
                 }
             }
         }
+    //Falta Validación de producto ya existente, como en ABMClientes
     }
         

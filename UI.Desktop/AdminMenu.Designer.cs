@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminMenu));
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.btnProductores = new System.Windows.Forms.Button();
-            this.btnPedidos = new System.Windows.Forms.Button();
             this.panelClientesSubmenu = new System.Windows.Forms.Panel();
             this.btnTodos = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
@@ -63,7 +62,6 @@
             this.panelSideMenu.AutoScroll = true;
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(19)))), ((int)(((byte)(54)))));
             this.panelSideMenu.Controls.Add(this.btnProductores);
-            this.panelSideMenu.Controls.Add(this.btnPedidos);
             this.panelSideMenu.Controls.Add(this.panelClientesSubmenu);
             this.panelSideMenu.Controls.Add(this.btnClientes);
             this.panelSideMenu.Controls.Add(this.panelProductosSubmenu);
@@ -82,7 +80,7 @@
             this.btnProductores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Crimson;
             this.btnProductores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProductores.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnProductores.Location = new System.Drawing.Point(0, 507);
+            this.btnProductores.Location = new System.Drawing.Point(0, 457);
             this.btnProductores.Name = "btnProductores";
             this.btnProductores.Size = new System.Drawing.Size(250, 50);
             this.btnProductores.TabIndex = 7;
@@ -90,22 +88,6 @@
             this.btnProductores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProductores.UseVisualStyleBackColor = true;
             this.btnProductores.Click += new System.EventHandler(this.btnProductores_Click);
-            // 
-            // btnPedidos
-            // 
-            this.btnPedidos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPedidos.FlatAppearance.BorderSize = 0;
-            this.btnPedidos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Crimson;
-            this.btnPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPedidos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnPedidos.Location = new System.Drawing.Point(0, 457);
-            this.btnPedidos.Name = "btnPedidos";
-            this.btnPedidos.Size = new System.Drawing.Size(250, 50);
-            this.btnPedidos.TabIndex = 6;
-            this.btnPedidos.Text = "Pedidos";
-            this.btnPedidos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPedidos.UseVisualStyleBackColor = true;
-            this.btnPedidos.Click += new System.EventHandler(this.btnPedidos_Click);
             // 
             // panelClientesSubmenu
             // 
@@ -385,7 +367,6 @@
         private System.Windows.Forms.Button btnVinos;
         private System.Windows.Forms.Button btnProductos;
         private System.Windows.Forms.Panel panelLogo;
-        private System.Windows.Forms.Button btnPedidos;
         private System.Windows.Forms.Panel panelClientesSubmenu;
         private System.Windows.Forms.Button btnTodos;
         private System.Windows.Forms.Button btnClientes;
