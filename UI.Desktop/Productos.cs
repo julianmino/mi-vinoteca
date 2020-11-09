@@ -1,9 +1,13 @@
 ﻿using Business.Logic;
+using DAL;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace UI.Desktop {
     public partial class Productos : ApplicationForm {
+        ProductoLogic prodLog = new ProductoLogic();
+
 
         public Productos(TipoForm tipo) {
             InitializeComponent();
@@ -31,7 +35,6 @@ namespace UI.Desktop {
             Listar();
             }
         public void Listar() {
-            ProductoLogic prodLog = new ProductoLogic();
             var listaProd = prodLog.GetProductoPorTipo(Id_tipo);
             dgvProductos.DataSource = listaProd;
             }
@@ -44,6 +47,7 @@ namespace UI.Desktop {
                 }
             }
         private void btnAgregar_Click(object sender, EventArgs e) {
+
             ABMProductos producto = new ABMProductos(ApplicationForm.ModoForm.Alta, this.Id_tipo);
             producto.ShowDialog();
             this.Listar();

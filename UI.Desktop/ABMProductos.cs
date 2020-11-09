@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -7,6 +8,7 @@ using DAL;
 
 namespace UI.Desktop {
     public partial class ABMProductos : ApplicationForm {
+        ProductoLogic prodLog = new ProductoLogic();
         public productos ProductoActual;
         public int? id;
         private int _id_tipo;
@@ -75,26 +77,52 @@ namespace UI.Desktop {
                 case ModoForm.Consulta: this.btnAceptar.Text = "Aceptar"; break;
                 }
             }
+        private void mapearDatosProducto()
+        {
+            try
+            {
+                byte[] foto = File.ReadAllBytes(fileDialogFoto.FileName);
+                ProductoActual.nombre = txtNombre.Text;
+                ProductoActual.ml = Convert.ToDouble(numMl.Value);
+                ProductoActual.vol_alcohol = Convert.ToDouble(numVolumenAlcohol.Value);
+                ProductoActual.ibu = String.IsNullOrEmpty(numIBU.Text) ? 0 : Int32.Parse(numIBU.Text);
+                ProductoActual.año = String.IsNullOrEmpty(numAnio.Text) ? 0 : Int32.Parse(numAnio.Text);
+                ProductoActual.añejamiento = String.IsNullOrEmpty(numAniejamiento.Text) ? 0 : Int32.Parse(numAniejamiento.Text);
+                ProductoActual.precio = Int32.Parse(numPrecio.Text);
+                ProductoActual.stock = Int32.Parse(numStock.Text);
+                ProductoActual.id_tipo = Id_tipo;
+                ProductoActual.id_productor = Convert.ToInt32(cbProductor.SelectedValue);
+                ProductoActual.foto = foto;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
         public override void MapearADatos() {
-            ProductoLogic prodLog = new ProductoLogic();
+            
 
             if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion) {
                 // Guarda la foto
                 byte[] foto = File.ReadAllBytes(fileDialogFoto.FileName);
                 
                 if (this.Modo == ModoForm.Alta) {
-
-                    prodLog.Alta(txtNombre.Text,
+                    mapearDatosProducto();
+                    if (ProductoPuedeRegistrarse(ProductoActual))
+                    {
+                        prodLog.Alta(txtNombre.Text,
                         Convert.ToInt32(cbProductor.SelectedValue),
                         Convert.ToDouble(numPrecio.Value),
                         Convert.ToInt32(numStock.Value),
                         Convert.ToDouble(numVolumenAlcohol.Value),
-                        Convert.ToDouble(numMl.Value), Convert.ToDouble(numIBU.Value),
+                        Convert.ToDouble(numMl.Value),
+                        Convert.ToDouble(numIBU.Value),
                         Convert.ToInt32(numAnio.Value),
                         Convert.ToInt32(numAniejamiento.Value),
                         Id_tipo,
                         foto);
                     }
+                }
                 else {
                     prodLog.Modificacion(int.Parse(txtID.Text),
                         txtNombre.Text,
@@ -158,6 +186,54 @@ namespace UI.Desktop {
                     break;
                 }
             }
+        private bool ProductoPuedeRegistrarse(productos producto)
+        {
+            bool ban = false;
+            List<productos> productosExistentes = new List<productos>();
+            productosExistentes = prodLog.GetProductosDeProductor(producto.id_productor);
+            if (productosExistentes.Count == 0)
+            {
+                ban = true;
+            }
+            else
+            {
+                foreach (productos p in productosExistentes)
+                {
+                    if (producto.nombre == p.nombre)
+                    {
+                        if (producto.ml == p.ml)
+                        {
+                            if (producto.vol_alcohol == p.vol_alcohol)
+                            {
+                                switch (producto.id_tipo)
+                                {
+                                    case 0:
+                                        ban = !(producto.año == p.año);
+                                        break;
+                                    case 1:
+                                        ban = !(producto.ibu == p.ibu);
+                                        break;
+                                    case 2:
+                                        ban = false;
+                                        break;
+                                    case 3:
+                                        if (producto.año == p.año)
+                                        {
+                                            ban = !(producto.añejamiento == p.añejamiento);
+                                        }
+                                        else ban = true;
+                                        break;
+                                }
+                            }
+                            else ban = true;
+                        }
+                        else ban = true;
+                    }
+                    else ban = true;
+                }
+            }
+            return ban;
+        }
 
         private void btnAceptar_Click(object sender, EventArgs e) {
             MapearADatos();
