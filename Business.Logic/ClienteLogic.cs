@@ -77,12 +77,18 @@ namespace Business.Logic
         public void Baja(string usuario) {
 
             clientes clienteAEliminar = this.GetOne(usuario);
-            if (clienteAEliminar != null) {
-                context.clientes.Remove(clienteAEliminar);
-                context.Entry(clienteAEliminar).State = System.Data.Entity.EntityState.Deleted;
-                context.SaveChanges();
+            try
+            {
+                if (clienteAEliminar != null)
+                {
+                    context.clientes.Remove(clienteAEliminar);
+                    context.Entry(clienteAEliminar).State = System.Data.Entity.EntityState.Deleted;
+                    context.SaveChanges();
                 }
-
+            } catch (Exception e)
+            {
+                throw e;
+            }
             }
 
         public List<clientes> ConsultaEnTabla(string filtro) 

@@ -97,9 +97,5 @@ namespace UI.Desktop {
 
             }
 
-        private void btnPedidos_Click(object sender, EventArgs e)
-        {
-            abrirFormHijo(new Pedidos(), "Pedidos");
-        }
     }
     }
